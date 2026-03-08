@@ -1,0 +1,87 @@
+/* Astro Tech Store - Orders palette
+   #0B0B0B dark
+   #FF1A1A red (primary)
+   #BFBFBF light grey
+   #8B0000 dark red
+   #FFFFFF white
+*/
+
+.orders-section .card {
+  border-color: #BFBFBF;
+  box-shadow: 0 1px 3px rgba(11, 11, 11, 0.08);
+}
+
+.orders-section .card-header {
+  background-color: #0B0B0B;
+  color: #FFFFFF;
+  font-weight: 600;
+  border-bottom: 2px solid #BFBFBF;
+  padding: 0.75rem 1rem;
+}
+
+.orders-section .btn-primary {
+  background-color: #FF1A1A;
+  border-color: #8B0000;
+  color: #FFFFFF;
+}
+
+.orders-section .btn-primary:hover {
+  background-color: #8B0000;
+  border-color: #0B0B0B;
+  color: #FFFFFF;
+}
+
+.orders-section .btn-outline-secondary {
+  border-color: #BFBFBF;
+  color: #0B0B0B;
+}
+
+.orders-section .btn-outline-secondary:hover {
+  background-color: #BFBFBF;
+  border-color: #0B0B0B;
+  color: #0B0B0B;
+}
+
+.orders-section .form-label {
+  color: #0B0B0B;
+  font-weight: 500;
+}
+
+.orders-section .form-control:focus,
+.orders-section .form-select:focus {
+  border-color: #FF1A1A;
+  box-shadow: 0 0 0 0.2rem rgba(255, 26, 26, 0.25);
+}
+
+.orders-section .alert-success {
+  background-color: rgba(139, 0, 0, 0.12);
+  border-color: #8B0000;
+  color: #0B0B0B;
+}
+
+.orders-section .alert-danger {
+  border-color: #FF1A1A;
+  color: #8B0000;
+}
+
+.orders-section .text-muted {
+  color: #BFBFBF !important;
+}
+
+/* Success page */
+.orders-section .alert.alert-success.text-center {
+  background-color: #FFFFFF;
+  border: 2px solid #8B0000;
+  color: #0B0B0B;
+}
+
+.orders-section .alert.alert-success .alert-heading {
+  color: #8B0000;
+}
+
+/* Header en páginas de Orders */
+body.orders-page .orders-header {
+  background-color: #0B0B0B !important;
+  color: #FFFFFF;
+  border-bottom: 3px solid #FF1A1A;
+}
