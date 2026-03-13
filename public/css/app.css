@@ -1,0 +1,137 @@
+:root {
+    --color-black: #0b0b0b;
+    --color-red: #ff1a1a;
+    --color-gray: #bfbfbf;
+    --color-dark-red: #8b0000;
+    --color-white: #ffffff;
+    --font-primary: "Berlin Sans FB Demi";
+    --font-secondary: "Helvetica";
+}
+
+body {
+    background-color: #f2f2f2;
+    color: var(--color-black);
+    font-family: var(--font-primary);
+}
+
+.bg-secondary {
+    background-color: var(--color-black) !important;
+}
+
+.copyright {
+    background-color: var(--color-black);
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.bg-primary {
+    background-color: var(--color-dark-red) !important;
+}
+
+.masthead {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+}
+
+nav {
+    font-weight: 700;
+}
+
+.masthead h2,
+.masthead h5 {
+    font-weight: 300;
+}
+
+.img-card {
+    height: 18vw;
+    object-fit: cover;
+}
+
+.btn-primary {
+    background-color: var(--color-red) !important;
+    border-color: var(--color-red) !important;
+    color: var(--color-white) !important;
+}
+
+.btn-secondary {
+    background-color: var(--color-dark-red) !important;
+    border-color: var(--color-dark-red) !important;
+    color: var(--color-white) !important;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    background-color: var(--color-black) !important;
+    border-color: var(--color-black) !important;
+}
+
+.btn-outline-primary {
+    color: var(--color-dark-red) !important;
+    border-color: var(--color-dark-red) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-dark-red) !important;
+    border-color: var(--color-dark-red) !important;
+    color: var(--color-white) !important;
+}
+
+.bg-light {
+    background-color: var(--color-white) !important;
+}
+
+.border,
+.card,
+.rounded-4 {
+    border-color: var(--color-gray) !important;
+}
+
+.text-muted {
+    color: #6f6f6f !important;
+}
+
+.badge-top-1 {
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+.badge-top-2 {
+    background-color: var(--color-dark-red);
+    color: var(--color-white);
+}
+
+.badge-top-3 {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.star-gold {
+    color: gold;
+}
+.star-gray {
+    color: #ccc;
+}
+
+.max-width-900 {
+    max-width: 900px;
+}
+
+.max-width-800 {
+    max-width: 800px;
+}
+
+.icon-lg {
+    font-size: 48px;
+}
+
+.icon-md {
+    font-size: 20px;
+}
+
+.team-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 3px solid #6c757d;
+}
