@@ -157,5 +157,7 @@ return [
         'welcome_title' => 'Welcome to Astro Tech Admin',
         'welcome_description' => 'Use the sidebar to manage products, orders, users, and reviews.',
         'footer_prefix' => 'Astro Tech Store - Admin Panel | Developed by',
+        'success_product_created' => 'Product created successfully',
+        'success_product_deleted' => 'Product deleted successfully',
     ],
 ];
