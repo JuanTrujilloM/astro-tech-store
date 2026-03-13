@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Andres Perez Quinchia
+ * Description: Controller responsible for managing products
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -21,7 +26,14 @@ class AdminProductController extends Controller
 
     public function store(StoreProductRequest $request): RedirectResponse
     {
-        Product::create($request->only(['name', 'description', 'price', 'stock', 'image']));
+        $newProduct = Product::create($request->only(['name', 'description', 'price', 'stock']));
+
+        if ($request->hasFile('image')) {
+            $imageName = $newProduct->getId() . '.' . $request->file('image')->extension();
+            Storage::disk('public')->put($imageName, file_get_contents($request->file('image')->getRealPath()));
+            $newProduct->setImage($imageName);
+            $newProduct->save();
+        }
 
         return redirect()->route('admin.product.index')->with('success', __('messages.admin.success_product_created'));
     }
@@ -31,7 +43,7 @@ class AdminProductController extends Controller
         $viewData = [];
         $viewData['product'] = Product::findOrFail($id);
 
-        return view('admin.products.edit')->with('viewData', $viewData);
+        return view('admin.product.edit')->with('viewData', $viewData);
     }
 
     public function update(StoreProductRequest $request, int $id): RedirectResponse
@@ -41,7 +53,12 @@ class AdminProductController extends Controller
         $product->setDescription($request->input('description'));
         $product->setPrice($request->input('price'));
         $product->setStock($request->input('stock'));
-        $product->setImage($request->input('image'));
+
+        if ($request->hasFile('image')) {
+            $imageName = $product->getId() . '.' . $request->file('image')->extension();
+            Storage::disk('public')->put($imageName, file_get_contents($request->file('image')->getRealPath()));
+            $product->setImage($imageName);
+        }
 
         $product->save();
 
