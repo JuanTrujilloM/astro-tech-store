@@ -1,0 +1,160 @@
+<?php
+
+return [
+    'layout' => [
+        'title_default' => 'Astro Tech',
+        'brand' => 'Astro Tech',
+        'subtitle_default' => 'Tecnologia que impulsa tu mundo digital, diseñada para mejorar tu experiencia diaria',
+        'footer_rights' => '© 2026 Astro Tech. Todos los derechos reservados.',
+        'nav' => [
+            'home' => 'Inicio',
+            'about' => 'Nosotros',
+            'contact' => 'Contacto',
+            'products' => 'Productos',
+            'cart' => 'Carrito',
+            'orders' => 'Pedidos',
+            'language' => 'Idioma',
+            'english' => 'Ingles',
+            'spanish' => 'Espanol',
+            'account' => 'Cuenta',
+            'login' => 'Iniciar sesion',
+            'register' => 'Registrarse',
+        ],
+    ],
+
+    'home' => [
+        'title' => 'Astro Tech - Inicio',
+        'welcome_title' => 'Bienvenido a Astro Tech Store - nos alegra tenerte aqui',
+        'welcome_description' => 'En Astro Tech Store nos apasiona acercar la tecnologia moderna a todas las personas. Nuestra plataforma te permite explorar una variedad de productos innovadores, conocer sus caracteristicas y encontrar la tecnologia que mejor se adapta a tus necesidades. Ya sea que estes mejorando tu setup o descubriendo algo nuevo, estamos aqui para que tu experiencia sea simple, agradable e inspiradora.',
+
+        'carousel' => [
+            'title' => 'Carrusel de Productos',
+            'empty_title' => 'Aun no hay productos disponibles',
+            'empty_description' => 'Cuando se agreguen productos a la tienda, apareceran aqui en el carrusel principal.',
+        ],
+
+        'featured' => [
+            'title' => 'Productos Destacados',
+            'caption' => 'Aun no hay productos destacados',
+            'empty_title' => 'La seccion de destacados esta vacia',
+            'empty_description' => 'Aqui se mostraran hasta 8 productos destacados cuando se agreguen al catalogo.',
+        ],
+
+        'top_sellers' => [
+            'title' => 'Top 3 Productos Mas Vendidos',
+            'caption' => 'Ranking actualizado periodicamente',
+            'top_1' => 'Top 1',
+            'top_2' => 'Top 2',
+            'top_3' => 'Top 3',
+            'placeholder_title' => 'Espacio Reservado',
+            'first_description' => 'Aqui aparecera tu producto mas vendido.',
+            'second_description' => 'Aqui aparecera tu segundo producto mas popular.',
+            'third_description' => 'Aqui aparecera tu tercer producto mas vendido.',
+        ],
+
+        'reviews' => [
+            'title' => 'Resenas de Productos',
+            'caption' => 'Aun no hay resenas',
+            'placeholder_title' => 'Espacio de Resena',
+            'placeholder_description' => 'Las opiniones de clientes apareceran aqui cuando comiencen a compartir sus experiencias.',
+        ],
+
+        'about' => [
+            'title' => 'Nosotros',
+            'description' => 'Conoce mas sobre nuestra mision, nuestra plataforma y nuestro compromiso con acercar la tecnologia innovadora a todas las personas.',
+            'button' => 'Ir a Nosotros',
+        ],
+
+        'contact' => [
+            'title' => 'Contacto',
+            'description' => 'Necesitas ayuda o tienes dudas? Nuestro equipo esta aqui para ayudarte con tu experiencia de compra y tus consultas de productos.',
+            'button' => 'Ir a Contacto',
+        ],
+    ],
+
+    'about' => [
+        'title' => 'Nosotros - Astro Tech',
+
+        'hero_title' => 'Acerca de Astro Tech Store',
+
+        'hero_description' => 'Astro Tech Store es una plataforma de comercio electrónico enfocada en productos tecnológicos, desarrollada para ofrecer una experiencia moderna, intuitiva y accesible donde los usuarios pueden explorar, buscar y adquirir diferentes productos a través de una tienda virtual.',
+
+        'mission_title' => 'Nuestra Misión',
+
+        'mission_description' => 'Nuestra misión es crear una plataforma que facilite descubrir y comprar productos tecnológicos en línea. Buscamos ofrecer una experiencia de compra clara, organizada y fácil de usar donde los clientes puedan explorar el catálogo, consultar información detallada de los productos y tomar decisiones informadas.',
+
+        'values_title' => 'Nuestros Valores',
+
+        'innovation' => [
+            'title' => 'Innovación',
+            'description' => 'Buscamos integrar herramientas y funcionalidades modernas que mejoren la experiencia de compra en línea, permitiendo a los usuarios navegar, buscar y explorar productos de forma sencilla.',
+        ],
+
+        'quality' => [
+            'title' => 'Calidad',
+            'description' => 'Nos enfocamos en ofrecer una plataforma organizada y confiable donde la información de los productos sea clara, permitiendo a los usuarios encontrar fácilmente opciones que se adapten a sus necesidades.',
+        ],
+
+        'customer_focus' => [
+            'title' => 'Enfoque en el Usuario',
+            'description' => 'Diseñamos la plataforma pensando en la experiencia del usuario, incorporando funcionalidades como reseñas de productos, favoritos y un sistema de navegación intuitivo que mejora la interacción con la tienda.',
+        ],
+
+        'team_title' => 'Nuestro Equipo',
+
+        'team_description' => 'Astro Tech Store fue desarrollado como un proyecto académico por un equipo apasionado por la tecnología y el desarrollo de software: Juan Esteban Trujillo Montes, Andrés Pérez Quinchía y Juan Sebastián Lizcano. El objetivo del proyecto es construir una tienda virtual funcional que permita gestionar productos, usuarios, pedidos y reseñas dentro de una aplicación web estructurada.',
+
+        'team_members' => [
+            [
+                'name' => 'Juan Esteban Trujillo Montes',
+                'image' => 'juan-esteban.jpg.jpeg',
+            ],
+            [
+                'name' => 'Andrés Pérez Quinchía',
+                'image' => 'andres.jpg',
+            ],
+            [
+                'name' => 'Juan Sebastián Lizcano',
+                'image' => 'juan-sebastian.jpg',
+            ],
+        ],
+
+        'contact_cta' => 'Si deseas conocer más sobre la plataforma o tienes alguna pregunta, puedes visitar nuestra página de contacto.',
+    ],
+
+    'contact' => [
+        'title' => 'Contacto - Astro Tech',
+        'hero_title' => 'Ponte en Contacto',
+        'hero_description' => 'Tienes preguntas o necesitas ayuda? Estamos aqui para asistirte',
+        'info_title' => 'Informacion de Contacto',
+        'email_info' => 'Correo',
+        'phone_info' => 'Telefono',
+        'location_info' => 'Ubicacion',
+        'email_value' => 'contactAstroTech@gmail.com',
+        'phone_value' => '+57 (555) 131-4989',
+        'location_value' => 'Medellín, Colombia',
+        'hours_title' => 'Horario de Atención',
+        'hours_weekdays' => 'Lunes - Viernes',
+        'hours_weekdays_time' => '8:00 AM - 5:00 PM',
+        'hours_saturday' => 'Sabado',
+        'hours_saturday_time' => '9:00 AM - 1:00 PM',
+        'hours_sunday' => 'Domingo',
+        'hours_sunday_time' => 'Cerrado',
+    ],
+
+    'admin' => [
+        'title' => 'Panel de Administracion - Astro Tech Store',
+        'panel' => 'Panel de Administracion',
+        'dashboard' => 'Panel Principal',
+        'products' => 'Productos',
+        'orders' => 'Pedidos',
+        'users' => 'Usuarios',
+        'reviews' => 'Resenas',
+        'go_to_store' => 'Ir a la Tienda',
+        'administrator' => 'Administrador',
+        'language' => 'Idioma',
+        'welcome_title' => 'Bienvenido al Admin de Astro Tech',
+        'welcome_description' => 'Usa la barra lateral para gestionar productos, pedidos, usuarios y resenas.',
+        'footer_prefix' => 'Astro Tech Store - Panel de Administracion | Desarrollado por',
+    ],
+];
