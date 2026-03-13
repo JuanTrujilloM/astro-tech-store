@@ -7,6 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="icon" type="image/jpeg" href="{{ asset('images/app/logapp.jpg') }}">
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
   <title>@yield('title', __('messages.layout.title_default'))</title>
 </head>
@@ -14,7 +15,10 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
     <div class="container">
-      <a class="navbar-brand" href="#">{{ __('messages.layout.brand') }}</a>
+      <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('home.index')}}">
+        <img src="{{ asset('images/app/logapp.jpg') }}" alt="logo" height="58">
+        {{ __('messages.layout.brand') }}
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -92,4 +96,5 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
 </body>
+
 </html>
