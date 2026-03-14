@@ -8,11 +8,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
-use Illuminate\View\View;
+use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class AdminProductController extends Controller
 {
@@ -29,7 +29,7 @@ class AdminProductController extends Controller
         $newProduct = Product::create($request->only(['name', 'description', 'price', 'stock']));
 
         if ($request->hasFile('image')) {
-            $imageName = $newProduct->getId() . '.' . $request->file('image')->extension();
+            $imageName = $newProduct->getId().'.'.$request->file('image')->extension();
             Storage::disk('public')->put($imageName, file_get_contents($request->file('image')->getRealPath()));
             $newProduct->setImage($imageName);
             $newProduct->save();
@@ -55,7 +55,7 @@ class AdminProductController extends Controller
         $product->setStock($request->input('stock'));
 
         if ($request->hasFile('image')) {
-            $imageName = $product->getId() . '.' . $request->file('image')->extension();
+            $imageName = $product->getId().'.'.$request->file('image')->extension();
             Storage::disk('public')->put($imageName, file_get_contents($request->file('image')->getRealPath()));
             $product->setImage($imageName);
         }
