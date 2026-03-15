@@ -1,87 +1,216 @@
-/* Astro Tech Store - Orders palette
-   #0B0B0B dark
-   #FF1A1A red (primary)
-   #BFBFBF light grey
-   #8B0000 dark red
-   #FFFFFF white
-*/
+:root {
+    --color-black: #0b0b0b;
+    --color-red: #ff1a1a;
+    --color-gray: #bfbfbf;
+    --color-dark-red: #8b0000;
+    --color-white: #ffffff;
+    --font-primary: "Berlin Sans FB Demi";
+    --font-secondary: "Helvetica";
+}
 
+body {
+    background-color: #f2f2f2;
+    color: var(--color-black);
+    font-family: var(--font-primary);
+}
+
+.bg-secondary {
+    background-color: var(--color-black) !important;
+}
+
+.copyright {
+    background-color: var(--color-black);
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.bg-primary {
+    background-color: var(--color-dark-red) !important;
+}
+
+.masthead {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+}
+
+nav {
+    font-weight: 700;
+}
+
+.masthead h2,
+.masthead h5 {
+    font-weight: 300;
+}
+
+.img-card {
+    height: 18vw;
+    object-fit: cover;
+}
+
+.btn-primary {
+    background-color: var(--color-red) !important;
+    border-color: var(--color-red) !important;
+    color: var(--color-white) !important;
+}
+
+.btn-secondary {
+    background-color: var(--color-dark-red) !important;
+    border-color: var(--color-dark-red) !important;
+    color: var(--color-white) !important;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    background-color: var(--color-black) !important;
+    border-color: var(--color-black) !important;
+}
+
+.btn-outline-primary {
+    color: var(--color-dark-red) !important;
+    border-color: var(--color-dark-red) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-dark-red) !important;
+    border-color: var(--color-dark-red) !important;
+    color: var(--color-white) !important;
+}
+
+.bg-light {
+    background-color: var(--color-white) !important;
+}
+
+.border,
+.card,
+.rounded-4 {
+    border-color: var(--color-gray) !important;
+}
+
+.text-muted {
+    color: #6f6f6f !important;
+}
+
+.badge-top-1 {
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+.badge-top-2 {
+    background-color: var(--color-dark-red);
+    color: var(--color-white);
+}
+
+.badge-top-3 {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.star-gold {
+    color: gold;
+}
+.star-gray {
+    color: #ccc;
+}
+
+.max-width-900 {
+    max-width: 900px;
+}
+
+.max-width-800 {
+    max-width: 800px;
+}
+
+.icon-lg {
+    font-size: 48px;
+}
+
+.icon-md {
+    font-size: 20px;
+}
+
+.team-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 3px solid #6c757d;
+}
+
+/* Orders section (from Orders_implementation) */
 .orders-section .card {
-  border-color: #BFBFBF;
+  border-color: var(--color-gray);
   box-shadow: 0 1px 3px rgba(11, 11, 11, 0.08);
 }
 
 .orders-section .card-header {
-  background-color: #0B0B0B;
-  color: #FFFFFF;
+  background-color: var(--color-black);
+  color: var(--color-white);
   font-weight: 600;
-  border-bottom: 2px solid #BFBFBF;
+  border-bottom: 2px solid var(--color-gray);
   padding: 0.75rem 1rem;
 }
 
 .orders-section .btn-primary {
-  background-color: #FF1A1A;
-  border-color: #8B0000;
-  color: #FFFFFF;
+  background-color: var(--color-red);
+  border-color: var(--color-dark-red);
+  color: var(--color-white);
 }
 
 .orders-section .btn-primary:hover {
-  background-color: #8B0000;
-  border-color: #0B0B0B;
-  color: #FFFFFF;
+  background-color: var(--color-dark-red);
+  border-color: var(--color-black);
+  color: var(--color-white);
 }
 
 .orders-section .btn-outline-secondary {
-  border-color: #BFBFBF;
-  color: #0B0B0B;
+  border-color: var(--color-gray);
+  color: var(--color-black);
 }
 
 .orders-section .btn-outline-secondary:hover {
-  background-color: #BFBFBF;
-  border-color: #0B0B0B;
-  color: #0B0B0B;
+  background-color: var(--color-gray);
+  border-color: var(--color-black);
+  color: var(--color-black);
 }
 
 .orders-section .form-label {
-  color: #0B0B0B;
+  color: var(--color-black);
   font-weight: 500;
 }
 
 .orders-section .form-control:focus,
 .orders-section .form-select:focus {
-  border-color: #FF1A1A;
+  border-color: var(--color-red);
   box-shadow: 0 0 0 0.2rem rgba(255, 26, 26, 0.25);
 }
 
 .orders-section .alert-success {
   background-color: rgba(139, 0, 0, 0.12);
-  border-color: #8B0000;
-  color: #0B0B0B;
+  border-color: var(--color-dark-red);
+  color: var(--color-black);
 }
 
 .orders-section .alert-danger {
-  border-color: #FF1A1A;
-  color: #8B0000;
+  border-color: var(--color-red);
+  color: var(--color-dark-red);
 }
 
 .orders-section .text-muted {
-  color: #BFBFBF !important;
+  color: var(--color-gray) !important;
 }
 
-/* Success page */
 .orders-section .alert.alert-success.text-center {
-  background-color: #FFFFFF;
-  border: 2px solid #8B0000;
-  color: #0B0B0B;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-dark-red);
+  color: var(--color-black);
 }
 
 .orders-section .alert.alert-success .alert-heading {
-  color: #8B0000;
+  color: var(--color-dark-red);
 }
 
-/* Header en páginas de Orders */
 body.orders-page .orders-header {
-  background-color: #0B0B0B !important;
-  color: #FFFFFF;
-  border-bottom: 3px solid #FF1A1A;
+  background-color: var(--color-black) !important;
+  color: var(--color-white);
+  border-bottom: 3px solid var(--color-red);
 }
