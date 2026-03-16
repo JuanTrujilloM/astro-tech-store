@@ -115,4 +115,19 @@ class Product extends Model
 
         return $total;
     }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function setItems(Collection $items): void
+    {
+        $this->items = $items;
+    }
 }
