@@ -166,6 +166,7 @@ return [
 
     'cart' => [
         'title' => 'Carrito de compras',
+        'subtitle' => 'Revisa tus productos y continúa al pago',
         'empty' => 'Tu carrito está vacío.',
         'total' => 'Total',
         'remove_all' => 'Vaciar carrito',

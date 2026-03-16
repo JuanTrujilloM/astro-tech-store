@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', __('messages.cart.title') . ' - ' . __('messages.layout.title_default'))
-
+@section('subtitle', __('messages.cart.subtitle'))
 @section('content')
   <div class="row mb-3">
     <div class="col-12 d-flex justify-content-between align-items-center flex-wrap gap-2">
