@@ -14,9 +14,9 @@ Route::get('/products', 'App\Http\Controllers\ProductController@index')->name('p
 Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->name('product.show');
 
 // Cart routes related to user interactions
-Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
-Route::post('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("cart.delete");
-Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
+Route::post('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('cart.delete');
+Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
 
 // Review routes related to user interactions
 Route::post('/reviews', 'App\Http\Controllers\ReviewController@store')->name('review.store');
