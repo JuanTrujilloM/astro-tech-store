@@ -117,13 +117,13 @@
                       @endif
                     </td>
                     <td class="text-center">
-                      <a href="{{ route('admin.product.edit', $product->getId()) }}"
+                      <a href="{{ route('admin.product.edit', ['id' => $product->getId()]) }}"
                         class="btn btn-sm admin-product-btn-outline" title="{{ __('messages.admin.edit_action') }}"
                         aria-label="{{ __('messages.admin.edit_action') }}">
                         <i class="bi bi-pencil-square"></i>
                       </a>
 
-                      <form action="{{ route('admin.product.destroy', $product->getId()) }}" method="POST"
+                      <form action="{{ route('admin.product.destroy', ['id' => $product->getId()]) }}" method="POST"
                         class="d-inline">
                         @csrf
                         @method('DELETE')
