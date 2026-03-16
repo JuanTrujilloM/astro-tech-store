@@ -167,6 +167,7 @@ return [
 
     'cart' => [
         'title' => 'Shopping Cart',
+        'subtitle' => 'Review your items and proceed to checkout',
         'empty' => 'Your cart is empty.',
         'total' => 'Total',
         'remove_all' => 'Remove all',
