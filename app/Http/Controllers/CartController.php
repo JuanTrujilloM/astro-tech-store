@@ -21,6 +21,7 @@ class CartController extends Controller
         $viewData['subtitle'] = 'Shopping Cart';
         $viewData['total'] = $total;
         $viewData['products'] = $productsInCart;
+        $viewData['productsInSession'] = $productsInSession ?? [];
 
         return view('cart.index')->with('viewData', $viewData);
     }

@@ -160,6 +160,16 @@ return [
         'edit_review' => 'Editar reseña',
         'update_review' => 'Actualizar reseña',
         'review_updated' => 'La reseña ha sido actualizada exitosamente.',
+        'add_to_cart' => 'Añadir al carrito',
+        'quantity' => 'Cantidad',
+    ],
+
+    'cart' => [
+        'title' => 'Carrito de compras',
+        'empty' => 'Tu carrito está vacío.',
+        'total' => 'Total',
+        'remove_all' => 'Vaciar carrito',
+        'subtotal' => 'Subtotal',
     ],
 
     'admin' => [

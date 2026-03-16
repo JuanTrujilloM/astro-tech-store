@@ -74,6 +74,29 @@
                 @endif
               </div>
             </div>
+
+            @if ($viewData['product']->getStock() > 0)
+              <div class="product-detail-add-cart mt-4 pt-3 border-top">
+                <p class="card-text mb-2"><small class="text-muted">{{ __('messages.product.add_to_cart') }}</small></p>
+                <form method="POST" action="{{ route('cart.add', ['id' => $viewData['product']->getId()]) }}">
+                  @csrf
+                  <div class="row g-2 align-items-center flex-wrap">
+                    <div class="col-auto">
+                      <div class="input-group">
+                        <span class="input-group-text">{{ __('messages.product.quantity') }}</span>
+                        <input type="number" min="1" max="10" class="form-control quantity-input"
+                          name="quantity" value="1" aria-label="{{ __('messages.product.quantity') }}">
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <button class="btn btn-primary" type="submit">
+                        <i class="bi bi-cart-plus me-1"></i>{{ __('messages.product.add_to_cart') }}
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            @endif
           </div>
         </div>
       </div>
