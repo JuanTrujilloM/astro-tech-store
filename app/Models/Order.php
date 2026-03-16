@@ -2,85 +2,98 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
-use DateTime;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Order extends Model
 {
-    use HasFactory;
-
-    protected $fillable = ['total', 'status', 'can_be_cancelled', 'created_at', 'updated_at'];
-
-    protected $casts = [
-        'total' => 'decimal:2',
-        'can_be_cancelled' => 'boolean',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
-
-    public function getId(): int
+    /**
+     * ORDER ATTRIBUTES
+     * $this->attributes['id'] - int - contains the order primary key (id)
+     * $this->attributes['total'] - string - contains the order name
+     * $this->attributes['user_id'] - int - contains the referenced user id
+     * $this->attributes['created_at'] - timestamp - contains the order creation date
+     * $this->attributes['updated_at'] - timestamp - contains the order update date
+     * $this->user - User - contains the associated User
+     * $this->items - Item[] - contains the associated items
+     */
+    public static function validate(Request $request): void
     {
-        return $this->attributes['id'];
+        $request->validate([
+            'total' => 'required|numeric',
+            'user_id' => 'required|exists:users,id',
+        ]);
     }
 
-    public function setId(int $id): void
-    {
-        $this->attributes['id'] = $id;
-    }
-
-    public function getTotal(): float
+    public function getTotal(): int
     {
         return $this->attributes['total'];
     }
 
-    public function setTotal(float $total): void
+    public function setTotal(int $total): void
     {
         $this->attributes['total'] = $total;
     }
 
-    public function getStatus(): string
+    public function getUserId(): int
     {
-        return $this->attributes['status'];
+        return $this->attributes['user_id'];
     }
 
-    public function setStatus(string $status): void
+    public function setUserId(int $userId): void
     {
-        $this->attributes['status'] = $status;
+        $this->attributes['user_id'] = $userId;
     }
 
-    public function getCanBeCancelled(): bool
+    public function getCreatedAt(): string
     {
-        return $this->attributes['can_be_cancelled'];
+        return $this->attributes['created_at'];
     }
 
-    public function setCanBeCancelled(bool $canBeCancelled): void
-    {
-        $this->attributes['can_be_cancelled'] = $canBeCancelled;
-    }
-
-    public function getCreatedAt(): DateTime
-    {
-        return $this->created_at instanceof DateTime
-            ? $this->created_at
-            : Carbon::parse($this->attributes['created_at']);
-    }
-
-    public function setCreatedAt($createdAt): void
+    public function setCreatedAt(string $createdAt): void
     {
         $this->attributes['created_at'] = $createdAt;
     }
 
-    public function getUpdatedAt(): DateTime
+    public function getUpdatedAt(): string
     {
-        return $this->updated_at instanceof DateTime
-            ? $this->updated_at
-            : Carbon::parse($this->attributes['updated_at']);
+        return $this->attributes['updated_at'];
     }
 
-    public function setUpdatedAt($updatedAt): void
+    public function setUpdatedAt(string $updatedAt): void
     {
         $this->attributes['updated_at'] = $updatedAt;
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
+    }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function setItems(Collection $items): void
+    {
+        $this->items = $items;
     }
 }
