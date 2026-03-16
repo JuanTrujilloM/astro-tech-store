@@ -1,3 +1,8 @@
+<!--
+  Author: Juan Esteban Trujillo Montes
+  Description: View responsible for showing product details and managing reviews
+-->
+
 @extends('layouts.app')
 
 @section('title', $viewData['product']->getName() . ' - ' . __('messages.layout.title_default'))
