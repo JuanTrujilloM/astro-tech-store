@@ -136,81 +136,74 @@ nav {
     border: 3px solid #6c757d;
 }
 
-/* Orders section (from Orders_implementation) */
-.orders-section .card {
-  border-color: var(--color-gray);
-  box-shadow: 0 1px 3px rgba(11, 11, 11, 0.08);
+.product-detail-meta {
+    border-top: 1px solid #e4e4e4;
 }
 
-.orders-section .card-header {
-  background-color: var(--color-black);
-  color: var(--color-white);
-  font-weight: 600;
-  border-bottom: 2px solid var(--color-gray);
-  padding: 0.75rem 1rem;
+.product-detail-price {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #dc3545;
 }
 
-.orders-section .btn-primary {
-  background-color: var(--color-red);
-  border-color: var(--color-dark-red);
-  color: var(--color-white);
+.product-stock-pill {
+    display: inline-block;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
 }
 
-.orders-section .btn-primary:hover {
-  background-color: var(--color-dark-red);
-  border-color: var(--color-black);
-  color: var(--color-white);
+.product-stock-pill.in-stock {
+    background: #e8f7ef;
+    color: #0f7a45;
+    border: 1px solid #bfe9d2;
 }
 
-.orders-section .btn-outline-secondary {
-  border-color: var(--color-gray);
-  color: var(--color-black);
+.product-stock-pill.out-stock {
+    background: #ffeceb;
+    color: #b42318;
+    border: 1px solid #ffc8c5;
 }
 
-.orders-section .btn-outline-secondary:hover {
-  background-color: var(--color-gray);
-  border-color: var(--color-black);
-  color: var(--color-black);
+.product-review-card {
+    height: 100%;
+    padding: 1.25rem;
+    border: 1px solid #e4e4e4;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+    box-shadow: 0 10px 24px rgba(11, 11, 11, 0.04);
 }
 
-.orders-section .form-label {
-  color: var(--color-black);
-  font-weight: 500;
+.product-review-stars {
+    font-size: 1rem;
+    letter-spacing: 1px;
 }
 
-.orders-section .form-control:focus,
-.orders-section .form-select:focus {
-  border-color: var(--color-red);
-  box-shadow: 0 0 0 0.2rem rgba(255, 26, 26, 0.25);
+.product-review-quote {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f5f5f5;
+    color: var(--color-dark-red);
+    font-size: 1rem;
+    flex-shrink: 0;
 }
 
-.orders-section .alert-success {
-  background-color: rgba(139, 0, 0, 0.12);
-  border-color: var(--color-dark-red);
-  color: var(--color-black);
+.product-review-text {
+    line-height: 1.7;
 }
 
-.orders-section .alert-danger {
-  border-color: var(--color-red);
-  color: var(--color-dark-red);
+.product-detail-img {
+    object-fit: cover;
+    min-height: 280px;
 }
 
-.orders-section .text-muted {
-  color: var(--color-gray) !important;
-}
-
-.orders-section .alert.alert-success.text-center {
-  background-color: var(--color-white);
-  border: 2px solid var(--color-dark-red);
-  color: var(--color-black);
-}
-
-.orders-section .alert.alert-success .alert-heading {
-  color: var(--color-dark-red);
-}
-
-body.orders-page .orders-header {
-  background-color: var(--color-black) !important;
-  color: var(--color-white);
-  border-bottom: 3px solid var(--color-red);
+.product-detail-no-img {
+    min-height: 280px;
 }
