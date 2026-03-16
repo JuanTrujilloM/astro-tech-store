@@ -1,3 +1,8 @@
+<!--
+  Author: Juan Esteban Trujillo Montes
+  Description: View responsible for showing the form to edit a review made by a user on a product
+-->
+
 @extends('layouts.app')
 
 @section('title', __('messages.product.edit_review') . ' - ' . __('messages.layout.title_default'))

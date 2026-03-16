@@ -1,3 +1,8 @@
+<!--
+  Author: Juan Esteban Trujillo Montes
+  Description: View responsible for showing the list of products available in the store
+-->
+
 @extends('layouts.app')
 
 @section('title', __('messages.layout.nav.products') . ' - ' . __('messages.layout.title_default'))
