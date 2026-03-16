@@ -36,9 +36,9 @@
                     <div class="d-flex align-items-center gap-3">
                       @if ($product->getImage())
                         <img src="{{ asset('storage/' . $product->getImage()) }}"
-                          alt="{{ $product->getName() }}" class="rounded" width="56" height="56" style="object-fit: cover;">
+                          alt="{{ $product->getName() }}" class="cart-item-img rounded">
                       @else
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-center text-white" width="56" height="56" style="width: 56px; height: 56px;">
+                        <div class="cart-item-img-placeholder bg-secondary rounded text-white">
                           <i class="bi bi-image"></i>
                         </div>
                       @endif

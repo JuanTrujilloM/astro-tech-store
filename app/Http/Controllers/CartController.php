@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class CartController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request): View
     {
         $total = 0;
         $productsInCart = [];
@@ -24,7 +25,7 @@ class CartController extends Controller
         return view('cart.index')->with('viewData', $viewData);
     }
 
-    public function add(Request $request, $id)
+    public function add(Request $request, int $id)
     {
         $products = $request->session()->get('products');
         if ($products) {
@@ -44,5 +45,4 @@ class CartController extends Controller
 
         return back();
     }
-    
 }
