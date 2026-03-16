@@ -161,6 +161,16 @@ return [
         'edit_review' => 'Edit review',
         'update_review' => 'Update review',
         'review_updated' => 'The review has been updated successfully.',
+        'add_to_cart' => 'Add to cart',
+        'quantity' => 'Quantity',
+    ],
+
+    'cart' => [
+        'title' => 'Shopping Cart',
+        'empty' => 'Your cart is empty.',
+        'total' => 'Total',
+        'remove_all' => 'Remove all',
+        'subtotal' => 'Subtotal',
     ],
 
     'admin' => [

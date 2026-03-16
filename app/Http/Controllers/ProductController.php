@@ -22,12 +22,4 @@ class ProductController extends Controller
 
         return view('product.show')->with('viewData', $viewData);
     }
-    public static function sumPricesByQuantities($products, $productsInSession)
-    {
-        $total = 0;
-        foreach ($products as $product) {
-            $total = $total + ($product->getPrice()*$productsInSession[$product->getId()]);
-        }
-        return $total;
-    }
 }

@@ -105,4 +105,14 @@ class Product extends Model
     {
         $this->reviews = $reviews;
     }
+
+    
+    public static function sumPricesByQuantities(Collection $products, array $productsInSession): int
+    {
+        $total = 0;
+        foreach ($products as $product) {
+            $total += $product->getPrice() * $productsInSession[$product->getId()];
+        }
+        return $total;
+    }
 }
