@@ -142,6 +142,26 @@ return [
         'hours_sunday_time' => 'Cerrado',
     ],
 
+    'product' => [
+        'view_detail' => 'Ver detalle',
+        'details_title' => 'Detalle del producto',
+        'back_to_products' => 'Volver a productos',
+        'reviews_count' => 'reseñas',
+        'no_reviews' => 'Aun sin reseñas',
+        'in_stock' => 'Disponible',
+        'out_of_stock' => 'Agotado',
+        'review_added' => 'Tu reseña ha sido agregada exitosamente.',
+        'add_review' => 'Agregar reseña',
+        'rating' => 'Calificación',
+        'review_description' => 'Descripción',
+        'submit_review' => 'Enviar reseña',
+        'delete_review' => 'Eliminar reseña',
+        'review_deleted' => 'La reseña ha sido eliminada exitosamente.',
+        'edit_review' => 'Editar reseña',
+        'update_review' => 'Actualizar reseña',
+        'review_updated' => 'La reseña ha sido actualizada exitosamente.',
+    ],
+
     'admin' => [
         'title' => 'Panel de Administracion - Astro Tech Store',
         'panel' => 'Panel de Administracion',
