@@ -32,7 +32,7 @@
       </div>
 
       <div class="card-body">
-        <form action="{{ route('admin.product.update', $viewData['product']->getId()) }}" method="POST"
+        <form action="{{ route('admin.product.update', ['id' => $viewData['product']->getId()]) }}" method="POST"
           enctype="multipart/form-data" class="row g-3">
           @csrf
           @method('PUT')
