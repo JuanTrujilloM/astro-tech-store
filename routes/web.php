@@ -17,12 +17,17 @@ Route::post('/products/{product}/reviews', 'App\Http\Controllers\ReviewControlle
 Route::get('/products/{product}/reviews/{review}/edit', 'App\Http\Controllers\ReviewController@edit')->name('review.edit');
 Route::put('/products/{product}/reviews/{review}', 'App\Http\Controllers\ReviewController@update')->name('review.update');
 Route::delete('/products/{product}/reviews/{review}', 'App\Http\Controllers\ReviewController@destroy')->name('review.destroy');
-// Admin routes
-Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name('admin.home.index');
 
-// Admin product management routes
-Route::get('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name('admin.product.index');
-Route::post('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@store')->name('admin.product.store');
-Route::get('/admin/products/{product}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')->name('admin.product.edit');
-Route::put('/admin/products/{product}', 'App\Http\Controllers\Admin\AdminProductController@update')->name('admin.product.update');
-Route::delete('/admin/products/{product}', 'App\Http\Controllers\Admin\AdminProductController@destroy')->name('admin.product.destroy');
+Route::middleware('admin')->group(function () {
+    // Admin routes
+    Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name('admin.home.index');
+
+    // Admin product management routes
+    Route::get('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name('admin.product.index');
+    Route::post('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@store')->name('admin.product.store');
+    Route::get('/admin/products/{product}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')->name('admin.product.edit');
+    Route::put('/admin/products/{product}', 'App\Http\Controllers\Admin\AdminProductController@update')->name('admin.product.update');
+    Route::delete('/admin/products/{product}', 'App\Http\Controllers\Admin\AdminProductController@destroy')->name('admin.product.destroy');
+});
+
+Auth::routes();

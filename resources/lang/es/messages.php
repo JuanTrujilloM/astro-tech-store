@@ -19,6 +19,7 @@ return [
             'account' => 'Cuenta',
             'login' => 'Iniciar sesion',
             'register' => 'Registrarse',
+            'logout' => 'Cerrar sesion',
         ],
     ],
 
