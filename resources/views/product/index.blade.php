@@ -55,7 +55,7 @@
               </div>
               <div class="d-flex justify-content-between align-items-center mt-2">
                 <span class="fw-bold text-danger fs-5">${{ number_format($product->getPrice(), 0, ',', '.') }}</span>
-                <a href="{{ route('product.show', ['id' => $product->getId()]) }}" class="btn btn-primary btn-sm">
+                <a href="{{ route('product.show', ['product' => $product->getId()]) }}" class="btn btn-primary btn-sm">
                   {{ __('messages.product.view_detail') }} <i class="bi bi-arrow-right ms-1"></i>
                 </a>
               </div>

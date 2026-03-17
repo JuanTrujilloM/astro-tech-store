@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Juan Esteban Trujillo Montes
+ * Description: Middleware responsible for setting the locale of the application
+ */
+
 namespace App\Http\Middleware;
 
 use Closure;
