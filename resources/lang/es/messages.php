@@ -161,6 +161,8 @@ return [
         'edit_review' => 'Editar reseña',
         'update_review' => 'Actualizar reseña',
         'review_updated' => 'La reseña ha sido actualizada exitosamente.',
+        'login_to_review' => 'Inicia sesion para escribir una reseña.',
+        'review_by_user' => 'Por :name',
     ],
 
     'admin' => [
