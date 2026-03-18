@@ -19,6 +19,7 @@ return [
             'account' => 'Account',
             'login' => 'Login',
             'register' => 'Register',
+            'logout' => 'Logout',
         ],
     ],
 

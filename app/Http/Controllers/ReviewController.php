@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author:Juan Esteban Trujillo Montes
+ * Description: Controller responsible for managing reviews
+ */
+
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreReviewRequest;
@@ -10,39 +15,40 @@ use Illuminate\View\View;
 
 class ReviewController extends Controller
 {
-    public function store(StoreReviewRequest $request): RedirectResponse
+    public function store(StoreReviewRequest $request, int $product): RedirectResponse
     {
-        $product = Product::findOrFail($request->input('product_id'));
+        $product = Product::findOrFail($product);
 
         Review::create(['description' => $request->input('description'), 'rating' => $request->input('rating'), 'product_id' => $product->getId()]);
 
-        return redirect()->route('product.show', ['id' => $product->getId()])->with('success', __('messages.product.review_added'));
+        return redirect()->route('product.show', ['product' => $product->getId()])->with('success', __('messages.product.review_added'));
     }
 
-    public function edit(int $id): View
+    public function edit(int $product, int $review): View
     {
         $viewData = [];
-        $viewData['review'] = Review::findOrFail($id);
+        $viewData['review'] = Review::findOrFail($review);
 
         return view('review.edit')->with('viewData', $viewData);
     }
 
-    public function update(StoreReviewRequest $request, int $id): RedirectResponse
+    public function update(StoreReviewRequest $request, int $product, int $review): RedirectResponse
     {
-        $review = Review::findOrFail($id);
+        $review = Review::findOrFail($review);
+
         $review->setDescription($request->input('description'));
         $review->setRating($request->input('rating'));
         $review->save();
 
-        return redirect()->route('product.show', ['id' => $review->getProductId()])->with('success', __('messages.product.review_updated'));
+        return redirect()->route('product.show', ['product' => $product])->with('success', __('messages.product.review_updated'));
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function destroy(int $product, int $review): RedirectResponse
     {
-        $review = Review::findOrFail($id);
-        $productId = $review->getProductId();
+        $review = Review::findOrFail($review);
+
         $review->delete();
 
-        return redirect()->route('product.show', ['id' => $productId])->with('success', __('messages.product.review_deleted'));
+        return redirect()->route('product.show', ['product' => $product])->with('success', __('messages.product.review_deleted'));
     }
 }

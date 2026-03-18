@@ -1,3 +1,8 @@
+<!--
+  Author: Juan Esteban Trujillo Montes
+  Description: View responsible for showing the form to edit a review made by a user on a product
+-->
+
 @extends('layouts.app')
 
 @section('title', __('messages.product.edit_review') . ' - ' . __('messages.layout.title_default'))
@@ -6,7 +11,7 @@
   <div class="row mb-3">
     <div class="col-12 d-flex justify-content-between align-items-center flex-wrap gap-2">
       <h4 class="fw-bold mb-0">{{ __('messages.product.edit_review') }}</h4>
-      <a href="{{ route('product.show', ['id' => $viewData['review']->getProductId()]) }}" class="btn btn-secondary btn-sm">
+      <a href="{{ route('product.show', ['product' => $viewData['review']->getProductId()]) }}" class="btn btn-secondary btn-sm">
         <i class="bi bi-arrow-left me-1"></i>{{ __('messages.product.back_to_products') }}
       </a>
     </div>
@@ -16,7 +21,7 @@
     <div class="card-body p-4">
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-          <form action="{{ route('review.update', ['id' => $viewData['review']->getId()]) }}" method="POST">
+          <form action="{{ route('review.update', ['product' => $viewData['review']->getProductId(), 'review' => $viewData['review']->getId()]) }}" method="POST">
             @csrf
             @method('PUT')
 
