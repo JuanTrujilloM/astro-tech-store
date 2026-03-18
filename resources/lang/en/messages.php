@@ -162,6 +162,8 @@ return [
         'edit_review' => 'Edit review',
         'update_review' => 'Update review',
         'review_updated' => 'The review has been updated successfully.',
+        'login_to_review' => 'Log in to write a review.',
+        'review_by_user' => 'By :name',
     ],
 
     'admin' => [
