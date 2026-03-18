@@ -15,7 +15,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('home.index')}}">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('home.index') }}">
         <img src="{{ asset('images/app/logapp.jpg') }}" alt="logo" height="58">
         {{ __('messages.layout.brand') }}
       </a>
@@ -53,23 +53,18 @@
             </ul>
           </li>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-              {{ __('messages.layout.nav.account') }}
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li>
-                <a class="dropdown-item" href="#">
-                  {{ __('messages.layout.nav.login') }}
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  {{ __('messages.layout.nav.register') }}
-                </a>
-              </li>
-            </ul>
-          </li>
+          <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+          @guest
+            <a class="nav-link active" href="{{ route('login') }}">{{ __('messages.layout.nav.login') }}</a>
+            <a class="nav-link active" href="{{ route('register') }}">{{ __('messages.layout.nav.register') }}</a>
+          @else
+            <form id="logout" action="{{ route('logout') }}" method="POST" class="d-inline">
+              @csrf
+              <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">
+                {{ __('messages.layout.nav.logout') }}
+              </a>
+            </form>
+          @endguest
 
         </div>
       </div>

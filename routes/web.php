@@ -11,25 +11,24 @@ Route::get('/lang/{locale}', 'App\Http\Controllers\LanguageController@switch')->
 
 // Product routes related to user interactions
 Route::get('/products', 'App\Http\Controllers\ProductController@index')->name('product.index');
-Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->name('product.show');
+Route::get('/products/{product}', 'App\Http\Controllers\ProductController@show')->name('product.show');
 
-// Cart routes related to user interactions
-Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
-Route::post('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('cart.delete');
-Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
+// Review routes nested under product
+Route::post('/products/{product}/reviews', 'App\Http\Controllers\ReviewController@store')->name('review.store');
+Route::get('/products/{product}/reviews/{review}/edit', 'App\Http\Controllers\ReviewController@edit')->name('review.edit');
+Route::put('/products/{product}/reviews/{review}', 'App\Http\Controllers\ReviewController@update')->name('review.update');
+Route::delete('/products/{product}/reviews/{review}', 'App\Http\Controllers\ReviewController@destroy')->name('review.destroy');
 
-// Review routes related to user interactions
-Route::post('/reviews', 'App\Http\Controllers\ReviewController@store')->name('review.store');
-Route::get('/reviews/{id}/edit', 'App\Http\Controllers\ReviewController@edit')->name('review.edit');
-Route::put('/reviews/{id}', 'App\Http\Controllers\ReviewController@update')->name('review.update');
-Route::delete('/reviews/{id}', 'App\Http\Controllers\ReviewController@destroy')->name('review.destroy');
+Route::middleware('admin')->group(function () {
+    // Admin routes
+    Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name('admin.home.index');
 
-// Admin routes
-Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name('admin.home.index');
+    // Admin product management routes
+    Route::get('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name('admin.product.index');
+    Route::post('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@store')->name('admin.product.store');
+    Route::get('/admin/products/{product}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')->name('admin.product.edit');
+    Route::put('/admin/products/{product}', 'App\Http\Controllers\Admin\AdminProductController@update')->name('admin.product.update');
+    Route::delete('/admin/products/{product}', 'App\Http\Controllers\Admin\AdminProductController@destroy')->name('admin.product.destroy');
+});
 
-// Admin product management routes
-Route::get('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name('admin.product.index');
-Route::post('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@store')->name('admin.product.store');
-Route::get('/admin/products/{id}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')->name('admin.product.edit');
-Route::put('/admin/products/{id}', 'App\Http\Controllers\Admin\AdminProductController@update')->name('admin.product.update');
-Route::delete('/admin/products/{id}', 'App\Http\Controllers\Admin\AdminProductController@destroy')->name('admin.product.destroy');
+Auth::routes();

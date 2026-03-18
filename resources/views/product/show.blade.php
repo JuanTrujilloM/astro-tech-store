@@ -1,3 +1,8 @@
+<!--
+  Author: Juan Esteban Trujillo Montes
+  Description: View responsible for showing product details and managing reviews
+-->
+
 @extends('layouts.app')
 
 @section('title', $viewData['product']->getName() . ' - ' . __('messages.layout.title_default'))
@@ -104,6 +109,12 @@
     </div>
   @endif
 
+  <div class="card border-0 shadow-sm mt-4">
+    <div class="card-body p-4">
+      <h5 class="mb-3 text-center">{{ __('messages.product.add_review') }}</h5>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          <form action="{{ route('review.store', ['product' => $viewData['product']->getId()]) }}" method="POST">
   <div class="card border-0 shadow-sm card-section">
     <div class="card-body">
       <h5 class="card-section-title">{{ __('messages.product.add_review') }}</h5>
@@ -111,8 +122,7 @@
         <div class="review-form-wrapper">
           <form action="{{ route('review.store') }}" method="POST">
             @csrf
-            <input type="hidden" name="product_id" value="{{ $viewData['product']->getId() }}">
-            <div class="form-group">
+            <div class="mb-3">
               <label for="rating" class="form-label">{{ __('messages.product.rating') }}</label>
               <select name="rating" id="rating" class="form-select @error('rating') is-invalid @enderror">
                 <option value="">--</option>
@@ -161,17 +171,17 @@
                         @endif
                       @endfor
                       <span class="small text-muted">({{ number_format($review->getRating(), 0) }})</span>
+                    </div>
                   </div>
-                </div>
-                <div class="product-review-card-actions">
-                  <span class="product-review-quote">
-                    <i class="bi bi-quote"></i>
-                  </span>
-                  <a href="{{ route('review.edit', ['id' => $review->getId()]) }}"
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="product-review-quote">
+                      <i class="bi bi-quote"></i>
+                    </span>
+                    <a href="{{ route('review.edit', ['product' => $viewData['product']->getId(), 'review' => $review->getId()]) }}"
                       class="btn btn-sm btn-outline-secondary" title="{{ __('messages.product.edit_review') }}">
                       <i class="bi bi-pencil"></i>
                     </a>
-                    <form action="{{ route('review.destroy', ['id' => $review->getId()]) }}" method="POST">
+                    <form action="{{ route('review.destroy', ['product' => $viewData['product']->getId(), 'review' => $review->getId()]) }}" method="POST">
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="btn btn-sm btn-outline-danger"

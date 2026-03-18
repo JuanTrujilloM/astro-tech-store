@@ -38,17 +38,17 @@ class AdminProductController extends Controller
         return redirect()->route('admin.product.index')->with('success', __('messages.admin.success_product_created'));
     }
 
-    public function edit(int $id): View
+    public function edit(int $product): View
     {
         $viewData = [];
-        $viewData['product'] = Product::findOrFail($id);
+        $viewData['product'] = Product::findOrFail($product);
 
         return view('admin.product.edit')->with('viewData', $viewData);
     }
 
-    public function update(StoreProductRequest $request, int $id): RedirectResponse
+    public function update(StoreProductRequest $request, int $product): RedirectResponse
     {
-        $product = Product::findOrFail($id);
+        $product = Product::findOrFail($product);
         $product->setName($request->input('name'));
         $product->setDescription($request->input('description'));
         $product->setPrice($request->input('price'));
@@ -65,9 +65,9 @@ class AdminProductController extends Controller
         return redirect()->route('admin.product.index');
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function destroy(int $product): RedirectResponse
     {
-        Product::destroy($id);
+        Product::destroy($product);
 
         return redirect()->route('admin.product.index')->with('success', __('messages.admin.success_product_deleted'));
     }

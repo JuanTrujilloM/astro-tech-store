@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author:Juan Esteban Trujillo Montes
+ * Description: Request class responsible for validating the data of a review when creating or updating it
+ */
+
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
