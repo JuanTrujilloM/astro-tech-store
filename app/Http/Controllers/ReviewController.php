@@ -18,8 +18,6 @@ class ReviewController extends Controller
 {
     public function store(StoreReviewRequest $request, int $product): RedirectResponse
     {
-        $this->authorize('create', Review::class);
-
         $product = Product::findOrFail($product);
 
         Review::create([
@@ -37,16 +35,20 @@ class ReviewController extends Controller
         $viewData = [];
         $viewData['review'] = Review::findOrFail($review);
 
-        $this->authorize('update', $viewData['review']);
+        if (Auth::id() !== $viewData['review']->getUserId()) {
+            abort(403);
+        }
 
         return view('review.edit')->with('viewData', $viewData);
     }
-    
+
     public function update(StoreReviewRequest $request, int $product, int $review): RedirectResponse
     {
         $review = Review::findOrFail($review);
 
-        $this->authorize('update', $review);
+        if (Auth::id() !== $review->getUserId()) {
+            abort(403);
+        }
 
         $review->setDescription($request->input('description'));
         $review->setRating($request->input('rating'));
@@ -59,7 +61,9 @@ class ReviewController extends Controller
     {
         $review = Review::findOrFail($review);
 
-        $this->authorize('delete', $review);
+        if (Auth::id() !== $review->getUserId()) {
+            abort(403);
+        }
 
         $review->delete();
 

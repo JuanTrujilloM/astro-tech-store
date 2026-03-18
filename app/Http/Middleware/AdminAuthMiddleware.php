@@ -2,7 +2,7 @@
 
 /**
  * Author: Juan Esteban Trujillo Montes
- * Description: Middleware responsible for checking if the user is an admin 
+ * Description: Middleware responsible for checking if the user is an admin
  */
 
 namespace App\Http\Middleware;
