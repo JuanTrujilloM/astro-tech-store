@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\Product;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use \Illuminate\Http\RedirectResponse;
 
 class CartController extends Controller
 {
@@ -61,7 +61,7 @@ class CartController extends Controller
         return back();
     }
 
-    public function purchase(Request $request):RedirectResponse
+    public function purchase(Request $request): RedirectResponse
     {
         $productsInSession = $request->session()->get('products');
 

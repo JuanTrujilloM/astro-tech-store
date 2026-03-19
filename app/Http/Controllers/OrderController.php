@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreOrderRequest;
 use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class OrderController extends Controller
@@ -18,26 +18,16 @@ class OrderController extends Controller
         return view('orders.index');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(StoreOrderRequest $request): RedirectResponse
     {
-        $request->validate([
-            'total' => 'required',
-            'status' => 'required|in:pending,completed,cancelled',
-            'can_be_cancelled' => 'nullable|boolean',
-            'created_at' => 'nullable|date',
-            'updated_at' => 'nullable|date',
+        Order::create([
+            'total' => $request->input('total'),
+            'status' => $request->input('status'),
+            'can_be_cancelled' => $request->input('can_be_cancelled', 0),
+            'user_id' => Auth::id(),
         ]);
 
-        $request['can_be_cancelled'] = (bool) ($request->input('can_be_cancelled', 0));
-        if (empty($request['created_at'])) {
-            $request['created_at'] = now();
-        }
-        if (empty($request['updated_at'])) {
-            $request['updated_at'] = now();
-        }
-        Order::create($request->only('total', 'status', 'can_be_cancelled', 'created_at', 'updated_at'));
-
-        return redirect()->route('orders.success');
+        return redirect()->route('orders.index')->with('success', __('messages.orders.order_created'));
     }
 
     public function success(): View
