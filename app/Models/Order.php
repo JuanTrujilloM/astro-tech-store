@@ -65,26 +65,17 @@ class Order extends Model
         $this->user = $user;
     }
 
-    /**
-     * Check if the order can be cancelled by the user.
-     */
     public function isCancelable(): bool
     {
         return (bool) $this->attributes['can_be_cancelled'] && ($this->attributes['status'] ?? null) === 'pending';
     }
 
-    /**
-     * Cancel the order if it's allowed.
-     *
-     * @return bool True when the order was cancelled, false otherwise.
-     */
     public function cancelIfPossible(): bool
     {
         if (! $this->isCancelable()) {
             return false;
         }
 
-        // Update attributes directly since this model does not define setters.
         $this->attributes['status'] = 'cancelled';
         $this->attributes['can_be_cancelled'] = false;
         $this->save();
