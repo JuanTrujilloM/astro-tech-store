@@ -39,14 +39,15 @@ class CartController extends Controller
         return view('cart.index')->with('viewData', $viewData);
     }
 
-    public function add(Request $request, int $id)
+    public function add(Request $request, int $product)
     {
         $products = $request->session()->get('products');
+        $quantity = $request->input('quantity');
         if ($products) {
-            $products[$id] = $request->input('quantity');
+            $products[$product] = $quantity;
         } else {
             $products = [];
-            $products[$id] = $request->input('quantity');
+            $products[$product] = $quantity;
         }
         $request->session()->put('products', $products);
 
