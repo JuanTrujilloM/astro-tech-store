@@ -169,6 +169,8 @@
                     <div class="small fw-semibold mb-1 text-dark">
                       {{ __('messages.product.review_by_user', ['name' => $review->getUser()->getName()]) }}</div>
                     <div class="product-review-stars mb-1">
+                      {{ __('messages.product.review_by_user', ['name' => $review->getUser()?->getName() ?? '']) }}</div>
+                  <div class="product-review-stars mb-1">
                       @for ($i = 1; $i <= 5; $i++)
                         @if ($i <= $review->getRating())
                           <i class="bi bi-star-fill star-gold"></i>

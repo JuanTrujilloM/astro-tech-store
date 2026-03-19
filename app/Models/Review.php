@@ -34,7 +34,7 @@ class Review extends Model
 
     public function getUserId(): int
     {
-        return $this->attributes['user_id'];
+        return (int) ($this->attributes['user_id'] ?? 0);
     }
 
     public function getDescription(): string
@@ -87,7 +87,7 @@ class Review extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }
