@@ -25,6 +25,16 @@ class Order extends Model
         return $this->attributes['id'];
     }
 
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId(int $userId): void
+    {
+        $this->attributes['user_id'] = $userId;
+    }
+
     public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
@@ -38,16 +48,6 @@ class Order extends Model
     public function setTotal(int $total): void
     {
         $this->attributes['total'] = $total;
-    }
-
-    public function getUserId(): int
-    {
-        return $this->attributes['user_id'];
-    }
-
-    public function setUserId(int $userId): void
-    {
-        $this->attributes['user_id'] = $userId;
     }
 
     public function user(): BelongsTo
