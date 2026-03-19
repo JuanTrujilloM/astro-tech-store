@@ -61,20 +61,16 @@
             <b>{{ __('messages.cart.total_to_pay') }}:</b> ${{ $viewData['total'] }}
           </a>
 
-          @if (count($viewData['products']) > 0)
-            @if (Route::has('cart.purchase'))
-              <a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">
-                {{ __('messages.cart.purchase') }}
-              </a>
-            @endif
+          <a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">
+            {{ __('messages.cart.purchase') }}
+          </a>
 
-            <form action="{{ route('cart.delete') }}" method="POST" class="d-inline">
-              @csrf
-              <button type="submit" class="btn btn-danger mb-2">
-                {{ __('messages.cart.remove_all_products') }}
-              </button>
-            </form>
-          @endif
+          <form action="{{ route('cart.delete') }}" method="POST" class="d-inline">
+            @csrf
+            <button type="submit" class="btn btn-danger mb-2">
+              {{ __('messages.cart.remove_all_products') }}
+            </button>
+          </form>
         </div>
       </div>
     </div>
