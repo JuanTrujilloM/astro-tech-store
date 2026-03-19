@@ -171,10 +171,32 @@ return [
     'cart' => [
         'title' => 'Shopping Cart',
         'subtitle' => 'Review your items and proceed to checkout',
+        'purchase_title' => 'Purchase - Online Store',
+        'purchase_subtitle' => 'Purchase Status',
+        'purchase_completed' => 'Purchase Completed',
+        'purchase_success' => 'Congratulations, purchase completed. Order number is :order',
+        'total_to_pay' => 'Total to pay',
+        'purchase' => 'Purchase',
+        'remove_all_products' => 'Remove all products from Cart',
         'empty' => 'Your cart is empty.',
         'total' => 'Total',
         'remove_all' => 'Remove all',
         'subtotal' => 'Subtotal',
+    ],
+
+    'orders' => [
+        'cancelable' => 'Cancelable',
+        'cancel_order' => 'Cancel order',
+        'not_cancelable' => 'Not cancelable',
+        'cancel_success' => 'Order cancelled successfully.',
+        'my_orders_title' => 'My Orders - Online Store',
+        'my_orders_subtitle' => 'My Orders',
+        'order_prefix' => 'Order #',
+        'date' => 'Date',
+        'total' => 'Total',
+        'item_id' => 'Item ID',
+        'product_name' => 'Product Name',
+        'empty' => 'Seems to be that you have not purchased anything in our store =(.',
     ],
 
     'admin' => [

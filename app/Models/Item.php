@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Item extends Model
 {
@@ -76,26 +77,6 @@ class Item extends Model
     public function setProductId(int $productId): void
     {
         $this->attributes['product_id'] = $productId;
-    }
-
-    public function getCreatedAt(): string
-    {
-        return $this->attributes['created_at'];
-    }
-
-    public function setCreatedAt(string $createdAt): void
-    {
-        $this->attributes['created_at'] = $createdAt;
-    }
-
-    public function getUpdatedAt(): string
-    {
-        return $this->attributes['updated_at'];
-    }
-
-    public function setUpdatedAt(string $updatedAt): void
-    {
-        $this->attributes['updated_at'] = $updatedAt;
     }
 
     public function order(): BelongsTo

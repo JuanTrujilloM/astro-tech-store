@@ -114,41 +114,46 @@
       <h5 class="mb-3 text-center">{{ __('messages.product.add_review') }}</h5>
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-          @auth
-            <form action="{{ route('review.store', ['product' => $viewData['product']->getId()]) }}" method="POST">
-              @csrf
-              <div class="mb-3">
-                <label for="rating" class="form-label">{{ __('messages.product.rating') }}</label>
-                <select name="rating" id="rating" class="form-select @error('rating') is-invalid @enderror">
-                  <option value="">--</option>
-                  @for ($i = 1; $i <= 5; $i++)
-                    <option value="{{ $i }}" {{ old('rating') == $i ? 'selected' : '' }}>{{ $i }}
-                    </option>
-                  @endfor
-                </select>
-                @error('rating')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
+          <div class="card border-0 shadow-sm card-section">
+            <div class="card-body">
+              <h5 class="card-section-title">{{ __('messages.product.add_review') }}</h5>
+              <div class="section-centered">
+                <div class="review-form-wrapper">
+                  @auth
+                    <form action="{{ route('review.store', ['product' => $viewData['product']->getId()]) }}" method="POST">
+                      @csrf
+                      <div class="mb-3">
+                        <label for="rating" class="form-label">{{ __('messages.product.rating') }}</label>
+                        <select name="rating" id="rating" class="form-select @error('rating') is-invalid @enderror">
+                          <option value="">--</option>
+                          @for ($i = 1; $i <= 5; $i++)
+                            <option value="{{ $i }}" {{ old('rating') == $i ? 'selected' : '' }}>{{ $i }}
+                            </option>
+                          @endfor
+                        </select>
+                        @error('rating')
+                          <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                      </div>
+                      <div class="form-group">
+                        <label for="description" class="form-label">{{ __('messages.product.review_description') }}</label>
+                        <textarea name="description" id="description" rows="3"
+                          class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
+                        @error('description')
+                          <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                      </div>
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-danger">{{ __('messages.product.submit_review') }}</button>
+                      </div>
+                    </form>
+                  @else
+                    <p class="mb-0 text-center text-muted">{{ __('messages.product.login_to_review') }}</p>
+                  @endauth
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="description" class="form-label">{{ __('messages.product.review_description') }}</label>
-                <textarea name="description" id="description" rows="3"
-                  class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
-                @error('description')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-              </div>
-              <div class="text-center">
-                <button type="submit" class="btn btn-danger">{{ __('messages.product.submit_review') }}</button>
-              </div>
-            </form>
-          @else
-            <p class="mb-0 text-center text-muted">{{ __('messages.product.login_to_review') }}</p>
-          @endauth
-        </div>
-      </div>
-    </div>
-  </div>
+            </div>
+          </div>
 
   <div class="card border-0 shadow-sm card-section">
     <div class="card-body">

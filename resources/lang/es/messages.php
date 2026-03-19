@@ -170,10 +170,32 @@ return [
     'cart' => [
         'title' => 'Carrito de compras',
         'subtitle' => 'Revisa tus productos y continúa al pago',
+        'purchase_title' => 'Compra - Tienda Online',
+        'purchase_subtitle' => 'Estado de la compra',
+        'purchase_completed' => 'Compra completada',
+        'purchase_success' => 'Felicitaciones, compra completada. El número de pedido es :order',
+        'total_to_pay' => 'Total a pagar',
+        'purchase' => 'Comprar',
+        'remove_all_products' => 'Eliminar todos los productos del carrito',
         'empty' => 'Tu carrito está vacío.',
         'total' => 'Total',
         'remove_all' => 'Vaciar carrito',
         'subtotal' => 'Subtotal',
+    ],
+
+    'orders' => [
+        'cancelable' => 'Cancelable',
+        'cancel_order' => 'Cancelar pedido',
+        'not_cancelable' => 'No cancelable',
+        'cancel_success' => 'Pedido cancelado correctamente.',
+        'my_orders_title' => 'Mis pedidos - Tienda Online',
+        'my_orders_subtitle' => 'Mis pedidos',
+        'order_prefix' => 'Pedido #',
+        'date' => 'Fecha',
+        'total' => 'Total',
+        'item_id' => 'Item ID',
+        'product_name' => 'Nombre del producto',
+        'empty' => 'Parece que no has comprado nada en nuestra tienda =(.',
     ],
 
     'admin' => [
