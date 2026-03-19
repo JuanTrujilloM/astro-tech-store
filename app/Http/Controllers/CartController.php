@@ -8,6 +8,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use \Illuminate\Http\RedirectResponse;
 
 class CartController extends Controller
 {
@@ -49,7 +50,7 @@ class CartController extends Controller
         }
         $request->session()->put('products', $products);
 
-        return redirect()->route('cart.index');
+        return redirect()->route('product.index');
     }
 
     public function delete(Request $request)
@@ -59,7 +60,7 @@ class CartController extends Controller
         return back();
     }
 
-    public function purchase(Request $request)
+    public function purchase(Request $request):RedirectResponse
     {
         $productsInSession = $request->session()->get('products');
 
@@ -97,12 +98,7 @@ class CartController extends Controller
 
             $request->session()->forget('products');
 
-            $viewData = [];
-            $viewData['title'] = 'Purchase - Online Store';
-            $viewData['subtitle'] = 'Purchase Status';
-            $viewData['order'] = $order;
-
-            return view('cart.purchase')->with('viewData', $viewData);
+            return redirect()->route('product.index')->with('success', __('messages.cart.purchase_success'));
         }
 
         return redirect()->route('cart.index');

@@ -181,6 +181,7 @@ return [
         'total' => 'Total',
         'remove_all' => 'Vaciar carrito',
         'subtotal' => 'Subtotal',
+        'purchase_success' => 'Compra realizada con exito',
     ],
 
     'orders' => [
