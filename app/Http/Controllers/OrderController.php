@@ -13,21 +13,10 @@ class OrderController extends Controller
      * Author: Juan Sebastián Lizcano Urrea
      * Description: Controller responsible for managing orders
      */
+    
     public function index(): View
     {
         return view('orders.index');
-    }
-
-    public function store(StoreOrderRequest $request): RedirectResponse
-    {
-        Order::create([
-            'total' => $request->input('total'),
-            'status' => $request->input('status'),
-            'can_be_cancelled' => $request->input('can_be_cancelled', 0),
-            'user_id' => Auth::id(),
-        ]);
-
-        return redirect()->route('orders.index')->with('success', __('messages.orders.order_created'));
     }
 
     public function list(): View
