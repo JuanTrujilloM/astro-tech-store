@@ -30,11 +30,6 @@ class OrderController extends Controller
         return redirect()->route('orders.index')->with('success', __('messages.orders.order_created'));
     }
 
-    public function success(): View
-    {
-        return view('orders.success');
-    }
-
     public function list(): View
     {
         $viewData = [];
