@@ -163,6 +163,8 @@ return [
         'review_updated' => 'La reseña ha sido actualizada exitosamente.',
         'add_to_cart' => 'Añadir al carrito',
         'quantity' => 'Cantidad',
+        'login_to_review' => 'Inicia sesion para escribir una reseña.',
+        'review_by_user' => 'Por :name',
     ],
 
     'cart' => [

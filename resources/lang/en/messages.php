@@ -164,6 +164,8 @@ return [
         'review_updated' => 'The review has been updated successfully.',
         'add_to_cart' => 'Add to cart',
         'quantity' => 'Quantity',
+        'login_to_review' => 'Log in to write a review.',
+        'review_by_user' => 'By :name',
     ],
 
     'cart' => [

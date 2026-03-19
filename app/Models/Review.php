@@ -20,7 +20,7 @@ class Review extends Model
      * $this->attributes['created_at'] - string - contains the date and time of the creation of the review
      * $this->attributes['updated_at'] - string - contains the date and time of the last update of the review
      */
-    protected $fillable = ['description', 'rating', 'product_id'];
+    protected $fillable = ['description', 'rating', 'product_id', 'user_id'];
 
     public function getId(): int
     {
@@ -30,6 +30,11 @@ class Review extends Model
     public function getProductId(): int
     {
         return $this->attributes['product_id'];
+    }
+
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
     }
 
     public function getDescription(): string
@@ -75,5 +80,20 @@ class Review extends Model
     public function setProduct(Product $product): void
     {
         $this->product = $product;
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
     }
 }

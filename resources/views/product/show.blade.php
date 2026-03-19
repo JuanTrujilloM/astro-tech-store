@@ -114,39 +114,37 @@
       <h5 class="mb-3 text-center">{{ __('messages.product.add_review') }}</h5>
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-          <form action="{{ route('review.store', ['product' => $viewData['product']->getId()]) }}" method="POST">
-  <div class="card border-0 shadow-sm card-section">
-    <div class="card-body">
-      <h5 class="card-section-title">{{ __('messages.product.add_review') }}</h5>
-      <div class="section-centered">
-        <div class="review-form-wrapper">
-          <form action="{{ route('review.store') }}" method="POST">
-            @csrf
-            <div class="mb-3">
-              <label for="rating" class="form-label">{{ __('messages.product.rating') }}</label>
-              <select name="rating" id="rating" class="form-select @error('rating') is-invalid @enderror">
-                <option value="">--</option>
-                @for ($i = 1; $i <= 5; $i++)
-                  <option value="{{ $i }}" {{ old('rating') == $i ? 'selected' : '' }}>{{ $i }}
-                  </option>
-                @endfor
-              </select>
-              @error('rating')
-                <div class="invalid-feedback">{{ $message }}</div>
-              @enderror
-            </div>
-            <div class="form-group">
-              <label for="description" class="form-label">{{ __('messages.product.review_description') }}</label>
-              <textarea name="description" id="description" rows="3"
-                class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
-              @error('description')
-                <div class="invalid-feedback">{{ $message }}</div>
-              @enderror
-            </div>
-            <div class="text-center">
-              <button type="submit" class="btn btn-danger">{{ __('messages.product.submit_review') }}</button>
-            </div>
-          </form>
+          @auth
+            <form action="{{ route('review.store', ['product' => $viewData['product']->getId()]) }}" method="POST">
+              @csrf
+              <div class="mb-3">
+                <label for="rating" class="form-label">{{ __('messages.product.rating') }}</label>
+                <select name="rating" id="rating" class="form-select @error('rating') is-invalid @enderror">
+                  <option value="">--</option>
+                  @for ($i = 1; $i <= 5; $i++)
+                    <option value="{{ $i }}" {{ old('rating') == $i ? 'selected' : '' }}>{{ $i }}
+                    </option>
+                  @endfor
+                </select>
+                @error('rating')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label">{{ __('messages.product.review_description') }}</label>
+                <textarea name="description" id="description" rows="3"
+                  class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
+                @error('description')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-danger">{{ __('messages.product.submit_review') }}</button>
+              </div>
+            </form>
+          @else
+            <p class="mb-0 text-center text-muted">{{ __('messages.product.login_to_review') }}</p>
+          @endauth
         </div>
       </div>
     </div>
@@ -159,10 +157,13 @@
       @if ($viewData['product']->reviews_count > 0)
         <div class="reviews-grid">
           @foreach ($viewData['product']->getReviews() as $review)
-            <article class="product-review-card">
-              <div class="product-review-card-header">
-                <div>
-                  <div class="product-review-stars mb-1">
+            <div class="col">
+              <article class="product-review-card h-100">
+                <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+                  <div>
+                    <div class="small fw-semibold mb-1 text-dark">
+                      {{ __('messages.product.review_by_user', ['name' => $review->getUser()->getName()]) }}</div>
+                    <div class="product-review-stars mb-1">
                       @for ($i = 1; $i <= 5; $i++)
                         @if ($i <= $review->getRating())
                           <i class="bi bi-star-fill star-gold"></i>
@@ -177,18 +178,25 @@
                     <span class="product-review-quote">
                       <i class="bi bi-quote"></i>
                     </span>
-                    <a href="{{ route('review.edit', ['product' => $viewData['product']->getId(), 'review' => $review->getId()]) }}"
-                      class="btn btn-sm btn-outline-secondary" title="{{ __('messages.product.edit_review') }}">
-                      <i class="bi bi-pencil"></i>
-                    </a>
-                    <form action="{{ route('review.destroy', ['product' => $viewData['product']->getId(), 'review' => $review->getId()]) }}" method="POST">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-sm btn-outline-danger"
-                        title="{{ __('messages.product.delete_review') }}">
-                        <i class="bi bi-trash3"></i>
-                      </button>
-                  </form>
+                    @auth
+                      @if (auth()->id() === $review->getUserId())
+                        <a href="{{ route('review.edit', ['product' => $viewData['product']->getId(), 'review' => $review->getId()]) }}"
+                          class="btn btn-sm btn-outline-secondary" title="{{ __('messages.product.edit_review') }}">
+                          <i class="bi bi-pencil"></i>
+                        </a>
+                        <form
+                          action="{{ route('review.destroy', ['product' => $viewData['product']->getId(), 'review' => $review->getId()]) }}"
+                          method="POST">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-sm btn-outline-danger"
+                            title="{{ __('messages.product.delete_review') }}">
+                            <i class="bi bi-trash3"></i>
+                          </button>
+                        </form>
+                      @endif
+                    @endauth
+                  </div>
                 </div>
               </div>
               <p class="mb-0 text-muted product-review-text">{{ $review->getDescription() }}</p>
