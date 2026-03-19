@@ -13,6 +13,18 @@ Route::get('/lang/{locale}', 'App\Http\Controllers\LanguageController@switch')->
 Route::get('/products', 'App\Http\Controllers\ProductController@index')->name('product.index');
 Route::get('/products/{product}', 'App\Http\Controllers\ProductController@show')->name('product.show');
 
+// Cart routes related to user interactions
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
+Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
+Route::post('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('cart.delete');
+Route::middleware('auth')->group(function () {
+    // Purchase route
+    Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
+    // My account routes
+    Route::get('/my-account/orders', 'App\Http\Controllers\MyAccountController@orders')->name('my-account.orders');
+    Route::post('/my-account/orders/{order}/cancel', 'App\Http\Controllers\MyAccountController@cancelOrder')->name('my-account.orders.cancel');
+});
+
 // Review routes nested under product
 Route::middleware('auth')->group(function () {
     Route::post('/products/{product}/reviews', 'App\Http\Controllers\ReviewController@store')->name('review.store');

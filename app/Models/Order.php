@@ -27,6 +27,16 @@ class Order extends Model
         ]);
     }
 
+    public function getId(): int
+    {
+        return $this->attributes['id'];
+    }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
     public function getTotal(): int
     {
         return $this->attributes['total'];
@@ -47,26 +57,6 @@ class Order extends Model
         $this->attributes['user_id'] = $userId;
     }
 
-    public function getCreatedAt(): string
-    {
-        return $this->attributes['created_at'];
-    }
-
-    public function setCreatedAt(string $createdAt): void
-    {
-        $this->attributes['created_at'] = $createdAt;
-    }
-
-    public function getUpdatedAt(): string
-    {
-        return $this->attributes['updated_at'];
-    }
-
-    public function setUpdatedAt(string $updatedAt): void
-    {
-        $this->attributes['updated_at'] = $updatedAt;
-    }
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -80,6 +70,33 @@ class Order extends Model
     public function setUser(User $user): void
     {
         $this->user = $user;
+    }
+
+    /**
+     * Check if the order can be cancelled by the user.
+     */
+    public function isCancelable(): bool
+    {
+        return (bool) $this->attributes['can_be_cancelled'] && ($this->attributes['status'] ?? null) === 'pending';
+    }
+
+    /**
+     * Cancel the order if it's allowed.
+     *
+     * @return bool True when the order was cancelled, false otherwise.
+     */
+    public function cancelIfPossible(): bool
+    {
+        if (! $this->isCancelable()) {
+            return false;
+        }
+
+        // Update attributes directly since this model does not define setters.
+        $this->attributes['status'] = 'cancelled';
+        $this->attributes['can_be_cancelled'] = false;
+        $this->save();
+
+        return true;
     }
 
     public function items(): HasMany

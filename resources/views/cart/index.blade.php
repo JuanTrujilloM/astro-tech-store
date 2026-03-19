@@ -43,7 +43,7 @@
                         </div>
                       @endif
                       <div>
-                        <a href="{{ route('product.show', ['id' => $product->getId()]) }}" class="fw-semibold text-decoration-none text-dark">
+                        <a href="{{ route('product.show', ['product' => $product->getId()]) }}" class="fw-semibold text-decoration-none text-dark">
                           {{ $product->getName() }}
                         </a>
                       </div>
@@ -58,16 +58,26 @@
           </table>
         </div>
       </div>
-      <div class="card-footer bg-transparent border-0 d-flex flex-wrap justify-content-between align-items-center gap-3 py-4 px-4">
-        <form action="{{ route('cart.delete') }}" method="POST" class="mb-0">
-          @csrf
-          <button type="submit" class="btn btn-outline-danger btn-sm">
-            <i class="bi bi-trash3 me-1"></i>{{ __('messages.cart.remove_all') }}
-          </button>
-        </form>
-        <div class="d-flex align-items-center gap-2">
-          <span class="text-muted">{{ __('messages.cart.total') }}:</span>
-          <span class="fs-4 fw-bold text-primary">${{ number_format($viewData['total'], 0, ',', '.') }}</span>
+      <div class="card-footer bg-transparent border-0 py-4 px-4">
+        <div class="text-end">
+          <a class="btn btn-outline-secondary mb-2">
+            <b>{{ __('messages.cart.total_to_pay') }}:</b> ${{ $viewData['total'] }}
+          </a>
+
+          @if (count($viewData['products']) > 0)
+            @if (Route::has('cart.purchase'))
+              <a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">
+                {{ __('messages.cart.purchase') }}
+              </a>
+            @endif
+
+            <form action="{{ route('cart.delete') }}" method="POST" class="d-inline">
+              @csrf
+              <button type="submit" class="btn btn-danger mb-2">
+                {{ __('messages.cart.remove_all_products') }}
+              </button>
+            </form>
+          @endif
         </div>
       </div>
     </div>
