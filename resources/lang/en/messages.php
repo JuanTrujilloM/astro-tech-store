@@ -182,6 +182,7 @@ return [
         'total' => 'Total',
         'remove_all' => 'Remove all',
         'subtotal' => 'Subtotal',
+        'purchase_success' => 'Purchase successful',
     ],
 
     'orders' => [
