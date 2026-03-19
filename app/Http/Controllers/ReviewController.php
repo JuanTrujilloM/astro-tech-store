@@ -11,6 +11,7 @@ use App\Http\Requests\StoreReviewRequest;
 use App\Models\Product;
 use App\Models\Review;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class ReviewController extends Controller
@@ -19,7 +20,12 @@ class ReviewController extends Controller
     {
         $product = Product::findOrFail($product);
 
-        Review::create(['description' => $request->input('description'), 'rating' => $request->input('rating'), 'product_id' => $product->getId()]);
+        Review::create([
+            'description' => $request->input('description'),
+            'rating' => $request->input('rating'),
+            'product_id' => $product->getId(),
+            'user_id' => Auth::id(),
+        ]);
 
         return redirect()->route('product.show', ['product' => $product->getId()])->with('success', __('messages.product.review_added'));
     }
@@ -29,12 +35,20 @@ class ReviewController extends Controller
         $viewData = [];
         $viewData['review'] = Review::findOrFail($review);
 
+        if (Auth::id() !== $viewData['review']->getUserId()) {
+            abort(403);
+        }
+
         return view('review.edit')->with('viewData', $viewData);
     }
 
     public function update(StoreReviewRequest $request, int $product, int $review): RedirectResponse
     {
         $review = Review::findOrFail($review);
+
+        if (Auth::id() !== $review->getUserId()) {
+            abort(403);
+        }
 
         $review->setDescription($request->input('description'));
         $review->setRating($request->input('rating'));
@@ -46,6 +60,10 @@ class ReviewController extends Controller
     public function destroy(int $product, int $review): RedirectResponse
     {
         $review = Review::findOrFail($review);
+
+        if (Auth::id() !== $review->getUserId()) {
+            abort(403);
+        }
 
         $review->delete();
 

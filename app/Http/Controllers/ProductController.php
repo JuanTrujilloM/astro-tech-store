@@ -23,7 +23,7 @@ class ProductController extends Controller
     public function show(int $product): View
     {
         $viewData = [];
-        $viewData['product'] = Product::with('reviews')->withAvg('reviews', 'rating')->withCount('reviews')->findOrFail($product);
+        $viewData['product'] = Product::with('reviews.user')->withAvg('reviews', 'rating')->withCount('reviews')->findOrFail($product);
 
         return view('product.show')->with('viewData', $viewData);
     }
