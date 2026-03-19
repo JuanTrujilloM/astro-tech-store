@@ -15,15 +15,25 @@ class CartController extends Controller
     {
         $total = 0;
         $productsInCart = [];
-        $productsInSession = $request->session()->get('products');
-        if ($productsInSession) {
-            $productsInCart = Product::findMany(array_keys($productsInSession));
-            $total = Product::sumPricesByQuantities($productsInCart, $productsInSession);
+        $productsInSession = $request->session()->get('products', []);
+
+        if (! empty($productsInSession)) {
+            $products = Product::findMany(array_keys($productsInSession));
+            $total = Product::sumPricesByQuantities($products, $productsInSession);
+
+            foreach ($products as $product) {
+                $quantity = $productsInSession[$product->getId()] ?? 1;
+                $productsInCart[] = [
+                    'product' => $product,
+                    'quantity' => $quantity,
+                    'subtotal' => $product->getPrice() * $quantity,
+                ];
+            }
         }
+
         $viewData = [];
         $viewData['total'] = $total;
         $viewData['products'] = $productsInCart;
-        $viewData['productsInSession'] = $productsInSession ?? [];
 
         return view('cart.index')->with('viewData', $viewData);
     }

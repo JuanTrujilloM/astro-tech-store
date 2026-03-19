@@ -27,31 +27,28 @@
             </thead>
             <tbody>
               @foreach ($viewData['products'] as $product)
-                @php
-                  $quantity = $viewData['productsInSession'][$product->getId()] ?? 1;
-                  $subtotal = $product->getPrice() * $quantity;
-                @endphp
                 <tr>
                   <td class="ps-4">
                     <div class="d-flex align-items-center gap-3">
-                      @if ($product->getImage())
-                        <img src="{{ asset('storage/' . $product->getImage()) }}"
-                          alt="{{ $product->getName() }}" class="cart-item-img rounded">
+                      @if ($product['product']->getImage())
+                        <img src="{{ asset('storage/' . $product['product']->getImage()) }}"
+                          alt="{{ $product['product']->getName() }}" class="cart-item-img rounded">
                       @else
                         <div class="cart-item-img-placeholder bg-secondary rounded text-white">
                           <i class="bi bi-image"></i>
                         </div>
                       @endif
                       <div>
-                        <a href="{{ route('product.show', ['product' => $product->getId()]) }}" class="fw-semibold text-decoration-none text-dark">
-                          {{ $product->getName() }}
+                        <a href="{{ route('product.show', ['product' => $product['product']->getId()]) }}"
+                          class="fw-semibold text-decoration-none text-dark">
+                          {{ $product['product']->getName() }}
                         </a>
                       </div>
                     </div>
                   </td>
-                  <td>{{ $quantity }}</td>
-                  <td>${{ number_format($product->getPrice(), 0, ',', '.') }}</td>
-                  <td class="text-end fw-semibold pe-4">${{ number_format($subtotal, 0, ',', '.') }}</td>
+                  <td>{{ $product['quantity'] }}</td>
+                  <td>${{ number_format($product['product']->getPrice(), 0, ',', '.') }}</td>
+                  <td class="text-end fw-semibold pe-4">${{ number_format($product['subtotal'], 0, ',', '.') }}</td>
                 </tr>
               @endforeach
             </tbody>
