@@ -167,7 +167,7 @@
                 <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
                   <div>
                     <div class="small fw-semibold mb-1 text-dark">
-                      {{ __('messages.product.review_by_user', ['name' => $review->getUser()->getName()]) }}</div>
+                      {{ __('messages.product.review_by_user', ['name' => $review->getUser()?->getName() ?? '']) }}</div>
                     <div class="product-review-stars mb-1">
                       {{ __('messages.product.review_by_user', ['name' => $review->getUser()?->getName() ?? '']) }}</div>
                   <div class="product-review-stars mb-1">
