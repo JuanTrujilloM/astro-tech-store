@@ -15,8 +15,9 @@ Route::get('/products/{product}', 'App\Http\Controllers\ProductController@show')
 
 // Cart routes related to user interactions
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
-Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
+Route::post('/cart/add/{product}', 'App\Http\Controllers\CartController@add')->name('cart.add');
 Route::post('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('cart.delete');
+
 Route::middleware('auth')->group(function () {
     // Purchase route
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');

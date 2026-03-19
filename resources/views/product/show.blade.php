@@ -83,7 +83,7 @@
             @if ($viewData['product']->getStock() > 0)
               <div class="product-detail-add-cart mt-4">
                 <p class="card-text mb-2"><small class="text-muted">{{ __('messages.product.add_to_cart') }}</small></p>
-                <form method="POST" action="{{ route('cart.add', ['id' => $viewData['product']->getId()]) }}" class="product-detail-add-cart-form">
+                <form method="POST" action="{{ route('cart.add', ['product' => $viewData['product']->getId()]) }}" class="product-detail-add-cart-form">
                   @csrf
                   <div class="input-group">
                     <span class="input-group-text">{{ __('messages.product.quantity') }}</span>
