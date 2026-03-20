@@ -83,7 +83,8 @@
             @if ($viewData['product']->getStock() > 0)
               <div class="product-detail-add-cart mt-4">
                 <p class="card-text mb-2"><small class="text-muted">{{ __('messages.product.add_to_cart') }}</small></p>
-                <form method="POST" action="{{ route('cart.add', ['product' => $viewData['product']->getId()]) }}" class="product-detail-add-cart-form">
+                <form method="POST" action="{{ route('cart.add', ['product' => $viewData['product']->getId()]) }}"
+                  class="product-detail-add-cart-form">
                   @csrf
                   <div class="input-group">
                     <span class="input-group-text">{{ __('messages.product.quantity') }}</span>
@@ -114,46 +115,41 @@
       <h5 class="mb-3 text-center">{{ __('messages.product.add_review') }}</h5>
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-          <div class="card border-0 shadow-sm card-section">
-            <div class="card-body">
-              <h5 class="card-section-title">{{ __('messages.product.add_review') }}</h5>
-              <div class="section-centered">
-                <div class="review-form-wrapper">
-                  @auth
-                    <form action="{{ route('review.store', ['product' => $viewData['product']->getId()]) }}" method="POST">
-                      @csrf
-                      <div class="mb-3">
-                        <label for="rating" class="form-label">{{ __('messages.product.rating') }}</label>
-                        <select name="rating" id="rating" class="form-select @error('rating') is-invalid @enderror">
-                          <option value="">--</option>
-                          @for ($i = 1; $i <= 5; $i++)
-                            <option value="{{ $i }}" {{ old('rating') == $i ? 'selected' : '' }}>{{ $i }}
-                            </option>
-                          @endfor
-                        </select>
-                        @error('rating')
-                          <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                      </div>
-                      <div class="form-group">
-                        <label for="description" class="form-label">{{ __('messages.product.review_description') }}</label>
-                        <textarea name="description" id="description" rows="3"
-                          class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
-                        @error('description')
-                          <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                      </div>
-                      <div class="text-center">
-                        <button type="submit" class="btn btn-danger">{{ __('messages.product.submit_review') }}</button>
-                      </div>
-                    </form>
-                  @else
-                    <p class="mb-0 text-center text-muted">{{ __('messages.product.login_to_review') }}</p>
-                  @endauth
-                </div>
+          @auth
+            <form action="{{ route('review.store', ['product' => $viewData['product']->getId()]) }}" method="POST">
+              @csrf
+              <div class="mb-3">
+                <label for="rating" class="form-label">{{ __('messages.product.rating') }}</label>
+                <select name="rating" id="rating" class="form-select @error('rating') is-invalid @enderror">
+                  <option value="">--</option>
+                  @for ($i = 1; $i <= 5; $i++)
+                    <option value="{{ $i }}" {{ old('rating') == $i ? 'selected' : '' }}>{{ $i }}
+                    </option>
+                  @endfor
+                </select>
+                @error('rating')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
-            </div>
-          </div>
+              <div class="form-group">
+                <label for="description" class="form-label">{{ __('messages.product.review_description') }}</label>
+                <textarea name="description" id="description" rows="3"
+                  class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
+                @error('description')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-danger">{{ __('messages.product.submit_review') }}</button>
+              </div>
+            </form>
+          @else
+            <p class="mb-0 text-center text-muted">{{ __('messages.product.login_to_review') }}</p>
+          @endauth
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="card border-0 shadow-sm card-section">
     <div class="card-body">
@@ -170,7 +166,7 @@
                       {{ __('messages.product.review_by_user', ['name' => $review->getUser()?->getName() ?? '']) }}</div>
                     <div class="product-review-stars mb-1">
                       {{ __('messages.product.review_by_user', ['name' => $review->getUser()?->getName() ?? '']) }}</div>
-                  <div class="product-review-stars mb-1">
+                    <div class="product-review-stars mb-1">
                       @for ($i = 1; $i <= 5; $i++)
                         @if ($i <= $review->getRating())
                           <i class="bi bi-star-fill star-gold"></i>
@@ -205,13 +201,13 @@
                     @endauth
                   </div>
                 </div>
-              </div>
-              <p class="mb-0 text-muted product-review-text">{{ $review->getDescription() }}</p>
+            </div>
+            <p class="mb-0 text-muted product-review-text">{{ $review->getDescription() }}</p>
             </article>
           @endforeach
         </div>
       @else
-        <p class="mb-0 text-muted">{{ __('messages.product.no_reviews') }}</p>
+        <p class="mb-0 text-muted text-center">{{ __('messages.product.no_reviews') }}</p>
       @endif
     </div>
   </div>
