@@ -1,8 +1,3 @@
-<!--
-  Author: Juan Esteban Trujillo Montes
-  Description: View responsible for showing product details and managing reviews
--->
-
 @extends('layouts.app')
 
 @section('title', $viewData['product']->getName() . ' - ' . __('messages.layout.title_default'))
@@ -139,7 +134,7 @@
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
-              <div class="text-center">
+              <div class="text-center mt-3">
                 <button type="submit" class="btn btn-danger">{{ __('messages.product.submit_review') }}</button>
               </div>
             </form>
@@ -163,9 +158,8 @@
                 <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
                   <div>
                     <div class="small fw-semibold mb-1 text-dark">
-                      {{ __('messages.product.review_by_user', ['name' => $review->getUser()?->getName() ?? '']) }}</div>
-                    <div class="product-review-stars mb-1">
-                      {{ __('messages.product.review_by_user', ['name' => $review->getUser()?->getName() ?? '']) }}</div>
+                      {{ __('messages.product.review_by_user', ['name' => $review->getUser()?->getName() ?? '']) }}
+                    </div>
                     <div class="product-review-stars mb-1">
                       @for ($i = 1; $i <= 5; $i++)
                         @if ($i <= $review->getRating())
@@ -201,9 +195,9 @@
                     @endauth
                   </div>
                 </div>
+                <p class="mb-0 text-muted product-review-text">{{ $review->getDescription() }}</p>
+              </article>
             </div>
-            <p class="mb-0 text-muted product-review-text">{{ $review->getDescription() }}</p>
-            </article>
           @endforeach
         </div>
       @else

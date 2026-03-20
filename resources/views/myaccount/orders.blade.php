@@ -45,7 +45,7 @@
                 <td>{{ $item->getId() }}</td>
                 <td>
                   <a class="link-success"
-                    href="{{ route('product.show', ['product' => $item->getProductId() }}">
+                    href="{{ route('product.show', ['product' => $item->getProductId()]) }}">
                     {{ $item->getProduct()->getName() }}
                   </a>
                 </td>
