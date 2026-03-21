@@ -23,6 +23,8 @@ class Product extends Model
      * $this->attributes['image'] - string - contains the url of the image of the product
      * $this->attributes['created_at'] - string - contains the date and time of the creation of the product
      * $this->attributes['updated_at'] - string - contains the date and time of the last update of the product
+     * $this->reviews - Review[] - contains the associated reviews
+     * $this->items - Item[] - contains the associated items
      */
     protected $fillable = ['name', 'description', 'price', 'stock', 'image'];
 
@@ -91,6 +93,16 @@ class Product extends Model
         return $this->attributes['updated_at'];
     }
 
+    public static function sumPricesByQuantities(Collection $products, array $productsInSession): int
+    {
+        $total = 0;
+        foreach ($products as $product) {
+            $total += $product->getPrice() * $productsInSession[$product->getId()];
+        }
+
+        return $total;
+    }
+
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
@@ -104,16 +116,6 @@ class Product extends Model
     public function setReviews(Collection $reviews): void
     {
         $this->reviews = $reviews;
-    }
-
-    public static function sumPricesByQuantities(Collection $products, array $productsInSession): int
-    {
-        $total = 0;
-        foreach ($products as $product) {
-            $total += $product->getPrice() * $productsInSession[$product->getId()];
-        }
-
-        return $total;
     }
 
     public function items(): HasMany
