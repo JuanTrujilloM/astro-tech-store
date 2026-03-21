@@ -2,12 +2,9 @@
   Author: Andres Perez Quinchia
   Description: View responsible for showing all the products
 -->
-
 @extends('layouts.admin')
-
 @section('title', __('messages.admin.title'))
 @section('page_title', __('messages.admin.products'))
-
 @section('content')
 
   <div class="admin-product-page">
@@ -123,8 +120,8 @@
                         <i class="bi bi-pencil-square"></i>
                       </a>
 
-                      <form action="{{ route('admin.product.destroy', ['product' => $product->getId()]) }}" method="POST"
-                        class="d-inline">
+                      <form action="{{ route('admin.product.destroy', ['product' => $product->getId()]) }}"
+                        method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm admin-product-btn-danger"

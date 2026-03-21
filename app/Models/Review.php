@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author:Juan Esteban Trujillo Montes
+ * Author: Juan Esteban Trujillo Montes
  * Description: Model responsible for managing reviews
  */
 
@@ -15,12 +15,16 @@ class Review extends Model
     /**
      * REVIEW ATTRIBUTES
      * $this->attributes['id'] - int - contains the review primary key (id)
+     * $this->attributes['product_id'] - int - contains the referenced product id
+     * $this->attributes['user_id'] - int - contains the referenced user id
      * $this->attributes['description'] - string - contains the description of the review
      * $this->attributes['rating'] - int - contains the rating of the review
      * $this->attributes['created_at'] - string - contains the date and time of the creation of the review
      * $this->attributes['updated_at'] - string - contains the date and time of the last update of the review
+     * $this->product - Product - contains the associated Product
+     * $this->user - User - contains the associated User
      */
-    protected $fillable = ['description', 'rating', 'product_id', 'user_id'];
+    protected $fillable = ['product_id', 'user_id', 'description', 'rating'];
 
     public function getId(): int
     {
@@ -32,9 +36,19 @@ class Review extends Model
         return $this->attributes['product_id'];
     }
 
+    public function setProductId(int $productId): void
+    {
+        $this->attributes['product_id'] = $productId;
+    }
+
     public function getUserId(): int
     {
         return $this->attributes['user_id'];
+    }
+
+    public function setUserId(int $userId): void
+    {
+        $this->attributes['user_id'] = $userId;
     }
 
     public function getDescription(): string
@@ -74,7 +88,7 @@ class Review extends Model
 
     public function getProduct(): Product
     {
-        return $this->product();
+        return $this->product;
     }
 
     public function setProduct(Product $product): void

@@ -33,23 +33,14 @@ class ReviewController extends Controller
     public function edit(int $product, int $review): View
     {
         $viewData = [];
-        $viewData['review'] = Review::findOrFail($review);
-
-        if (Auth::id() !== $viewData['review']->getUserId()) {
-            abort(403);
-        }
+        $viewData['review'] = Review::where('id', $review)->where('user_id', Auth::id())->firstOrFail();
 
         return view('review.edit')->with('viewData', $viewData);
     }
 
     public function update(StoreReviewRequest $request, int $product, int $review): RedirectResponse
     {
-        $review = Review::findOrFail($review);
-
-        if (Auth::id() !== $review->getUserId()) {
-            abort(403);
-        }
-
+        $review = Review::where('id', $review)->where('user_id', Auth::id())->firstOrFail();
         $review->setDescription($request->input('description'));
         $review->setRating($request->input('rating'));
         $review->save();
@@ -59,12 +50,7 @@ class ReviewController extends Controller
 
     public function destroy(int $product, int $review): RedirectResponse
     {
-        $review = Review::findOrFail($review);
-
-        if (Auth::id() !== $review->getUserId()) {
-            abort(403);
-        }
-
+        $review = Review::where('id', $review)->where('user_id', Auth::id())->firstOrFail();
         $review->delete();
 
         return redirect()->route('product.show', ['product' => $product])->with('success', __('messages.product.review_deleted'));

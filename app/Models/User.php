@@ -7,7 +7,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -24,13 +23,15 @@ class User extends Authenticatable
      * $this->attributes['id'] - int - contains the user primary key (id)
      * $this->attributes['name'] - string - contains the user name
      * $this->attributes['email'] - string - contains the user email
-     * $this->attributes['email_verified_at'] - timestamp - contains the user email verification date
+     * $this->attributes['email_verified_at'] - string - contains the user email verification date
      * $this->attributes['password'] - string - contains the user password
-     * $this->attributes['remember_token'] - string - contains the user password
+     * $this->attributes['remember_token'] - string - contains the user remember token
      * $this->attributes['role'] - string - contains the user role (client or admin)
      * $this->attributes['balance'] - int - contains the user balance
-     * $this->attributes['created_at'] - timestamp - contains the user creation date
-     * $this->attributes['updated_at'] - timestamp - contains the user update dat
+     * $this->attributes['created_at'] - string - contains the user creation date
+     * $this->attributes['updated_at'] - string - contains the user update date
+     * $this->reviews - Review[] - contains the associated reviews
+     * $this->orders - Order[] - contains the associated orders
      */
 
     /**
@@ -43,6 +44,7 @@ class User extends Authenticatable
         'email',
         'password',
         'balance',
+        'role',
     ];
 
     /**
@@ -156,5 +158,20 @@ class User extends Authenticatable
     public function setReviews(Collection $reviews): void
     {
         $this->reviews = $reviews;
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function setOrders(Collection $orders): void
+    {
+        $this->orders = $orders;
     }
 }

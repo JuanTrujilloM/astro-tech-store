@@ -1,15 +1,9 @@
-<!--
-  Author: Juan Esteban Trujillo Montes
-  Description: View responsible for showing product details and managing reviews
--->
-
 @extends('layouts.app')
-
 @section('title', $viewData['product']->getName() . ' - ' . __('messages.layout.title_default'))
-
 @section('content')
+
   <div class="row mb-3">
-    <div class="col-12 d-flex justify-content-between align-items-center flex-wrap gap-2">
+    <div class="col-12 product-detail-header">
       <h4 class="fw-bold mb-0">{{ __('messages.product.details_title') }}</h4>
       <a href="{{ route('product.index') }}" class="btn btn-secondary btn-sm">
         <i class="bi bi-arrow-left me-1"></i>{{ __('messages.product.back_to_products') }}
@@ -24,9 +18,9 @@
           <img src="{{ asset('storage/' . $viewData['product']->getImage()) }}"
             class="img-fluid h-100 w-100 product-detail-img" alt="{{ $viewData['product']->getName() }}">
         @else
-          <div class="d-flex align-items-center justify-content-center h-100 bg-light product-detail-no-img">
-            <div class="text-center text-muted">
-              <i class="bi bi-image fs-1 d-block mb-2"></i>
+          <div class="h-100 bg-light product-detail-no-img">
+            <div class="product-detail-no-img-inner text-muted">
+              <i class="bi bi-image fs-1"></i>
               <span>{{ __('messages.admin.no_image') }}</span>
             </div>
           </div>
@@ -42,7 +36,7 @@
           </p>
 
           <div class="product-detail-meta mt-4 pt-3">
-            <div class="d-flex flex-wrap justify-content-between align-items-end gap-3">
+            <div class="product-detail-meta-row">
               <div>
                 <small class="text-muted d-block">{{ __('messages.admin.price') }}</small>
                 <span
@@ -71,7 +65,7 @@
                 @endif
               </div>
 
-              <div class="text-sm-end">
+              <div class="product-detail-meta-stock">
                 @if ($viewData['product']->getStock() > 0)
                   <span class="product-stock-pill in-stock">{{ __('messages.product.in_stock') }}</span>
                 @else
@@ -79,6 +73,24 @@
                 @endif
               </div>
             </div>
+
+            @if ($viewData['product']->getStock() > 0)
+              <div class="product-detail-add-cart mt-4">
+                <p class="card-text mb-2"><small class="text-muted">{{ __('messages.product.add_to_cart') }}</small></p>
+                <form method="POST" action="{{ route('cart.add', ['product' => $viewData['product']->getId()]) }}"
+                  class="product-detail-add-cart-form">
+                  @csrf
+                  <div class="input-group">
+                    <span class="input-group-text">{{ __('messages.product.quantity') }}</span>
+                    <input type="number" min="1" class="form-control quantity-input" name="quantity"
+                      value="1" aria-label="{{ __('messages.product.quantity') }}">
+                  </div>
+                  <button class="btn btn-primary" type="submit">
+                    <i class="bi bi-cart-plus me-1"></i>{{ __('messages.product.add_to_cart') }}
+                  </button>
+                </form>
+              </div>
+            @endif
           </div>
         </div>
       </div>
@@ -86,7 +98,7 @@
   </div>
 
   @if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+    <div class="alert alert-success alert-dismissible fade show alert-flash" role="alert">
       {{ session('success') }}
       <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
@@ -113,7 +125,7 @@
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
-              <div class="mb-3">
+              <div class="form-group">
                 <label for="description" class="form-label">{{ __('messages.product.review_description') }}</label>
                 <textarea name="description" id="description" rows="3"
                   class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
@@ -121,7 +133,7 @@
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
-              <div class="text-center">
+              <div class="text-center mt-3">
                 <button type="submit" class="btn btn-danger">{{ __('messages.product.submit_review') }}</button>
               </div>
             </form>
@@ -133,19 +145,20 @@
     </div>
   </div>
 
-  <div class="card border-0 shadow-sm mt-4">
-    <div class="card-body p-4">
-      <h5 class="mb-3 text-center">{{ __('messages.admin.reviews') }}</h5>
+  <div class="card border-0 shadow-sm card-section">
+    <div class="card-body">
+      <h5 class="card-section-title">{{ __('messages.admin.reviews') }}</h5>
 
       @if ($viewData['product']->reviews_count > 0)
-        <div class="row row-cols-1 row-cols-lg-3 g-3">
+        <div class="reviews-grid">
           @foreach ($viewData['product']->getReviews() as $review)
             <div class="col">
               <article class="product-review-card h-100">
                 <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
                   <div>
                     <div class="small fw-semibold mb-1 text-dark">
-                      {{ __('messages.product.review_by_user', ['name' => $review->getUser()->getName()]) }}</div>
+                      {{ __('messages.product.review_by_user', ['name' => $review->getUser()?->getName() ?? '']) }}
+                    </div>
                     <div class="product-review-stars mb-1">
                       @for ($i = 1; $i <= 5; $i++)
                         @if ($i <= $review->getRating())
@@ -187,8 +200,9 @@
           @endforeach
         </div>
       @else
-        <p class="mb-0 text-muted">{{ __('messages.product.no_reviews') }}</p>
+        <p class="mb-0 text-muted text-center">{{ __('messages.product.no_reviews') }}</p>
       @endif
     </div>
   </div>
+
 @endsection
