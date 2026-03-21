@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('title', __('messages.admin.title'))
 @section('page_title', __('messages.admin.dashboard'))
-
 @section('content')
 
   <div class="row mb-4">
@@ -20,39 +19,39 @@
   <div class="row g-3 mb-4">
     <div class="col-12 col-md-6 col-xl-3">
       <div class="card border-0 shadow-sm h-100">
-        <div class="card-body">
-          <p class="text-muted mb-2">{{ __('messages.admin.products') }}</p>
-          <h3 class="mb-0">0</h3>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-xl-3">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body">
-          <p class="text-muted mb-2">{{ __('messages.admin.orders') }}</p>
-          <h3 class="mb-0">0</h3>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-xl-3">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body">
+        <div class="card-body text-center">
           <p class="text-muted mb-2">{{ __('messages.admin.users') }}</p>
-          <h3 class="mb-0">0</h3>
+          <h3 class="mb-0">{{ $viewData['users'] }}</h3>
         </div>
       </div>
     </div>
 
     <div class="col-12 col-md-6 col-xl-3">
       <div class="card border-0 shadow-sm h-100">
-        <div class="card-body">
+        <div class="card-body text-center">
+          <p class="text-muted mb-2">{{ __('messages.admin.products') }}</p>
+          <h3 class="mb-0">{{ $viewData['products'] }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body text-center">
+          <p class="text-muted mb-2">{{ __('messages.admin.orders') }}</p>
+          <h3 class="mb-0">{{ $viewData['orders'] }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body text-center">
           <p class="text-muted mb-2">{{ __('messages.admin.reviews') }}</p>
-          <h3 class="mb-0">0</h3>
+          <h3 class="mb-0">{{ $viewData['reviews'] }}</h3>
         </div>
       </div>
     </div>
   </div>
-
+  
 @endsection
