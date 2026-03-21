@@ -12,14 +12,17 @@ class Order extends Model
     /**
      * ORDER ATTRIBUTES
      * $this->attributes['id'] - int - contains the order primary key (id)
-     * $this->attributes['total'] - string - contains the order name
      * $this->attributes['user_id'] - int - contains the referenced user id
-     * $this->attributes['created_at'] - timestamp - contains the order creation date
-     * $this->attributes['updated_at'] - timestamp - contains the order update date
+     * $this->attributes['total'] - int - contains the order total price
+     * $this->attributes['status'] - string - contains the order status (pending, completed, cancelled)
+     * $this->attributes['can_be_cancelled'] - bool - contains whether the order can be cancelled or not
+     * $this->attributes['created_at'] - string - contains the order creation date
+     * $this->attributes['updated_at'] - string - contains the order update date
      * $this->user - User - contains the associated User
      * $this->items - Item[] - contains the associated items
      */
-    
+    protected $fillable = ['user_id', 'total', 'status', 'can_be_cancelled'];
+
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -35,11 +38,6 @@ class Order extends Model
         $this->attributes['user_id'] = $userId;
     }
 
-    public function getCreatedAt(): string
-    {
-        return $this->attributes['created_at'];
-    }
-
     public function getTotal(): int
     {
         return $this->attributes['total'];
@@ -48,6 +46,36 @@ class Order extends Model
     public function setTotal(int $total): void
     {
         $this->attributes['total'] = $total;
+    }
+
+    public function getStatus(): string
+    {
+        return $this->attributes['status'];
+    }
+
+    public function setStatus(string $status): void
+    {
+        $this->attributes['status'] = $status;
+    }
+
+    public function getCanBeCancelled(): bool
+    {
+        return (bool) $this->attributes['can_be_cancelled'];
+    }
+
+    public function setCanBeCancelled(bool $canBeCancelled): void
+    {
+        $this->attributes['can_be_cancelled'] = $canBeCancelled;
+    }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
     }
 
     public function user(): BelongsTo
@@ -63,24 +91,6 @@ class Order extends Model
     public function setUser(User $user): void
     {
         $this->user = $user;
-    }
-
-    public function isCancelable(): bool
-    {
-        return (bool) $this->attributes['can_be_cancelled'] && ($this->attributes['status'] ?? null) === 'pending';
-    }
-
-    public function cancelIfPossible(): bool
-    {
-        if (! $this->isCancelable()) {
-            return false;
-        }
-
-        $this->attributes['status'] = 'cancelled';
-        $this->attributes['can_be_cancelled'] = false;
-        $this->save();
-
-        return true;
     }
 
     public function items(): HasMany
