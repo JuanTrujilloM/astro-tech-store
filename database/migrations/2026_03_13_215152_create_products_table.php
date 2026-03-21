@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Andres Perez Quinchia
+ * Description: Migration responsible for creating the 'products' table in the database
+ */
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
