@@ -164,6 +164,11 @@ return [
         'quantity' => 'Cantidad',
         'login_to_review' => 'Inicia sesion para escribir una reseña.',
         'review_by_user' => 'Por :name',
+        'search_placeholder' => 'Buscar productos…',
+        'search' => 'Buscar',
+        'search_clear' => 'Limpiar',
+        'search_no_results' => 'No hay productos que coincidan con tu búsqueda.',
+        'search_query_attribute' => 'búsqueda',
     ],
 
     'cart' => [

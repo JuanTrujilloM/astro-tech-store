@@ -7,15 +7,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SearchProductsRequest;
 use App\Models\Product;
 use Illuminate\View\View;
 
 class ProductController extends Controller
 {
-    public function index(): View
+    public function index(SearchProductsRequest $request): View
     {
+        $validated = $request->validated();
+        $product_search = trim((string) ($validated['product_search'] ?? ''));
+
+        $query = Product::query()
+            ->withAvg('reviews', 'rating')
+            ->withCount('reviews');
+
+        if ($product_search !== '') {
+            $query->where(function ($sub) use ($product_search) {
+                $sub->where('name', 'like', '%'.$product_search.'%')
+                    ->orWhere('description', 'like', '%'.$product_search.'%');
+            });
+        }
+
         $viewData = [];
-        $viewData['products'] = Product::withAvg('reviews', 'rating')->withCount('reviews')->get();
+        $viewData['products'] = $query->get();
+        $viewData['product_search'] = $product_search;
 
         return view('product.index')->with('viewData', $viewData);
     }
