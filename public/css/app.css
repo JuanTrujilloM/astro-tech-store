@@ -1,0 +1,350 @@
+:root {
+    --color-black: #0b0b0b;
+    --color-red: #ff1a1a;
+    --color-gray: #bfbfbf;
+    --color-dark-red: #8b0000;
+    --color-white: #ffffff;
+    --font-primary: "Berlin Sans FB Demi";
+    --font-secondary: "Helvetica";
+}
+
+body {
+    background-color: #f2f2f2;
+    color: var(--color-black);
+    font-family: var(--font-primary);
+}
+
+.bg-secondary {
+    background-color: var(--color-black) !important;
+}
+
+.copyright {
+    background-color: var(--color-black);
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.bg-primary {
+    background-color: var(--color-dark-red) !important;
+}
+
+.masthead {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+}
+
+nav {
+    font-weight: 700;
+}
+
+.navbar-brand-logo {
+    height: 58px;
+    width: auto;
+    max-width: 200px;
+    display: block;
+    object-fit: contain;
+}
+
+.masthead h2,
+.masthead h5 {
+    font-weight: 300;
+}
+
+.img-card {
+    height: 18vw;
+    object-fit: cover;
+}
+
+.btn-primary {
+    background-color: var(--color-red) !important;
+    border-color: var(--color-red) !important;
+    color: var(--color-white) !important;
+}
+
+.btn-secondary {
+    background-color: var(--color-dark-red) !important;
+    border-color: var(--color-dark-red) !important;
+    color: var(--color-white) !important;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    background-color: var(--color-black) !important;
+    border-color: var(--color-black) !important;
+}
+
+.btn-outline-primary {
+    color: var(--color-dark-red) !important;
+    border-color: var(--color-dark-red) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-dark-red) !important;
+    border-color: var(--color-dark-red) !important;
+    color: var(--color-white) !important;
+}
+
+.bg-light {
+    background-color: var(--color-white) !important;
+}
+
+.border,
+.card,
+.rounded-4 {
+    border-color: var(--color-gray) !important;
+}
+
+.text-muted {
+    color: #6f6f6f !important;
+}
+
+.badge-top-1 {
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+.badge-top-2 {
+    background-color: var(--color-dark-red);
+    color: var(--color-white);
+}
+
+.badge-top-3 {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.star-gold {
+    color: gold;
+}
+.star-gray {
+    color: #ccc;
+}
+
+.max-width-900 {
+    max-width: 900px;
+}
+
+.max-width-800 {
+    max-width: 800px;
+}
+
+.icon-lg {
+    font-size: 48px;
+}
+
+.icon-md {
+    font-size: 20px;
+}
+
+.team-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 3px solid #6c757d;
+}
+
+.product-detail-meta {
+    border-top: 1px solid #e4e4e4;
+}
+
+.product-detail-price {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #dc3545;
+}
+
+.product-stock-pill {
+    display: inline-block;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.product-stock-pill.in-stock {
+    background: #e8f7ef;
+    color: #0f7a45;
+    border: 1px solid #bfe9d2;
+}
+
+.product-stock-pill.out-stock {
+    background: #ffeceb;
+    color: #b42318;
+    border: 1px solid #ffc8c5;
+}
+
+.product-review-card {
+    height: 100%;
+    padding: 1.25rem;
+    border: 1px solid #e4e4e4;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+    box-shadow: 0 10px 24px rgba(11, 11, 11, 0.04);
+}
+
+.product-review-stars {
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.product-review-quote {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f5f5f5;
+    color: var(--color-dark-red);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.product-review-text {
+    line-height: 1.7;
+}
+
+.product-detail-img {
+    object-fit: cover;
+    min-height: 280px;
+}
+
+.product-detail-no-img {
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-detail-no-img-inner {
+    text-align: center;
+}
+
+.product-detail-no-img-inner .bi-image {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.product-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.product-detail-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.product-detail-meta-stock {
+    text-align: right;
+}
+
+.product-detail-add-cart {
+    border-top: 1px solid #e4e4e4;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+}
+
+.product-detail-add-cart-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.product-detail-add-cart-form .quantity-input {
+    max-width: 5rem;
+}
+
+.review-form-wrapper {
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .review-form-wrapper {
+        max-width: 66.666667%;
+    }
+}
+
+@media (min-width: 992px) {
+    .review-form-wrapper {
+        max-width: 50%;
+    }
+}
+
+.review-form-wrapper .form-group {
+    margin-bottom: 1rem;
+}
+
+.reviews-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 992px) {
+    .reviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.product-review-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.product-review-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-section {
+    margin-top: 1.5rem;
+}
+
+.card-section .card-body {
+    padding: 1.5rem;
+}
+
+.card-section-title {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section-centered {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.alert-flash {
+    margin-top: 1.5rem;
+}
+
+/* Cart page */
+.cart-item-img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+}
+
+.cart-item-img-placeholder {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
