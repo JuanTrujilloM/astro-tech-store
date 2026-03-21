@@ -1,3 +1,8 @@
+<!--
+  Author: Juan Esteban Trujillo Montes
+  Description: View responsible for displaying the "About Us" page, providing information about the company's mission, values, and team members in a visually appealing and informative manner.
+-->
+
 @extends('layouts.app')
 @section('title', __('messages.about.title'))
 @section('content')

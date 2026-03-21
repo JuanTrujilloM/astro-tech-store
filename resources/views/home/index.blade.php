@@ -1,3 +1,8 @@
+<!--
+  Author: Juan Esteban Trujillo Montes
+  Description: View responsible for displaying the home page, showcasing featured products, top sellers, and recent reviews in a visually appealing and user-friendly manner, while also providing links to the "About Us" and "Contact Us" pages for more information about the company.
+-->
+
 @extends('layouts.app')
 @section('title', __('messages.home.title'))
 @section('content')

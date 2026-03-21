@@ -264,3 +264,11 @@
         max-width: 220px;
     }
 }
+
+.star-gold {
+    color: gold;
+}
+
+.star-gray {
+    color: #ccc;
+}

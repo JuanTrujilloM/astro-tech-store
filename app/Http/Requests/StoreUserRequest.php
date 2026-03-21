@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Juan Esteban Trujillo Montes
+ * Description: Form request for validating user data when creating or updating users in the admin panel, ensuring that the input meets the required criteria for name, email, password, balance, and role.
+ */
+
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;

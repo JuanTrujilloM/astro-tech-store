@@ -1,3 +1,8 @@
+<!--
+  Author: Juan Esteban Trujillo Montes
+  Description: View responsible for displaying the "Contact Us" page, providing users with the company's contact information, including email, phone number, location, and business hours in a clear and organized manner.
+-->
+
 @extends('layouts.app')
 @section('title', __('messages.contact.title'))
 @section('content')
