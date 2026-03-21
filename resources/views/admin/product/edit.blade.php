@@ -2,16 +2,12 @@
   Author: Andres Perez Quinchia
   Description: View responsible for managing products
 -->
-
 @extends('layouts.admin')
-
 @section('title', __('messages.admin.title'))
 @section('page_title', __('messages.admin.products'))
-
 @section('content')
 
   <div class="admin-product-page">
-
     @if ($errors->any())
       <div class="alert alert-danger" role="alert">
         <ul class="mb-0">

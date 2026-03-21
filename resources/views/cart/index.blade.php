@@ -1,8 +1,14 @@
 @extends('layouts.app')
-
 @section('title', __('messages.cart.title') . ' - ' . __('messages.layout.title_default'))
 @section('subtitle', __('messages.cart.subtitle'))
 @section('content')
+
+  @if (session('error'))
+    <div class="alert alert-danger mb-4" role="alert">
+      {{ session('error') }}
+    </div>
+  @endif
+
   <div class="row mb-3">
     <div class="col-12 d-flex justify-content-between align-items-center flex-wrap gap-2">
       <h4 class="fw-bold mb-0">{{ __('messages.cart.title') }}</h4>
@@ -85,4 +91,5 @@
       </div>
     </div>
   @endif
+
 @endsection
