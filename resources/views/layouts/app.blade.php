@@ -26,13 +26,13 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
         <div class="navbar-nav ms-auto">
-          <a class="nav-link active" href="{{ route('home.index') }}">{{ __('messages.layout.nav.home') }}</a>
-          <a class="nav-link active" href="{{ route('home.about') }}">{{ __('messages.layout.nav.about') }}</a>
-          <a class="nav-link active" href="{{ route('home.contact') }}">{{ __('messages.layout.nav.contact') }}</a>
+          <a class="nav-link {{ request()->routeIs('home.index') ? 'active' : '' }}" href="{{ route('home.index') }}">{{ __('messages.layout.nav.home') }}</a>
+          <a class="nav-link {{ request()->routeIs('home.about') ? 'active' : '' }}" href="{{ route('home.about') }}">{{ __('messages.layout.nav.about') }}</a>
+          <a class="nav-link {{ request()->routeIs('home.contact') ? 'active' : '' }}" href="{{ route('home.contact') }}">{{ __('messages.layout.nav.contact') }}</a>
           <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-          <a class="nav-link active" href="#">{{ __('messages.layout.nav.products') }}</a>
-          <a class="nav-link active" href="#">{{ __('messages.layout.nav.cart') }}</a>
-          <a class="nav-link active" href="#">{{ __('messages.layout.nav.orders') }}</a>
+          <a class="nav-link {{ request()->routeIs('product.*') ? 'active' : '' }}" href="{{ route('product.index') }}">{{ __('messages.layout.nav.products') }}</a>
+          <a class="nav-link {{ request()->routeIs('cart.*') ? 'active' : '' }}" href="{{ route('cart.index') }}">{{ __('messages.layout.nav.cart') }}</a>
+          <a class="nav-link {{ request()->routeIs('order.*') ? 'active' : ''}}" href="{{ route('order.index') }}">{{ __('messages.layout.nav.orders') }}</a>
           <div class="vr bg-white mx-2 d-none d-lg-block"></div>
 
           <li class="nav-item dropdown ms-2">

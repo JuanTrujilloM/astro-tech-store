@@ -2,12 +2,17 @@
   Author: Juan Esteban Trujillo Montes
   Description: View responsible for showing the list of products available in the store
 -->
-
 @extends('layouts.app')
-
 @section('title', __('messages.layout.nav.products') . ' - ' . __('messages.layout.title_default'))
-
 @section('content')
+
+  @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{ session('success') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+  @endif
+
   <div class="row mb-3">
     <div class="col">
       <h4 class="fw-bold">{{ __('messages.admin.product_list') }}</h4>
@@ -70,4 +75,5 @@
       <p class="mt-3 text-muted">{{ __('messages.admin.no_products_registered') }}</p>
     </div>
   @endif
+
 @endsection

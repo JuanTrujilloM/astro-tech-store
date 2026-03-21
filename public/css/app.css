@@ -206,4 +206,137 @@ nav {
 
 .product-detail-no-img {
     min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-detail-no-img-inner {
+    text-align: center;
+}
+
+.product-detail-no-img-inner .bi-image {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.product-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.product-detail-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.product-detail-meta-stock {
+    text-align: right;
+}
+
+.product-detail-add-cart {
+    border-top: 1px solid #e4e4e4;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+}
+
+.product-detail-add-cart-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.product-detail-add-cart-form .quantity-input {
+    max-width: 5rem;
+}
+
+.review-form-wrapper {
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .review-form-wrapper {
+        max-width: 66.666667%;
+    }
+}
+
+@media (min-width: 992px) {
+    .review-form-wrapper {
+        max-width: 50%;
+    }
+}
+
+.review-form-wrapper .form-group {
+    margin-bottom: 1rem;
+}
+
+.reviews-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 992px) {
+    .reviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.product-review-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.product-review-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-section {
+    margin-top: 1.5rem;
+}
+
+.card-section .card-body {
+    padding: 1.5rem;
+}
+
+.card-section-title {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section-centered {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.alert-flash {
+    margin-top: 1.5rem;
+}
+
+/* Cart page */
+.cart-item-img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+}
+
+.cart-item-img-placeholder {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

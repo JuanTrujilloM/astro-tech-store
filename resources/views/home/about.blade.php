@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', __('messages.about.title'))
 @section('content')
+
   <section class="mb-5">
     <div class="p-5 rounded-4 bg-light border text-center">
       <h1 class="display-6 fw-bold mb-3">{{ __('messages.about.hero_title') }}</h1>
@@ -88,4 +89,5 @@
       </p>
     </div>
   </section>
+
 @endsection
