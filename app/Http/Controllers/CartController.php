@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddCartRequest;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\Product;
@@ -39,69 +40,64 @@ class CartController extends Controller
         return view('cart.index')->with('viewData', $viewData);
     }
 
-    public function add(Request $request, int $product)
+    public function add(AddCartRequest $request, int $product): RedirectResponse
     {
-        $products = $request->session()->get('products');
         $quantity = $request->input('quantity');
-        if ($products) {
-            $products[$product] = $quantity;
+        $products = $request->session()->get('products', []);
+
+        if (isset($products[$product])) {
+            $products[$product] += $quantity;
         } else {
-            $products = [];
             $products[$product] = $quantity;
         }
+
         $request->session()->put('products', $products);
 
         return redirect()->route('product.index');
     }
 
-    public function delete(Request $request)
+    public function delete(Request $request): RedirectResponse
     {
         $request->session()->forget('products');
 
-        return back();
+        return redirect()->route('product.index');
     }
 
     public function purchase(Request $request): RedirectResponse
     {
         $productsInSession = $request->session()->get('products');
 
-        if ($productsInSession) {
-            $userId = Auth::user()->getId();
-
-            $order = new Order;
-            $order->setUserId($userId);
-            $order->status = 'pending';
-            $order->setTotal(0);
-            $order->save();
-
-            $total = 0;
-            $productsInCart = Product::findMany(array_keys($productsInSession));
-
-            foreach ($productsInCart as $product) {
-                $quantity = $productsInSession[$product->getId()];
-
-                $item = new Item;
-                $item->setQuantity($quantity);
-                $item->setPrice($product->getPrice());
-                $item->setProductId($product->getId());
-                $item->setOrderId($order->id);
-                $item->save();
-
-                $total += $product->getPrice() * $quantity;
-            }
-
-            $order->setTotal($total);
-            $order->save();
-
-            $newBalance = Auth::user()->getBalance() - $total;
-            Auth::user()->setBalance($newBalance);
-            Auth::user()->save();
-
-            $request->session()->forget('products');
-
-            return redirect()->route('product.index')->with('success', __('messages.cart.purchase_success'));
+        if (! $productsInSession) {
+            return redirect()->route('cart.index');
         }
 
-        return redirect()->route('cart.index');
+        $productsInCart = Product::findMany(array_keys($productsInSession));
+        $total = Product::sumPricesByQuantities($productsInCart, $productsInSession);
+
+        if (Auth::user()->getBalance() < $total) {
+            return redirect()->route('cart.index')->with('error', __('messages.cart.insufficient_balance'));
+        }
+
+        $order = Order::create([
+            'user_id' => Auth::id(),
+            'status' => 'pending',
+            'total' => $total,
+        ]);
+
+        foreach ($productsInCart as $product) {
+            Item::create([
+                'quantity' => $productsInSession[$product->getId()],
+                'price' => $product->getPrice(),
+                'product_id' => $product->getId(),
+                'order_id' => $order->getId(),
+            ]);
+        }
+
+        Auth::user()->setBalance(Auth::user()->getBalance() - $total);
+        Auth::user()->save();
+
+        $request->session()->forget('products');
+
+        return redirect()->route('product.index')->with('success', __('messages.cart.purchase_success'));
     }
 }
