@@ -16,7 +16,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('home.index') }}">
-        <img src="{{ asset('images/app/logapp.jpg') }}" alt="logo" height="58">
+        <img src="{{ asset('images/app/logoapp.svg') }}" alt="" class="navbar-brand-logo">
         {{ __('messages.layout.brand') }}
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Juan Sebastián Lizcano Urrea
+ * Description: Controller responsible for managing Cart
+ */
+
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddCartRequest;

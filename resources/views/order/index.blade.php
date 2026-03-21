@@ -1,3 +1,7 @@
+<!--
+  Author: Juan Sebastián Lizcano Urrea
+  Description: View responsible for showing the list of orders made by a user
+-->
 @extends('layouts.app')
 @section('title', __('messages.orders.my_orders_title'))
 @section('content')
