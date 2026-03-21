@@ -32,7 +32,7 @@
           <div class="vr bg-white mx-2 d-none d-lg-block"></div>
           <a class="nav-link {{ request()->routeIs('product.*') ? 'active' : '' }}" href="{{ route('product.index') }}">{{ __('messages.layout.nav.products') }}</a>
           <a class="nav-link {{ request()->routeIs('cart.*') ? 'active' : '' }}" href="{{ route('cart.index') }}">{{ __('messages.layout.nav.cart') }}</a>
-          <a class="nav-link {{ request()->routeIs('my-account.orders') ? 'active' : ''}}" href="{{ route('my-account.orders') }}">{{ __('messages.layout.nav.orders') }}</a>
+          <a class="nav-link {{ request()->routeIs('order.*') ? 'active' : ''}}" href="{{ route('order.index') }}">{{ __('messages.layout.nav.orders') }}</a>
           <div class="vr bg-white mx-2 d-none d-lg-block"></div>
 
           <li class="nav-item dropdown ms-2">

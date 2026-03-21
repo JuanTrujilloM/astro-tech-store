@@ -1,8 +1,7 @@
 @extends('layouts.app')
-
 @section('title', $viewData['product']->getName() . ' - ' . __('messages.layout.title_default'))
-
 @section('content')
+
   <div class="row mb-3">
     <div class="col-12 product-detail-header">
       <h4 class="fw-bold mb-0">{{ __('messages.product.details_title') }}</h4>
@@ -83,8 +82,8 @@
                   @csrf
                   <div class="input-group">
                     <span class="input-group-text">{{ __('messages.product.quantity') }}</span>
-                    <input type="number" min="1" max="10" class="form-control quantity-input"
-                      name="quantity" value="1" aria-label="{{ __('messages.product.quantity') }}">
+                    <input type="number" min="1" class="form-control quantity-input" name="quantity"
+                      value="1" aria-label="{{ __('messages.product.quantity') }}">
                   </div>
                   <button class="btn btn-primary" type="submit">
                     <i class="bi bi-cart-plus me-1"></i>{{ __('messages.product.add_to_cart') }}
@@ -205,4 +204,5 @@
       @endif
     </div>
   </div>
+
 @endsection
