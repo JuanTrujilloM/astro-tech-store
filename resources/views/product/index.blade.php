@@ -13,9 +13,25 @@
     </div>
   @endif
 
-  <div class="row mb-3">
-    <div class="col">
-      <h4 class="fw-bold">{{ __('messages.admin.product_list') }}</h4>
+  <div class="row mb-3 align-items-center">
+    <div class="col-md-6 mb-2 mb-md-0">
+      <h4 class="fw-bold mb-0">{{ __('messages.admin.product_list') }}</h4>
+    </div>
+    <div class="col-md-6">
+      <form class="d-flex flex-wrap gap-2 justify-content-md-end" method="GET" action="{{ route('product.index') }}"
+        role="search">
+        <label class="visually-hidden">{{ __('messages.product.search_placeholder') }}</label>
+        <input type="search" name="product_search" id="product-search-product_search" value="{{ old('product_search', $viewData['product_search'] ?? '') }}"
+          class="form-control @error('product_search') is-invalid @enderror" placeholder="{{ __('messages.product.search_placeholder') }}"
+          maxlength="100" autocomplete="off">
+        <button type="submit" class="btn btn-primary">{{ __('messages.product.search') }}</button>
+        @if (!empty($viewData['product_search']))
+          <a href="{{ route('product.index') }}" class="btn btn-outline-secondary">{{ __('messages.product.search_clear') }}</a>
+        @endif
+        @error('product_search')
+          <div class="invalid-feedback d-block w-100">{{ $message }}</div>
+        @enderror
+      </form>
     </div>
   </div>
 
@@ -72,7 +88,13 @@
   @else
     <div class="text-center py-5">
       <i class="bi bi-box-seam fs-1 text-secondary"></i>
-      <p class="mt-3 text-muted">{{ __('messages.admin.no_products_registered') }}</p>
+      <p class="mt-3 text-muted">
+        @if (!empty($viewData['product_search']))
+          {{ __('messages.product.search_no_results') }}
+        @else
+          {{ __('messages.admin.no_products_registered') }}
+        @endif
+      </p>
     </div>
   @endif
 

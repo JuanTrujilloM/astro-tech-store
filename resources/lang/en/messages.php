@@ -165,6 +165,11 @@ return [
         'quantity' => 'Quantity',
         'login_to_review' => 'Log in to write a review.',
         'review_by_user' => 'By :name',
+        'search_placeholder' => 'Search products…',
+        'search' => 'Search',
+        'search_clear' => 'Clear',
+        'search_no_results' => 'No products match your search.',
+        'search_query_attribute' => 'search',
     ],
 
     'cart' => [
