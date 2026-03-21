@@ -2,45 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreOrderRequest;
 use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class OrderController extends Controller
 {
-    /**
-     * Author: Juan Sebastián Lizcano Urrea
-     * Description: Controller responsible for managing orders
-     */
-    
     public function index(): View
     {
-        return view('orders.index');
-    }
+        $orders = Order::with('items.product')->where('user_id', Auth::id())->get();
 
-    public function list(): View
-    {
         $viewData = [];
-        $viewData['Orders'] = Order::all();
+        $viewData['orders'] = $orders;
 
-        return view('orders.list')->with('viewData', $viewData);
+        return view('order.index')->with('viewData', $viewData);
     }
 
-    public function show(string $id): View
+    public function show(int $order): View
     {
+        $order = Order::with('items.product')->where('id', $order)->where('user_id', Auth::id())->firstOrFail();
+
         $viewData = [];
-        $product = Order::findOrFail($id);
-        $viewData['Order'] = $product;
+        $viewData['order'] = $order;
 
-        return view('orders.show')->with('viewData', $viewData);
+        return view('order.show')->with('viewData', $viewData);
     }
 
-    public function delete(string $id): RedirectResponse
+    public function cancel(int $order): RedirectResponse
     {
-        $order = Order::findOrFail($id);
-        $order->delete();
+        $order = Order::where('id', $order)->where('user_id', Auth::id())->firstOrFail();
 
-        return redirect()->route('orders.list')->with('success', 'Order deleted successfully.');
+        if ($order->getCanBeCancelled()) {
+            $order->setStatus('cancelled');
+            $order->save();
+        }
+
+        return redirect()->route('order.index');
     }
 }
