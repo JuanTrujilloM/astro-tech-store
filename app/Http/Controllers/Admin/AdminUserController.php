@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Author: Andres Perez Quinchia
- * Description: Controller responsible for managing users
+ * Author: Juan Esteban Trujillo Montes
+ * Description: Controller for managing users in the admin panel, allowing administrators to view, create, edit, and delete users.
  */
 
 namespace App\Http\Controllers\Admin;
