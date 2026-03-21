@@ -31,28 +31,28 @@
           </li>
 
           <li class="nav-item mb-2">
-            <a href="#" class="nav-link admin-nav-link">
+            <a href="{{ route('admin.user.index') }}" class="nav-link admin-nav-link">
+              <i class="bi bi-people me-2"></i>
+              {{ __('messages.admin.users') }}
+            </a>
+          </li>
+
+          <li class="nav-item mb-2">
+            <a href="{{ route('admin.product.index') }}" class="nav-link admin-nav-link">
               <i class="bi bi-box-seam me-2"></i>
               {{ __('messages.admin.products') }}
             </a>
           </li>
 
           <li class="nav-item mb-2">
-            <a href="#" class="nav-link admin-nav-link">
+            <a href="{{ route('admin.order.index') }}" class="nav-link admin-nav-link">
               <i class="bi bi-cart3 me-2"></i>
               {{ __('messages.admin.orders') }}
             </a>
           </li>
 
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link admin-nav-link">
-              <i class="bi bi-people me-2"></i>
-              {{ __('messages.admin.users') }}
-            </a>
-          </li>
-
           <li class="nav-item mb-3">
-            <a href="#" class="nav-link admin-nav-link">
+            <a href="{{ route('admin.review.index') }}" class="nav-link admin-nav-link">
               <i class="bi bi-star me-2"></i>
               {{ __('messages.admin.reviews') }}
             </a>
