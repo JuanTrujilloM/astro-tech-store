@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Juan Sebastián Lizcano Urrea
+ * Description: Request responsible for validating the Add Cart request
+ */
+
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;

@@ -38,6 +38,14 @@ nav {
     font-weight: 700;
 }
 
+.navbar-brand-logo {
+    height: 58px;
+    width: auto;
+    max-width: 200px;
+    display: block;
+    object-fit: contain;
+}
+
 .masthead h2,
 .masthead h5 {
     font-weight: 300;

@@ -1,3 +1,7 @@
+<!--
+  Author: Juan Sebastián Lizcano Urrea
+  Description: View responsible for showing the list of products in the cart
+-->
 @extends('layouts.app')
 @section('title', __('messages.cart.title') . ' - ' . __('messages.layout.title_default'))
 @section('subtitle', __('messages.cart.subtitle'))

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Juan Sebastián Lizcano Urrea
+ * Description: Model responsible for managing Orders
+ */
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;

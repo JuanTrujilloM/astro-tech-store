@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Juan Sebastián Lizcano Urrea
+ * Description: Migration responsible for creating the items table
+ */
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

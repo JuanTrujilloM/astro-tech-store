@@ -2,6 +2,11 @@
 
 namespace App\Models;
 
+/**
+ * Author: Juan Sebastián Lizcano Urrea
+ * Description: Model responsible for managing Items
+ */
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 

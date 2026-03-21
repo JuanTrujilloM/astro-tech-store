@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author: Juan Esteban Trujillo Montes
+ * Author: Juan Sebastián Lizcano Urrea
  * Description: Request class responsible for validating the order status update
  */
 

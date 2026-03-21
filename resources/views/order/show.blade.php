@@ -1,3 +1,7 @@
+<!--
+  Author: Juan Sebastián Lizcano Urrea
+  Description: View responsible for showing the details of an order made by a user
+-->
 @extends('layouts.app')
 @section('title', __('messages.orders.order_prefix') . $viewData['order']->getId())
 @section('content')
