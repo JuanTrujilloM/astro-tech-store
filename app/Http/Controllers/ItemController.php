@@ -11,8 +11,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreItemRequest;
 use App\Models\Item;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\View\View;
 
 class ItemController extends Controller
 {
