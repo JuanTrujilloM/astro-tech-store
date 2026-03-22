@@ -76,8 +76,70 @@
     </section>
   @endif
 
-  <div class="text-center mb-3">
-    <h4 class="fw-bold">{{ __('messages.admin.product_list') }}</h4>
+  <div class="row mb-3">
+    <div class="col-12 text-center">
+      <h4 class="fw-bold mb-3">{{ __('messages.admin.product_list') }}</h4>
+    </div>
+    <div class="col-12">
+      <div class="card shadow-sm border-0 product-filters-card">
+        <div class="card-body text-center">
+          <h6 class="card-subtitle mb-3 text-muted">{{ __('messages.product.filters_title') }}</h6>
+          <form method="GET" action="{{ route('product.index') }}" class="product-filters-form" role="search">
+            <div class="row g-3 align-items-end justify-content-center">
+              <div class="col-12 col-md-6 col-lg-4">
+                <label for="product-search-product_search" class="form-label small mb-1">{{ __('messages.product.search_placeholder') }}</label>
+                <input type="search" name="product_search" id="product-search-product_search"
+                  value="{{ old('product_search', $viewData['product_search'] ?? '') }}"
+                  class="form-control @error('product_search') is-invalid @enderror"
+                  placeholder="{{ __('messages.product.search_placeholder') }}" maxlength="100" autocomplete="off">
+                @error('product_search')
+                  <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-6 col-md-3 col-lg-2">
+                <label for="filter-price-min" class="form-label small mb-1">{{ __('messages.product.filter_price_min') }}</label>
+                <input type="text" name="price_min" id="filter-price-min" min="0" step="1"
+                  value="{{ old('price_min', $viewData['price_min'] ?? '') }}"
+                  class="form-control @error('price_min') is-invalid @enderror" placeholder="0">
+                @error('price_min')
+                  <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-6 col-md-3 col-lg-2">
+                <label for="filter-price-max" class="form-label small mb-1">{{ __('messages.product.filter_price_max') }}</label>
+                <input type="text" name="price_max" id="filter-price-max" min="0" step="1"
+                  value="{{ old('price_max', $viewData['price_max'] ?? '') }}"
+                  class="form-control @error('price_max') is-invalid @enderror" placeholder="0">
+                @error('price_max')
+                  <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-12 col-md-6 col-lg-2">
+                <label for="filter-min-rating" class="form-label small mb-1">{{ __('messages.product.filter_min_rating') }}</label>
+                <select name="min_rating" id="filter-min-rating"
+                  class="form-select @error('min_rating') is-invalid @enderror">
+                  <option value="">{{ __('messages.product.filter_min_rating_any') }}</option>
+                  @foreach ([1, 2, 3, 4, 5] as $stars)
+                    <option value="{{ $stars }}" @selected(old('min_rating', $viewData['min_rating'] ?? '') == $stars)>
+                      {{ $stars }} {{ __('messages.product.stars') }}
+                    </option>
+                  @endforeach
+                </select>
+                @error('min_rating')
+                  <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-12 col-lg-2 d-flex flex-wrap gap-2 justify-content-center">
+                <button type="submit" class="btn btn-primary">{{ __('messages.product.filter_apply') }}</button>
+                @if (!empty($viewData['has_active_filters']))
+                  <a href="{{ route('product.index') }}" class="btn btn-outline-secondary">{{ __('messages.product.search_clear') }}</a>
+                @endif
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 
   @if (count($viewData['products']) > 0)
@@ -154,7 +216,13 @@
   @else
     <div class="text-center py-5">
       <i class="bi bi-box-seam fs-1 text-secondary"></i>
-      <p class="mt-3 text-muted">{{ __('messages.admin.no_products_registered') }}</p>
+      <p class="mt-3 text-muted">
+        @if (!empty($viewData['has_active_filters']))
+          {{ __('messages.product.filters_no_results') }}
+        @else
+          {{ __('messages.admin.no_products_registered') }}
+        @endif
+      </p>
     </div>
   @endif
 
