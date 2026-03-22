@@ -36,7 +36,8 @@
                     {{ __('messages.home.top_sellers.top_' . ($index + 1)) }}
                   </span>
                   <h5 class="card-title">{{ $topProduct->getName() }}</h5>
-                  <p class="text-muted small">{{ $topProduct->items_sum_quantity }} {{ __('messages.product.total_sold') }}</p>
+                  <p class="text-muted small">{{ $topProduct->items_sum_quantity }}
+                    {{ __('messages.product.total_sold') }}</p>
                   <div class="mb-2 small">
                     @if ($topProduct->reviews_count > 0)
                       <span class="fw-semibold">
@@ -59,8 +60,10 @@
                     @endif
                   </div>
                   <div class="mt-auto">
-                    <span class="fw-bold text-danger fs-5 d-block mb-2">${{ number_format($topProduct->getPrice(), 0, ',', '.') }}</span>
-                    <a href="{{ route('product.show', ['product' => $topProduct->getId()]) }}" class="btn btn-primary btn-sm">
+                    <span
+                      class="fw-bold text-danger fs-5 d-block mb-2">${{ number_format($topProduct->getPrice(), 0, ',', '.') }}</span>
+                    <a href="{{ route('product.show', ['product' => $topProduct->getId()]) }}"
+                      class="btn btn-primary btn-sm">
                       {{ __('messages.product.view_detail') }} <i class="bi bi-arrow-right ms-1"></i>
                     </a>
                   </div>
