@@ -16,6 +16,7 @@ class ProductController extends Controller
     {
         $viewData = [];
         $viewData['products'] = Product::withAvg('reviews', 'rating')->withCount('reviews')->get();
+        $viewData['topProducts'] = Product::getMostPurchased(3);
 
         return view('product.index')->with('viewData', $viewData);
     }
