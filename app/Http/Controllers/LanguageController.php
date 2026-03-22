@@ -3,7 +3,7 @@
 /**
  * Author: Juan Esteban Trujillo Montes
  * Description: Controller for managing language preferences, allowing users to switch between different locales in the application
-*/
+ */
 
 namespace App\Http\Controllers;
 

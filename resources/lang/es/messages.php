@@ -164,6 +164,8 @@ return [
         'quantity' => 'Cantidad',
         'login_to_review' => 'Inicia sesion para escribir una reseña.',
         'review_by_user' => 'Por :name',
+        'add_to_favorites' => 'Agregado a favoritos',
+        'remove_from_favorites' => 'Eliminado de favoritos',
     ],
 
     'cart' => [

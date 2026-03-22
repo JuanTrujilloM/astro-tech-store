@@ -8,14 +8,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ProductController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
         $viewData = [];
-        $viewData['products'] = Product::withAvg('reviews', 'rating')->withCount('reviews')->get();
+        $favorites = $request->session()->get('favorites', []);
+
+        $viewData['products'] = Product::withAvg('reviews', 'rating')
+            ->withCount('reviews')
+            ->get()
+            ->sortByDesc(function ($product) use ($favorites) {
+                return in_array($product->getId(), $favorites);
+            });
 
         return view('product.index')->with('viewData', $viewData);
     }

@@ -165,6 +165,8 @@ return [
         'quantity' => 'Quantity',
         'login_to_review' => 'Log in to write a review.',
         'review_by_user' => 'By :name',
+        'add_to_favorites' => 'Added to favorites',
+        'remove_from_favorites' => 'Removed from favorites',
     ],
 
     'cart' => [
