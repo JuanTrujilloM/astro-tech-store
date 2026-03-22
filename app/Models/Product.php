@@ -96,6 +96,21 @@ class Product extends Model
         return $this->attributes['updated_at'];
     }
 
+    public static function getMostPurchased(int $limit = 3): Collection
+    {
+        return Product::query()
+            ->withSum(['items' => function ($query) {
+                $query->whereHas('order', function ($orderQuery) {
+                    $orderQuery->where('status', '!=', 'cancelled');
+                });
+            }], 'quantity')
+            ->withAvg('reviews', 'rating')
+            ->withCount('reviews')
+            ->orderByDesc('items_sum_quantity')
+            ->take($limit)
+            ->get();
+    }
+
     public static function sumPricesByQuantities(Collection $products, array $productsInSession): int
     {
         $total = 0;

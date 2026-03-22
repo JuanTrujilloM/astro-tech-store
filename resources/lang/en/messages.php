@@ -165,6 +165,8 @@ return [
         'quantity' => 'Quantity',
         'login_to_review' => 'Log in to write a review.',
         'review_by_user' => 'By :name',
+        'most_purchased_title' => 'Top 3 Most Purchased',
+        'total_sold' => 'sold',
     ],
 
     'cart' => [
