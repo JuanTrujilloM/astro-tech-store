@@ -15,17 +15,10 @@ class ProductController extends Controller
 {
     public function index(SearchProductsRequest $request): View
     {
-        $validated = $request->validated();
-        $productSearch = trim((string) ($validated['product_search'] ?? ''));
-        $priceMin = isset($validated['price_min']) && $validated['price_min'] !== null
-            ? (int) $validated['price_min']
-            : null;
-        $priceMax = isset($validated['price_max']) && $validated['price_max'] !== null
-            ? (int) $validated['price_max']
-            : null;
-        $minRating = isset($validated['min_rating']) && $validated['min_rating'] !== null
-            ? (int) $validated['min_rating']
-            : null;
+        $productSearch = trim((string) $request->input('product_search', ''));
+        $priceMin = $request->input('price_min');
+        $priceMax = $request->input('price_max');
+        $minRating = $request->input('min_rating');
 
         $query = Product::query()
             ->withAvg('reviews', 'rating')
@@ -59,9 +52,9 @@ class ProductController extends Controller
         $viewData = [];
         $viewData['products'] = $products;
         $viewData['product_search'] = $productSearch;
-        $viewData['price_min'] = $priceMin !== null ? (string) $priceMin : '';
-        $viewData['price_max'] = $priceMax !== null ? (string) $priceMax : '';
-        $viewData['min_rating'] = $minRating !== null ? (string) $minRating : '';
+        $viewData['price_min'] = $priceMin !== null ? $priceMin : '';
+        $viewData['price_max'] = $priceMax !== null ? $priceMax : '';
+        $viewData['min_rating'] = $minRating !== null ? $minRating : '';
         $viewData['has_active_filters'] = $hasActiveFilters;
 
         return view('product.index')->with('viewData', $viewData);

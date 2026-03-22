@@ -27,28 +27,4 @@ class SearchProductsRequest extends FormRequest
         ];
     }
 
-    /**
-     * @return array<string, string>
-     */
-    public function attributes(): array
-    {
-        return [
-            'product_search' => __('messages.product.search_query_attribute'),
-            'price_min' => __('messages.product.filter_price_min_attribute'),
-            'price_max' => __('messages.product.filter_price_max_attribute'),
-            'min_rating' => __('messages.product.filter_min_rating_attribute'),
-        ];
-    }
-
-    public function withValidator($validator): void
-    {
-        $validator->after(function ($validator): void {
-            if ($this->filled('price_min') && $this->filled('price_max') && (int) $this->input('price_min') > (int) $this->input('price_max')) {
-                $validator->errors()->add(
-                    'price_max',
-                    __('messages.product.filter_price_invalid_range')
-                );
-            }
-        });
-    }
 }
