@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\View\View;
 
 class HomeController extends Controller
 {
     public function index(): View
     {
-        return view('home.index');
+        $viewData = [];
+        $viewData['topProducts'] = Product::getMostPurchased(3);
+
+        return view('home.index')->with('viewData', $viewData);
     }
 
     public function about(): View

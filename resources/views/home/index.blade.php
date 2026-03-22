@@ -47,33 +47,51 @@
       <small class="text-muted">{{ __('messages.home.top_sellers.caption') }}</small>
     </div>
     <div class="row g-3">
-      <div class="col-12 col-md-4">
-        <div class="p-4 rounded-4 border h-100 bg-light text-center">
-          <span class="badge badge-top-1 mb-2">{{ __('messages.home.top_sellers.top_1') }}</span>
-          <h3 class="h5 mb-2">{{ __('messages.home.top_sellers.placeholder_title') }}</h3>
-          <p class="text-muted mb-0">
-            {{ __('messages.home.top_sellers.first_description') }}
-          </p>
+      @forelse ($viewData['topProducts']->filter(fn ($p) => $p->items_sum_quantity > 0) as $index => $topProduct)
+        <div class="col-12 col-md-4">
+          <div class="p-4 rounded-4 border h-100 bg-light text-center">
+            <div class="mb-2">
+              <span class="badge badge-top-{{ $index + 1 }} fs-6 px-3 py-2">{{ __('messages.home.top_sellers.top_' . ($index + 1)) }}</span>
+            </div>
+            @if ($topProduct->getImage())
+              <img src="{{ asset('storage/' . $topProduct->getImage()) }}" class="rounded mb-2" style="height: 120px; object-fit: cover;" alt="{{ $topProduct->getName() }}">
+            @endif
+            <h3 class="h5 mb-2">{{ $topProduct->getName() }}</h3>
+            <p class="text-muted mb-2">${{ number_format($topProduct->getPrice(), 0, ',', '.') }}</p>
+            <a href="{{ route('product.show', ['product' => $topProduct->getId()]) }}" class="btn btn-primary btn-sm">
+              {{ __('messages.product.view_detail') }}
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="col-12 col-md-4">
-        <div class="p-4 rounded-4 border h-100 bg-light text-center">
-          <span class="badge badge-top-2 mb-2">{{ __('messages.home.top_sellers.top_2') }}</span>
-          <h3 class="h5 mb-2">{{ __('messages.home.top_sellers.placeholder_title') }}</h3>
-          <p class="text-muted mb-0">
-            {{ __('messages.home.top_sellers.second_description') }}
-          </p>
+      @empty
+        <div class="col-12 col-md-4">
+          <div class="p-4 rounded-4 border h-100 bg-light text-center">
+            <div class="mb-2">
+              <span class="badge badge-top-1 fs-6 px-3 py-2">{{ __('messages.home.top_sellers.top_1') }}</span>
+            </div>
+            <h3 class="h5 mb-2">{{ __('messages.home.top_sellers.placeholder_title') }}</h3>
+            <p class="text-muted mb-0">{{ __('messages.home.top_sellers.first_description') }}</p>
+          </div>
         </div>
-      </div>
-      <div class="col-12 col-md-4">
-        <div class="p-4 rounded-4 border h-100 bg-light text-center">
-          <span class="badge badge-top-3 mb-2">{{ __('messages.home.top_sellers.top_3') }}</span>
-          <h3 class="h5 mb-2">{{ __('messages.home.top_sellers.placeholder_title') }}</h3>
-          <p class="text-muted mb-0">
-            {{ __('messages.home.top_sellers.third_description') }}
-          </p>
+        <div class="col-12 col-md-4">
+          <div class="p-4 rounded-4 border h-100 bg-light text-center">
+            <div class="mb-2">
+              <span class="badge badge-top-2 fs-6 px-3 py-2">{{ __('messages.home.top_sellers.top_2') }}</span>
+            </div>
+            <h3 class="h5 mb-2">{{ __('messages.home.top_sellers.placeholder_title') }}</h3>
+            <p class="text-muted mb-0">{{ __('messages.home.top_sellers.second_description') }}</p>
+          </div>
         </div>
-      </div>
+        <div class="col-12 col-md-4">
+          <div class="p-4 rounded-4 border h-100 bg-light text-center">
+            <div class="mb-2">
+              <span class="badge badge-top-3 fs-6 px-3 py-2">{{ __('messages.home.top_sellers.top_3') }}</span>
+            </div>
+            <h3 class="h5 mb-2">{{ __('messages.home.top_sellers.placeholder_title') }}</h3>
+            <p class="text-muted mb-0">{{ __('messages.home.top_sellers.third_description') }}</p>
+          </div>
+        </div>
+      @endforelse
     </div>
   </section>
 

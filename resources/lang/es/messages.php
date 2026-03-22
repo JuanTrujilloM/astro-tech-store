@@ -164,6 +164,8 @@ return [
         'quantity' => 'Cantidad',
         'login_to_review' => 'Inicia sesion para escribir una reseña.',
         'review_by_user' => 'Por :name',
+        'most_purchased_title' => 'Top 3 Mas Comprados',
+        'total_sold' => 'vendidos',
     ],
 
     'cart' => [
