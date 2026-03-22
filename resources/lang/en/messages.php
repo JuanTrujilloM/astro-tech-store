@@ -167,6 +167,8 @@ return [
         'review_by_user' => 'By :name',
         'add_to_favorites' => 'Added to favorites',
         'remove_from_favorites' => 'Removed from favorites',
+        'most_purchased_title' => 'Top 3 Most Purchased',
+        'total_sold' => 'sold',
     ],
 
     'cart' => [

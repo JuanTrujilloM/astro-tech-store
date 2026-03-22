@@ -24,6 +24,8 @@ class ProductController extends Controller
             ->sortByDesc(function ($product) use ($favorites) {
                 return in_array($product->getId(), $favorites);
             });
+        
+        $viewData['topProducts'] = Product::getMostPurchased(3);
 
         return view('product.index')->with('viewData', $viewData);
     }
