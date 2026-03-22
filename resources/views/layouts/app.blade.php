@@ -1,3 +1,7 @@
+<!--
+  Author: Juan Esteban Trujillo Montes
+  Description: View responsible for providing the main layout for the application, including the navigation bar, header, footer, and a container for displaying the content of each page, while also supporting localization and responsive design.
+-->
 <!doctype html>
 <html lang="en">
 

@@ -1,3 +1,7 @@
+<!--
+  Author: Andres Perez Quinchia
+  Description: View responsible for showing the numbers of the different aspects relevant to the administrator
+-->
 @extends('layouts.admin')
 @section('title', __('messages.admin.title'))
 @section('page_title', __('messages.admin.dashboard'))
@@ -53,5 +57,5 @@
       </div>
     </div>
   </div>
-  
+
 @endsection

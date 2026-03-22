@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Juan Esteban Trujillo Montes
+ * Description: Controller for managing reviews in the admin panel, allowing administrators to view and delete reviews.
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;

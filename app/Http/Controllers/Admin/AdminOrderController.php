@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Andres Perez Quinchia
+ * Description: Controller responsible for managing orders from the administrator side
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;

@@ -1,3 +1,8 @@
+<!--
+  Author: Juan Esteban Trujillo Montes
+  Description: Layout view for the admin panel, providing a consistent structure and design for all admin-related pages, including a sidebar for navigation, a topbar for page titles and user actions, and a main content area for displaying the specific content of each admin page.
+-->
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 
