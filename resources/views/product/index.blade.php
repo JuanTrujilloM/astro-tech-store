@@ -94,10 +94,30 @@
               </div>
             @endif
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title">{{ $product->getName() }}</h5>
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="card-title mb-0">{{ $product->getName() }}</h5>
+
+                @if (in_array($product->getId(), session('favorites', [])))
+                  <form action="{{ route('favorite.remove', ['product' => $product->getId()]) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-link p-0 border-0 shadow-none">
+                      <i class="bi bi-heart-fill text-danger fs-5"></i>
+                    </button>
+                  </form>
+                @else
+                  <form action="{{ route('favorite.add', ['product' => $product->getId()]) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-link p-0 border-0 shadow-none">
+                      <i class="bi bi-heart text-secondary fs-5"></i>
+                    </button>
+                  </form>
+                @endif
+              </div>
+
               <p class="card-text text-muted small flex-grow-1">
                 {{ Str::limit($product->getDescription(), 80) }}
               </p>
+
               <div class="mb-2 small">
                 @if ($product->reviews_count > 0)
                   <span class="fw-semibold">
@@ -119,6 +139,7 @@
                   <span class="text-muted">{{ __('messages.product.no_reviews') }}</span>
                 @endif
               </div>
+
               <div class="d-flex justify-content-between align-items-center mt-2">
                 <span class="fw-bold text-danger fs-5">${{ number_format($product->getPrice(), 0, ',', '.') }}</span>
                 <a href="{{ route('product.show', ['product' => $product->getId()]) }}" class="btn btn-primary btn-sm">

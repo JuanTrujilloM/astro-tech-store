@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/products/{product}/reviews/{review}/edit', 'App\Http\Controllers\ReviewController@edit')->name('review.edit');
     Route::put('/products/{product}/reviews/{review}', 'App\Http\Controllers\ReviewController@update')->name('review.update');
     Route::delete('/products/{product}/reviews/{review}', 'App\Http\Controllers\ReviewController@destroy')->name('review.destroy');
+    Route::post('/products/{product}/favorites/add', 'App\Http\Controllers\FavoriteController@add')->name('favorite.add');
+    Route::post('/products/{product}/favorites/remove', 'App\Http\Controllers\FavoriteController@remove')->name('favorite.remove');
 });
 
 // Admin routes
