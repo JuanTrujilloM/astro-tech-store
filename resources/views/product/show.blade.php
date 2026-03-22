@@ -1,3 +1,8 @@
+<!--
+  Author: Juan Esteban Trujillo Montes
+  Description: View responsible for displaying the details of a specific product, including its name, description, price, stock status, and reviews, while also providing a form for authenticated users to submit their own reviews and allowing users to add the product to their cart if it is in stock.
+-->
+
 @extends('layouts.app')
 @section('title', $viewData['product']->getName() . ' - ' . __('messages.layout.title_default'))
 @section('content')

@@ -1,3 +1,7 @@
+<!--
+  Author: Andres Perez Quinchia
+  Description: View responsible for managing orders from the administrator side
+-->
 @extends('layouts.admin')
 @section('title', __('messages.admin.title'))
 @section('page_title', __('messages.admin.orders'))

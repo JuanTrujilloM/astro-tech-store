@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Andres Perez Quinchia
+ * Description: Controller responsible for managing the main view  of the administrator
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
