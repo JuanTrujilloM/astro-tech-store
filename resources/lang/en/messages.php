@@ -153,7 +153,7 @@ return [
         'out_of_stock' => 'Sold out',
         'review_added' => 'Your review has been added successfully.',
         'add_review' => 'Add a review',
-        'rating' => 'Star',
+        'rating' => 'Rating',
         'review_description' => 'Description',
         'submit_review' => 'Submit review',
         'delete_review' => 'Delete review',

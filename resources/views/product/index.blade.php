@@ -58,7 +58,7 @@
                   <option value="">{{ __('messages.product.filter_min_rating_any') }}</option>
                   @foreach ([1, 2, 3, 4, 5] as $stars)
                     <option value="{{ $stars }}" @selected(old('min_rating', $viewData['min_rating'] ?? '') == $stars)>
-                      {{ $stars }} {{ __('messages.product.rating') }}
+                      {{ $stars }}
                     </option>
                   @endforeach
                 </select>
