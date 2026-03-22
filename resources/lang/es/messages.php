@@ -152,7 +152,7 @@ return [
         'out_of_stock' => 'Agotado',
         'review_added' => 'Tu reseña ha sido agregada exitosamente.',
         'add_review' => 'Agregar reseña',
-        'rating' => 'Estrella',
+        'rating' => 'Calificación',
         'review_description' => 'Descripción',
         'submit_review' => 'Enviar reseña',
         'delete_review' => 'Eliminar reseña',
