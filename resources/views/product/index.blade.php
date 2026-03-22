@@ -77,15 +77,15 @@
   @endif
 
   <div class="row mb-3">
-    <div class="col-12">
+    <div class="col-12 text-center">
       <h4 class="fw-bold mb-3">{{ __('messages.admin.product_list') }}</h4>
     </div>
     <div class="col-12">
       <div class="card shadow-sm border-0 product-filters-card">
-        <div class="card-body">
+        <div class="card-body text-center">
           <h6 class="card-subtitle mb-3 text-muted">{{ __('messages.product.filters_title') }}</h6>
           <form method="GET" action="{{ route('product.index') }}" class="product-filters-form" role="search">
-            <div class="row g-3 align-items-end">
+            <div class="row g-3 align-items-end justify-content-center">
               <div class="col-12 col-md-6 col-lg-4">
                 <label for="product-search-product_search" class="form-label small mb-1">{{ __('messages.product.search_placeholder') }}</label>
                 <input type="search" name="product_search" id="product-search-product_search"
@@ -129,7 +129,7 @@
                   <div class="invalid-feedback d-block">{{ $message }}</div>
                 @enderror
               </div>
-              <div class="col-12 col-lg-2 d-flex flex-wrap gap-2">
+              <div class="col-12 col-lg-2 d-flex flex-wrap gap-2 justify-content-center">
                 <button type="submit" class="btn btn-primary">{{ __('messages.product.filter_apply') }}</button>
                 @if (!empty($viewData['has_active_filters']))
                   <a href="{{ route('product.index') }}" class="btn btn-outline-secondary">{{ __('messages.product.search_clear') }}</a>
