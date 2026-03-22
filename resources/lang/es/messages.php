@@ -180,6 +180,10 @@ return [
         'filter_price_max_attribute' => 'precio máximo',
         'filter_min_rating_attribute' => 'valoración mínima',
         'filter_price_invalid_range' => 'El precio mínimo no puede ser mayor que el precio máximo.',
+        'add_to_favorites' => 'Agregado a favoritos',
+        'remove_from_favorites' => 'Eliminado de favoritos',
+        'most_purchased_title' => 'Top 3 Mas Comprados',
+        'total_sold' => 'vendidos',
     ],
 
     'cart' => [

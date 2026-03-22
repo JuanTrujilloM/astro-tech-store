@@ -19,6 +19,8 @@ class ProductController extends Controller
         $priceMin = $request->input('price_min');
         $priceMax = $request->input('price_max');
         $minRating = $request->input('min_rating');
+        $favorites = $request->session()->get('favorites', []);
+      
 
         $query = Product::query()
             ->withAvg('reviews', 'rating')
@@ -42,7 +44,9 @@ class ProductController extends Controller
             $query->having('reviews_avg_rating', '>=', $minRating);
         }
 
-        $products = $query->get();
+        $products = $query->get()->sortByDesc(function ($product) use ($favorites) {
+            return in_array($product->getId(), $favorites);
+        });
 
         $hasActiveFilters = $productSearch !== ''
             || $priceMin !== null
@@ -56,6 +60,7 @@ class ProductController extends Controller
         $viewData['price_max'] = $priceMax !== null ? $priceMax : '';
         $viewData['min_rating'] = $minRating !== null ? $minRating : '';
         $viewData['has_active_filters'] = $hasActiveFilters;
+        $viewData['topProducts'] = Product::getMostPurchased(3);
 
         return view('product.index')->with('viewData', $viewData);
     }
