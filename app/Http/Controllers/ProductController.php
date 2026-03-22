@@ -15,12 +15,20 @@ class ProductController extends Controller
 {
     public function index(SearchProductsRequest $request): View
     {
-        $productSearch = trim((string) $request->input('product_search', ''));
-        $priceMin = $request->input('price_min');
-        $priceMax = $request->input('price_max');
-        $minRating = $request->input('min_rating');
-        $favorites = $request->session()->get('favorites', []);
-      
+        $validated = $request->validated();
+        $productSearch = trim((string) ($validated['product_search'] ?? ''));
+
+        
+        $priceMin = $request->filled('price_min') && isset($validated['price_min']) && $validated['price_min'] !== null
+            ? (int) $validated['price_min']
+            : null;
+        $priceMax = $request->filled('price_max') && isset($validated['price_max']) && $validated['price_max'] !== null
+            ? (int) $validated['price_max']
+            : null;
+
+        $minRating = isset($validated['min_rating']) && $validated['min_rating'] !== null
+            ? (int) $validated['min_rating']
+            : null;
 
         $query = Product::query()
             ->withAvg('reviews', 'rating')
@@ -33,10 +41,10 @@ class ProductController extends Controller
             });
         }
 
-        if ($priceMin !== null) {
+        if ($priceMin !== null && $priceMin > 0) {
             $query->where('price', '>=', $priceMin);
         }
-        if ($priceMax !== null) {
+        if ($priceMax !== null && $priceMax > 0) {
             $query->where('price', '<=', $priceMax);
         }
 
@@ -44,23 +52,30 @@ class ProductController extends Controller
             $query->having('reviews_avg_rating', '>=', $minRating);
         }
 
-        $products = $query->get()->sortByDesc(function ($product) use ($favorites) {
-            return in_array($product->getId(), $favorites);
-        });
+        $products = $query->get();
+
+        $favorites = $request->session()->get('favorites', []);
+        $products = $products
+            ->sortByDesc(fn ($product) => in_array($product->getId(), $favorites))
+            ->values();
 
         $hasActiveFilters = $productSearch !== ''
-            || $priceMin !== null
-            || $priceMax !== null
+            || ($priceMin !== null && $priceMin > 0)
+            || ($priceMax !== null && $priceMax > 0)
             || ($minRating !== null && $minRating >= 1);
 
         $viewData = [];
         $viewData['products'] = $products;
         $viewData['product_search'] = $productSearch;
-        $viewData['price_min'] = $priceMin !== null ? $priceMin : '';
-        $viewData['price_max'] = $priceMax !== null ? $priceMax : '';
-        $viewData['min_rating'] = $minRating !== null ? $minRating : '';
+        $viewData['price_min'] = $request->filled('price_min') ? (string) $priceMin : '';
+        $viewData['price_max'] = $request->filled('price_max') ? (string) $priceMax : '';
+        $viewData['min_rating'] = $minRating !== null ? (string) $minRating : '';
         $viewData['has_active_filters'] = $hasActiveFilters;
-        $viewData['topProducts'] = Product::getMostPurchased(3);
+
+        
+        $viewData['topProducts'] = $hasActiveFilters
+            ? collect()
+            : Product::getMostPurchased(3);
 
         return view('product.index')->with('viewData', $viewData);
     }
