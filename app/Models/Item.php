@@ -1,17 +1,20 @@
 <?php
 
-namespace App\Models;
-
 /**
  * Author: Juan Sebastián Lizcano Urrea
  * Description: Model responsible for managing Items
  */
 
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Item extends Model
 {
+    use HasFactory;
+
     /**
      * ITEM ATTRIBUTES
      * $this->attributes['id'] - int - contains the item primary key (id)
@@ -69,6 +72,16 @@ class Item extends Model
     public function setPrice(int $price): void
     {
         $this->attributes['price'] = $price;
+    }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
     }
 
     public function order(): BelongsTo

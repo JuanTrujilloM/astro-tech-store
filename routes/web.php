@@ -18,10 +18,12 @@ Route::get('/products/{product}', 'App\Http\Controllers\ProductController@show')
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
 Route::post('/cart/add/{product}', 'App\Http\Controllers\CartController@add')->name('cart.add');
 Route::post('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('cart.delete');
+Route::post('/cart/discount', 'App\Http\Controllers\CartController@applyDiscount')->name('cart.applyDiscount');
+Route::post('/cart/discount/remove', 'App\Http\Controllers\CartController@removeDiscount')->name('cart.removeDiscount');
 
 // Order routes related to user interactions
 Route::middleware('auth')->group(function () {
-    Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
+    Route::post('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
     Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name('order.index');
     Route::get('/orders/{order}', 'App\Http\Controllers\OrderController@show')->name('order.show');
     Route::post('/orders/{order}/cancel', 'App\Http\Controllers\OrderController@cancel')->name('order.cancel');
@@ -33,12 +35,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/products/{product}/reviews/{review}/edit', 'App\Http\Controllers\ReviewController@edit')->name('review.edit');
     Route::put('/products/{product}/reviews/{review}', 'App\Http\Controllers\ReviewController@update')->name('review.update');
     Route::delete('/products/{product}/reviews/{review}', 'App\Http\Controllers\ReviewController@destroy')->name('review.destroy');
+    Route::post('/products/{product}/favorites/add', 'App\Http\Controllers\FavoriteController@add')->name('favorite.add');
+    Route::post('/products/{product}/favorites/remove', 'App\Http\Controllers\FavoriteController@remove')->name('favorite.remove');
 });
 
 // Admin routes
 Route::middleware('admin')->group(function () {
     Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name('admin.home.index');
-    
+
     // Admin product management routes
     Route::get('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name('admin.product.index');
     Route::post('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@store')->name('admin.product.store');

@@ -103,9 +103,9 @@
   </div>
 
   @if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show alert-flash" role="alert">
+    <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
       {{ session('success') }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   @endif
 
@@ -118,7 +118,7 @@
             <form action="{{ route('review.store', ['product' => $viewData['product']->getId()]) }}" method="POST">
               @csrf
               <div class="mb-3">
-                <label for="rating" class="form-label">{{ __('messages.product.rating') }}</label>
+                <label for="rating" class="form-label">{{ __('messages.product.review_rating') }}</label>
                 <select name="rating" id="rating" class="form-select @error('rating') is-invalid @enderror">
                   <option value="">--</option>
                   @for ($i = 1; $i <= 5; $i++)
