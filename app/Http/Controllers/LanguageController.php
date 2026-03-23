@@ -14,10 +14,11 @@ class LanguageController extends Controller
     public function switch(string $locale): RedirectResponse
     {
         $supportedLocales = ['en', 'es'];
-        if (!in_array($locale, $supportedLocales)) {
+        if (! in_array($locale, $supportedLocales)) {
             return redirect()->back();
         }
         session(['locale' => $locale]);
+
         return redirect()->back();
     }
 }
