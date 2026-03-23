@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\View\View;
 use App\Models\Review;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
@@ -14,7 +14,7 @@ class HomeController extends Controller
         $viewData['homeProducts'] = Product::orderBy('created_at', 'desc')->take(9)->get();
         $viewData['topHomeProducts'] = Product::getMostPurchased(3);
         $viewData['homeReviews'] = Review::with(['user', 'product'])->where('rating', '>=', 3)->orderBy('created_at', 'desc')->take(9)->get();
-        
+
         return view('home.index')->with('viewData', $viewData);
     }
 

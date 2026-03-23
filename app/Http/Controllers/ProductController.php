@@ -18,7 +18,6 @@ class ProductController extends Controller
         $validated = $request->validated();
         $productSearch = trim((string) ($validated['product_search'] ?? ''));
 
-        
         $priceMin = $request->filled('price_min') && isset($validated['price_min']) && $validated['price_min'] !== null
             ? (int) $validated['price_min']
             : null;
@@ -72,7 +71,6 @@ class ProductController extends Controller
         $viewData['min_rating'] = $minRating !== null ? (string) $minRating : '';
         $viewData['has_active_filters'] = $hasActiveFilters;
 
-        
         $viewData['topProducts'] = $hasActiveFilters
             ? collect()
             : Product::getMostPurchased(3);
