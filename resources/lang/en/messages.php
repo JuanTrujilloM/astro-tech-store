@@ -28,17 +28,12 @@ return [
         'welcome_description' => 'At Astro Tech Store, we are passionate about bringing modern technology closer to everyone. Our platform allows you to explore a variety of innovative products, learn about their features, and find the technology that best fits your needs. Whether you are upgrading your setup or simply discovering something new, we are here to make your experience simple, enjoyable, and inspiring.',
 
         'carousel' => [
-            'title' => 'Product Carousel',
+            'title' => 'Latest Products',
+            'caption' => 'Discover our newest additions to the catalog',
             'empty_title' => 'No products available yet',
             'empty_description' => 'Once products are added to the store, they will appear here in the main carousel.',
         ],
 
-        'featured' => [
-            'title' => 'Featured Products',
-            'caption' => 'No featured products yet',
-            'empty_title' => 'Featured products section is empty',
-            'empty_description' => 'Up to 8 highlighted products will appear here once they are added to the catalog.',
-        ],
 
         'top_sellers' => [
             'title' => 'Top 3 Best-Selling Products',
@@ -53,10 +48,10 @@ return [
         ],
 
         'reviews' => [
-            'title' => 'Product Reviews',
-            'caption' => 'No reviews yet',
-            'placeholder_title' => 'Review Space',
-            'placeholder_description' => 'Customer reviews will appear here once users start sharing their experiences.',
+            'title' => 'Recent Reviews',
+            'caption' => 'What our customers are saying',
+            'empty_title' => 'No reviews yet',
+            'empty_description' => 'Customer reviews will appear here once users start sharing their experiences.',
         ],
 
         'about' => [
