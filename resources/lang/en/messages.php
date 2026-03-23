@@ -244,6 +244,8 @@ return [
         'items' => 'items',
         'orders' => 'Orders',
         'users' => 'Users',
+        'total_income' => 'Total income',
+        'income_description' => 'Total income from completed orders (excluding cancelled).',
         'reviews' => 'Reviews',
         'go_to_store' => 'Go to Store',
         'language' => 'Language',
