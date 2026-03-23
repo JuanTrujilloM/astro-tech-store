@@ -186,14 +186,19 @@ return [
 
     'cart' => [
         'title' => 'Shopping Cart',
-        'subtitle' => 'Review your items and proceed to checkout',
         'total_to_pay' => 'Total to pay',
         'purchase' => 'Purchase',
         'remove_all_products' => 'Remove all products from Cart',
         'empty' => 'Your cart is empty.',
+        'empty_subtitle' => 'Explore our catalog and add products you love!',
+        'browse_products' => 'Browse Products',
         'subtotal' => 'Subtotal',
         'purchase_success' => 'Purchase successful',
         'insufficient_balance' => 'Insufficient balance to complete the purchase.',
+        'discount_placeholder' => 'Discount code',
+        'discount_apply' => 'Apply',
+        'discount_applied' => 'Discount of :percentage% applied successfully!',
+        'discount_invalid' => 'The discount code is not valid.',
     ],
 
     'orders' => [
@@ -206,7 +211,9 @@ return [
         'product_name' => 'Product Name',
         'status' => 'Status',
         'view_details' => 'View details',
-        'empty' => 'Seems to be that you have not purchased anything in our store.',
+        'empty' => 'You have no orders yet.',
+        'empty_subtitle' => 'Browse our products and find something you love!',
+        'browse_products' => 'Browse Products',
         'back_to_orders' => 'Back to Orders',
     ],
 
