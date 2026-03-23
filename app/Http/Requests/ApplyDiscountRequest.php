@@ -2,14 +2,14 @@
 
 /**
  * Author: Juan Esteban Trujillo Montes
- * Description: Request class responsible for validating the data of a review when creating or updating it
+ * Description: File that validate the request to apply a discount code to an order
  */
 
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreReviewRequest extends FormRequest
+class ApplyDiscountRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,8 +27,7 @@ class StoreReviewRequest extends FormRequest
     public function rules(): array // Returns the validation rules that should apply to the request's data
     {
         return [
-            'description' => 'required|string',
-            'rating' => 'required|integer|between:1,5',
+            'discount_code' => 'required|string|max:50',
         ];
     }
 }

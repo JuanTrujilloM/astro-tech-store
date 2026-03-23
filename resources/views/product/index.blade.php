@@ -7,15 +7,143 @@
 @section('content')
 
   @if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
       {{ session('success') }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   @endif
 
+  @if ($viewData['topProducts']->sum('items_sum_quantity') > 0)
+    <section class="mb-4">
+      <div class="text-center mb-3">
+        <h2 class="h3 mb-0">{{ __('messages.product.most_purchased_title') }}</h2>
+      </div>
+      <div class="row g-3 justify-content-center">
+        @foreach ($viewData['topProducts'] as $index => $topProduct)
+          @if ($topProduct->items_sum_quantity > 0)
+            <div class="col-12 col-md-3">
+              <div class="card h-100 shadow-sm text-center">
+                @if ($topProduct->getImage())
+                  <img src="{{ asset('storage/' . $topProduct->getImage()) }}" class="card-img-top img-card"
+                    alt="{{ $topProduct->getName() }}">
+                @else
+                  <div class="card-img-top img-card bg-secondary d-flex align-items-center justify-content-center">
+                    <i class="bi bi-image text-white fs-1"></i>
+                  </div>
+                @endif
+                <div class="card-body d-flex flex-column">
+                  <span class="badge badge-top-{{ $index + 1 }} mb-2 align-self-center">
+                    {{ __('messages.home.top_sellers.top_' . ($index + 1)) }}
+                  </span>
+                  <h5 class="card-title">{{ $topProduct->getName() }}</h5>
+                  <p class="text-muted small">{{ $topProduct->items_sum_quantity }}
+                    {{ __('messages.product.total_sold') }}</p>
+                  <div class="mb-2 small">
+                    @if ($topProduct->reviews_count > 0)
+                      <span class="fw-semibold">
+                        @for ($i = 1; $i <= 5; $i++)
+                          @if ($i <= floor($topProduct->reviews_avg_rating))
+                            <i class="bi bi-star-fill star-gold"></i>
+                          @elseif ($i - $topProduct->reviews_avg_rating <= 0.5)
+                            <i class="bi bi-star-half star-gold"></i>
+                          @else
+                            <i class="bi bi-star-fill star-gray"></i>
+                          @endif
+                        @endfor
+                        {{ number_format($topProduct->reviews_avg_rating, 1) }}
+                      </span>
+                      <span class="text-muted">
+                        ({{ $topProduct->reviews_count }} {{ __('messages.product.reviews_count') }})
+                      </span>
+                    @else
+                      <span class="text-muted">{{ __('messages.product.no_reviews') }}</span>
+                    @endif
+                  </div>
+                  <div class="mt-auto">
+                    <span
+                      class="fw-bold text-danger fs-5 d-block mb-2">${{ number_format($topProduct->getPrice(), 0, ',', '.') }}</span>
+                    <a href="{{ route('product.show', ['product' => $topProduct->getId()]) }}"
+                      class="btn btn-primary btn-sm">
+                      {{ __('messages.product.view_detail') }} <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          @endif
+        @endforeach
+      </div>
+    </section>
+  @endif
+
   <div class="row mb-3">
-    <div class="col">
-      <h4 class="fw-bold">{{ __('messages.admin.product_list') }}</h4>
+    <div class="col-12 text-center">
+      <h4 class="fw-bold mb-3">{{ __('messages.admin.product_list') }}</h4>
+    </div>
+    <div class="col-12">
+      <div class="card shadow-sm border-0 product-filters-card">
+        <div class="card-body text-center">
+          <h6 class="card-subtitle mb-3 text-muted">{{ __('messages.product.filters_title') }}</h6>
+          <form method="GET" action="{{ route('product.index') }}" class="product-filters-form" role="search">
+            <div class="row g-3 align-items-end justify-content-center">
+              <div class="col-12 col-md-6 col-lg-4">
+                <label for="product-search-product_search"
+                  class="form-label small mb-1">{{ __('messages.product.search_placeholder') }}</label>
+                <input type="search" name="product_search" id="product-search-product_search"
+                  value="{{ old('product_search', $viewData['product_search'] ?? '') }}"
+                  class="form-control @error('product_search') is-invalid @enderror"
+                  placeholder="{{ __('messages.product.search_placeholder') }}" maxlength="100" autocomplete="off">
+                @error('product_search')
+                  <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-6 col-md-3 col-lg-2">
+                <label for="filter-price-min"
+                  class="form-label small mb-1">{{ __('messages.product.filter_price_min') }}</label>
+                <input type="number" name="price_min" id="filter-price-min" min="0" step="1"
+                  value="{{ old('price_min', $viewData['price_min'] ?? '') }}"
+                  class="form-control @error('price_min') is-invalid @enderror" placeholder="0">
+                @error('price_min')
+                  <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-6 col-md-3 col-lg-2">
+                <label for="filter-price-max"
+                  class="form-label small mb-1">{{ __('messages.product.filter_price_max') }}</label>
+                <input type="number" name="price_max" id="filter-price-max" min="0" step="1"
+                  value="{{ old('price_max', $viewData['price_max'] ?? '') }}"
+                  class="form-control @error('price_max') is-invalid @enderror" placeholder="0">
+                @error('price_max')
+                  <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-12 col-md-6 col-lg-2">
+                <label for="filter-min-rating"
+                  class="form-label small mb-1">{{ __('messages.product.filter_min_rating') }}</label>
+                <select name="min_rating" id="filter-min-rating"
+                  class="form-select @error('min_rating') is-invalid @enderror">
+                  <option value="">{{ __('messages.product.filter_min_rating_any') }}</option>
+                  @foreach ([1, 2, 3, 4, 5] as $stars)
+                    <option value="{{ $stars }}" @selected(old('min_rating', $viewData['min_rating'] ?? '') == $stars)>
+                      {{ $stars }} {{ __('messages.product.stars') }}
+                    </option>
+                  @endforeach
+                </select>
+                @error('min_rating')
+                  <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-12 col-lg-2 d-flex flex-wrap gap-2 justify-content-center">
+                <button type="submit" class="btn btn-primary">{{ __('messages.product.filter_apply') }}</button>
+                @if (!empty($viewData['has_active_filters']))
+                  <a href="{{ route('product.index') }}"
+                    class="btn btn-outline-secondary">{{ __('messages.product.search_clear') }}</a>
+                @endif
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -33,10 +161,30 @@
               </div>
             @endif
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title">{{ $product->getName() }}</h5>
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="card-title mb-0">{{ $product->getName() }}</h5>
+
+                @if (in_array($product->getId(), session('favorites', [])))
+                  <form action="{{ route('favorite.remove', ['product' => $product->getId()]) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-link p-0 border-0 shadow-none">
+                      <i class="bi bi-heart-fill text-danger fs-5"></i>
+                    </button>
+                  </form>
+                @else
+                  <form action="{{ route('favorite.add', ['product' => $product->getId()]) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-link p-0 border-0 shadow-none">
+                      <i class="bi bi-heart text-secondary fs-5"></i>
+                    </button>
+                  </form>
+                @endif
+              </div>
+
               <p class="card-text text-muted small flex-grow-1">
                 {{ Str::limit($product->getDescription(), 80) }}
               </p>
+
               <div class="mb-2 small">
                 @if ($product->reviews_count > 0)
                   <span class="fw-semibold">
@@ -58,6 +206,7 @@
                   <span class="text-muted">{{ __('messages.product.no_reviews') }}</span>
                 @endif
               </div>
+
               <div class="d-flex justify-content-between align-items-center mt-2">
                 <span class="fw-bold text-danger fs-5">${{ number_format($product->getPrice(), 0, ',', '.') }}</span>
                 <a href="{{ route('product.show', ['product' => $product->getId()]) }}" class="btn btn-primary btn-sm">
@@ -72,7 +221,13 @@
   @else
     <div class="text-center py-5">
       <i class="bi bi-box-seam fs-1 text-secondary"></i>
-      <p class="mt-3 text-muted">{{ __('messages.admin.no_products_registered') }}</p>
+      <p class="mt-3 text-muted">
+        @if (!empty($viewData['has_active_filters']))
+          {{ __('messages.product.filters_no_results') }}
+        @else
+          {{ __('messages.admin.no_products_registered') }}
+        @endif
+      </p>
     </div>
   @endif
 

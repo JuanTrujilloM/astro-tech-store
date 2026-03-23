@@ -7,11 +7,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Review extends Model
 {
+    use HasFactory;
+
     /**
      * REVIEW ATTRIBUTES
      * $this->attributes['id'] - int - contains the review primary key (id)
@@ -74,6 +77,11 @@ class Review extends Model
     public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
+    }
+
+    public function getCreatedAtDiff(): string
+    {
+        return $this->created_at->diffForHumans();
     }
 
     public function getUpdatedAt(): string

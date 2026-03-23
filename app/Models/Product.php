@@ -8,11 +8,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
+    use HasFactory;
+
     /**
      * PRODUCT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
@@ -91,6 +94,21 @@ class Product extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public static function getMostPurchased(int $limit = 3): Collection
+    {
+        return Product::query()
+            ->withSum(['items' => function ($query) {
+                $query->whereHas('order', function ($orderQuery) {
+                    $orderQuery->where('status', '!=', 'cancelled');
+                });
+            }], 'quantity')
+            ->withAvg('reviews', 'rating')
+            ->withCount('reviews')
+            ->orderByDesc('items_sum_quantity')
+            ->take($limit)
+            ->get();
     }
 
     public static function sumPricesByQuantities(Collection $products, array $productsInSession): int

@@ -28,16 +28,10 @@ return [
         'welcome_description' => 'At Astro Tech Store, we are passionate about bringing modern technology closer to everyone. Our platform allows you to explore a variety of innovative products, learn about their features, and find the technology that best fits your needs. Whether you are upgrading your setup or simply discovering something new, we are here to make your experience simple, enjoyable, and inspiring.',
 
         'carousel' => [
-            'title' => 'Product Carousel',
+            'title' => 'Latest Products',
+            'caption' => 'Discover our newest additions to the catalog',
             'empty_title' => 'No products available yet',
             'empty_description' => 'Once products are added to the store, they will appear here in the main carousel.',
-        ],
-
-        'featured' => [
-            'title' => 'Featured Products',
-            'caption' => 'No featured products yet',
-            'empty_title' => 'Featured products section is empty',
-            'empty_description' => 'Up to 8 highlighted products will appear here once they are added to the catalog.',
         ],
 
         'top_sellers' => [
@@ -53,10 +47,10 @@ return [
         ],
 
         'reviews' => [
-            'title' => 'Product Reviews',
-            'caption' => 'No reviews yet',
-            'placeholder_title' => 'Review Space',
-            'placeholder_description' => 'Customer reviews will appear here once users start sharing their experiences.',
+            'title' => 'Recent Reviews',
+            'caption' => 'What our customers are saying',
+            'empty_title' => 'No reviews yet',
+            'empty_description' => 'Customer reviews will appear here once users start sharing their experiences.',
         ],
 
         'about' => [
@@ -153,6 +147,8 @@ return [
         'out_of_stock' => 'Sold out',
         'review_added' => 'Your review has been added successfully.',
         'add_review' => 'Add a review',
+        'review_rating' => 'Review rating',
+        'stars' => 'stars',
         'rating' => 'Rating',
         'review_description' => 'Description',
         'submit_review' => 'Submit review',
@@ -165,18 +161,43 @@ return [
         'quantity' => 'Quantity',
         'login_to_review' => 'Log in to write a review.',
         'review_by_user' => 'By :name',
+        'search_placeholder' => 'Search products…',
+        'search' => 'Search',
+        'search_clear' => 'Clear',
+        'search_no_results' => 'No products match your search.',
+        'search_query_attribute' => 'search',
+        'filters_title' => 'Filters',
+        'filter_price_min' => 'Min. price',
+        'filter_price_max' => 'Max. price',
+        'filter_min_rating' => 'Min. stars',
+        'filter_min_rating_any' => 'Any',
+        'filter_apply' => 'Apply filters',
+        'filters_no_results' => 'No products were found for your criteria.',
+        'filter_price_min_attribute' => 'minimum price',
+        'filter_price_max_attribute' => 'maximum price',
+        'filter_min_rating_attribute' => 'minimum stars',
+        'filter_price_invalid_range' => 'Minimum price cannot be greater than maximum price.',
+        'add_to_favorites' => 'Added to favorites',
+        'remove_from_favorites' => 'Removed from favorites',
+        'most_purchased_title' => 'Top 3 Most Purchased',
+        'total_sold' => 'sold',
     ],
 
     'cart' => [
         'title' => 'Shopping Cart',
-        'subtitle' => 'Review your items and proceed to checkout',
         'total_to_pay' => 'Total to pay',
         'purchase' => 'Purchase',
         'remove_all_products' => 'Remove all products from Cart',
         'empty' => 'Your cart is empty.',
+        'empty_subtitle' => 'Explore our catalog and add products you love!',
+        'browse_products' => 'Browse Products',
         'subtotal' => 'Subtotal',
         'purchase_success' => 'Purchase successful',
         'insufficient_balance' => 'Insufficient balance to complete the purchase.',
+        'discount_placeholder' => 'Discount code',
+        'discount_apply' => 'Apply',
+        'discount_applied' => 'Discount of :percentage% applied successfully!',
+        'discount_invalid' => 'The discount code is not valid.',
     ],
 
     'orders' => [
@@ -189,7 +210,9 @@ return [
         'product_name' => 'Product Name',
         'status' => 'Status',
         'view_details' => 'View details',
-        'empty' => 'Seems to be that you have not purchased anything in our store.',
+        'empty' => 'You have no orders yet.',
+        'empty_subtitle' => 'Browse our products and find something you love!',
+        'browse_products' => 'Browse Products',
         'back_to_orders' => 'Back to Orders',
     ],
 
@@ -221,6 +244,8 @@ return [
         'items' => 'items',
         'orders' => 'Orders',
         'users' => 'Users',
+        'total_income' => 'Total income',
+        'income_description' => 'Total income from completed orders (excluding cancelled).',
         'reviews' => 'Reviews',
         'go_to_store' => 'Go to Store',
         'language' => 'Language',

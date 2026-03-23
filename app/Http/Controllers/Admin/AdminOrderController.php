@@ -18,7 +18,7 @@ class AdminOrderController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['orders'] = Order::all();
+        $viewData['orders'] = Order::with('user')->get();
 
         return view('admin.order.index')->with('viewData', $viewData);
     }

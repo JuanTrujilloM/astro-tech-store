@@ -28,16 +28,10 @@ return [
         'welcome_description' => 'En Astro Tech Store nos apasiona acercar la tecnologia moderna a todas las personas. Nuestra plataforma te permite explorar una variedad de productos innovadores, conocer sus caracteristicas y encontrar la tecnologia que mejor se adapta a tus necesidades. Ya sea que estes mejorando tu setup o descubriendo algo nuevo, estamos aqui para que tu experiencia sea simple, agradable e inspiradora.',
 
         'carousel' => [
-            'title' => 'Carrusel de Productos',
+            'title' => 'Productos Recientes',
+            'caption' => 'Descubre las ultimas novedades de nuestro catalogo',
             'empty_title' => 'Aun no hay productos disponibles',
             'empty_description' => 'Cuando se agreguen productos a la tienda, apareceran aqui en el carrusel principal.',
-        ],
-
-        'featured' => [
-            'title' => 'Productos Destacados',
-            'caption' => 'Aun no hay productos destacados',
-            'empty_title' => 'La seccion de destacados esta vacia',
-            'empty_description' => 'Aqui se mostraran hasta 8 productos destacados cuando se agreguen al catalogo.',
         ],
 
         'top_sellers' => [
@@ -53,10 +47,10 @@ return [
         ],
 
         'reviews' => [
-            'title' => 'Resenas de Productos',
-            'caption' => 'Aun no hay resenas',
-            'placeholder_title' => 'Espacio de Resena',
-            'placeholder_description' => 'Las opiniones de clientes apareceran aqui cuando comiencen a compartir sus experiencias.',
+            'title' => 'Resenas Recientes',
+            'caption' => 'Lo que dicen nuestros clientes',
+            'empty_title' => 'Aun no hay resenas',
+            'empty_description' => 'Las opiniones de clientes apareceran aqui cuando comiencen a compartir sus experiencias.',
         ],
 
         'about' => [
@@ -152,6 +146,8 @@ return [
         'out_of_stock' => 'Agotado',
         'review_added' => 'Tu reseña ha sido agregada exitosamente.',
         'add_review' => 'Agregar reseña',
+        'review_rating' => 'Calificación de la reseña',
+        'stars' => 'estrellas',
         'rating' => 'Calificación',
         'review_description' => 'Descripción',
         'submit_review' => 'Enviar reseña',
@@ -164,18 +160,43 @@ return [
         'quantity' => 'Cantidad',
         'login_to_review' => 'Inicia sesion para escribir una reseña.',
         'review_by_user' => 'Por :name',
+        'search_placeholder' => 'Buscar productos…',
+        'search' => 'Buscar',
+        'search_clear' => 'Limpiar',
+        'search_no_results' => 'No hay productos que coincidan con tu búsqueda.',
+        'search_query_attribute' => 'búsqueda',
+        'filters_title' => 'Filtros',
+        'filter_price_min' => 'Precio mín.',
+        'filter_price_max' => 'Precio máx.',
+        'filter_min_rating' => 'Mín. estrellas',
+        'filter_min_rating_any' => 'Cualquiera',
+        'filter_apply' => 'Aplicar filtros',
+        'filters_no_results' => 'No se encontraron productos con esos criterios.',
+        'filter_price_min_attribute' => 'precio mínimo',
+        'filter_price_max_attribute' => 'precio máximo',
+        'filter_min_rating_attribute' => 'mínimo de estrellas',
+        'filter_price_invalid_range' => 'El precio mínimo no puede ser mayor que el precio máximo.',
+        'add_to_favorites' => 'Agregado a favoritos',
+        'remove_from_favorites' => 'Eliminado de favoritos',
+        'most_purchased_title' => 'Top 3 Mas Comprados',
+        'total_sold' => 'vendidos',
     ],
 
     'cart' => [
         'title' => 'Carrito de compras',
-        'subtitle' => 'Revisa tus productos y continúa al pago',
         'total_to_pay' => 'Total a pagar',
         'purchase' => 'Comprar',
         'remove_all_products' => 'Eliminar todos los productos del carrito',
         'empty' => 'Tu carrito está vacío.',
+        'empty_subtitle' => 'Explora nuestro catálogo y agrega productos que te gusten!',
+        'browse_products' => 'Ver Productos',
         'subtotal' => 'Subtotal',
         'purchase_success' => 'Compra realizada con exito',
         'insufficient_balance' => 'Saldo insuficiente para completar la compra.',
+        'discount_placeholder' => 'Codigo de descuento',
+        'discount_apply' => 'Aplicar',
+        'discount_applied' => 'Descuento del :percentage% aplicado exitosamente!',
+        'discount_invalid' => 'El codigo de descuento no es valido.',
     ],
 
     'orders' => [
@@ -188,7 +209,9 @@ return [
         'product_name' => 'Nombre del producto',
         'status' => 'Estado',
         'view_details' => 'Ver detalles',
-        'empty' => 'Parece que no has comprado nada en nuestra tienda.',
+        'empty' => 'Aún no tienes pedidos.',
+        'empty_subtitle' => 'Explora nuestros productos y encuentra algo que te encante!',
+        'browse_products' => 'Ver Productos',
         'back_to_orders' => 'Volver a pedidos',
     ],
 
@@ -220,6 +243,8 @@ return [
         'items' => 'items',
         'orders' => 'Pedidos',
         'users' => 'Usuarios',
+        'total_income' => 'Ingresos totales',
+        'income_description' => 'Suma total de ingresos por órdenes completadas (sin incluir canceladas).',
         'reviews' => 'Reseñas',
         'go_to_store' => 'Ir a la Tienda',
         'language' => 'Idioma',

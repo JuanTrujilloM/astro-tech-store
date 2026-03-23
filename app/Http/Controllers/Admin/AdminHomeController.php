@@ -23,6 +23,7 @@ class AdminHomeController extends Controller
         $viewData['products'] = Product::count();
         $viewData['orders'] = Order::count();
         $viewData['reviews'] = Review::count();
+        $viewData['income'] = Order::where('status', '!=', 'cancelled')->sum('total');
 
         return view('admin.home.index')->with('viewData', $viewData);
     }

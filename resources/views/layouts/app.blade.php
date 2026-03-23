@@ -16,7 +16,7 @@
   <title>@yield('title', __('messages.layout.title_default'))</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
   <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('home.index') }}">
@@ -81,11 +81,11 @@
     </div>
   </header>
 
-  <div class="container my-4">
+  <div class="container my-4 flex-grow-1 d-flex flex-column">
     @yield('content')
   </div>
 
-  <div class="copyright py-4 text-center text-white">
+  <div class="copyright py-4 text-center text-white mt-auto">
     <div class="container">
       <small>
         {{ __('messages.layout.footer_rights') }}
