@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Juan Esteban Trujillo Montes
+ * Description: File that validate the request to apply a discount code to an order
+ */
+
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
