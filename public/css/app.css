@@ -356,7 +356,9 @@ nav {
 }
 
 .carousel-product-card {
-    transition: transform 0.4s ease, opacity 0.4s ease;
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
 }
 
 .carousel-card-center {

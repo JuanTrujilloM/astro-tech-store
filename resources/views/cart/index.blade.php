@@ -24,6 +24,7 @@
     <div class="card border-0 shadow-sm">
       <div class="card-body p-0">
         <div class="table-responsive">
+          
           <table class="table table-hover align-middle mb-0">
             <thead class="table-light">
               <tr>
@@ -33,6 +34,7 @@
                 <th class="border-0 text-end pe-4">{{ __('messages.cart.subtotal') }}</th>
               </tr>
             </thead>
+
             <tbody>
               @foreach ($viewData['products'] as $product)
                 <tr>
@@ -61,11 +63,13 @@
               @endforeach
             </tbody>
           </table>
+
         </div>
       </div>
       <div class="card-footer bg-transparent border-0 py-4 px-4">
         <div class="row align-items-end">
           <div class="col-12 col-md-5 mb-3 mb-md-0">
+
             @if ($viewData['discount'])
               <div class="d-flex align-items-center gap-2">
                 <span class="badge bg-success fs-6 px-3 py-2">
@@ -89,6 +93,7 @@
                 </button>
               </form>
             @endif
+            
           </div>
           <div class="col-12 col-md-7 text-end">
             @if ($viewData['discount'])
