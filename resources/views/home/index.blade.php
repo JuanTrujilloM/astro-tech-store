@@ -37,7 +37,7 @@
                       @else
                         <div
                           class="carousel-product-no-img mx-auto mt-2 rounded-3 d-flex align-items-center justify-content-center">
-                          <i class="bi bi-image text-muted" style="font-size: 2.5rem;"></i>
+                          <i class="bi bi-image text-muted icon-placeholder-lg"></i>
                         </div>
                       @endif
                       <div class="card-body px-2 pb-2">
@@ -64,7 +64,7 @@
         <div class="carousel-indicators position-relative mt-2 mb-2">
           @foreach ($viewData['homeProducts']->chunk(3) as $chunkIndex => $chunk)
             <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="{{ $chunkIndex }}"
-              class="{{ $chunkIndex === 0 ? 'active' : '' }}" style="background-color: #333;"></button>
+              class="{{ $chunkIndex === 0 ? 'active' : '' }} carousel-indicator-dark"></button>
           @endforeach
         </div>
       </div>
@@ -93,8 +93,8 @@
                   class="badge badge-top-{{ $index + 1 }} fs-6 px-3 py-2">{{ __('messages.home.top_sellers.top_' . ($index + 1)) }}</span>
               </div>
               @if ($topProduct->getImage())
-                <img src="{{ asset('storage/' . $topProduct->getImage()) }}" class="rounded mb-2"
-                  style="height: 120px; object-fit: cover;" alt="{{ $topProduct->getName() }}">
+                <img src="{{ asset('storage/' . $topProduct->getImage()) }}" class="rounded mb-2 top-product-img"
+                  alt="{{ $topProduct->getName() }}">
               @endif
               <h3 class="h5 mb-2">{{ $topProduct->getName() }}</h3>
               <p class="text-muted mb-2">${{ number_format($topProduct->getPrice(), 0, ',', '.') }}</p>
@@ -148,8 +148,7 @@
             <div class="p-4 rounded-4 border h-100 bg-white d-flex flex-column">
               <div class="d-flex align-items-center mb-3">
                 <div
-                  class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center flex-shrink-0"
-                  style="width: 42px; height: 42px; font-size: 1.1rem;">
+                  class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center flex-shrink-0 review-avatar">
                   {{ strtoupper(mb_substr($review->getUser()->getName(), 0, 1)) }}
                 </div>
                 <div class="ms-3">
@@ -171,7 +170,7 @@
               </p>
               <div class="mt-auto">
                 <a href="{{ route('product.show', ['product' => $review->getProductId()]) }}"
-                  class="text-decoration-none text-primary fw-medium" style="font-size: 0.875rem;">
+                  class="text-decoration-none text-primary fw-medium link-sm">
                   {{ $review->getProduct()->getName() }} <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
