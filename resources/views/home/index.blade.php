@@ -42,7 +42,7 @@
                       @endif
                       <div class="card-body px-2 pb-2">
                         <h5 class="card-title fw-semibold mb-1">{{ $product->getName() }}</h5>
-                        <p class="text-primary fw-bold mb-2">${{ number_format($product->getPrice(), 0, ',', '.') }}</p>
+                        <p class="text-muted fw-bold mb-2">${{ number_format($product->getPrice(), 0, ',', '.') }}</p>
                         <a href="{{ route('product.show', ['product' => $product->getId()]) }}"
                           class="btn btn-primary btn-sm rounded-pill px-4">
                           {{ __('messages.product.view_detail') }}

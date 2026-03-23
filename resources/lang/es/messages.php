@@ -243,6 +243,8 @@ return [
         'items' => 'items',
         'orders' => 'Pedidos',
         'users' => 'Usuarios',
+        'total_income' => 'Ingresos totales',
+        'income_description' => 'Suma total de ingresos por órdenes completadas (sin incluir canceladas).',
         'reviews' => 'Reseñas',
         'go_to_store' => 'Ir a la Tienda',
         'language' => 'Idioma',
