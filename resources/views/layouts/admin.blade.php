@@ -63,7 +63,7 @@
             </a>
           </li>
 
-          <li class="nav-item mt-auto pt-4">
+          <li class="nav-item pt-4">
             <a href="{{ route('home.index') }}" class="btn btn-primary w-100 admin-store-btn">
               <i class="bi bi-house me-2"></i>
               {{ __('messages.admin.go_to_store') }}

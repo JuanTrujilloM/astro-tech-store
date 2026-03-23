@@ -98,7 +98,7 @@
               </div>
               <div class="col-6 col-md-3 col-lg-2">
                 <label for="filter-price-min" class="form-label small mb-1">{{ __('messages.product.filter_price_min') }}</label>
-                <input type="text" name="price_min" id="filter-price-min" min="0" step="1"
+                <input type="number" name="price_min" id="filter-price-min" min="0" step="1"
                   value="{{ old('price_min', $viewData['price_min'] ?? '') }}"
                   class="form-control @error('price_min') is-invalid @enderror" placeholder="0">
                 @error('price_min')
@@ -107,7 +107,7 @@
               </div>
               <div class="col-6 col-md-3 col-lg-2">
                 <label for="filter-price-max" class="form-label small mb-1">{{ __('messages.product.filter_price_max') }}</label>
-                <input type="text" name="price_max" id="filter-price-max" min="0" step="1"
+                <input type="number" name="price_max" id="filter-price-max" min="0" step="1"
                   value="{{ old('price_max', $viewData['price_max'] ?? '') }}"
                   class="form-control @error('price_max') is-invalid @enderror" placeholder="0">
                 @error('price_max')

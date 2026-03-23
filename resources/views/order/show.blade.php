@@ -12,7 +12,7 @@
     </div>
     <div class="card-body">
       <b>{{ __('messages.orders.date') }}:</b> {{ $viewData['order']->getCreatedAt() }}<br />
-      <b>{{ __('messages.orders.total') }}:</b> ${{ $viewData['order']->getTotal() }}<br />
+      <b>{{ __('messages.orders.total') }}:</b> ${{ number_format($viewData['order']->getTotal(), 0, ',', '.') }}<br />
       <b>{{ __('messages.orders.status') }}:</b> {{ $viewData['order']->getStatus() }}<br />
       <hr>
       <table class="table table-bordered table-striped text-center mt-3">
@@ -33,7 +33,7 @@
                   {{ $item->getProduct()->getName() }}
                 </a>
               </td>
-              <td>${{ $item->getPrice() }}</td>
+              <td>${{ number_format($item->getPrice(), 0, ',', '.') }}</td>
               <td>{{ $item->getQuantity() }}</td>
             </tr>
           @endforeach

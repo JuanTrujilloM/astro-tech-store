@@ -34,7 +34,6 @@ return [
             'empty_description' => 'Once products are added to the store, they will appear here in the main carousel.',
         ],
 
-
         'top_sellers' => [
             'title' => 'Top 3 Best-Selling Products',
             'caption' => 'Ranking updated periodically',

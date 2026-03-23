@@ -34,7 +34,6 @@ return [
             'empty_description' => 'Cuando se agreguen productos a la tienda, apareceran aqui en el carrusel principal.',
         ],
 
-
         'top_sellers' => [
             'title' => 'Top 3 Productos Mas Vendidos',
             'caption' => 'Ranking actualizado periodicamente',
