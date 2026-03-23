@@ -87,7 +87,8 @@
           <form method="GET" action="{{ route('product.index') }}" class="product-filters-form" role="search">
             <div class="row g-3 align-items-end justify-content-center">
               <div class="col-12 col-md-6 col-lg-4">
-                <label for="product-search-product_search" class="form-label small mb-1">{{ __('messages.product.search_placeholder') }}</label>
+                <label for="product-search-product_search"
+                  class="form-label small mb-1">{{ __('messages.product.search_placeholder') }}</label>
                 <input type="search" name="product_search" id="product-search-product_search"
                   value="{{ old('product_search', $viewData['product_search'] ?? '') }}"
                   class="form-control @error('product_search') is-invalid @enderror"
@@ -97,7 +98,8 @@
                 @enderror
               </div>
               <div class="col-6 col-md-3 col-lg-2">
-                <label for="filter-price-min" class="form-label small mb-1">{{ __('messages.product.filter_price_min') }}</label>
+                <label for="filter-price-min"
+                  class="form-label small mb-1">{{ __('messages.product.filter_price_min') }}</label>
                 <input type="number" name="price_min" id="filter-price-min" min="0" step="1"
                   value="{{ old('price_min', $viewData['price_min'] ?? '') }}"
                   class="form-control @error('price_min') is-invalid @enderror" placeholder="0">
@@ -106,7 +108,8 @@
                 @enderror
               </div>
               <div class="col-6 col-md-3 col-lg-2">
-                <label for="filter-price-max" class="form-label small mb-1">{{ __('messages.product.filter_price_max') }}</label>
+                <label for="filter-price-max"
+                  class="form-label small mb-1">{{ __('messages.product.filter_price_max') }}</label>
                 <input type="number" name="price_max" id="filter-price-max" min="0" step="1"
                   value="{{ old('price_max', $viewData['price_max'] ?? '') }}"
                   class="form-control @error('price_max') is-invalid @enderror" placeholder="0">
@@ -115,7 +118,8 @@
                 @enderror
               </div>
               <div class="col-12 col-md-6 col-lg-2">
-                <label for="filter-min-rating" class="form-label small mb-1">{{ __('messages.product.filter_min_rating') }}</label>
+                <label for="filter-min-rating"
+                  class="form-label small mb-1">{{ __('messages.product.filter_min_rating') }}</label>
                 <select name="min_rating" id="filter-min-rating"
                   class="form-select @error('min_rating') is-invalid @enderror">
                   <option value="">{{ __('messages.product.filter_min_rating_any') }}</option>
@@ -132,7 +136,8 @@
               <div class="col-12 col-lg-2 d-flex flex-wrap gap-2 justify-content-center">
                 <button type="submit" class="btn btn-primary">{{ __('messages.product.filter_apply') }}</button>
                 @if (!empty($viewData['has_active_filters']))
-                  <a href="{{ route('product.index') }}" class="btn btn-outline-secondary">{{ __('messages.product.search_clear') }}</a>
+                  <a href="{{ route('product.index') }}"
+                    class="btn btn-outline-secondary">{{ __('messages.product.search_clear') }}</a>
                 @endif
               </div>
             </div>
