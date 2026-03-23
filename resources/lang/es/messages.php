@@ -185,14 +185,19 @@ return [
 
     'cart' => [
         'title' => 'Carrito de compras',
-        'subtitle' => 'Revisa tus productos y continúa al pago',
         'total_to_pay' => 'Total a pagar',
         'purchase' => 'Comprar',
         'remove_all_products' => 'Eliminar todos los productos del carrito',
         'empty' => 'Tu carrito está vacío.',
+        'empty_subtitle' => 'Explora nuestro catálogo y agrega productos que te gusten!',
+        'browse_products' => 'Ver Productos',
         'subtotal' => 'Subtotal',
         'purchase_success' => 'Compra realizada con exito',
         'insufficient_balance' => 'Saldo insuficiente para completar la compra.',
+        'discount_placeholder' => 'Codigo de descuento',
+        'discount_apply' => 'Aplicar',
+        'discount_applied' => 'Descuento del :percentage% aplicado exitosamente!',
+        'discount_invalid' => 'El codigo de descuento no es valido.',
     ],
 
     'orders' => [
@@ -205,7 +210,9 @@ return [
         'product_name' => 'Nombre del producto',
         'status' => 'Estado',
         'view_details' => 'Ver detalles',
-        'empty' => 'Parece que no has comprado nada en nuestra tienda.',
+        'empty' => 'Aún no tienes pedidos.',
+        'empty_subtitle' => 'Explora nuestros productos y encuentra algo que te encante!',
+        'browse_products' => 'Ver Productos',
         'back_to_orders' => 'Volver a pedidos',
     ],
 
