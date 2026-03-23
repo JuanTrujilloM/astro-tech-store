@@ -79,6 +79,11 @@ class Review extends Model
         return $this->attributes['created_at'];
     }
 
+    public function getCreatedAtDiff(): string
+    {
+        return $this->created_at->diffForHumans();
+    }
+
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
