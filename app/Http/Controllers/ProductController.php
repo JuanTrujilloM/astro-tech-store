@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author:Juan Esteban Trujillo Montes
+ * Author: Juan Esteban Trujillo Montes
  * Description: Controller responsible for managing Products
  */
 

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Juan Esteban Trujillo Montes
+ * Description: Controller responsible for managing the home page.
+ */
+
 namespace App\Http\Controllers;
 
 use App\Models\Product;

@@ -17,7 +17,7 @@ class AdminReviewController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['reviews'] = Review::all();
+        $viewData['reviews'] = Review::with(['user', 'product'])->get();
 
         return view('admin.review.index')->with('viewData', $viewData);
     }
