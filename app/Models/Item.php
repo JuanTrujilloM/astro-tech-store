@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Author: Juan Sebastián Lizcano Urrea
  * Description: Model responsible for managing Items
