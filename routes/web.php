@@ -18,6 +18,8 @@ Route::get('/products/{product}', 'App\Http\Controllers\ProductController@show')
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
 Route::post('/cart/add/{product}', 'App\Http\Controllers\CartController@add')->name('cart.add');
 Route::post('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('cart.delete');
+Route::post('/cart/discount', 'App\Http\Controllers\CartController@applyDiscount')->name('cart.applyDiscount');
+Route::post('/cart/discount/remove', 'App\Http\Controllers\CartController@removeDiscount')->name('cart.removeDiscount');
 
 // Order routes related to user interactions
 Route::middleware('auth')->group(function () {
