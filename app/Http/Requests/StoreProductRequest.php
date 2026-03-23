@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Andres Perez Quinchia
+ * Description: Request class responsible for validating the data when creating a new product in the admin panel.
+ */
+
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;

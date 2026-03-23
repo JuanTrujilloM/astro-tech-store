@@ -23,7 +23,7 @@ Route::post('/cart/discount/remove', 'App\Http\Controllers\CartController@remove
 
 // Order routes related to user interactions
 Route::middleware('auth')->group(function () {
-    Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
+    Route::post('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
     Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name('order.index');
     Route::get('/orders/{order}', 'App\Http\Controllers\OrderController@show')->name('order.show');
     Route::post('/orders/{order}/cancel', 'App\Http\Controllers\OrderController@cancel')->name('order.cancel');

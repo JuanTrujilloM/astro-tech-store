@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', __('Register') . ' - ' . __('messages.layout.title_default'))
 @section('content')
 
   <div class="container">

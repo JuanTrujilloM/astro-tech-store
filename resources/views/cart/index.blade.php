@@ -115,9 +115,12 @@
               ${{ number_format($viewData['totalWithDiscount'], 0, ',', '.') }}
             </span>
 
-            <a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">
-              {{ __('messages.cart.purchase') }}
-            </a>
+            <form action="{{ route('cart.purchase') }}" method="POST" class="d-inline">
+              @csrf
+              <button type="submit" class="btn bg-primary text-white mb-2">
+                {{ __('messages.cart.purchase') }}
+              </button>
+            </form>
 
             <form action="{{ route('cart.delete') }}" method="POST" class="d-inline">
               @csrf

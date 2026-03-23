@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author:Juan Esteban Trujillo Montes
+ * Author: Juan Esteban Trujillo Montes
  * Description: Request class responsible for validating the data of a review when creating or updating it
  */
 
