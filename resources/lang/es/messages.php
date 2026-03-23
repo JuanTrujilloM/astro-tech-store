@@ -28,17 +28,12 @@ return [
         'welcome_description' => 'En Astro Tech Store nos apasiona acercar la tecnologia moderna a todas las personas. Nuestra plataforma te permite explorar una variedad de productos innovadores, conocer sus caracteristicas y encontrar la tecnologia que mejor se adapta a tus necesidades. Ya sea que estes mejorando tu setup o descubriendo algo nuevo, estamos aqui para que tu experiencia sea simple, agradable e inspiradora.',
 
         'carousel' => [
-            'title' => 'Carrusel de Productos',
+            'title' => 'Productos Recientes',
+            'caption' => 'Descubre las ultimas novedades de nuestro catalogo',
             'empty_title' => 'Aun no hay productos disponibles',
             'empty_description' => 'Cuando se agreguen productos a la tienda, apareceran aqui en el carrusel principal.',
         ],
 
-        'featured' => [
-            'title' => 'Productos Destacados',
-            'caption' => 'Aun no hay productos destacados',
-            'empty_title' => 'La seccion de destacados esta vacia',
-            'empty_description' => 'Aqui se mostraran hasta 8 productos destacados cuando se agreguen al catalogo.',
-        ],
 
         'top_sellers' => [
             'title' => 'Top 3 Productos Mas Vendidos',
@@ -53,10 +48,10 @@ return [
         ],
 
         'reviews' => [
-            'title' => 'Resenas de Productos',
-            'caption' => 'Aun no hay resenas',
-            'placeholder_title' => 'Espacio de Resena',
-            'placeholder_description' => 'Las opiniones de clientes apareceran aqui cuando comiencen a compartir sus experiencias.',
+            'title' => 'Resenas Recientes',
+            'caption' => 'Lo que dicen nuestros clientes',
+            'empty_title' => 'Aun no hay resenas',
+            'empty_description' => 'Las opiniones de clientes apareceran aqui cuando comiencen a compartir sus experiencias.',
         ],
 
         'about' => [
