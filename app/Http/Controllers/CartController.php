@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddCartRequest;
+use App\Http\Requests\ApplyDiscountRequest;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\Product;
@@ -84,7 +85,7 @@ class CartController extends Controller
         return redirect()->route('product.index');
     }
 
-    public function applyDiscount(Request $request): RedirectResponse
+    public function applyDiscount(ApplyDiscountRequest $request): RedirectResponse
     {
         $input = trim($request->input('discount_code', ''));
         $matchedCode = null;
