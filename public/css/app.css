@@ -330,8 +330,8 @@ nav {
     width: 100%;
 }
 
-.alert-flash {
-    margin-top: 1.5rem;
+.alert {
+    text-align: center;
 }
 
 /* Cart page */
