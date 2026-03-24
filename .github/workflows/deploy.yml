@@ -28,7 +28,7 @@ jobs:
               sudo git config --global --add safe.directory /var/www/html/astro-tech-store &&
               cd /var/www/html/astro-tech-store &&
               sudo git pull origin main &&
-              sudo composer install --no-dev --optimize-autoloader &&
+              sudo composer install &&
               sudo php artisan migrate --force &&
               sudo php artisan db:seed --force &&
               sudo php artisan storage:link &&
