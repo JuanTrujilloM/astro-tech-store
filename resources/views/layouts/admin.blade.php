@@ -102,12 +102,7 @@
         </main>
 
         <footer class="admin-footer mt-auto">
-          <small>
-            {{ __('messages.admin.footer_prefix') }}
-            Juan Esteban Trujillo Montes,
-            Andres Perez Quinchia,
-            Juan Sebastian Lizcano
-          </small>
+          <small>{{ __('messages.admin.footer_rights') }}</small>
         </footer>
       </div>
 

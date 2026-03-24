@@ -62,6 +62,9 @@
             <a class="nav-link active" href="{{ route('login') }}">{{ __('messages.layout.nav.login') }}</a>
             <a class="nav-link active" href="{{ route('register') }}">{{ __('messages.layout.nav.register') }}</a>
           @else
+            <span class="nav-link active d-flex align-items-center gap-1">
+              <i class="bi bi-wallet2"></i> ${{ number_format(Auth::user()->getBalance(), 0, ',', '.') }}
+            </span>
             <form id="logout" action="{{ route('logout') }}" method="POST" class="d-inline">
               @csrf
               <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">
