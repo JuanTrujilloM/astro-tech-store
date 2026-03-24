@@ -22,20 +22,26 @@
         @foreach ($viewData['topProducts'] as $index => $topProduct)
           @if ($topProduct->items_sum_quantity > 0)
             <div class="col-12 col-md-3">
-              <div class="card h-100 shadow-sm text-center">
-                @if ($topProduct->getImage())
-                  <img src="{{ asset('storage/' . $topProduct->getImage()) }}" class="card-img-top img-card"
-                    alt="{{ $topProduct->getName() }}">
-                @else
-                  <div class="card-img-top img-card bg-secondary d-flex align-items-center justify-content-center">
-                    <i class="bi bi-image text-white fs-1"></i>
-                  </div>
-                @endif
+              <div class="card h-100 shadow-sm text-center product-card">
+                <a href="{{ route('product.show', ['product' => $topProduct->getId()]) }}"
+                  class="text-decoration-none text-reset">
+                  @if ($topProduct->getImage())
+                    <img src="{{ asset('storage/' . $topProduct->getImage()) }}" class="card-img-top img-card"
+                      alt="{{ $topProduct->getName() }}">
+                  @else
+                    <div class="card-img-top img-card bg-secondary d-flex align-items-center justify-content-center">
+                      <i class="bi bi-image text-white fs-1"></i>
+                    </div>
+                  @endif
+                </a>
                 <div class="card-body d-flex flex-column">
-                  <span class="badge badge-top-{{ $index + 1 }} mb-2 align-self-center">
-                    {{ __('messages.home.top_sellers.top_' . ($index + 1)) }}
-                  </span>
-                  <h5 class="card-title">{{ $topProduct->getName() }}</h5>
+                  <a href="{{ route('product.show', ['product' => $topProduct->getId()]) }}"
+                    class="text-decoration-none text-reset text-center">
+                    <span class="badge badge-top-{{ $index + 1 }} mb-2">
+                      {{ __('messages.home.top_sellers.top_' . ($index + 1)) }}
+                    </span>
+                    <h5 class="card-title">{{ $topProduct->getName() }}</h5>
+                  </a>
                   <p class="text-muted small">{{ $topProduct->items_sum_quantity }}
                     {{ __('messages.product.total_sold') }}</p>
                   <div class="mb-2 small">
@@ -81,10 +87,10 @@
       <h4 class="fw-bold mb-3">{{ __('messages.admin.product_list') }}</h4>
     </div>
     <div class="col-12">
-      <div class="card shadow-sm border-0 product-filters-card">
+      <div class="card shadow-sm border-0">
         <div class="card-body text-center">
           <h6 class="card-subtitle mb-3 text-muted">{{ __('messages.product.filters_title') }}</h6>
-          <form method="GET" action="{{ route('product.index') }}" class="product-filters-form" role="search">
+          <form method="GET" action="{{ route('product.index') }}" role="search">
             <div class="row g-3 align-items-end justify-content-center">
               <div class="col-12 col-md-6 col-lg-4">
                 <label for="product-search-product_search"
@@ -151,18 +157,24 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
       @foreach ($viewData['products'] as $product)
         <div class="col">
-          <div class="card h-100 shadow-sm">
-            @if ($product->getImage())
-              <img src="{{ asset('storage/' . $product->getImage()) }}" class="card-img-top img-card"
-                alt="{{ $product->getName() }}">
-            @else
-              <div class="card-img-top img-card bg-secondary d-flex align-items-center justify-content-center">
-                <i class="bi bi-image text-white fs-1"></i>
-              </div>
-            @endif
+          <div class="card h-100 shadow-sm product-card">
+            <a href="{{ route('product.show', ['product' => $product->getId()]) }}"
+              class="text-decoration-none text-reset">
+              @if ($product->getImage())
+                <img src="{{ asset('storage/' . $product->getImage()) }}" class="card-img-top img-card"
+                  alt="{{ $product->getName() }}">
+              @else
+                <div class="card-img-top img-card bg-secondary d-flex align-items-center justify-content-center">
+                  <i class="bi bi-image text-white fs-1"></i>
+                </div>
+              @endif
+            </a>
             <div class="card-body d-flex flex-column">
               <div class="d-flex justify-content-between align-items-start mb-2">
-                <h5 class="card-title mb-0">{{ $product->getName() }}</h5>
+                <a href="{{ route('product.show', ['product' => $product->getId()]) }}"
+                  class="text-decoration-none text-reset">
+                  <h5 class="card-title mb-0">{{ $product->getName() }}</h5>
+                </a>
 
                 @if (in_array($product->getId(), session('favorites', [])))
                   <form action="{{ route('favorite.remove', ['product' => $product->getId()]) }}" method="POST">

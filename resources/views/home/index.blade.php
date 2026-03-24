@@ -30,18 +30,21 @@
                 @foreach ($chunk->values() as $cardIndex => $product)
                   <div
                     class="carousel-product-card {{ $cardIndex === 1 ? 'carousel-card-center' : 'carousel-card-side' }}">
-                    <div class="card border rounded-4 text-center p-3 h-100">
-                      @if ($product->getImage())
-                        <img src="{{ asset('storage/' . $product->getImage()) }}" alt="{{ $product->getName() }}"
-                          class="carousel-product-img mx-auto mt-2">
-                      @else
-                        <div
-                          class="carousel-product-no-img mx-auto mt-2 rounded-3 d-flex align-items-center justify-content-center">
-                          <i class="bi bi-image text-muted icon-placeholder-lg"></i>
-                        </div>
-                      @endif
+                    <div class="card border rounded-4 text-center p-3 h-100 product-card">
+                      <a href="{{ route('product.show', ['product' => $product->getId()]) }}"
+                        class="text-decoration-none text-reset">
+                        @if ($product->getImage())
+                          <img src="{{ asset('storage/' . $product->getImage()) }}" alt="{{ $product->getName() }}"
+                            class="carousel-product-img mx-auto mt-2">
+                        @else
+                          <div
+                            class="carousel-product-no-img mx-auto mt-2 rounded-3 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-image text-muted icon-placeholder-lg"></i>
+                          </div>
+                        @endif
+                        <h5 class="card-title fw-semibold mb-1 mt-2">{{ $product->getName() }}</h5>
+                      </a>
                       <div class="card-body px-2 pb-2">
-                        <h5 class="card-title fw-semibold mb-1">{{ $product->getName() }}</h5>
                         <p class="text-muted fw-bold mb-2">${{ number_format($product->getPrice(), 0, ',', '.') }}</p>
                         <a href="{{ route('product.show', ['product' => $product->getId()]) }}"
                           class="btn btn-primary btn-sm rounded-pill px-4">
@@ -87,16 +90,19 @@
       @if ($viewData['topHomeProducts']->sum('items_sum_quantity') > 0)
         @foreach ($viewData['topHomeProducts'] as $index => $topProduct)
           <div class="col-12 col-md-4">
-            <div class="p-4 rounded-4 border h-100 bg-light text-center">
+            <div class="p-4 rounded-4 border h-100 bg-light text-center product-card">
               <div class="mb-2">
                 <span
                   class="badge badge-top-{{ $index + 1 }} fs-6 px-3 py-2">{{ __('messages.home.top_sellers.top_' . ($index + 1)) }}</span>
               </div>
-              @if ($topProduct->getImage())
-                <img src="{{ asset('storage/' . $topProduct->getImage()) }}" class="rounded mb-2 top-product-img"
-                  alt="{{ $topProduct->getName() }}">
-              @endif
-              <h3 class="h5 mb-2">{{ $topProduct->getName() }}</h3>
+              <a href="{{ route('product.show', ['product' => $topProduct->getId()]) }}"
+                class="text-decoration-none text-reset">
+                @if ($topProduct->getImage())
+                  <img src="{{ asset('storage/' . $topProduct->getImage()) }}" class="rounded mb-2 top-product-img"
+                    alt="{{ $topProduct->getName() }}">
+                @endif
+                <h3 class="h5 mb-2">{{ $topProduct->getName() }}</h3>
+              </a>
               <p class="text-muted mb-2">${{ number_format($topProduct->getPrice(), 0, ',', '.') }}</p>
               <a href="{{ route('product.show', ['product' => $topProduct->getId()]) }}" class="btn btn-primary btn-sm">
                 {{ __('messages.product.view_detail') }}

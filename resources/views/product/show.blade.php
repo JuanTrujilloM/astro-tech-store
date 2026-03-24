@@ -21,7 +21,7 @@
       <div class="col-12 col-md-5">
         @if ($viewData['product']->getImage())
           <img src="{{ asset('storage/' . $viewData['product']->getImage()) }}"
-            class="img-fluid h-100 w-100 product-detail-img" alt="{{ $viewData['product']->getName() }}">
+            class="img-fluid w-100 product-detail-img" alt="{{ $viewData['product']->getName() }}">
         @else
           <div class="h-100 bg-light product-detail-no-img">
             <div class="product-detail-no-img-inner text-muted">
