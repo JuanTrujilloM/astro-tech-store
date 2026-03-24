@@ -25,18 +25,18 @@ jobs:
             --zone=${{ secrets.GCP_ZONE }} \
             --project=${{ secrets.GCP_PROJECT_ID }} \
             --command="
-              git config --global --add safe.directory /var/www/html/astro-tech-store &&
+              sudo git config --global --add safe.directory /var/www/html/astro-tech-store &&
               cd /var/www/html/astro-tech-store &&
-              git pull origin main &&
-              composer install --no-dev --optimize-autoloader &&
-              php artisan migrate --force &&
-              php artisan db:seed --force &&
-              php artisan storage:link &&
-              php artisan config:cache &&
-              php artisan route:cache &&
-              php artisan view:cache &&
-              chmod -R 777 storage &&
-              chmod -R 777 database &&
-              chmod 777 database/database.sqlite &&
+              sudo git pull origin main &&
+              sudo composer install --no-dev --optimize-autoloader &&
+              sudo php artisan migrate --force &&
+              sudo php artisan db:seed --force &&
+              sudo php artisan storage:link &&
+              sudo php artisan config:cache &&
+              sudo php artisan route:cache &&
+              sudo php artisan view:cache &&
+              sudo chmod -R 777 storage &&
+              sudo chmod -R 777 database &&
+              sudo chmod 777 database/database.sqlite &&
               sudo systemctl restart apache2
             "
