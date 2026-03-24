@@ -12,7 +12,7 @@
   <title>@yield('title', __('messages.admin.title'))</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <link rel="icon" type="image/jpeg" href="{{ asset('images/app/logapp.jpg') }}">
+  <link rel="icon" type="image/svg+xml" href="{{ asset('images/app/logoapp.svg') }}">
   <link href="{{ asset('/css/admin.css') }}" rel="stylesheet">
 </head>
 
