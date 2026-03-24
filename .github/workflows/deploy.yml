@@ -25,6 +25,7 @@ jobs:
             --zone=${{ secrets.GCP_ZONE }} \
             --project=${{ secrets.GCP_PROJECT_ID }} \
             --command="
+              git config --global --add safe.directory /var/www/html/astro-tech-store &&
               cd /var/www/html/astro-tech-store &&
               git pull origin main &&
               composer install --no-dev --optimize-autoloader &&
