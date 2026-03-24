@@ -62,7 +62,7 @@
             @if ($viewData['product']->getImage())
               <div class="mt-2">
                 <small class="admin-product-no-image d-block">{{ __('messages.admin.current_image') }}</small>
-                <img src="{{ asset('storage/' . $viewData['product']->getImage()) }}" alt="Imagen actual del producto"
+                <img src="{{ asset('storage/' . $viewData['product']->getImage()) }}" alt="Actual Image Of {{ $viewData['product']->getName() }}"
                   class="img-thumbnail mt-1 admin-product-preview">
               </div>
             @endif

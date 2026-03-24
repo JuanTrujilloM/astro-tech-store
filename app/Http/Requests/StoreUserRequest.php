@@ -28,8 +28,8 @@ class StoreUserRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'password' => 'nullable|string|min:8',
+            'email' => 'required|email|max:255|unique:users,email' . ($this->route('user') ? ',' . $this->route('user') : ''),
+            'password' => ($this->route('user') ? 'nullable' : 'required') . '|string|min:8',
             'balance' => 'nullable|integer|gte:0',
             'role' => 'required|string|in:admin,client',
         ];
