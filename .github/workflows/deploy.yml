@@ -31,8 +31,6 @@ jobs:
               sudo composer install &&
               sudo php artisan migrate:fresh --seed --force &&
               sudo php artisan storage:link &&
-              sudo php artisan config:cache &&
-              sudo php artisan route:cache &&
               sudo php artisan view:cache &&
               sudo chmod -R 777 storage &&
               sudo chmod -R 777 database &&
