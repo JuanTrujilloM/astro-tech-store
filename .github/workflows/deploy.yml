@@ -29,8 +29,7 @@ jobs:
               cd /var/www/html/astro-tech-store &&
               sudo git pull origin main &&
               sudo composer install &&
-              sudo php artisan migrate --force &&
-              sudo php artisan db:seed --force &&
+              sudo php artisan migrate:fresh --seed --force &&
               sudo php artisan storage:link &&
               sudo php artisan config:cache &&
               sudo php artisan route:cache &&
