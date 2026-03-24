@@ -1,0 +1,41 @@
+name: Deploy to GCP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to GCP VM
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Authenticate with GCP
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Deploy via SSH
+        run: |
+          gcloud compute ssh ${{ secrets.GCP_USERNAME }}@${{ secrets.GCP_INSTANCE }} \
+            --zone=${{ secrets.GCP_ZONE }} \
+            --project=${{ secrets.GCP_PROJECT_ID }} \
+            --command="
+              cd /var/www/html/astro-tech-store &&
+              git pull origin main &&
+              composer install --no-dev --optimize-autoloader &&
+              php artisan migrate --force &&
+              php artisan db:seed --force &&
+              php artisan storage:link &&
+              php artisan config:cache &&
+              php artisan route:cache &&
+              php artisan view:cache &&
+              chmod -R 777 storage &&
+              chmod -R 777 database &&
+              chmod 777 database/database.sqlite &&
+              sudo systemctl restart apache2
+            "
