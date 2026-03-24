@@ -108,7 +108,7 @@
                     <td>
                       @if ($product->getImage())
                         <img src="{{ asset('storage/' . $product->getImage()) }}"
-                          alt="Imagen de {{ $product->getName() }}" class="img-thumbnail admin-product-thumb">
+                          alt="Image of {{ $product->getName() }}" class="img-thumbnail admin-product-thumb">
                       @else
                         <span class="admin-product-no-image">{{ __('messages.admin.no_image') }}</span>
                       @endif
