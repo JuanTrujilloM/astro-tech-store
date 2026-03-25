@@ -464,3 +464,29 @@ nav {
 .icon-placeholder-lg {
     font-size: 2.5rem;
 }
+
+.hero-welcome {
+    background: #ffffff;
+    color: var(--color-black);
+    border: 1px solid #e0e0e0 !important;
+    animation: heroFadeIn 0.6s ease-out;
+}
+
+.hero-title {
+    color: var(--color-dark-red);
+}
+
+.hero-subtitle {
+    color: #6c757d;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

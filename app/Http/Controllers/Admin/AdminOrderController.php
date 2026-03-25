@@ -25,8 +25,18 @@ class AdminOrderController extends Controller
 
     public function updateStatus(UpdateOrderStatusRequest $request, int $order): RedirectResponse
     {
-        $order = Order::findOrFail($order);
-        $order->setStatus($request->input('status'));
+        $order = Order::with('items.product')->findOrFail($order);
+        $newStatus = $request->input('status');
+
+        if ($newStatus === 'cancelled' && $order->getStatus() !== 'cancelled') {
+            foreach ($order->getItems() as $item) {
+                $product = $item->getProduct();
+                $product->setStock($product->getStock() + $item->getQuantity());
+                $product->save();
+            }
+        }
+
+        $order->setStatus($newStatus);
         $order->save();
 
         return redirect()->route('admin.order.index');

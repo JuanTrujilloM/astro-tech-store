@@ -24,8 +24,8 @@ return [
 
     'home' => [
         'title' => 'Astro Tech - Inicio',
-        'welcome_title' => 'Bienvenido a Astro Tech Store - nos alegra tenerte aqui',
-        'welcome_description' => 'En Astro Tech Store nos apasiona acercar la tecnologia moderna a todas las personas. Nuestra plataforma te permite explorar una variedad de productos innovadores, conocer sus caracteristicas y encontrar la tecnologia que mejor se adapta a tus necesidades. Ya sea que estes mejorando tu setup o descubriendo algo nuevo, estamos aqui para que tu experiencia sea simple, agradable e inspiradora.',
+        'welcome_title' => 'Bienvenido a Astro Tech Store',
+        'welcome_description' => 'Explora productos innovadores y encuentra la tecnologia que mejor se adapta a tus necesidades.',
 
         'carousel' => [
             'title' => 'Productos Recientes',

@@ -24,8 +24,8 @@ return [
 
     'home' => [
         'title' => 'Astro Tech - Home',
-        'welcome_title' => "Welcome to Astro Tech Store — we're glad you're here",
-        'welcome_description' => 'At Astro Tech Store, we are passionate about bringing modern technology closer to everyone. Our platform allows you to explore a variety of innovative products, learn about their features, and find the technology that best fits your needs. Whether you are upgrading your setup or simply discovering something new, we are here to make your experience simple, enjoyable, and inspiring.',
+        'welcome_title' => 'Welcome to Astro Tech Store',
+        'welcome_description' => 'Explore innovative products and find the technology that best fits your needs.',
 
         'carousel' => [
             'title' => 'Latest Products',

@@ -8,9 +8,9 @@
 @section('content')
 
   <section class="mb-5">
-    <div class="p-5 rounded-4 bg-light border text-center">
-      <h1 class="display-6 fw-bold mb-3">{{ __('messages.home.welcome_title') }}</h1>
-      <p class="lead mb-0 mx-auto max-width-900">
+    <div class="hero-welcome py-3 px-4 rounded-4 text-center mx-auto" style="max-width: 700px;">
+      <h1 class="hero-title fw-bold mb-2">{{ __('messages.home.welcome_title') }}</h1>
+      <p class="mb-0 mx-auto max-width-900 hero-subtitle">
         {{ __('messages.home.welcome_description') }}
       </p>
     </div>
@@ -214,5 +214,6 @@
       </div>
     </div>
   </section>
+
 
 @endsection
