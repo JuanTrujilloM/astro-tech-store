@@ -48,7 +48,10 @@ class ProductController extends Controller
         }
 
         if ($minRating !== null && $minRating >= 1 && $minRating <= 5) {
-            $query->having('reviews_avg_rating', '>=', $minRating);
+            $query->whereHas('reviews', function ($sub) use ($minRating) {
+                $sub->selectRaw('avg(rating)')
+                    ->havingRaw('avg(rating) >= ?', [$minRating]);
+            });
         }
 
         $products = $query->get();
