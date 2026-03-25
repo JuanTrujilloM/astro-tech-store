@@ -1,0 +1,350 @@
+-- Astro Tech Store - Seed data (INSERT statements)
+-- Database: astro_tech_db
+
+-- USERS (10 clients + 1 admin)
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `role`, `balance`, `created_at`, `updated_at`) VALUES
+(1, 'Carlos García López', 'carlos.garcia@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'abc123def0', 'client', 5000, '2026-03-24 10:00:00', '2026-03-24 10:00:00'),
+(2, 'María Fernanda Ruiz', 'maria.ruiz@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'bcd234efg1', 'client', 5000, '2026-03-24 10:00:01', '2026-03-24 10:00:01'),
+(3, 'Andrés Felipe Martínez', 'andres.martinez@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'cde345fgh2', 'client', 5000, '2026-03-24 10:00:02', '2026-03-24 10:00:02'),
+(4, 'Laura Camila Torres', 'laura.torres@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'def456ghi3', 'client', 5000, '2026-03-24 10:00:03', '2026-03-24 10:00:03'),
+(5, 'Santiago Herrera Díaz', 'santiago.herrera@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'efg567hij4', 'client', 5000, '2026-03-24 10:00:04', '2026-03-24 10:00:04'),
+(6, 'Valentina Morales Peña', 'valentina.morales@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'fgh678ijk5', 'client', 5000, '2026-03-24 10:00:05', '2026-03-24 10:00:05'),
+(7, 'Daniel Alejandro Rojas', 'daniel.rojas@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'ghi789jkl6', 'client', 5000, '2026-03-24 10:00:06', '2026-03-24 10:00:06'),
+(8, 'Isabella Gutiérrez Vargas', 'isabella.gutierrez@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'hij890klm7', 'client', 5000, '2026-03-24 10:00:07', '2026-03-24 10:00:07'),
+(9, 'Sebastián Castro Mendoza', 'sebastian.castro@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'ijk901lmn8', 'client', 5000, '2026-03-24 10:00:08', '2026-03-24 10:00:08'),
+(10, 'Camila Andrea Sánchez', 'camila.sanchez@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'jkl012mno9', 'client', 5000, '2026-03-24 10:00:09', '2026-03-24 10:00:09'),
+(11, 'Admin User', 'admin@astrotech.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'klm123nop0', 'admin', 10000, '2026-03-24 10:00:10', '2026-03-24 10:00:10');
+
+-- PRODUCTS (30 products)
+INSERT INTO `products` (`id`, `name`, `description`, `price`, `stock`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'Logitech G Pro X TKL', 'Tournament-grade tenkeyless mechanical keyboard from Logitech featuring hot-swappable GX switches and LIGHTSYNC RGB. Built with a detachable USB-C cable, onboard memory for up to 5 profiles, and a compact design favored by esports professionals. Compatible with Logitech G HUB for advanced macro programming and lighting customization.', 149, 45, '1.jpg', '2026-03-24 10:01:00', '2026-03-24 10:01:00'),
+(2, 'Razer BlackWidow V4', 'Full-size mechanical gaming keyboard powered by Razer Green mechanical switches with tactile and clicky feedback. Features per-key Razer Chroma RGB lighting with 16.8 million color options, a magnetic plush wrist rest, dedicated media keys with a multi-function roller, and doubleshot ABS keycaps for fade-resistant legends.', 169, 32, '2.jpg', '2026-03-24 10:01:01', '2026-03-24 10:01:01'),
+(3, 'Corsair K100 RGB', 'Flagship mechanical keyboard from Corsair equipped with OPX optical-mechanical switches for lightning-fast 1.0mm actuation. Includes an iCUE control wheel for dynamic macro and media control, 44-zone LightEdge RGB, PBT double-shot keycaps, and 4MB onboard storage. Built with an aircraft-grade aluminum frame for premium durability.', 229, 28, '3.webp', '2026-03-24 10:01:02', '2026-03-24 10:01:02'),
+(4, 'Logitech G502 X Plus', 'Wireless gaming mouse featuring the HERO 25K sensor with sub-micron precision tracking up to 25,600 DPI. Equipped with LIGHTFORCE hybrid optical-mechanical switches, LIGHTSPEED wireless technology, and a rechargeable battery lasting up to 130 hours. Includes adjustable weight system and 13 programmable controls for complete customization.', 159, 55, '4.webp', '2026-03-24 10:01:03', '2026-03-24 10:01:03'),
+(5, 'Razer DeathAdder V3 Pro', 'Ultra-lightweight ergonomic wireless gaming mouse weighing just 63 grams. Built with Razer Focus Pro 30K optical sensor, Razer HyperSpeed wireless technology for competition-level latency, and gen-3 optical switches rated for 90 million clicks. Features up to 90 hours of battery life on a single charge.', 149, 60, '5.jpg', '2026-03-24 10:01:04', '2026-03-24 10:01:04'),
+(6, 'SteelSeries Rival 650', 'Dual-sensor wireless gaming mouse from SteelSeries with TrueMove3+ tracking at 12,000 CPI and a dedicated depth sensor for accurate lift-off detection. Features a customizable weight system with 8 removable weights, rapid charging via USB-C delivering 10 hours of use in 15 minutes, and 24-hour total battery life.', 119, 70, '6.jpg', '2026-03-24 10:01:05', '2026-03-24 10:01:05'),
+(7, 'Samsung Odyssey G7 32', 'Curved 32-inch QHD gaming monitor from Samsung with a 1000R curvature and 240Hz refresh rate for ultra-smooth gameplay. Powered by a VA panel delivering deep blacks with a 2500:1 contrast ratio, 1ms GTG response time, and NVIDIA G-Sync and AMD FreeSync Premium Pro compatibility. Includes HDR600 certification and Samsung CoreSync ambient lighting.', 599, 15, '7.webp', '2026-03-24 10:01:06', '2026-03-24 10:01:06'),
+(8, 'LG UltraGear 27GP850-B', '27-inch QHD Nano IPS gaming monitor from LG with a 165Hz refresh rate overclockable to 180Hz. Delivers 98% DCI-P3 color coverage and 1ms GTG response time. Certified NVIDIA G-Sync Compatible and AMD FreeSync Premium with VESA DisplayHDR 400 support. Features a 3-side virtually borderless design and tilt, height, pivot adjustable stand.', 449, 20, '8.webp', '2026-03-24 10:01:07', '2026-03-24 10:01:07'),
+(9, 'ASUS ROG Swift PG279QM', '27-inch QHD IPS gaming monitor from ASUS overclockable to 240Hz for competitive gaming. Features NVIDIA G-Sync with Reflex Analyzer built-in to measure system latency in real time. Covers 95% DCI-P3 color gamut with VESA DisplayHDR 400. Includes ASUS Aura Sync RGB lighting on the back and an ergonomic stand with full adjustment range.', 799, 12, '9.png', '2026-03-24 10:01:08', '2026-03-24 10:01:08'),
+(10, 'SteelSeries Arctis Nova Pro', 'Premium wireless gaming headset from SteelSeries featuring active noise cancellation with 4 microphones and 360-degree spatial audio. Powered by custom-tuned 40mm planar magnetic drivers for audiophile-grade sound. Includes the GameDAC Gen 2 with OLED display, dual-battery system for infinite battery life with hot-swap, and retractable ClearCast Gen 2 AI-powered noise-cancelling microphone.', 349, 25, '10.webp', '2026-03-24 10:01:09', '2026-03-24 10:01:09'),
+(11, 'HyperX Cloud III Wireless', 'Wireless gaming headset from HyperX with 53mm angled drivers delivering immersive DTS Headphone:X spatial audio. Features up to 120 hours of battery life, a durable aluminum frame, memory foam ear cushions with breathable leatherette, and a detachable noise-cancelling microphone. Compatible with PC, PS5, PS4, and Nintendo Switch via 2.4GHz wireless.', 149, 40, '11.webp', '2026-03-24 10:01:10', '2026-03-24 10:01:10'),
+(12, 'Sony WH-1000XM5', 'Industry-leading wireless noise-cancelling headphones from Sony with eight microphones and two processors for unprecedented noise cancellation. Features 30mm custom drivers with crystal-clear audio, 30-hour battery life with quick charging, multipoint Bluetooth connection, and speak-to-chat automatic pause. Ultra-lightweight design at 250 grams with premium soft-fit leather headband.', 349, 35, '12.avif', '2026-03-24 10:01:11', '2026-03-24 10:01:11'),
+(13, 'ASUS ROG Zephyrus G14', 'Compact 14-inch gaming laptop from ASUS powered by AMD Ryzen 9 processor and NVIDIA GeForce RTX 4060 GPU. Features a 2560x1600 IPS display at 165Hz with Dolby Vision, 16GB DDR5 RAM, 1TB PCIe 4.0 SSD, and a 76Wh battery lasting up to 10 hours. The AniMe Matrix LED display on the lid allows custom animations and notifications.', 1599, 10, '13.webp', '2026-03-24 10:01:12', '2026-03-24 10:01:12'),
+(14, 'Apple MacBook Air M3', 'Ultra-thin laptop from Apple powered by the M3 chip with 8-core CPU and 10-core GPU. Features a stunning 15.3-inch Liquid Retina display with 500 nits brightness and P3 wide color, 16GB unified memory, 512GB SSD, and up to 18 hours of battery life. Weighs just 3.3 pounds with a fanless silent design and supports up to two external displays.', 1299, 18, '14.webp', '2026-03-24 10:01:13', '2026-03-24 10:01:13'),
+(15, 'Lenovo Legion Pro 5', '16-inch gaming laptop from Lenovo powered by AMD Ryzen 7 and NVIDIA GeForce RTX 4070 with 140W TGP. Features a 2560x1600 IPS display at 240Hz with 100% sRGB, 32GB DDR5 RAM, 1TB SSD, and Lenovo Legion ColdFront 5.0 thermal system with dual fans and quad exhaust vents. Includes a per-key RGB keyboard and Nahimic audio for immersive gaming.', 1449, 14, '15.webp', '2026-03-24 10:01:14', '2026-03-24 10:01:14'),
+(16, 'Logitech Brio 4K Pro', '4K Ultra HD webcam from Logitech with HDR and RightLight 3 auto-adjusting technology for perfect exposure in any lighting condition. Features a 90-degree field of view, 5x digital zoom, dual omnidirectional microphones, and infrared sensor for Windows Hello facial recognition. Compatible with all major video conferencing and streaming platforms.', 199, 50, '16.webp', '2026-03-24 10:01:15', '2026-03-24 10:01:15'),
+(17, 'Elgato Facecam Pro', 'Professional 4K60 streaming webcam from Elgato with a Sony STARVIS sensor for exceptional low-light performance. Features an all-glass Elgato Prime Lens with adjustable field of view from 90 to 68 degrees, uncompressed video output via USB 3.0, and advanced ISP for true-to-life colors. Fully customizable through the Elgato Camera Hub software.', 299, 22, '17.webp', '2026-03-24 10:01:16', '2026-03-24 10:01:16'),
+(18, 'Razer Kiyo Pro Ultra', 'Professional streaming webcam from Razer with a large 1/1.2-inch Sony Starvis 2 sensor for exceptional low-light performance. Captures uncompressed 4K 30fps video with automatic HDR and AI-powered face tracking for sharp focus. Features an adjustable field of view, built-in privacy shutter, and L-shaped desk mount for flexible positioning.', 299, 19, '18.webp', '2026-03-24 10:01:17', '2026-03-24 10:01:17'),
+(19, 'Samsung 990 Pro 2TB', 'High-performance 2TB NVMe M.2 SSD from Samsung with PCIe 4.0 delivering sequential read speeds of 7,450 MB/s and write speeds of 6,900 MB/s. Features Samsung V-NAND and a proprietary controller with nickel-coated heat spreader for optimal thermal management. Ideal for gaming, 4K video editing, and heavy multitasking workloads.', 189, 65, '19.webp', '2026-03-24 10:01:18', '2026-03-24 10:01:18'),
+(20, 'WD Black SN850X 1TB', '1TB NVMe SSD from Western Digital designed for gaming with up to 7,300 MB/s sequential read speed on PCIe Gen 4. Features Game Mode 2.0 that predicts and accelerates game asset loading, a predictive caching algorithm, and an optional heatsink for PS5 compatibility. Backed by a 5-year limited warranty and 600 TBW endurance rating.', 109, 80, '20.webp', '2026-03-24 10:01:19', '2026-03-24 10:01:19'),
+(21, 'Crucial T700 2TB', '2TB NVMe M.2 SSD from Crucial powered by PCIe 5.0 technology delivering sequential read speeds up to 12,400 MB/s and write speeds up to 11,800 MB/s. Features a Phison E26 controller paired with 232-layer Micron NAND for extreme performance. Includes an integrated aluminum heatsink and is backed by a 5-year limited warranty with 1200 TBW endurance.', 249, 30, '21.webp', '2026-03-24 10:01:20', '2026-03-24 10:01:20'),
+(22, 'Blue Yeti X', 'Professional USB condenser microphone from Blue with four selectable polar patterns: cardioid, omnidirectional, bidirectional, and stereo. Features a high-resolution LED metering display for real-time monitoring, Blue VO!CE software for advanced vocal effects, and a 48kHz/24-bit recording resolution. Built with a no-latency headphone output and multi-function smart knob.', 139, 42, '22.webp', '2026-03-24 10:01:21', '2026-03-24 10:01:21'),
+(23, 'Sony WF-1000XM5', 'Premium true wireless earbuds from Sony with industry-leading noise cancellation powered by the Integrated Processor V2 and QN2e chip. Features Dynamic Driver X for exceptional bass and crystal-clear highs, LDAC codec support for Hi-Res Audio wireless, and up to 24 hours of total battery life with the compact charging case. IPX4 water-resistant with Speak-to-Chat and Adaptive Sound Control.', 279, 38, '23.jpg', '2026-03-24 10:01:22', '2026-03-24 10:01:22'),
+(24, 'Rode NT-USB Mini', 'Compact studio-quality USB condenser microphone from Rode with a flat frequency response and low self-noise for pristine voice recordings. Features a built-in pop filter, integrated headphone output with zero-latency monitoring, and a magnetic desk stand with 360-degree rotation. Plug-and-play compatible with PC, Mac, iPad, and PlayStation.', 99, 55, '24.webp', '2026-03-24 10:01:23', '2026-03-24 10:01:23'),
+(25, 'Xbox Elite Series 2 Core', 'Premium wireless controller from Microsoft with adjustable-tension thumbsticks, wrap-around rubberized grip, and shorter hair trigger locks for rapid firing. Features up to 40 hours of rechargeable battery life, Bluetooth and Xbox Wireless connectivity, and fully remappable buttons via the Xbox Accessories app. Compatible with Xbox Series X|S, Xbox One, PC, and mobile devices.', 129, 48, '25.webp', '2026-03-24 10:01:24', '2026-03-24 10:01:24'),
+(26, 'Sony DualSense Edge', 'Customizable wireless controller from Sony designed for PS5 with swappable stick caps and back buttons. Features adjustable trigger lengths and dead zones, remappable button profiles stored on-device, and a braided USB-C cable with connector housing for secure competitive play. Includes a carrying case and multiple stick cap and back button options in the box.', 199, 33, '26.webp', '2026-03-24 10:01:25', '2026-03-24 10:01:25'),
+(27, '8BitDo Ultimate 2.4G', 'Wireless gaming controller from 8BitDo with Hall Effect joysticks for zero stick drift and extreme precision. Features a charging dock, custom button mapping via the 8BitDo Ultimate Software, dual rumble motors, and two programmable back paddles. Connects via 2.4GHz wireless or Bluetooth and is compatible with PC, Android, and Nintendo Switch.', 69, 72, '27.webp', '2026-03-24 10:01:26', '2026-03-24 10:01:26'),
+(28, 'Elgato Stream Deck MK.2', 'Customizable LCD keypad from Elgato with 15 programmable keys featuring dynamic icons that adapt to your actions. Control OBS, Twitch, Spotify, Philips Hue, and hundreds more with one tap. Features hot-swappable faceplates, a detachable USB-C cable, and adjustable stand. Create multi-action macros and organize commands into nested folders for unlimited control.', 149, 36, '28.webp', '2026-03-24 10:01:27', '2026-03-24 10:01:27'),
+(29, 'CalDigit TS4 Thunderbolt 4 Dock', 'Professional Thunderbolt 4 docking station from CalDigit with 18 ports including three Thunderbolt 4 downstream, five USB-A, USB-C, DisplayPort 1.4, SD and microSD UHS-II card readers, 2.5 Gigabit Ethernet, and front audio combo jack. Delivers 98W charging to host laptop and supports dual 4K at 60Hz or single 8K display output.', 379, 16, '29.jpg', '2026-03-24 10:01:28', '2026-03-24 10:01:28'),
+(30, 'Secretlab Titan Evo 2022', 'Premium ergonomic gaming chair from Secretlab with a pebble seat base for extended sitting comfort. Features an integrated 4-way L-ADAPT lumbar support system, magnetic memory foam head pillow, full-metal 4D armrests with CloudSwap technology, and a multi-tilt mechanism with lock. Built with a steel frame supporting up to 285 lbs and available in NEO Hybrid Leatherette, SoftWeave Plus fabric, or NAPA leather.', 519, 11, '30.jpg', '2026-03-24 10:01:29', '2026-03-24 10:01:29');
+
+-- REVIEWS (5 reviews per product = 150 reviews)
+INSERT INTO `reviews` (`id`, `product_id`, `user_id`, `description`, `rating`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'Great product! Highly recommend.', 5, '2026-03-24 11:00:00', '2026-03-24 11:00:00'),
+(2, 1, 3, 'Good value for the price.', 4, '2026-03-24 11:00:01', '2026-03-24 11:00:01'),
+(3, 1, 5, 'Not what I expected, but still decent.', 3, '2026-03-24 11:00:02', '2026-03-24 11:00:02'),
+(4, 1, 7, 'Excellent quality and fast shipping.', 5, '2026-03-24 11:00:03', '2026-03-24 11:00:03'),
+(5, 1, 9, 'Works as advertised. No complaints so far.', 4, '2026-03-24 11:00:04', '2026-03-24 11:00:04'),
+
+(6, 2, 2, 'Absolutely love it! Best purchase this year.', 5, '2026-03-24 11:01:00', '2026-03-24 11:01:00'),
+(7, 2, 4, 'Solid build and performs well for the price.', 4, '2026-03-24 11:01:01', '2026-03-24 11:01:01'),
+(8, 2, 6, 'Average quality, nothing special.', 3, '2026-03-24 11:01:02', '2026-03-24 11:01:02'),
+(9, 2, 8, 'It is okay but I expected better at this price point.', 2, '2026-03-24 11:01:03', '2026-03-24 11:01:03'),
+(10, 2, 10, 'Perfect for my setup. Would buy again.', 5, '2026-03-24 11:01:04', '2026-03-24 11:01:04'),
+
+(11, 3, 1, 'Exceeded all my expectations. Flawless performance.', 5, '2026-03-24 11:02:00', '2026-03-24 11:02:00'),
+(12, 3, 2, 'Fast delivery and exactly as described.', 4, '2026-03-24 11:02:01', '2026-03-24 11:02:01'),
+(13, 3, 5, 'Pretty good overall but packaging was damaged.', 3, '2026-03-24 11:02:02', '2026-03-24 11:02:02'),
+(14, 3, 7, 'Top-notch build quality. Worth every penny.', 5, '2026-03-24 11:02:03', '2026-03-24 11:02:03'),
+(15, 3, 9, 'Really good product with minor cosmetic imperfections.', 4, '2026-03-24 11:02:04', '2026-03-24 11:02:04'),
+
+(16, 4, 3, 'Amazing product, works perfectly out of the box.', 5, '2026-03-24 11:03:00', '2026-03-24 11:03:00'),
+(17, 4, 4, 'Great performance but the manual could be better.', 4, '2026-03-24 11:03:01', '2026-03-24 11:03:01'),
+(18, 4, 6, 'Does the job but I have seen better at this price.', 3, '2026-03-24 11:03:02', '2026-03-24 11:03:02'),
+(19, 4, 8, 'Poor quality materials. Feels cheap.', 2, '2026-03-24 11:03:03', '2026-03-24 11:03:03'),
+(20, 4, 10, 'Best tech purchase I have made in years. Outstanding.', 5, '2026-03-24 11:03:04', '2026-03-24 11:03:04'),
+
+(21, 5, 1, 'Incredible performance and sleek design. Love it.', 5, '2026-03-24 11:04:00', '2026-03-24 11:04:00'),
+(22, 5, 2, 'Very satisfied overall. Just a bit bulky for my taste.', 4, '2026-03-24 11:04:01', '2026-03-24 11:04:01'),
+(23, 5, 4, 'Mixed feelings. Some features are great, others are lacking.', 3, '2026-03-24 11:04:02', '2026-03-24 11:04:02'),
+(24, 5, 6, 'Disappointing performance. Would not recommend.', 2, '2026-03-24 11:04:03', '2026-03-24 11:04:03'),
+(25, 5, 8, 'Five stars without hesitation. A must-have.', 5, '2026-03-24 11:04:04', '2026-03-24 11:04:04'),
+
+(26, 6, 3, 'Superb quality. I have recommended it to all my friends.', 5, '2026-03-24 11:05:00', '2026-03-24 11:05:00'),
+(27, 6, 5, 'Reliable and well-made. Setup was straightforward.', 4, '2026-03-24 11:05:01', '2026-03-24 11:05:01'),
+(28, 6, 7, 'Okay for basic use. Not suitable for heavy workloads.', 3, '2026-03-24 11:05:02', '2026-03-24 11:05:02'),
+(29, 6, 9, 'Had connectivity issues right from the start.', 2, '2026-03-24 11:05:03', '2026-03-24 11:05:03'),
+(30, 6, 10, 'Everything I wanted and more. Truly impressed.', 5, '2026-03-24 11:05:04', '2026-03-24 11:05:04'),
+
+(31, 7, 1, 'Premium feel and blazing fast. Could not be happier.', 5, '2026-03-24 11:06:00', '2026-03-24 11:06:00'),
+(32, 7, 2, 'Does exactly what it promises. Happy with the purchase.', 4, '2026-03-24 11:06:01', '2026-03-24 11:06:01'),
+(33, 7, 3, 'It works fine but feels a bit outdated compared to competitors.', 3, '2026-03-24 11:06:02', '2026-03-24 11:06:02'),
+(34, 7, 6, 'Stunning design and top performance. No regrets.', 5, '2026-03-24 11:06:03', '2026-03-24 11:06:03'),
+(35, 7, 8, 'Almost perfect. The software could use some updates.', 4, '2026-03-24 11:06:04', '2026-03-24 11:06:04'),
+
+(36, 8, 4, 'This product changed my workflow completely. Fantastic.', 5, '2026-03-24 11:07:00', '2026-03-24 11:07:00'),
+(37, 8, 5, 'Impressive specs for this price range. Slight fan noise though.', 4, '2026-03-24 11:07:01', '2026-03-24 11:07:01'),
+(38, 8, 7, 'Decent product but took forever to arrive.', 3, '2026-03-24 11:07:02', '2026-03-24 11:07:02'),
+(39, 8, 9, 'The product looks nothing like the photos. Misleading.', 2, '2026-03-24 11:07:03', '2026-03-24 11:07:03'),
+(40, 8, 10, 'Absolutely love it! Best purchase this year.', 5, '2026-03-24 11:07:04', '2026-03-24 11:07:04'),
+
+(41, 9, 1, 'Great product! Highly recommend.', 5, '2026-03-24 11:08:00', '2026-03-24 11:08:00'),
+(42, 9, 3, 'Sturdy construction and smooth operation. Recommended.', 4, '2026-03-24 11:08:01', '2026-03-24 11:08:01'),
+(43, 9, 5, 'Neither impressed nor disappointed. It is just average.', 3, '2026-03-24 11:08:02', '2026-03-24 11:08:02'),
+(44, 9, 7, 'Sluggish performance and frequent crashes.', 2, '2026-03-24 11:08:03', '2026-03-24 11:08:03'),
+(45, 9, 9, 'Exceeded all my expectations. Flawless performance.', 5, '2026-03-24 11:08:04', '2026-03-24 11:08:04'),
+
+(46, 10, 2, 'Perfect for my setup. Would buy again.', 5, '2026-03-24 11:09:00', '2026-03-24 11:09:00'),
+(47, 10, 4, 'Good quality product. Packaging could be improved.', 4, '2026-03-24 11:09:01', '2026-03-24 11:09:01'),
+(48, 10, 6, 'Looks good but performance is mediocre.', 3, '2026-03-24 11:09:02', '2026-03-24 11:09:02'),
+(49, 10, 8, 'Overpriced for what you get. Not worth it.', 2, '2026-03-24 11:09:03', '2026-03-24 11:09:03'),
+(50, 10, 10, 'Top-notch build quality. Worth every penny.', 5, '2026-03-24 11:09:04', '2026-03-24 11:09:04'),
+
+(51, 11, 1, 'Amazing product, works perfectly out of the box.', 5, '2026-03-24 11:10:00', '2026-03-24 11:10:00'),
+(52, 11, 3, 'Runs quietly and stays cool. A solid buy.', 4, '2026-03-24 11:10:01', '2026-03-24 11:10:01'),
+(53, 11, 5, 'Fair product. Instructions were confusing to follow.', 3, '2026-03-24 11:10:02', '2026-03-24 11:10:02'),
+(54, 11, 7, 'Build quality is flimsy. Feels like it could break any day.', 2, '2026-03-24 11:10:03', '2026-03-24 11:10:03'),
+(55, 11, 9, 'Superb quality. I have recommended it to all my friends.', 5, '2026-03-24 11:10:04', '2026-03-24 11:10:04'),
+
+(56, 12, 2, 'Incredible performance and sleek design. Love it.', 5, '2026-03-24 11:11:00', '2026-03-24 11:11:00'),
+(57, 12, 4, 'Nice upgrade from my old one. Noticeable improvement.', 4, '2026-03-24 11:11:01', '2026-03-24 11:11:01'),
+(58, 12, 6, 'Gets the job done but nothing to write home about.', 3, '2026-03-24 11:11:02', '2026-03-24 11:11:02'),
+(59, 12, 8, 'Battery life is way shorter than advertised.', 2, '2026-03-24 11:11:03', '2026-03-24 11:11:03'),
+(60, 12, 10, 'Five stars without hesitation. A must-have.', 5, '2026-03-24 11:11:04', '2026-03-24 11:11:04'),
+
+(61, 13, 1, 'Best tech purchase I have made in years. Outstanding.', 5, '2026-03-24 11:12:00', '2026-03-24 11:12:00'),
+(62, 13, 3, 'Solid build and performs well for the price.', 4, '2026-03-24 11:12:01', '2026-03-24 11:12:01'),
+(63, 13, 5, 'Some features work well, others need improvement.', 3, '2026-03-24 11:12:02', '2026-03-24 11:12:02'),
+(64, 13, 7, 'Not compatible with most of my devices. Frustrating.', 2, '2026-03-24 11:12:03', '2026-03-24 11:12:03'),
+(65, 13, 10, 'Stunning design and top performance. No regrets.', 5, '2026-03-24 11:12:04', '2026-03-24 11:12:04'),
+
+(66, 14, 2, 'This product changed my workflow completely. Fantastic.', 5, '2026-03-24 11:13:00', '2026-03-24 11:13:00'),
+(67, 14, 4, 'Great performance but the manual could be better.', 4, '2026-03-24 11:13:01', '2026-03-24 11:13:01'),
+(68, 14, 6, 'Acceptable for the price but do not expect premium quality.', 3, '2026-03-24 11:13:02', '2026-03-24 11:13:02'),
+(69, 14, 8, 'Arrived with scratches and a dent on the side.', 2, '2026-03-24 11:13:03', '2026-03-24 11:13:03'),
+(70, 14, 9, 'Premium feel and blazing fast. Could not be happier.', 5, '2026-03-24 11:13:04', '2026-03-24 11:13:04'),
+
+(71, 15, 1, 'Everything I wanted and more. Truly impressed.', 5, '2026-03-24 11:14:00', '2026-03-24 11:14:00'),
+(72, 15, 3, 'Works as advertised. No complaints so far.', 4, '2026-03-24 11:14:01', '2026-03-24 11:14:01'),
+(73, 15, 5, 'Not what I expected, but still decent.', 3, '2026-03-24 11:14:02', '2026-03-24 11:14:02'),
+(74, 15, 7, 'Heats up too much during normal use. Concerning.', 2, '2026-03-24 11:14:03', '2026-03-24 11:14:03'),
+(75, 15, 10, 'Excellent quality and fast shipping.', 5, '2026-03-24 11:14:04', '2026-03-24 11:14:04'),
+
+(76, 16, 2, 'Absolutely love it! Best purchase this year.', 5, '2026-03-24 11:15:00', '2026-03-24 11:15:00'),
+(77, 16, 4, 'Reliable and well-made. Setup was straightforward.', 4, '2026-03-24 11:15:01', '2026-03-24 11:15:01'),
+(78, 16, 6, 'The product is fine but customer support was unhelpful.', 3, '2026-03-24 11:15:02', '2026-03-24 11:15:02'),
+(79, 16, 8, 'Below average experience. There are better options out there.', 2, '2026-03-24 11:15:03', '2026-03-24 11:15:03'),
+(80, 16, 9, 'Great product! Highly recommend.', 5, '2026-03-24 11:15:04', '2026-03-24 11:15:04'),
+
+(81, 17, 1, 'Perfect for my setup. Would buy again.', 5, '2026-03-24 11:16:00', '2026-03-24 11:16:00'),
+(82, 17, 3, 'Fast delivery and exactly as described.', 4, '2026-03-24 11:16:01', '2026-03-24 11:16:01'),
+(83, 17, 5, 'Average quality, nothing special.', 3, '2026-03-24 11:16:02', '2026-03-24 11:16:02'),
+(84, 17, 7, 'Setup was a nightmare and support was no help.', 2, '2026-03-24 11:16:03', '2026-03-24 11:16:03'),
+(85, 17, 10, 'Top-notch build quality. Worth every penny.', 5, '2026-03-24 11:16:04', '2026-03-24 11:16:04'),
+
+(86, 18, 2, 'Exceeded all my expectations. Flawless performance.', 5, '2026-03-24 11:17:00', '2026-03-24 11:17:00'),
+(87, 18, 4, 'Does exactly what it promises. Happy with the purchase.', 4, '2026-03-24 11:17:01', '2026-03-24 11:17:01'),
+(88, 18, 6, 'Pretty good overall but packaging was damaged.', 3, '2026-03-24 11:17:02', '2026-03-24 11:17:02'),
+(89, 18, 9, 'Feels outdated right out of the box. Save your money.', 2, '2026-03-24 11:17:03', '2026-03-24 11:17:03'),
+(90, 18, 10, 'Amazing product, works perfectly out of the box.', 5, '2026-03-24 11:17:04', '2026-03-24 11:17:04'),
+
+(91, 19, 1, 'Incredible performance and sleek design. Love it.', 5, '2026-03-24 11:18:00', '2026-03-24 11:18:00'),
+(92, 19, 3, 'Impressive specs for this price range. Slight fan noise though.', 4, '2026-03-24 11:18:01', '2026-03-24 11:18:01'),
+(93, 19, 5, 'Decent product but took forever to arrive.', 3, '2026-03-24 11:18:02', '2026-03-24 11:18:02'),
+(94, 19, 7, 'Disappointing performance. Would not recommend.', 2, '2026-03-24 11:18:03', '2026-03-24 11:18:03'),
+(95, 19, 8, 'Superb quality. I have recommended it to all my friends.', 5, '2026-03-24 11:18:04', '2026-03-24 11:18:04'),
+
+(96, 20, 2, 'Five stars without hesitation. A must-have.', 5, '2026-03-24 11:19:00', '2026-03-24 11:19:00'),
+(97, 20, 4, 'Good value for the price.', 4, '2026-03-24 11:19:01', '2026-03-24 11:19:01'),
+(98, 20, 6, 'Does the job but I have seen better at this price.', 3, '2026-03-24 11:19:02', '2026-03-24 11:19:02'),
+(99, 20, 9, 'Poor quality materials. Feels cheap.', 2, '2026-03-24 11:19:03', '2026-03-24 11:19:03'),
+(100, 20, 10, 'Best tech purchase I have made in years. Outstanding.', 5, '2026-03-24 11:19:04', '2026-03-24 11:19:04'),
+
+(101, 21, 1, 'Stunning design and top performance. No regrets.', 5, '2026-03-24 11:20:00', '2026-03-24 11:20:00'),
+(102, 21, 3, 'Sturdy construction and smooth operation. Recommended.', 4, '2026-03-24 11:20:01', '2026-03-24 11:20:01'),
+(103, 21, 5, 'Okay for basic use. Not suitable for heavy workloads.', 3, '2026-03-24 11:20:02', '2026-03-24 11:20:02'),
+(104, 21, 8, 'Sluggish performance and frequent crashes.', 2, '2026-03-24 11:20:03', '2026-03-24 11:20:03'),
+(105, 21, 10, 'This product changed my workflow completely. Fantastic.', 5, '2026-03-24 11:20:04', '2026-03-24 11:20:04'),
+
+(106, 22, 2, 'Everything I wanted and more. Truly impressed.', 5, '2026-03-24 11:21:00', '2026-03-24 11:21:00'),
+(107, 22, 4, 'Almost perfect. The software could use some updates.', 4, '2026-03-24 11:21:01', '2026-03-24 11:21:01'),
+(108, 22, 6, 'Neither impressed nor disappointed. It is just average.', 3, '2026-03-24 11:21:02', '2026-03-24 11:21:02'),
+(109, 22, 7, 'Not compatible with most of my devices. Frustrating.', 2, '2026-03-24 11:21:03', '2026-03-24 11:21:03'),
+(110, 22, 9, 'Premium feel and blazing fast. Could not be happier.', 5, '2026-03-24 11:21:04', '2026-03-24 11:21:04'),
+
+(111, 23, 1, 'Absolutely love it! Best purchase this year.', 5, '2026-03-24 11:22:00', '2026-03-24 11:22:00'),
+(112, 23, 3, 'Nice upgrade from my old one. Noticeable improvement.', 4, '2026-03-24 11:22:01', '2026-03-24 11:22:01'),
+(113, 23, 5, 'Some features work well, others need improvement.', 3, '2026-03-24 11:22:02', '2026-03-24 11:22:02'),
+(114, 23, 8, 'The product looks nothing like the photos. Misleading.', 2, '2026-03-24 11:22:03', '2026-03-24 11:22:03'),
+(115, 23, 10, 'Great product! Highly recommend.', 5, '2026-03-24 11:22:04', '2026-03-24 11:22:04'),
+
+(116, 24, 2, 'Perfect for my setup. Would buy again.', 5, '2026-03-24 11:23:00', '2026-03-24 11:23:00'),
+(117, 24, 4, 'Runs quietly and stays cool. A solid buy.', 4, '2026-03-24 11:23:01', '2026-03-24 11:23:01'),
+(118, 24, 6, 'Fair product. Instructions were confusing to follow.', 3, '2026-03-24 11:23:02', '2026-03-24 11:23:02'),
+(119, 24, 7, 'Arrived with scratches and a dent on the side.', 2, '2026-03-24 11:23:03', '2026-03-24 11:23:03'),
+(120, 24, 9, 'Exceeded all my expectations. Flawless performance.', 5, '2026-03-24 11:23:04', '2026-03-24 11:23:04'),
+
+(121, 25, 1, 'Top-notch build quality. Worth every penny.', 5, '2026-03-24 11:24:00', '2026-03-24 11:24:00'),
+(122, 25, 3, 'Solid build and performs well for the price.', 4, '2026-03-24 11:24:01', '2026-03-24 11:24:01'),
+(123, 25, 5, 'Looks good but performance is mediocre.', 3, '2026-03-24 11:24:02', '2026-03-24 11:24:02'),
+(124, 25, 8, 'Heats up too much during normal use. Concerning.', 2, '2026-03-24 11:24:03', '2026-03-24 11:24:03'),
+(125, 25, 10, 'Amazing product, works perfectly out of the box.', 5, '2026-03-24 11:24:04', '2026-03-24 11:24:04'),
+
+(126, 26, 2, 'Incredible performance and sleek design. Love it.', 5, '2026-03-24 11:25:00', '2026-03-24 11:25:00'),
+(127, 26, 4, 'Good quality product. Packaging could be improved.', 4, '2026-03-24 11:25:01', '2026-03-24 11:25:01'),
+(128, 26, 6, 'Gets the job done but nothing to write home about.', 3, '2026-03-24 11:25:02', '2026-03-24 11:25:02'),
+(129, 26, 9, 'Below average experience. There are better options out there.', 2, '2026-03-24 11:25:03', '2026-03-24 11:25:03'),
+(130, 26, 10, 'Superb quality. I have recommended it to all my friends.', 5, '2026-03-24 11:25:04', '2026-03-24 11:25:04'),
+
+(131, 27, 1, 'Five stars without hesitation. A must-have.', 5, '2026-03-24 11:26:00', '2026-03-24 11:26:00'),
+(132, 27, 3, 'Fast delivery and exactly as described.', 4, '2026-03-24 11:26:01', '2026-03-24 11:26:01'),
+(133, 27, 5, 'The product is fine but customer support was unhelpful.', 3, '2026-03-24 11:26:02', '2026-03-24 11:26:02'),
+(134, 27, 7, 'Had connectivity issues right from the start.', 2, '2026-03-24 11:26:03', '2026-03-24 11:26:03'),
+(135, 27, 9, 'Best tech purchase I have made in years. Outstanding.', 5, '2026-03-24 11:26:04', '2026-03-24 11:26:04'),
+
+(136, 28, 2, 'This product changed my workflow completely. Fantastic.', 5, '2026-03-24 11:27:00', '2026-03-24 11:27:00'),
+(137, 28, 4, 'Reliable and well-made. Setup was straightforward.', 4, '2026-03-24 11:27:01', '2026-03-24 11:27:01'),
+(138, 28, 6, 'Acceptable for the price but do not expect premium quality.', 3, '2026-03-24 11:27:02', '2026-03-24 11:27:02'),
+(139, 28, 8, 'Feels outdated right out of the box. Save your money.', 2, '2026-03-24 11:27:03', '2026-03-24 11:27:03'),
+(140, 28, 10, 'Absolutely love it! Best purchase this year.', 5, '2026-03-24 11:27:04', '2026-03-24 11:27:04'),
+
+(141, 29, 1, 'Excellent quality and fast shipping.', 5, '2026-03-24 11:28:00', '2026-03-24 11:28:00'),
+(142, 29, 3, 'Does exactly what it promises. Happy with the purchase.', 4, '2026-03-24 11:28:01', '2026-03-24 11:28:01'),
+(143, 29, 5, 'Mixed feelings. Some features are great, others are lacking.', 3, '2026-03-24 11:28:02', '2026-03-24 11:28:02'),
+(144, 29, 7, 'Overpriced for what you get. Not worth it.', 2, '2026-03-24 11:28:03', '2026-03-24 11:28:03'),
+(145, 29, 9, 'Stunning design and top performance. No regrets.', 5, '2026-03-24 11:28:04', '2026-03-24 11:28:04'),
+
+(146, 30, 2, 'Premium feel and blazing fast. Could not be happier.', 5, '2026-03-24 11:29:00', '2026-03-24 11:29:00'),
+(147, 30, 4, 'Very satisfied overall. Just a bit bulky for my taste.', 4, '2026-03-24 11:29:01', '2026-03-24 11:29:01'),
+(148, 30, 6, 'Decent product but took forever to arrive.', 3, '2026-03-24 11:29:02', '2026-03-24 11:29:02'),
+(149, 30, 8, 'Build quality is flimsy. Feels like it could break any day.', 2, '2026-03-24 11:29:03', '2026-03-24 11:29:03'),
+(150, 30, 10, 'Everything I wanted and more. Truly impressed.', 5, '2026-03-24 11:29:04', '2026-03-24 11:29:04');
+
+-- ORDERS (3 orders per user = 30 orders)
+-- Status: pending, completed, cancelled
+-- can_be_cancelled = true only if status = 'pending'
+-- Total is calculated from items
+INSERT INTO `orders` (`id`, `user_id`, `total`, `status`, `can_be_cancelled`, `created_at`, `updated_at`) VALUES
+(1, 1, 546, 'completed', 0, '2026-03-24 12:00:00', '2026-03-24 12:00:00'),
+(2, 1, 1599, 'pending', 1, '2026-03-24 12:00:01', '2026-03-24 12:00:01'),
+(3, 1, 249, 'cancelled', 0, '2026-03-24 12:00:02', '2026-03-24 12:00:02'),
+
+(4, 2, 698, 'completed', 0, '2026-03-24 12:01:00', '2026-03-24 12:01:00'),
+(5, 2, 298, 'pending', 1, '2026-03-24 12:01:01', '2026-03-24 12:01:01'),
+(6, 2, 1449, 'completed', 0, '2026-03-24 12:01:02', '2026-03-24 12:01:02'),
+
+(7, 3, 457, 'pending', 1, '2026-03-24 12:02:00', '2026-03-24 12:02:00'),
+(8, 3, 837, 'completed', 0, '2026-03-24 12:02:01', '2026-03-24 12:02:01'),
+(9, 3, 199, 'cancelled', 0, '2026-03-24 12:02:02', '2026-03-24 12:02:02'),
+
+(10, 4, 1299, 'completed', 0, '2026-03-24 12:03:00', '2026-03-24 12:03:00'),
+(11, 4, 447, 'pending', 1, '2026-03-24 12:03:01', '2026-03-24 12:03:01'),
+(12, 4, 558, 'completed', 0, '2026-03-24 12:03:02', '2026-03-24 12:03:02'),
+
+(13, 5, 349, 'cancelled', 0, '2026-03-24 12:04:00', '2026-03-24 12:04:00'),
+(14, 5, 756, 'completed', 0, '2026-03-24 12:04:01', '2026-03-24 12:04:01'),
+(15, 5, 169, 'pending', 1, '2026-03-24 12:04:02', '2026-03-24 12:04:02'),
+
+(16, 6, 1797, 'completed', 0, '2026-03-24 12:05:00', '2026-03-24 12:05:00'),
+(17, 6, 278, 'pending', 1, '2026-03-24 12:05:01', '2026-03-24 12:05:01'),
+(18, 6, 519, 'completed', 0, '2026-03-24 12:05:02', '2026-03-24 12:05:02'),
+
+(19, 7, 598, 'pending', 1, '2026-03-24 12:06:00', '2026-03-24 12:06:00'),
+(20, 7, 1299, 'completed', 0, '2026-03-24 12:06:01', '2026-03-24 12:06:01'),
+(21, 7, 338, 'cancelled', 0, '2026-03-24 12:06:02', '2026-03-24 12:06:02'),
+
+(22, 8, 887, 'completed', 0, '2026-03-24 12:07:00', '2026-03-24 12:07:00'),
+(23, 8, 149, 'pending', 1, '2026-03-24 12:07:01', '2026-03-24 12:07:01'),
+(24, 8, 1038, 'completed', 0, '2026-03-24 12:07:02', '2026-03-24 12:07:02'),
+
+(25, 9, 258, 'cancelled', 0, '2026-03-24 12:08:00', '2026-03-24 12:08:00'),
+(26, 9, 1599, 'completed', 0, '2026-03-24 12:08:01', '2026-03-24 12:08:01'),
+(27, 9, 447, 'pending', 1, '2026-03-24 12:08:02', '2026-03-24 12:08:02'),
+
+(28, 10, 599, 'completed', 0, '2026-03-24 12:09:00', '2026-03-24 12:09:00'),
+(29, 10, 378, 'pending', 1, '2026-03-24 12:09:01', '2026-03-24 12:09:01'),
+(30, 10, 1449, 'completed', 0, '2026-03-24 12:09:02', '2026-03-24 12:09:02');
+
+-- ITEMS (1-3 items per order, with real product prices)
+INSERT INTO `items` (`id`, `order_id`, `product_id`, `quantity`, `price`, `created_at`, `updated_at`) VALUES
+(1, 1, 3, 1, 229, '2026-03-24 12:00:00', '2026-03-24 12:00:00'),
+(2, 1, 20, 2, 109, '2026-03-24 12:00:00', '2026-03-24 12:00:00'),
+(3, 1, 24, 1, 99, '2026-03-24 12:00:00', '2026-03-24 12:00:00'),
+
+(4, 2, 13, 1, 1599, '2026-03-24 12:00:01', '2026-03-24 12:00:01'),
+
+(5, 3, 21, 1, 249, '2026-03-24 12:00:02', '2026-03-24 12:00:02'),
+
+(6, 4, 10, 2, 349, '2026-03-24 12:01:00', '2026-03-24 12:01:00'),
+
+(7, 5, 1, 1, 149, '2026-03-24 12:01:01', '2026-03-24 12:01:01'),
+(8, 5, 5, 1, 149, '2026-03-24 12:01:01', '2026-03-24 12:01:01'),
+
+(9, 6, 15, 1, 1449, '2026-03-24 12:01:02', '2026-03-24 12:01:02'),
+
+(10, 7, 3, 1, 229, '2026-03-24 12:02:00', '2026-03-24 12:02:00'),
+(11, 7, 4, 1, 159, '2026-03-24 12:02:00', '2026-03-24 12:02:00'),
+(12, 7, 27, 1, 69, '2026-03-24 12:02:00', '2026-03-24 12:02:00'),
+
+(13, 8, 7, 1, 599, '2026-03-24 12:02:01', '2026-03-24 12:02:01'),
+(14, 8, 22, 1, 139, '2026-03-24 12:02:01', '2026-03-24 12:02:01'),
+(15, 8, 24, 1, 99, '2026-03-24 12:02:01', '2026-03-24 12:02:01'),
+
+(16, 9, 26, 1, 199, '2026-03-24 12:02:02', '2026-03-24 12:02:02'),
+
+(17, 10, 14, 1, 1299, '2026-03-24 12:03:00', '2026-03-24 12:03:00'),
+
+(18, 11, 11, 3, 149, '2026-03-24 12:03:01', '2026-03-24 12:03:01'),
+
+(19, 12, 23, 2, 279, '2026-03-24 12:03:02', '2026-03-24 12:03:02'),
+
+(20, 13, 10, 1, 349, '2026-03-24 12:04:00', '2026-03-24 12:04:00'),
+
+(21, 14, 1, 2, 149, '2026-03-24 12:04:01', '2026-03-24 12:04:01'),
+(22, 14, 3, 2, 229, '2026-03-24 12:04:01', '2026-03-24 12:04:01'),
+
+(23, 15, 2, 1, 169, '2026-03-24 12:04:02', '2026-03-24 12:04:02'),
+
+(24, 16, 13, 1, 1599, '2026-03-24 12:05:00', '2026-03-24 12:05:00'),
+(25, 16, 24, 2, 99, '2026-03-24 12:05:00', '2026-03-24 12:05:00'),
+
+(26, 17, 22, 2, 139, '2026-03-24 12:05:01', '2026-03-24 12:05:01'),
+
+(27, 18, 30, 1, 519, '2026-03-24 12:05:02', '2026-03-24 12:05:02'),
+
+(28, 19, 17, 2, 299, '2026-03-24 12:06:00', '2026-03-24 12:06:00'),
+
+(29, 20, 14, 1, 1299, '2026-03-24 12:06:01', '2026-03-24 12:06:01'),
+
+(30, 21, 2, 2, 169, '2026-03-24 12:06:02', '2026-03-24 12:06:02'),
+
+(31, 22, 8, 1, 449, '2026-03-24 12:07:00', '2026-03-24 12:07:00'),
+(32, 22, 19, 1, 189, '2026-03-24 12:07:00', '2026-03-24 12:07:00'),
+(33, 22, 21, 1, 249, '2026-03-24 12:07:00', '2026-03-24 12:07:00'),
+
+(34, 23, 1, 1, 149, '2026-03-24 12:07:01', '2026-03-24 12:07:01'),
+
+(35, 24, 30, 2, 519, '2026-03-24 12:07:02', '2026-03-24 12:07:02'),
+
+(36, 25, 25, 2, 129, '2026-03-24 12:08:00', '2026-03-24 12:08:00'),
+
+(37, 26, 13, 1, 1599, '2026-03-24 12:08:01', '2026-03-24 12:08:01'),
+
+(38, 27, 11, 3, 149, '2026-03-24 12:08:02', '2026-03-24 12:08:02'),
+
+(39, 28, 7, 1, 599, '2026-03-24 12:09:00', '2026-03-24 12:09:00'),
+
+(40, 29, 19, 2, 189, '2026-03-24 12:09:01', '2026-03-24 12:09:01'),
+
+(41, 30, 15, 1, 1449, '2026-03-24 12:09:02', '2026-03-24 12:09:02');
+    
