@@ -55,175 +55,146 @@ INSERT INTO `reviews` (`id`, `product_id`, `user_id`, `description`, `rating`, `
 (3, 1, 5, 'Not what I expected, but still decent.', 3, '2026-03-24 11:00:02', '2026-03-24 11:00:02'),
 (4, 1, 7, 'Excellent quality and fast shipping.', 5, '2026-03-24 11:00:03', '2026-03-24 11:00:03'),
 (5, 1, 9, 'Works as advertised. No complaints so far.', 4, '2026-03-24 11:00:04', '2026-03-24 11:00:04'),
-
 (6, 2, 2, 'Absolutely love it! Best purchase this year.', 5, '2026-03-24 11:01:00', '2026-03-24 11:01:00'),
 (7, 2, 4, 'Solid build and performs well for the price.', 4, '2026-03-24 11:01:01', '2026-03-24 11:01:01'),
 (8, 2, 6, 'Average quality, nothing special.', 3, '2026-03-24 11:01:02', '2026-03-24 11:01:02'),
 (9, 2, 8, 'It is okay but I expected better at this price point.', 2, '2026-03-24 11:01:03', '2026-03-24 11:01:03'),
 (10, 2, 10, 'Perfect for my setup. Would buy again.', 5, '2026-03-24 11:01:04', '2026-03-24 11:01:04'),
-
 (11, 3, 1, 'Exceeded all my expectations. Flawless performance.', 5, '2026-03-24 11:02:00', '2026-03-24 11:02:00'),
 (12, 3, 2, 'Fast delivery and exactly as described.', 4, '2026-03-24 11:02:01', '2026-03-24 11:02:01'),
 (13, 3, 5, 'Pretty good overall but packaging was damaged.', 3, '2026-03-24 11:02:02', '2026-03-24 11:02:02'),
 (14, 3, 7, 'Top-notch build quality. Worth every penny.', 5, '2026-03-24 11:02:03', '2026-03-24 11:02:03'),
 (15, 3, 9, 'Really good product with minor cosmetic imperfections.', 4, '2026-03-24 11:02:04', '2026-03-24 11:02:04'),
-
 (16, 4, 3, 'Amazing product, works perfectly out of the box.', 5, '2026-03-24 11:03:00', '2026-03-24 11:03:00'),
 (17, 4, 4, 'Great performance but the manual could be better.', 4, '2026-03-24 11:03:01', '2026-03-24 11:03:01'),
 (18, 4, 6, 'Does the job but I have seen better at this price.', 3, '2026-03-24 11:03:02', '2026-03-24 11:03:02'),
 (19, 4, 8, 'Poor quality materials. Feels cheap.', 2, '2026-03-24 11:03:03', '2026-03-24 11:03:03'),
 (20, 4, 10, 'Best tech purchase I have made in years. Outstanding.', 5, '2026-03-24 11:03:04', '2026-03-24 11:03:04'),
-
 (21, 5, 1, 'Incredible performance and sleek design. Love it.', 5, '2026-03-24 11:04:00', '2026-03-24 11:04:00'),
 (22, 5, 2, 'Very satisfied overall. Just a bit bulky for my taste.', 4, '2026-03-24 11:04:01', '2026-03-24 11:04:01'),
 (23, 5, 4, 'Mixed feelings. Some features are great, others are lacking.', 3, '2026-03-24 11:04:02', '2026-03-24 11:04:02'),
 (24, 5, 6, 'Disappointing performance. Would not recommend.', 2, '2026-03-24 11:04:03', '2026-03-24 11:04:03'),
 (25, 5, 8, 'Five stars without hesitation. A must-have.', 5, '2026-03-24 11:04:04', '2026-03-24 11:04:04'),
-
 (26, 6, 3, 'Superb quality. I have recommended it to all my friends.', 5, '2026-03-24 11:05:00', '2026-03-24 11:05:00'),
 (27, 6, 5, 'Reliable and well-made. Setup was straightforward.', 4, '2026-03-24 11:05:01', '2026-03-24 11:05:01'),
 (28, 6, 7, 'Okay for basic use. Not suitable for heavy workloads.', 3, '2026-03-24 11:05:02', '2026-03-24 11:05:02'),
 (29, 6, 9, 'Had connectivity issues right from the start.', 2, '2026-03-24 11:05:03', '2026-03-24 11:05:03'),
 (30, 6, 10, 'Everything I wanted and more. Truly impressed.', 5, '2026-03-24 11:05:04', '2026-03-24 11:05:04'),
-
 (31, 7, 1, 'Premium feel and blazing fast. Could not be happier.', 5, '2026-03-24 11:06:00', '2026-03-24 11:06:00'),
 (32, 7, 2, 'Does exactly what it promises. Happy with the purchase.', 4, '2026-03-24 11:06:01', '2026-03-24 11:06:01'),
 (33, 7, 3, 'It works fine but feels a bit outdated compared to competitors.', 3, '2026-03-24 11:06:02', '2026-03-24 11:06:02'),
 (34, 7, 6, 'Stunning design and top performance. No regrets.', 5, '2026-03-24 11:06:03', '2026-03-24 11:06:03'),
 (35, 7, 8, 'Almost perfect. The software could use some updates.', 4, '2026-03-24 11:06:04', '2026-03-24 11:06:04'),
-
 (36, 8, 4, 'This product changed my workflow completely. Fantastic.', 5, '2026-03-24 11:07:00', '2026-03-24 11:07:00'),
 (37, 8, 5, 'Impressive specs for this price range. Slight fan noise though.', 4, '2026-03-24 11:07:01', '2026-03-24 11:07:01'),
 (38, 8, 7, 'Decent product but took forever to arrive.', 3, '2026-03-24 11:07:02', '2026-03-24 11:07:02'),
 (39, 8, 9, 'The product looks nothing like the photos. Misleading.', 2, '2026-03-24 11:07:03', '2026-03-24 11:07:03'),
 (40, 8, 10, 'Absolutely love it! Best purchase this year.', 5, '2026-03-24 11:07:04', '2026-03-24 11:07:04'),
-
 (41, 9, 1, 'Great product! Highly recommend.', 5, '2026-03-24 11:08:00', '2026-03-24 11:08:00'),
 (42, 9, 3, 'Sturdy construction and smooth operation. Recommended.', 4, '2026-03-24 11:08:01', '2026-03-24 11:08:01'),
 (43, 9, 5, 'Neither impressed nor disappointed. It is just average.', 3, '2026-03-24 11:08:02', '2026-03-24 11:08:02'),
 (44, 9, 7, 'Sluggish performance and frequent crashes.', 2, '2026-03-24 11:08:03', '2026-03-24 11:08:03'),
 (45, 9, 9, 'Exceeded all my expectations. Flawless performance.', 5, '2026-03-24 11:08:04', '2026-03-24 11:08:04'),
-
 (46, 10, 2, 'Perfect for my setup. Would buy again.', 5, '2026-03-24 11:09:00', '2026-03-24 11:09:00'),
 (47, 10, 4, 'Good quality product. Packaging could be improved.', 4, '2026-03-24 11:09:01', '2026-03-24 11:09:01'),
 (48, 10, 6, 'Looks good but performance is mediocre.', 3, '2026-03-24 11:09:02', '2026-03-24 11:09:02'),
 (49, 10, 8, 'Overpriced for what you get. Not worth it.', 2, '2026-03-24 11:09:03', '2026-03-24 11:09:03'),
 (50, 10, 10, 'Top-notch build quality. Worth every penny.', 5, '2026-03-24 11:09:04', '2026-03-24 11:09:04'),
-
 (51, 11, 1, 'Amazing product, works perfectly out of the box.', 5, '2026-03-24 11:10:00', '2026-03-24 11:10:00'),
 (52, 11, 3, 'Runs quietly and stays cool. A solid buy.', 4, '2026-03-24 11:10:01', '2026-03-24 11:10:01'),
 (53, 11, 5, 'Fair product. Instructions were confusing to follow.', 3, '2026-03-24 11:10:02', '2026-03-24 11:10:02'),
 (54, 11, 7, 'Build quality is flimsy. Feels like it could break any day.', 2, '2026-03-24 11:10:03', '2026-03-24 11:10:03'),
 (55, 11, 9, 'Superb quality. I have recommended it to all my friends.', 5, '2026-03-24 11:10:04', '2026-03-24 11:10:04'),
-
 (56, 12, 2, 'Incredible performance and sleek design. Love it.', 5, '2026-03-24 11:11:00', '2026-03-24 11:11:00'),
 (57, 12, 4, 'Nice upgrade from my old one. Noticeable improvement.', 4, '2026-03-24 11:11:01', '2026-03-24 11:11:01'),
 (58, 12, 6, 'Gets the job done but nothing to write home about.', 3, '2026-03-24 11:11:02', '2026-03-24 11:11:02'),
 (59, 12, 8, 'Battery life is way shorter than advertised.', 2, '2026-03-24 11:11:03', '2026-03-24 11:11:03'),
 (60, 12, 10, 'Five stars without hesitation. A must-have.', 5, '2026-03-24 11:11:04', '2026-03-24 11:11:04'),
-
 (61, 13, 1, 'Best tech purchase I have made in years. Outstanding.', 5, '2026-03-24 11:12:00', '2026-03-24 11:12:00'),
 (62, 13, 3, 'Solid build and performs well for the price.', 4, '2026-03-24 11:12:01', '2026-03-24 11:12:01'),
 (63, 13, 5, 'Some features work well, others need improvement.', 3, '2026-03-24 11:12:02', '2026-03-24 11:12:02'),
 (64, 13, 7, 'Not compatible with most of my devices. Frustrating.', 2, '2026-03-24 11:12:03', '2026-03-24 11:12:03'),
 (65, 13, 10, 'Stunning design and top performance. No regrets.', 5, '2026-03-24 11:12:04', '2026-03-24 11:12:04'),
-
 (66, 14, 2, 'This product changed my workflow completely. Fantastic.', 5, '2026-03-24 11:13:00', '2026-03-24 11:13:00'),
 (67, 14, 4, 'Great performance but the manual could be better.', 4, '2026-03-24 11:13:01', '2026-03-24 11:13:01'),
 (68, 14, 6, 'Acceptable for the price but do not expect premium quality.', 3, '2026-03-24 11:13:02', '2026-03-24 11:13:02'),
 (69, 14, 8, 'Arrived with scratches and a dent on the side.', 2, '2026-03-24 11:13:03', '2026-03-24 11:13:03'),
 (70, 14, 9, 'Premium feel and blazing fast. Could not be happier.', 5, '2026-03-24 11:13:04', '2026-03-24 11:13:04'),
-
 (71, 15, 1, 'Everything I wanted and more. Truly impressed.', 5, '2026-03-24 11:14:00', '2026-03-24 11:14:00'),
 (72, 15, 3, 'Works as advertised. No complaints so far.', 4, '2026-03-24 11:14:01', '2026-03-24 11:14:01'),
 (73, 15, 5, 'Not what I expected, but still decent.', 3, '2026-03-24 11:14:02', '2026-03-24 11:14:02'),
 (74, 15, 7, 'Heats up too much during normal use. Concerning.', 2, '2026-03-24 11:14:03', '2026-03-24 11:14:03'),
 (75, 15, 10, 'Excellent quality and fast shipping.', 5, '2026-03-24 11:14:04', '2026-03-24 11:14:04'),
-
 (76, 16, 2, 'Absolutely love it! Best purchase this year.', 5, '2026-03-24 11:15:00', '2026-03-24 11:15:00'),
 (77, 16, 4, 'Reliable and well-made. Setup was straightforward.', 4, '2026-03-24 11:15:01', '2026-03-24 11:15:01'),
 (78, 16, 6, 'The product is fine but customer support was unhelpful.', 3, '2026-03-24 11:15:02', '2026-03-24 11:15:02'),
 (79, 16, 8, 'Below average experience. There are better options out there.', 2, '2026-03-24 11:15:03', '2026-03-24 11:15:03'),
 (80, 16, 9, 'Great product! Highly recommend.', 5, '2026-03-24 11:15:04', '2026-03-24 11:15:04'),
-
 (81, 17, 1, 'Perfect for my setup. Would buy again.', 5, '2026-03-24 11:16:00', '2026-03-24 11:16:00'),
 (82, 17, 3, 'Fast delivery and exactly as described.', 4, '2026-03-24 11:16:01', '2026-03-24 11:16:01'),
 (83, 17, 5, 'Average quality, nothing special.', 3, '2026-03-24 11:16:02', '2026-03-24 11:16:02'),
 (84, 17, 7, 'Setup was a nightmare and support was no help.', 2, '2026-03-24 11:16:03', '2026-03-24 11:16:03'),
 (85, 17, 10, 'Top-notch build quality. Worth every penny.', 5, '2026-03-24 11:16:04', '2026-03-24 11:16:04'),
-
 (86, 18, 2, 'Exceeded all my expectations. Flawless performance.', 5, '2026-03-24 11:17:00', '2026-03-24 11:17:00'),
 (87, 18, 4, 'Does exactly what it promises. Happy with the purchase.', 4, '2026-03-24 11:17:01', '2026-03-24 11:17:01'),
 (88, 18, 6, 'Pretty good overall but packaging was damaged.', 3, '2026-03-24 11:17:02', '2026-03-24 11:17:02'),
 (89, 18, 9, 'Feels outdated right out of the box. Save your money.', 2, '2026-03-24 11:17:03', '2026-03-24 11:17:03'),
 (90, 18, 10, 'Amazing product, works perfectly out of the box.', 5, '2026-03-24 11:17:04', '2026-03-24 11:17:04'),
-
 (91, 19, 1, 'Incredible performance and sleek design. Love it.', 5, '2026-03-24 11:18:00', '2026-03-24 11:18:00'),
 (92, 19, 3, 'Impressive specs for this price range. Slight fan noise though.', 4, '2026-03-24 11:18:01', '2026-03-24 11:18:01'),
 (93, 19, 5, 'Decent product but took forever to arrive.', 3, '2026-03-24 11:18:02', '2026-03-24 11:18:02'),
 (94, 19, 7, 'Disappointing performance. Would not recommend.', 2, '2026-03-24 11:18:03', '2026-03-24 11:18:03'),
 (95, 19, 8, 'Superb quality. I have recommended it to all my friends.', 5, '2026-03-24 11:18:04', '2026-03-24 11:18:04'),
-
 (96, 20, 2, 'Five stars without hesitation. A must-have.', 5, '2026-03-24 11:19:00', '2026-03-24 11:19:00'),
 (97, 20, 4, 'Good value for the price.', 4, '2026-03-24 11:19:01', '2026-03-24 11:19:01'),
 (98, 20, 6, 'Does the job but I have seen better at this price.', 3, '2026-03-24 11:19:02', '2026-03-24 11:19:02'),
 (99, 20, 9, 'Poor quality materials. Feels cheap.', 2, '2026-03-24 11:19:03', '2026-03-24 11:19:03'),
 (100, 20, 10, 'Best tech purchase I have made in years. Outstanding.', 5, '2026-03-24 11:19:04', '2026-03-24 11:19:04'),
-
 (101, 21, 1, 'Stunning design and top performance. No regrets.', 5, '2026-03-24 11:20:00', '2026-03-24 11:20:00'),
 (102, 21, 3, 'Sturdy construction and smooth operation. Recommended.', 4, '2026-03-24 11:20:01', '2026-03-24 11:20:01'),
 (103, 21, 5, 'Okay for basic use. Not suitable for heavy workloads.', 3, '2026-03-24 11:20:02', '2026-03-24 11:20:02'),
 (104, 21, 8, 'Sluggish performance and frequent crashes.', 2, '2026-03-24 11:20:03', '2026-03-24 11:20:03'),
 (105, 21, 10, 'This product changed my workflow completely. Fantastic.', 5, '2026-03-24 11:20:04', '2026-03-24 11:20:04'),
-
 (106, 22, 2, 'Everything I wanted and more. Truly impressed.', 5, '2026-03-24 11:21:00', '2026-03-24 11:21:00'),
 (107, 22, 4, 'Almost perfect. The software could use some updates.', 4, '2026-03-24 11:21:01', '2026-03-24 11:21:01'),
 (108, 22, 6, 'Neither impressed nor disappointed. It is just average.', 3, '2026-03-24 11:21:02', '2026-03-24 11:21:02'),
 (109, 22, 7, 'Not compatible with most of my devices. Frustrating.', 2, '2026-03-24 11:21:03', '2026-03-24 11:21:03'),
 (110, 22, 9, 'Premium feel and blazing fast. Could not be happier.', 5, '2026-03-24 11:21:04', '2026-03-24 11:21:04'),
-
 (111, 23, 1, 'Absolutely love it! Best purchase this year.', 5, '2026-03-24 11:22:00', '2026-03-24 11:22:00'),
 (112, 23, 3, 'Nice upgrade from my old one. Noticeable improvement.', 4, '2026-03-24 11:22:01', '2026-03-24 11:22:01'),
 (113, 23, 5, 'Some features work well, others need improvement.', 3, '2026-03-24 11:22:02', '2026-03-24 11:22:02'),
 (114, 23, 8, 'The product looks nothing like the photos. Misleading.', 2, '2026-03-24 11:22:03', '2026-03-24 11:22:03'),
 (115, 23, 10, 'Great product! Highly recommend.', 5, '2026-03-24 11:22:04', '2026-03-24 11:22:04'),
-
 (116, 24, 2, 'Perfect for my setup. Would buy again.', 5, '2026-03-24 11:23:00', '2026-03-24 11:23:00'),
 (117, 24, 4, 'Runs quietly and stays cool. A solid buy.', 4, '2026-03-24 11:23:01', '2026-03-24 11:23:01'),
 (118, 24, 6, 'Fair product. Instructions were confusing to follow.', 3, '2026-03-24 11:23:02', '2026-03-24 11:23:02'),
 (119, 24, 7, 'Arrived with scratches and a dent on the side.', 2, '2026-03-24 11:23:03', '2026-03-24 11:23:03'),
 (120, 24, 9, 'Exceeded all my expectations. Flawless performance.', 5, '2026-03-24 11:23:04', '2026-03-24 11:23:04'),
-
 (121, 25, 1, 'Top-notch build quality. Worth every penny.', 5, '2026-03-24 11:24:00', '2026-03-24 11:24:00'),
 (122, 25, 3, 'Solid build and performs well for the price.', 4, '2026-03-24 11:24:01', '2026-03-24 11:24:01'),
 (123, 25, 5, 'Looks good but performance is mediocre.', 3, '2026-03-24 11:24:02', '2026-03-24 11:24:02'),
 (124, 25, 8, 'Heats up too much during normal use. Concerning.', 2, '2026-03-24 11:24:03', '2026-03-24 11:24:03'),
 (125, 25, 10, 'Amazing product, works perfectly out of the box.', 5, '2026-03-24 11:24:04', '2026-03-24 11:24:04'),
-
 (126, 26, 2, 'Incredible performance and sleek design. Love it.', 5, '2026-03-24 11:25:00', '2026-03-24 11:25:00'),
 (127, 26, 4, 'Good quality product. Packaging could be improved.', 4, '2026-03-24 11:25:01', '2026-03-24 11:25:01'),
 (128, 26, 6, 'Gets the job done but nothing to write home about.', 3, '2026-03-24 11:25:02', '2026-03-24 11:25:02'),
 (129, 26, 9, 'Below average experience. There are better options out there.', 2, '2026-03-24 11:25:03', '2026-03-24 11:25:03'),
 (130, 26, 10, 'Superb quality. I have recommended it to all my friends.', 5, '2026-03-24 11:25:04', '2026-03-24 11:25:04'),
-
 (131, 27, 1, 'Five stars without hesitation. A must-have.', 5, '2026-03-24 11:26:00', '2026-03-24 11:26:00'),
 (132, 27, 3, 'Fast delivery and exactly as described.', 4, '2026-03-24 11:26:01', '2026-03-24 11:26:01'),
 (133, 27, 5, 'The product is fine but customer support was unhelpful.', 3, '2026-03-24 11:26:02', '2026-03-24 11:26:02'),
 (134, 27, 7, 'Had connectivity issues right from the start.', 2, '2026-03-24 11:26:03', '2026-03-24 11:26:03'),
 (135, 27, 9, 'Best tech purchase I have made in years. Outstanding.', 5, '2026-03-24 11:26:04', '2026-03-24 11:26:04'),
-
 (136, 28, 2, 'This product changed my workflow completely. Fantastic.', 5, '2026-03-24 11:27:00', '2026-03-24 11:27:00'),
 (137, 28, 4, 'Reliable and well-made. Setup was straightforward.', 4, '2026-03-24 11:27:01', '2026-03-24 11:27:01'),
 (138, 28, 6, 'Acceptable for the price but do not expect premium quality.', 3, '2026-03-24 11:27:02', '2026-03-24 11:27:02'),
 (139, 28, 8, 'Feels outdated right out of the box. Save your money.', 2, '2026-03-24 11:27:03', '2026-03-24 11:27:03'),
 (140, 28, 10, 'Absolutely love it! Best purchase this year.', 5, '2026-03-24 11:27:04', '2026-03-24 11:27:04'),
-
 (141, 29, 1, 'Excellent quality and fast shipping.', 5, '2026-03-24 11:28:00', '2026-03-24 11:28:00'),
 (142, 29, 3, 'Does exactly what it promises. Happy with the purchase.', 4, '2026-03-24 11:28:01', '2026-03-24 11:28:01'),
 (143, 29, 5, 'Mixed feelings. Some features are great, others are lacking.', 3, '2026-03-24 11:28:02', '2026-03-24 11:28:02'),
 (144, 29, 7, 'Overpriced for what you get. Not worth it.', 2, '2026-03-24 11:28:03', '2026-03-24 11:28:03'),
 (145, 29, 9, 'Stunning design and top performance. No regrets.', 5, '2026-03-24 11:28:04', '2026-03-24 11:28:04'),
-
 (146, 30, 2, 'Premium feel and blazing fast. Could not be happier.', 5, '2026-03-24 11:29:00', '2026-03-24 11:29:00'),
 (147, 30, 4, 'Very satisfied overall. Just a bit bulky for my taste.', 4, '2026-03-24 11:29:01', '2026-03-24 11:29:01'),
 (148, 30, 6, 'Decent product but took forever to arrive.', 3, '2026-03-24 11:29:02', '2026-03-24 11:29:02'),
@@ -238,39 +209,30 @@ INSERT INTO `orders` (`id`, `user_id`, `total`, `status`, `can_be_cancelled`, `c
 (1, 1, 546, 'completed', 0, '2026-03-24 12:00:00', '2026-03-24 12:00:00'),
 (2, 1, 1599, 'pending', 1, '2026-03-24 12:00:01', '2026-03-24 12:00:01'),
 (3, 1, 249, 'cancelled', 0, '2026-03-24 12:00:02', '2026-03-24 12:00:02'),
-
 (4, 2, 698, 'completed', 0, '2026-03-24 12:01:00', '2026-03-24 12:01:00'),
 (5, 2, 298, 'pending', 1, '2026-03-24 12:01:01', '2026-03-24 12:01:01'),
 (6, 2, 1449, 'completed', 0, '2026-03-24 12:01:02', '2026-03-24 12:01:02'),
-
 (7, 3, 457, 'pending', 1, '2026-03-24 12:02:00', '2026-03-24 12:02:00'),
 (8, 3, 837, 'completed', 0, '2026-03-24 12:02:01', '2026-03-24 12:02:01'),
 (9, 3, 199, 'cancelled', 0, '2026-03-24 12:02:02', '2026-03-24 12:02:02'),
-
 (10, 4, 1299, 'completed', 0, '2026-03-24 12:03:00', '2026-03-24 12:03:00'),
 (11, 4, 447, 'pending', 1, '2026-03-24 12:03:01', '2026-03-24 12:03:01'),
 (12, 4, 558, 'completed', 0, '2026-03-24 12:03:02', '2026-03-24 12:03:02'),
-
 (13, 5, 349, 'cancelled', 0, '2026-03-24 12:04:00', '2026-03-24 12:04:00'),
 (14, 5, 756, 'completed', 0, '2026-03-24 12:04:01', '2026-03-24 12:04:01'),
 (15, 5, 169, 'pending', 1, '2026-03-24 12:04:02', '2026-03-24 12:04:02'),
-
 (16, 6, 1797, 'completed', 0, '2026-03-24 12:05:00', '2026-03-24 12:05:00'),
 (17, 6, 278, 'pending', 1, '2026-03-24 12:05:01', '2026-03-24 12:05:01'),
 (18, 6, 519, 'completed', 0, '2026-03-24 12:05:02', '2026-03-24 12:05:02'),
-
 (19, 7, 598, 'pending', 1, '2026-03-24 12:06:00', '2026-03-24 12:06:00'),
 (20, 7, 1299, 'completed', 0, '2026-03-24 12:06:01', '2026-03-24 12:06:01'),
 (21, 7, 338, 'cancelled', 0, '2026-03-24 12:06:02', '2026-03-24 12:06:02'),
-
 (22, 8, 887, 'completed', 0, '2026-03-24 12:07:00', '2026-03-24 12:07:00'),
 (23, 8, 149, 'pending', 1, '2026-03-24 12:07:01', '2026-03-24 12:07:01'),
 (24, 8, 1038, 'completed', 0, '2026-03-24 12:07:02', '2026-03-24 12:07:02'),
-
 (25, 9, 258, 'cancelled', 0, '2026-03-24 12:08:00', '2026-03-24 12:08:00'),
 (26, 9, 1599, 'completed', 0, '2026-03-24 12:08:01', '2026-03-24 12:08:01'),
 (27, 9, 447, 'pending', 1, '2026-03-24 12:08:02', '2026-03-24 12:08:02'),
-
 (28, 10, 599, 'completed', 0, '2026-03-24 12:09:00', '2026-03-24 12:09:00'),
 (29, 10, 378, 'pending', 1, '2026-03-24 12:09:01', '2026-03-24 12:09:01'),
 (30, 10, 1449, 'completed', 0, '2026-03-24 12:09:02', '2026-03-24 12:09:02');
@@ -280,71 +242,42 @@ INSERT INTO `items` (`id`, `order_id`, `product_id`, `quantity`, `price`, `creat
 (1, 1, 3, 1, 229, '2026-03-24 12:00:00', '2026-03-24 12:00:00'),
 (2, 1, 20, 2, 109, '2026-03-24 12:00:00', '2026-03-24 12:00:00'),
 (3, 1, 24, 1, 99, '2026-03-24 12:00:00', '2026-03-24 12:00:00'),
-
 (4, 2, 13, 1, 1599, '2026-03-24 12:00:01', '2026-03-24 12:00:01'),
-
 (5, 3, 21, 1, 249, '2026-03-24 12:00:02', '2026-03-24 12:00:02'),
-
 (6, 4, 10, 2, 349, '2026-03-24 12:01:00', '2026-03-24 12:01:00'),
-
 (7, 5, 1, 1, 149, '2026-03-24 12:01:01', '2026-03-24 12:01:01'),
 (8, 5, 5, 1, 149, '2026-03-24 12:01:01', '2026-03-24 12:01:01'),
-
 (9, 6, 15, 1, 1449, '2026-03-24 12:01:02', '2026-03-24 12:01:02'),
-
 (10, 7, 3, 1, 229, '2026-03-24 12:02:00', '2026-03-24 12:02:00'),
 (11, 7, 4, 1, 159, '2026-03-24 12:02:00', '2026-03-24 12:02:00'),
 (12, 7, 27, 1, 69, '2026-03-24 12:02:00', '2026-03-24 12:02:00'),
-
 (13, 8, 7, 1, 599, '2026-03-24 12:02:01', '2026-03-24 12:02:01'),
 (14, 8, 22, 1, 139, '2026-03-24 12:02:01', '2026-03-24 12:02:01'),
 (15, 8, 24, 1, 99, '2026-03-24 12:02:01', '2026-03-24 12:02:01'),
-
 (16, 9, 26, 1, 199, '2026-03-24 12:02:02', '2026-03-24 12:02:02'),
-
 (17, 10, 14, 1, 1299, '2026-03-24 12:03:00', '2026-03-24 12:03:00'),
-
 (18, 11, 11, 3, 149, '2026-03-24 12:03:01', '2026-03-24 12:03:01'),
-
 (19, 12, 23, 2, 279, '2026-03-24 12:03:02', '2026-03-24 12:03:02'),
-
 (20, 13, 10, 1, 349, '2026-03-24 12:04:00', '2026-03-24 12:04:00'),
-
 (21, 14, 1, 2, 149, '2026-03-24 12:04:01', '2026-03-24 12:04:01'),
 (22, 14, 3, 2, 229, '2026-03-24 12:04:01', '2026-03-24 12:04:01'),
-
 (23, 15, 2, 1, 169, '2026-03-24 12:04:02', '2026-03-24 12:04:02'),
-
 (24, 16, 13, 1, 1599, '2026-03-24 12:05:00', '2026-03-24 12:05:00'),
 (25, 16, 24, 2, 99, '2026-03-24 12:05:00', '2026-03-24 12:05:00'),
-
 (26, 17, 22, 2, 139, '2026-03-24 12:05:01', '2026-03-24 12:05:01'),
-
 (27, 18, 30, 1, 519, '2026-03-24 12:05:02', '2026-03-24 12:05:02'),
-
 (28, 19, 17, 2, 299, '2026-03-24 12:06:00', '2026-03-24 12:06:00'),
-
 (29, 20, 14, 1, 1299, '2026-03-24 12:06:01', '2026-03-24 12:06:01'),
-
 (30, 21, 2, 2, 169, '2026-03-24 12:06:02', '2026-03-24 12:06:02'),
-
 (31, 22, 8, 1, 449, '2026-03-24 12:07:00', '2026-03-24 12:07:00'),
 (32, 22, 19, 1, 189, '2026-03-24 12:07:00', '2026-03-24 12:07:00'),
 (33, 22, 21, 1, 249, '2026-03-24 12:07:00', '2026-03-24 12:07:00'),
-
 (34, 23, 1, 1, 149, '2026-03-24 12:07:01', '2026-03-24 12:07:01'),
-
 (35, 24, 30, 2, 519, '2026-03-24 12:07:02', '2026-03-24 12:07:02'),
-
 (36, 25, 25, 2, 129, '2026-03-24 12:08:00', '2026-03-24 12:08:00'),
-
 (37, 26, 13, 1, 1599, '2026-03-24 12:08:01', '2026-03-24 12:08:01'),
-
 (38, 27, 11, 3, 149, '2026-03-24 12:08:02', '2026-03-24 12:08:02'),
-
 (39, 28, 7, 1, 599, '2026-03-24 12:09:00', '2026-03-24 12:09:00'),
-
 (40, 29, 19, 2, 189, '2026-03-24 12:09:01', '2026-03-24 12:09:01'),
-
 (41, 30, 15, 1, 1449, '2026-03-24 12:09:02', '2026-03-24 12:09:02');
     

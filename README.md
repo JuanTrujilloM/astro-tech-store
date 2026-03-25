@@ -82,7 +82,7 @@ php artisan db:seed
 
 **Option B: Using the SQL file**
 
-Import the SQL file located at `database/astro_tech_db_seed.sql` after running the migrations. You can do this through phpMyAdmin:
+Import the SQL file located at `astro_tech_db_seed.sql` after running the migrations. You can do this through phpMyAdmin:
 
 1. Open `http://localhost/phpmyadmin`.
 2. Select the `astro_tech_db` database.
