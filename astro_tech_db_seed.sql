@@ -3,17 +3,17 @@
 
 -- USERS (10 clients + 1 admin)
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `role`, `balance`, `created_at`, `updated_at`) VALUES
-(1, 'Carlos García López', 'carlos.garcia@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'abc123def0', 'client', 5000, '2026-03-24 10:00:00', '2026-03-24 10:00:00'),
-(2, 'María Fernanda Ruiz', 'maria.ruiz@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'bcd234efg1', 'client', 5000, '2026-03-24 10:00:01', '2026-03-24 10:00:01'),
-(3, 'Andrés Felipe Martínez', 'andres.martinez@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'cde345fgh2', 'client', 5000, '2026-03-24 10:00:02', '2026-03-24 10:00:02'),
-(4, 'Laura Camila Torres', 'laura.torres@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'def456ghi3', 'client', 5000, '2026-03-24 10:00:03', '2026-03-24 10:00:03'),
-(5, 'Santiago Herrera Díaz', 'santiago.herrera@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'efg567hij4', 'client', 5000, '2026-03-24 10:00:04', '2026-03-24 10:00:04'),
-(6, 'Valentina Morales Peña', 'valentina.morales@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'fgh678ijk5', 'client', 5000, '2026-03-24 10:00:05', '2026-03-24 10:00:05'),
-(7, 'Daniel Alejandro Rojas', 'daniel.rojas@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'ghi789jkl6', 'client', 5000, '2026-03-24 10:00:06', '2026-03-24 10:00:06'),
-(8, 'Isabella Gutiérrez Vargas', 'isabella.gutierrez@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'hij890klm7', 'client', 5000, '2026-03-24 10:00:07', '2026-03-24 10:00:07'),
-(9, 'Sebastián Castro Mendoza', 'sebastian.castro@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'ijk901lmn8', 'client', 5000, '2026-03-24 10:00:08', '2026-03-24 10:00:08'),
-(10, 'Camila Andrea Sánchez', 'camila.sanchez@example.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'jkl012mno9', 'client', 5000, '2026-03-24 10:00:09', '2026-03-24 10:00:09'),
-(11, 'Admin User', 'admin@astrotech.com', '2026-03-24 00:00:00', '$2y$12$WjB3ZxPVfS6QRmNqK8vLOeJfHkYpTgG5M3YvCxEaUoLZf2nVdq.5a', 'klm123nop0', 'admin', 10000, '2026-03-24 10:00:10', '2026-03-24 10:00:10');
+(1, 'Carlos García López', 'carlos.garcia@example.com', '2026-03-24 00:00:00', '$2y$10$RZOH70dnzUj5yAdju3KsuexHCVPXJej.98i/K8ShflcUbkVa/w3wq', 'abc123def0', 'client', 5000, '2026-03-24 10:00:00', '2026-03-24 10:00:00'),
+(2, 'María Fernanda Ruiz', 'maria.ruiz@example.com', '2026-03-24 00:00:00', '$2y$10$RZOH70dnzUj5yAdju3KsuexHCVPXJej.98i/K8ShflcUbkVa/w3wq', 'bcd234efg1', 'client', 5000, '2026-03-24 10:00:01', '2026-03-24 10:00:01'),
+(3, 'Andrés Felipe Martínez', 'andres.martinez@example.com', '2026-03-24 00:00:00', '$2y$10$RZOH70dnzUj5yAdju3KsuexHCVPXJej.98i/K8ShflcUbkVa/w3wq', 'cde345fgh2', 'client', 5000, '2026-03-24 10:00:02', '2026-03-24 10:00:02'),
+(4, 'Laura Camila Torres', 'laura.torres@example.com', '2026-03-24 00:00:00', '$2y$10$RZOH70dnzUj5yAdju3KsuexHCVPXJej.98i/K8ShflcUbkVa/w3wq', 'def456ghi3', 'client', 5000, '2026-03-24 10:00:03', '2026-03-24 10:00:03'),
+(5, 'Santiago Herrera Díaz', 'santiago.herrera@example.com', '2026-03-24 00:00:00', '$2y$10$RZOH70dnzUj5yAdju3KsuexHCVPXJej.98i/K8ShflcUbkVa/w3wq', 'efg567hij4', 'client', 5000, '2026-03-24 10:00:04', '2026-03-24 10:00:04'),
+(6, 'Valentina Morales Peña', 'valentina.morales@example.com', '2026-03-24 00:00:00', '$2y$10$RZOH70dnzUj5yAdju3KsuexHCVPXJej.98i/K8ShflcUbkVa/w3wq', 'fgh678ijk5', 'client', 5000, '2026-03-24 10:00:05', '2026-03-24 10:00:05'),
+(7, 'Daniel Alejandro Rojas', 'daniel.rojas@example.com', '2026-03-24 00:00:00', '$2y$10$RZOH70dnzUj5yAdju3KsuexHCVPXJej.98i/K8ShflcUbkVa/w3wq', 'ghi789jkl6', 'client', 5000, '2026-03-24 10:00:06', '2026-03-24 10:00:06'),
+(8, 'Isabella Gutiérrez Vargas', 'isabella.gutierrez@example.com', '2026-03-24 00:00:00', '$2y$10$RZOH70dnzUj5yAdju3KsuexHCVPXJej.98i/K8ShflcUbkVa/w3wq', 'hij890klm7', 'client', 5000, '2026-03-24 10:00:07', '2026-03-24 10:00:07'),
+(9, 'Sebastián Castro Mendoza', 'sebastian.castro@example.com', '2026-03-24 00:00:00', '$2y$10$RZOH70dnzUj5yAdju3KsuexHCVPXJej.98i/K8ShflcUbkVa/w3wq', 'ijk901lmn8', 'client', 5000, '2026-03-24 10:00:08', '2026-03-24 10:00:08'),
+(10, 'Camila Andrea Sánchez', 'camila.sanchez@example.com', '2026-03-24 00:00:00', '$2y$10$RZOH70dnzUj5yAdju3KsuexHCVPXJej.98i/K8ShflcUbkVa/w3wq', 'jkl012mno9', 'client', 5000, '2026-03-24 10:00:09', '2026-03-24 10:00:09'),
+(11, 'Admin User', 'admin@astrotech.com', '2026-03-24 00:00:00', '$2y$10$RZOH70dnzUj5yAdju3KsuexHCVPXJej.98i/K8ShflcUbkVa/w3wq', 'klm123nop0', 'admin', 10000, '2026-03-24 10:00:10', '2026-03-24 10:00:10');
 
 -- PRODUCTS (30 products)
 INSERT INTO `products` (`id`, `name`, `description`, `price`, `stock`, `image`, `created_at`, `updated_at`) VALUES
