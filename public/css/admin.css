@@ -4,8 +4,8 @@
     --color-gray: #bfbfbf;
     --color-dark-red: #8b0000;
     --color-white: #ffffff;
-    --font-primary: "Berlin Sans FB Demi";
-    --font-secondary: "Helvetica";
+    --font-primary: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-secondary: "Consolas", "Courier New", monospace;
 }
 
 .admin-body {

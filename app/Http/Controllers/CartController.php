@@ -136,6 +136,13 @@ class CartController extends Controller
             return redirect()->route('cart.index')->with('error', __('messages.cart.insufficient_balance'));
         }
 
+        foreach ($productsInCart as $product) {
+            $requestedQuantity = $productsInSession[$product->getId()];
+            if ($product->getStock() < $requestedQuantity) {
+                return redirect()->route('cart.index')->with('error', __('messages.cart.insufficient_stock', ['product' => $product->getName()]));
+            }
+        }
+
         $order = Order::create([
             'user_id' => Auth::id(),
             'status' => 'pending',
@@ -143,12 +150,15 @@ class CartController extends Controller
         ]);
 
         foreach ($productsInCart as $product) {
+            $quantity = $productsInSession[$product->getId()];
             Item::create([
-                'quantity' => $productsInSession[$product->getId()],
+                'quantity' => $quantity,
                 'price' => $product->getPrice(),
                 'product_id' => $product->getId(),
                 'order_id' => $order->getId(),
             ]);
+            $product->setStock($product->getStock() - $quantity);
+            $product->save();
         }
 
         Auth::user()->setBalance(Auth::user()->getBalance() - $total);

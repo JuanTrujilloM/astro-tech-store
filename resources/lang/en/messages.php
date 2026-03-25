@@ -186,6 +186,7 @@ return [
         'subtotal' => 'Subtotal',
         'purchase_success' => 'Purchase successful',
         'insufficient_balance' => 'Insufficient balance to complete the purchase.',
+        'insufficient_stock' => 'Insufficient stock for :product.',
         'discount_placeholder' => 'Discount code',
         'discount_apply' => 'Apply',
         'discount_applied' => 'Discount of :percentage% applied successfully!',
