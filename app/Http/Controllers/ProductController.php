@@ -17,17 +17,9 @@ class ProductController extends Controller
     {
         $validated = $request->validated();
         $productSearch = trim((string) ($validated['product_search'] ?? ''));
-
-        $priceMin = $request->filled('price_min') && isset($validated['price_min']) && $validated['price_min'] !== null
-            ? (int) $validated['price_min']
-            : null;
-        $priceMax = $request->filled('price_max') && isset($validated['price_max']) && $validated['price_max'] !== null
-            ? (int) $validated['price_max']
-            : null;
-
-        $minRating = isset($validated['min_rating']) && $validated['min_rating'] !== null
-            ? (int) $validated['min_rating']
-            : null;
+        $priceMin = isset($validated['price_min']) ? (int) $validated['price_min'] : null;
+        $priceMax = isset($validated['price_max']) ? (int) $validated['price_max'] : null;
+        $minRating = isset($validated['min_rating']) ? (int) $validated['min_rating'] : null;
 
         $query = Product::query()
             ->withAvg('reviews', 'rating')
@@ -47,7 +39,7 @@ class ProductController extends Controller
             $query->where('price', '<=', $priceMax);
         }
 
-        if ($minRating !== null && $minRating >= 1 && $minRating <= 5) {
+        if ($minRating !== null) {
             $query->having('reviews_avg_rating', '>=', $minRating);
         }
 
@@ -61,19 +53,17 @@ class ProductController extends Controller
         $hasActiveFilters = $productSearch !== ''
             || ($priceMin !== null && $priceMin > 0)
             || ($priceMax !== null && $priceMax > 0)
-            || ($minRating !== null && $minRating >= 1);
+            || $minRating !== null;
 
-        $viewData = [];
-        $viewData['products'] = $products;
-        $viewData['product_search'] = $productSearch;
-        $viewData['price_min'] = $request->filled('price_min') ? (string) $priceMin : '';
-        $viewData['price_max'] = $request->filled('price_max') ? (string) $priceMax : '';
-        $viewData['min_rating'] = $minRating !== null ? (string) $minRating : '';
-        $viewData['has_active_filters'] = $hasActiveFilters;
-
-        $viewData['topProducts'] = $hasActiveFilters
-            ? collect()
-            : Product::getMostPurchased(3);
+        $viewData = [
+            'products' => $products,
+            'product_search' => $productSearch,
+            'price_min' => $priceMin !== null ? (string) $priceMin : '',
+            'price_max' => $priceMax !== null ? (string) $priceMax : '',
+            'min_rating' => $minRating !== null ? (string) $minRating : '',
+            'has_active_filters' => $hasActiveFilters,
+            'topProducts' => $hasActiveFilters ? collect() : Product::getMostPurchased(3),
+        ];
 
         return view('product.index')->with('viewData', $viewData);
     }
