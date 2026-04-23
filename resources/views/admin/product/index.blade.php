@@ -5,6 +5,9 @@
 @extends('layouts.admin')
 @section('title', __('messages.admin.title'))
 @section('page_title', __('messages.admin.products'))
+@section('breadcrumbs')
+  {{ Breadcrumbs::render('admin.product.index') }}
+@endsection
 @section('content')
 
   <div class="admin-product-page">

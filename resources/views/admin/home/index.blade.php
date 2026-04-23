@@ -5,6 +5,9 @@
 @extends('layouts.admin')
 @section('title', __('messages.admin.title'))
 @section('page_title', __('messages.admin.dashboard'))
+@section('breadcrumbs')
+  {{ Breadcrumbs::render('admin.home.index') }}
+@endsection
 @section('content')
 
   <div class="row mb-4">

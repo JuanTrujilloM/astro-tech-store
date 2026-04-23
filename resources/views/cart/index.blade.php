@@ -4,6 +4,9 @@
 -->
 @extends('layouts.app')
 @section('title', __('messages.cart.title') . ' - ' . __('messages.layout.title_default'))
+@section('breadcrumbs')
+  {{ Breadcrumbs::render('cart.index') }}
+@endsection
 @section('content')
 
   @if (session('error'))

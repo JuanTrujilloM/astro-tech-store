@@ -4,6 +4,9 @@
 -->
 @extends('layouts.app')
 @section('title', __('messages.product.edit_review') . ' - ' . __('messages.layout.title_default'))
+@section('breadcrumbs')
+  {{ Breadcrumbs::render('review.edit', $viewData['product'], $viewData['review']) }}
+@endsection
 @section('content')
 
   <div class="row mb-3">

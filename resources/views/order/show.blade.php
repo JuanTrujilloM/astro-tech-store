@@ -4,6 +4,9 @@
 -->
 @extends('layouts.app')
 @section('title', __('messages.orders.order_prefix') . $viewData['order']->getId())
+@section('breadcrumbs')
+  {{ Breadcrumbs::render('order.show', $viewData['order']) }}
+@endsection
 @section('content')
 
   <div class="card mb-4">

@@ -464,3 +464,41 @@ nav {
 .icon-placeholder-lg {
     font-size: 2.5rem;
 }
+
+/* Breadcrumbs */
+.breadcrumb-custom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    background-color: #f9f9f9;
+    border-left: 3px solid var(--color-dark-red);
+    border-radius: 0 4px 4px 0;
+    font-size: 0.875rem;
+}
+
+.breadcrumb-custom-item a {
+    color: var(--color-dark-red);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.15s ease;
+}
+
+.breadcrumb-custom-item a:hover {
+    opacity: 0.75;
+    text-decoration: none;
+}
+
+.breadcrumb-custom-item.active {
+    color: #6c757d;
+    font-weight: 400;
+}
+
+.breadcrumb-custom-item:not(:last-child)::after {
+    content: '/';
+    margin-left: 0.25rem;
+    color: #aeaeae;
+}

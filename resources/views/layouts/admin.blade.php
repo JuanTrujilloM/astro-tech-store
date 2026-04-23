@@ -97,6 +97,11 @@
 
         <main class="admin-content flex-grow-1">
           <div class="admin-content-inner">
+            @hasSection('breadcrumbs')
+              <nav aria-label="breadcrumb" class="mb-3">
+                @yield('breadcrumbs')
+              </nav>
+            @endif
             @yield('content')
           </div>
         </main>
