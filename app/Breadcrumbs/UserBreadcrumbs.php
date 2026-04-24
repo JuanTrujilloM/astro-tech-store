@@ -66,4 +66,40 @@ class UserBreadcrumbs
         $trail->parent('product.show', $product);
         $trail->push(__('messages.breadcrumbs.edit_review'), route('review.edit', [$product, $review]));
     }
+
+    public static function confirmPassword(BreadcrumbTrail $trail): void
+    {
+        $trail->parent('home.index');
+        $trail->push(__('messages.breadcrumbs.confirm_password'));
+    }
+
+    public static function login(BreadcrumbTrail $trail): void
+    {
+        $trail->parent('home.index');
+        $trail->push(__('messages.breadcrumbs.login'), route('login'));
+    }
+
+    public static function register(BreadcrumbTrail $trail): void
+    {
+        $trail->parent('home.index');
+        $trail->push(__('messages.breadcrumbs.register'), route('register'));
+    }
+
+    public static function forgotPassword(BreadcrumbTrail $trail): void
+    {
+        $trail->parent('home.index');
+        $trail->push(__('messages.breadcrumbs.forgot_password'), route('password.request'));
+    }
+
+    public static function resetPassword(BreadcrumbTrail $trail): void
+    {
+        $trail->parent('home.index');
+        $trail->push(__('messages.breadcrumbs.reset_password'));
+    }
+
+    public static function verifyEmail(BreadcrumbTrail $trail): void
+    {
+        $trail->parent('home.index');
+        $trail->push(__('messages.breadcrumbs.verify_email'));
+    }
 }

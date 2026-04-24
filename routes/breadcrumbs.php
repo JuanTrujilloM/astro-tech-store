@@ -18,6 +18,12 @@ Breadcrumbs::for('cart.index', [UserBreadcrumbs::class, 'cartIndex']);
 Breadcrumbs::for('order.index', [UserBreadcrumbs::class, 'orderIndex']);
 Breadcrumbs::for('order.show', [UserBreadcrumbs::class, 'orderShow']);
 Breadcrumbs::for('review.edit', [UserBreadcrumbs::class, 'reviewEdit']);
+Breadcrumbs::for('password.confirm', [UserBreadcrumbs::class, 'confirmPassword']);
+Breadcrumbs::for('login', [UserBreadcrumbs::class, 'login']);
+Breadcrumbs::for('register', [UserBreadcrumbs::class, 'register']);
+Breadcrumbs::for('password.request', [UserBreadcrumbs::class, 'forgotPassword']);
+Breadcrumbs::for('password.reset', [UserBreadcrumbs::class, 'resetPassword']);
+Breadcrumbs::for('verification.notice', [UserBreadcrumbs::class, 'verifyEmail']);
 
 Breadcrumbs::for('admin.home.index', [AdminBreadcrumbs::class, 'dashboard']);
 Breadcrumbs::for('admin.product.index', [AdminBreadcrumbs::class, 'productIndex']);

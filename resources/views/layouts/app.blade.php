@@ -102,6 +102,27 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
+
+  <!-- Confirm Delete Modal -->
+  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmDeleteModalLabel">{{ __('messages.admin.confirm_delete_title') }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="confirmDeleteModalBody">
+          {{ __('messages.admin.confirm_delete_generic') }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('messages.admin.cancel') }}</button>
+          <button type="button" class="btn btn-danger" id="confirmDeleteBtn">{{ __('messages.admin.confirm_delete_btn') }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ asset('js/confirm-delete.js') }}"></script>
 </body>
 
 </html>
