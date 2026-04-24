@@ -1,3 +1,7 @@
+<!--
+  Author: Juan Esteban Trujillo Montes
+  Description: Partial view responsible for rendering the breadcrumb navigation trail.
+-->
 @unless ($breadcrumbs->isEmpty())
   <ol class="breadcrumb-custom" aria-label="breadcrumb">
     @foreach ($breadcrumbs as $breadcrumb)

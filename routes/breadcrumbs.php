@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Juan Esteban Trujillo Montes
+ * Description: Registers breadcrumb definitions for all named routes in the application.
+ */
+
 use App\Breadcrumbs\AdminBreadcrumbs;
 use App\Breadcrumbs\UserBreadcrumbs;
 use Diglactic\Breadcrumbs\Breadcrumbs;

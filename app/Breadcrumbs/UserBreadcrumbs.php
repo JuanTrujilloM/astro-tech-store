@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Juan Esteban Trujillo Montes
+ * Description: Defines breadcrumb trails for user-facing pages.
+ */
+
 namespace App\Breadcrumbs;
 
 use App\Models\Order;

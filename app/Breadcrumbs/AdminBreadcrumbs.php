@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Author: Juan Esteban Trujillo Montes
+ * Description: Defines breadcrumb trails for admin panel pages.
+ */
+
 namespace App\Breadcrumbs;
 
 use App\Models\Product;
