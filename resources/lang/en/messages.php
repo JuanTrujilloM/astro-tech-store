@@ -280,4 +280,9 @@ return [
         'confirm_delete_review' => 'Are you sure you want to delete this review?',
         'success_review_deleted' => 'Review deleted successfully',
     ],
+
+    'breadcrumbs' => [
+        'order_number' => 'Order #:id',
+        'edit_review' => 'Edit Review',
+    ],
 ];

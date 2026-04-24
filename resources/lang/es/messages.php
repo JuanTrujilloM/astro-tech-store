@@ -279,4 +279,9 @@ return [
         'confirm_delete_review' => '¿Estás seguro de que deseas eliminar esta reseña?',
         'success_review_deleted' => 'Reseña eliminada exitosamente',
     ],
+
+    'breadcrumbs' => [
+        'order_number' => 'Pedido #:id',
+        'edit_review' => 'Editar Reseña',
+    ],
 ];

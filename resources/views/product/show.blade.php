@@ -5,6 +5,9 @@
 
 @extends('layouts.app')
 @section('title', $viewData['product']->getName() . ' - ' . __('messages.layout.title_default'))
+@section('breadcrumbs')
+  {{ Breadcrumbs::render('product.show', $viewData['product']) }}
+@endsection
 @section('content')
 
   <div class="row mb-3">

@@ -85,6 +85,11 @@
   </header>
 
   <div class="container my-4 flex-grow-1 d-flex flex-column">
+    @hasSection('breadcrumbs')
+      <nav aria-label="breadcrumb" class="mb-3">
+        @yield('breadcrumbs')
+      </nav>
+    @endif
     @yield('content')
   </div>
 

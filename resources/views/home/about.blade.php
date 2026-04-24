@@ -5,6 +5,9 @@
 
 @extends('layouts.app')
 @section('title', __('messages.about.title'))
+@section('breadcrumbs')
+  {{ Breadcrumbs::render('home.about') }}
+@endsection
 @section('content')
 
   <section class="mb-5">
