@@ -10,8 +10,9 @@
 @section('content')
 
   @if (session('error'))
-    <div class="alert alert-danger mb-4" role="alert">
+    <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
       {{ session('error') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   @endif
 
@@ -88,13 +89,20 @@
                 </form>
               </div>
             @else
-              <form action="{{ route('cart.applyDiscount') }}" method="POST" class="d-flex gap-2">
+              <form action="{{ route('cart.applyDiscount') }}" method="POST">
                 @csrf
-                <input type="text" name="discount_code" class="form-control form-control-sm w-auto"
-                  placeholder="{{ __('messages.cart.discount_placeholder') }}" required>
-                <button type="submit" class="btn btn-sm btn-outline-primary text-nowrap">
-                  {{ __('messages.cart.discount_apply') }}
-                </button>
+                <label for="discount_code" class="form-label mb-1 small">{{ __('messages.cart.discount_placeholder') }}</label>
+                <div class="d-flex gap-2">
+                  <input type="text" name="discount_code" id="discount_code"
+                    class="form-control form-control-sm w-auto @error('discount_code') is-invalid @enderror"
+                    placeholder="{{ __('messages.cart.discount_placeholder') }}" required>
+                  <button type="submit" class="btn btn-sm btn-outline-primary text-nowrap">
+                    {{ __('messages.cart.discount_apply') }}
+                  </button>
+                </div>
+                @error('discount_code')
+                  <div class="text-danger small mt-1">{{ $message }}</div>
+                @enderror
               </form>
             @endif
             
@@ -125,9 +133,11 @@
               </button>
             </form>
 
-            <form action="{{ route('cart.delete') }}" method="POST" class="d-inline">
+            <form action="{{ route('cart.delete') }}" method="POST" class="d-inline" id="delete-cart-form">
               @csrf
-              <button type="submit" class="btn btn-danger mb-2">
+              <button type="button" class="btn btn-danger mb-2"
+                data-confirm-delete="delete-cart-form"
+                data-confirm-message="{{ __('messages.cart.confirm_delete_all') }}">
                 {{ __('messages.cart.remove_all_products') }}
               </button>
             </form>

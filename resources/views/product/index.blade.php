@@ -101,7 +101,7 @@
                 <input type="search" name="product_search" id="product-search-product_search"
                   value="{{ old('product_search', $viewData['product_search'] ?? '') }}"
                   class="form-control @error('product_search') is-invalid @enderror"
-                  placeholder="{{ __('messages.product.search_placeholder') }}" maxlength="100" autocomplete="off">
+                  placeholder="{{ __('messages.product.search_placeholder') }}" maxlength="100" autocomplete="on">
                 @error('product_search')
                   <div class="invalid-feedback d-block">{{ $message }}</div>
                 @enderror

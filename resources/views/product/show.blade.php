@@ -90,7 +90,7 @@
                   @csrf
                   <div class="input-group">
                     <span class="input-group-text">{{ __('messages.product.quantity') }}</span>
-                    <input type="number" min="1" class="form-control quantity-input" name="quantity"
+                    <input type="number" min="1" max="{{ $viewData['product']->getStock() }}" class="form-control quantity-input" name="quantity"
                       value="1" aria-label="{{ __('messages.product.quantity') }}">
                   </div>
                   <button class="btn btn-primary" type="submit">
@@ -121,20 +121,22 @@
             <form action="{{ route('review.store', ['product' => $viewData['product']->getId()]) }}" method="POST">
               @csrf
               <div class="mb-3">
-                <label for="rating" class="form-label">{{ __('messages.product.review_rating') }}</label>
-                <select name="rating" id="rating" class="form-select @error('rating') is-invalid @enderror">
-                  <option value="">--</option>
-                  @for ($i = 1; $i <= 5; $i++)
-                    <option value="{{ $i }}" {{ old('rating') == $i ? 'selected' : '' }}>{{ $i }}
-                    </option>
+                <label class="form-label d-block">{{ __('messages.product.review_rating') }} <span class="text-danger">*</span></label>
+                <div class="star-rating-input @error('rating') is-invalid @enderror">
+                  @for ($i = 5; $i >= 1; $i--)
+                    <input type="radio" name="rating" id="star{{ $i }}" value="{{ $i }}"
+                      {{ old('rating') == $i ? 'checked' : '' }} required>
+                    <label for="star{{ $i }}" title="{{ $i }} {{ __('messages.product.stars') }}">
+                      <i class="bi bi-star-fill"></i>
+                    </label>
                   @endfor
-                </select>
+                </div>
                 @error('rating')
-                  <div class="invalid-feedback">{{ $message }}</div>
+                  <div class="invalid-feedback d-block">{{ $message }}</div>
                 @enderror
               </div>
               <div class="form-group">
-                <label for="description" class="form-label">{{ __('messages.product.review_description') }}</label>
+                <label for="description" class="form-label">{{ __('messages.product.review_description') }} <span class="text-danger">*</span></label>
                 <textarea name="description" id="description" rows="3"
                   class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
                 @error('description')
@@ -188,13 +190,15 @@
                           class="btn btn-sm btn-outline-secondary" title="{{ __('messages.product.edit_review') }}">
                           <i class="bi bi-pencil"></i>
                         </a>
-                        <form
+                        <form id="delete-review-user-{{ $review->getId() }}"
                           action="{{ route('review.destroy', ['product' => $viewData['product']->getId(), 'review' => $review->getId()]) }}"
                           method="POST">
                           @csrf
                           @method('DELETE')
-                          <button type="submit" class="btn btn-sm btn-outline-danger"
-                            title="{{ __('messages.product.delete_review') }}">
+                          <button type="button" class="btn btn-sm btn-outline-danger"
+                            title="{{ __('messages.product.delete_review') }}"
+                            data-confirm-delete="delete-review-user-{{ $review->getId() }}"
+                            data-confirm-message="{{ __('messages.admin.confirm_delete_review') }}">
                             <i class="bi bi-trash3"></i>
                           </button>
                         </form>
