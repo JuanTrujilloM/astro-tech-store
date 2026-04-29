@@ -25,7 +25,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/astro-tech-store:latest
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/astro-tech-store-app:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/astro-tech-store-app:${{ github.sha }}
 
   deploy:
     name: Deploy to GCP VM
@@ -47,15 +49,15 @@ jobs:
             --zone=${{ secrets.GCP_ZONE }} \
             --project=${{ secrets.GCP_PROJECT_ID }} \
             --command="
-              docker pull ${{ secrets.DOCKERHUB_USERNAME }}/astro-tech-store:latest &&
-              docker stop astro-tech-store || true &&
-              docker rm astro-tech-store || true &&
+              docker pull ${{ secrets.DOCKERHUB_USERNAME }}/astro-tech-store-app:latest &&
+              docker stop astro-tech-store-app || true &&
+              docker rm astro-tech-store-app || true &&
               docker run -d \
-                --name astro-tech-store \
+                --name astro-tech-store-app \
                 --restart unless-stopped \
                 -p 80:80 \
                 --env-file /home/${{ secrets.GCP_USERNAME }}/.env.docker.prod \
                 -v sqlite_data:/var/www/html/database \
                 -v storage_data:/var/www/html/storage \
-                ${{ secrets.DOCKERHUB_USERNAME }}/astro-tech-store:latest
+                ${{ secrets.DOCKERHUB_USERNAME }}/astro-tech-store-app:latest
             "

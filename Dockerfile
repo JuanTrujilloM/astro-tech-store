@@ -18,7 +18,7 @@ WORKDIR /var/www/html
 COPY . .
 
 # Install PHP dependencies
-RUN composer install --no-scripts
+RUN composer install
 
 # Build frontend assets
 RUN npm install && npm run build && rm -rf node_modules
