@@ -6,9 +6,31 @@ on:
       - main
 
 jobs:
+  build-and-push:
+    name: Build and push image to Docker Hub
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/astro-tech-store:latest
+
   deploy:
     name: Deploy to GCP VM
     runs-on: ubuntu-latest
+    needs: build-and-push
 
     steps:
       - name: Authenticate with GCP
@@ -25,15 +47,15 @@ jobs:
             --zone=${{ secrets.GCP_ZONE }} \
             --project=${{ secrets.GCP_PROJECT_ID }} \
             --command="
-              sudo git config --global --add safe.directory /var/www/html/astro-tech-store &&
-              cd /var/www/html/astro-tech-store &&
-              sudo git pull origin main &&
-              sudo composer install &&
-              sudo php artisan migrate:fresh --seed --force &&
-              sudo php artisan storage:link &&
-              sudo php artisan view:cache &&
-              sudo chmod -R 777 storage &&
-              sudo chmod -R 777 database &&
-              sudo chmod 777 database/database.sqlite &&
-              sudo systemctl restart apache2
+              docker pull ${{ secrets.DOCKERHUB_USERNAME }}/astro-tech-store:latest &&
+              docker stop astro-tech-store || true &&
+              docker rm astro-tech-store || true &&
+              docker run -d \
+                --name astro-tech-store \
+                --restart unless-stopped \
+                -p 80:80 \
+                --env-file /home/${{ secrets.GCP_USERNAME }}/.env.docker.prod \
+                -v sqlite_data:/var/www/html/database \
+                -v storage_data:/var/www/html/storage \
+                ${{ secrets.DOCKERHUB_USERNAME }}/astro-tech-store:latest
             "
