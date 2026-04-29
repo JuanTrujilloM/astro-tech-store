@@ -6,18 +6,74 @@ Astro Tech Store is a full-featured e-commerce web application for technology pr
 
 - **Backend:** Laravel 12 (PHP 8.2+)
 - **Frontend:** Bootstrap 5.3, Bootstrap Icons, SCSS
-- **Database:** MySQL
+- **Database:** MySQL (local) / SQLite (Docker)
 - **Authentication:** Laravel Auth with role-based access (client/admin)
 - **Code Quality:** Laravel Pint (PSR-12)
 - **CI/CD:** GitHub Actions with deployment to GCP
+- **Containerization:** Docker (Apache + PHP 8.2 + SQLite)
 
-## Prerequisites
+---
+
+## Option A: Run with Docker (recommended)
+
+### Prerequisites
+
+- Docker Desktop installed and running
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd astro-tech-store
+```
+
+### 2. Run the container
+
+```bash
+docker run -d \
+  --name astro-tech-store-app \
+  --restart unless-stopped \
+  -p 8080:80 \
+  --env-file .env.docker.local \
+  -v sqlite_data:/var/www/html/database \
+  -v storage_data:/var/www/html/storage \
+  tru12jt/astro-tech-store-image:latest
+```
+
+Migrations run automatically on startup. The app will be available at `http://localhost:8080`.
+
+### 3. Seed the database (optional)
+
+```bash
+docker exec astro-tech-store-app php artisan db:seed
+```
+
+### Useful Docker commands
+
+```bash
+# View logs
+docker logs -f astro-tech-store-app
+
+# Stop the container
+docker stop astro-tech-store-app
+
+# Remove the container (data in volumes is preserved)
+docker rm astro-tech-store-app
+
+# Remove the container and all data
+docker rm -f astro-tech-store-app
+docker volume rm sqlite_data storage_data
+```
+
+---
+
+## Option B: Run locally with PHP (XAMPP)
+
+### Prerequisites
 
 - PHP >= 8.2
 - Composer
 - XAMPP (Apache + MySQL)
-
-## Installation and Setup
 
 ### 1. Clone the repository
 
@@ -104,9 +160,16 @@ This is required for product images to display correctly.
 php artisan serve
 ```
 
+---
+
 ## Accessing the Application
 
-The main entry point is `http://localhost:8000`.
+| Method | URL |
+|--------|-----|
+| Docker | `http://localhost:8080` |
+| PHP artisan serve | `http://localhost:8000` |
+
+The main entry point is `http://localhost:8000` (local) or `http://localhost:8080` (Docker).
 
 | URL | Description |
 |-----|-------------|
