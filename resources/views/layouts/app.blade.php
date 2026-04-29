@@ -18,7 +18,7 @@
 
 <body class="d-flex flex-column min-vh-100">
   <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
-    <div class="container">
+    <div class="container-fluid px-4">
       <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('home.index') }}">
         <img src="{{ asset('images/app/logoapp.svg') }}" alt="" class="navbar-brand-logo">
         {{ __('messages.layout.brand') }}

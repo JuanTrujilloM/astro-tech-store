@@ -39,6 +39,12 @@ class OrderController extends Controller
         $order = Order::where('id', $order)->where('user_id', Auth::id())->firstOrFail();
 
         if ($order->getCanBeCancelled()) {
+            foreach ($order->getItems() as $item) {
+                $product = $item->getProduct();
+                $product->setStock($product->getStock() + $item->getQuantity());
+                $product->save();
+            }
+
             $order->setStatus('cancelled');
             $order->save();
         }

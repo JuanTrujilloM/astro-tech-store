@@ -9,6 +9,8 @@
     --color-breadcrumb-sep: #aeaeae;
     --font-primary: "Berlin Sans FB Demi";
     --font-secondary: "Helvetica";
+    --font-primary: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-secondary: "Consolas", "Courier New", monospace;
 }
 
 .admin-body {
