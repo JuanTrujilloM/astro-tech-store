@@ -5,6 +5,9 @@
 @extends('layouts.admin')
 @section('title', __('messages.admin.title'))
 @section('page_title', __('messages.admin.products'))
+@section('breadcrumbs')
+  {{ Breadcrumbs::render('admin.product.index') }}
+@endsection
 @section('content')
 
   <div class="admin-product-page">
@@ -17,12 +20,13 @@
     @endif
 
     @if ($errors->any())
-      <div class="alert alert-danger mb-4" role="alert">
+      <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
         <ul class="mb-0">
           @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
           @endforeach
         </ul>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     @endif
 
@@ -38,28 +42,33 @@
           @csrf
 
           <div class="col-12 col-md-6">
-            <label for="name" class="form-label">{{ __('messages.admin.name') }}</label>
-            <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" required>
+            <label for="name" class="form-label">{{ __('messages.admin.name') }} <span class="text-danger">*</span></label>
+            <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
+            @error('name')<div class="invalid-feedback">{{ $message }}</div>@enderror
           </div>
 
           <div class="col-12 col-md-3">
-            <label for="price" class="form-label">{{ __('messages.admin.price') }}</label>
-            <input type="number" name="price" id="price" class="form-control" value="{{ old('price') }}" required>
+            <label for="price" class="form-label">{{ __('messages.admin.price') }} <span class="text-danger">*</span></label>
+            <input type="number" name="price" id="price" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}" min="0" step="0.01" required>
+            @error('price')<div class="invalid-feedback">{{ $message }}</div>@enderror
           </div>
 
           <div class="col-12 col-md-3">
-            <label for="stock" class="form-label">{{ __('messages.admin.stock') }}</label>
-            <input type="number" name="stock" id="stock" class="form-control" value="{{ old('stock') }}" required>
+            <label for="stock" class="form-label">{{ __('messages.admin.stock') }} <span class="text-danger">*</span></label>
+            <input type="number" name="stock" id="stock" class="form-control @error('stock') is-invalid @enderror" value="{{ old('stock') }}" min="0" step="1" required>
+            @error('stock')<div class="invalid-feedback">{{ $message }}</div>@enderror
           </div>
 
           <div class="col-12">
-            <label for="description" class="form-label">{{ __('messages.admin.description') }}</label>
-            <textarea name="description" id="description" rows="3" class="form-control" required>{{ old('description') }}</textarea>
+            <label for="description" class="form-label">{{ __('messages.admin.description') }} <span class="text-danger">*</span></label>
+            <textarea name="description" id="description" rows="3" class="form-control @error('description') is-invalid @enderror" required>{{ old('description') }}</textarea>
+            @error('description')<div class="invalid-feedback">{{ $message }}</div>@enderror
           </div>
 
           <div class="col-12">
-            <label for="image" class="form-label">{{ __('messages.admin.image') }}</label>
-            <input type="file" name="image" id="image" class="form-control" required>
+            <label for="image" class="form-label">{{ __('messages.admin.image') }} <span class="text-danger">*</span></label>
+            <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror" accept="image/*" required>
+            @error('image')<div class="invalid-feedback">{{ $message }}</div>@enderror
           </div>
 
           <div class="col-12">
@@ -120,14 +129,16 @@
                         <i class="bi bi-pencil-square"></i>
                       </a>
 
-                      <form action="{{ route('admin.product.destroy', ['product' => $product->getId()]) }}"
+                      <form id="delete-product-{{ $product->getId() }}"
+                        action="{{ route('admin.product.destroy', ['product' => $product->getId()]) }}"
                         method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-sm admin-product-btn-danger"
+                        <button type="button" class="btn btn-sm admin-product-btn-danger"
                           title="{{ __('messages.admin.delete_action') }}"
                           aria-label="{{ __('messages.admin.delete_action') }}"
-                          onclick="return confirm('{{ __('messages.admin.confirm_delete_product') }}');">
+                          data-confirm-delete="delete-product-{{ $product->getId() }}"
+                          data-confirm-message="{{ __('messages.admin.confirm_delete_product') }}">
                           <i class="bi bi-trash"></i>
                         </button>
                       </form>

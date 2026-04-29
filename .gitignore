@@ -3,6 +3,8 @@
 .env
 .env.backup
 .env.production
+.env.docker
+.env.docker.prod
 .phpactor.json
 .phpunit.result.cache
 /.fleet

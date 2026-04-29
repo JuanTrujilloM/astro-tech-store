@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('breadcrumbs')
+  {{ Breadcrumbs::render('password.confirm') }}
+@endsection
 @section('content')
 
   <div class="container">
@@ -14,16 +17,16 @@
               @csrf
 
               <div class="row mb-3">
-                <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }} <span class="text-danger">*</span></label>
 
                 <div class="col-md-6">
                   <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
                     name="password" required autocomplete="current-password">
 
                   @error('password')
-                    <span class="invalid-feedback" role="alert">
+                    <div class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
-                    </span>
+                    </div>
                   @enderror
                 </div>
               </div>

@@ -33,6 +33,7 @@ class ReviewController extends Controller
     public function edit(int $product, int $review): View
     {
         $viewData = [];
+        $viewData['product'] = Product::findOrFail($product);
         $viewData['review'] = Review::where('id', $review)->where('user_id', Auth::id())->firstOrFail();
 
         return view('review.edit')->with('viewData', $viewData);

@@ -191,6 +191,7 @@ return [
         'discount_apply' => 'Apply',
         'discount_applied' => 'Discount of :percentage% applied successfully!',
         'discount_invalid' => 'The discount code is not valid.',
+        'confirm_delete_all' => 'Are you sure you want to remove all products from your cart?',
     ],
 
     'orders' => [
@@ -280,5 +281,21 @@ return [
         'product' => 'Product',
         'confirm_delete_review' => 'Are you sure you want to delete this review?',
         'success_review_deleted' => 'Review deleted successfully',
+        'confirm_delete_title' => 'Confirm deletion',
+        'confirm_delete_generic' => 'Are you sure you want to delete this item?',
+        'confirm_delete_btn' => 'Delete',
+        'cancel' => 'Cancel',
+        'update_status' => 'Update status',
+    ],
+
+    'breadcrumbs' => [
+        'order_number' => 'Order #:id',
+        'edit_review' => 'Edit Review',
+        'confirm_password' => 'Confirm Password',
+        'login' => 'Login',
+        'register' => 'Register',
+        'forgot_password' => 'Forgot Password',
+        'reset_password' => 'Reset Password',
+        'verify_email' => 'Verify Email',
     ],
 ];

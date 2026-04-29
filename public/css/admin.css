@@ -4,6 +4,11 @@
     --color-gray: #bfbfbf;
     --color-dark-red: #8b0000;
     --color-white: #ffffff;
+    --color-icon-muted: #6c757d;
+    --color-breadcrumb-bg: #f9f9f9;
+    --color-breadcrumb-sep: #aeaeae;
+    --font-primary: "Berlin Sans FB Demi";
+    --font-secondary: "Helvetica";
     --font-primary: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     --font-secondary: "Consolas", "Courier New", monospace;
 }
@@ -283,4 +288,42 @@
 
 .star-gray {
     color: #ccc;
+}
+
+/* Breadcrumbs */
+.breadcrumb-custom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    background-color: var(--color-breadcrumb-bg);
+    border-left: 3px solid var(--color-dark-red);
+    border-radius: 0 4px 4px 0;
+    font-size: 0.875rem;
+}
+
+.breadcrumb-custom-item a {
+    color: var(--color-dark-red);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.15s ease;
+}
+
+.breadcrumb-custom-item a:hover {
+    opacity: 0.75;
+    text-decoration: none;
+}
+
+.breadcrumb-custom-item.active {
+    color: var(--color-icon-muted);
+    font-weight: 400;
+}
+
+.breadcrumb-custom-item:not(:last-child)::after {
+    content: '/';
+    margin-left: 0.25rem;
+    color: var(--color-breadcrumb-sep);
 }

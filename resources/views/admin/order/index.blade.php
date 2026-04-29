@@ -5,6 +5,9 @@
 @extends('layouts.admin')
 @section('title', __('messages.admin.title'))
 @section('page_title', __('messages.admin.orders'))
+@section('breadcrumbs')
+  {{ Breadcrumbs::render('admin.order.index') }}
+@endsection
 @section('content')
 
   <div class="admin-product-page">
@@ -56,18 +59,19 @@
                         @csrf
                         @method('PATCH')
                         <div class="d-flex justify-content-center align-items-center gap-2">
-                          <select name="status" class="form-select form-select-sm w-auto">
-                            <option value="pending" {{ $order->getStatus() === 'pending' ? 'selected' : '' }}>
+                          <label for="status-{{ $order->getId() }}" class="visually-hidden">{{ __('messages.orders.status') }}</label>
+                          <select name="status" id="status-{{ $order->getId() }}" class="form-select form-select-sm w-auto @error('status') is-invalid @enderror">
+                            <option value="pending" {{ old('status', $order->getStatus()) === 'pending' ? 'selected' : '' }}>
                               {{ __('messages.admin.status_pending') }}
                             </option>
-                            <option value="completed" {{ $order->getStatus() === 'completed' ? 'selected' : '' }}>
+                            <option value="completed" {{ old('status', $order->getStatus()) === 'completed' ? 'selected' : '' }}>
                               {{ __('messages.admin.status_completed') }}
                             </option>
-                            <option value="cancelled" {{ $order->getStatus() === 'cancelled' ? 'selected' : '' }}>
+                            <option value="cancelled" {{ old('status', $order->getStatus()) === 'cancelled' ? 'selected' : '' }}>
                               {{ __('messages.admin.status_cancelled') }}
                             </option>
                           </select>
-                          <button type="submit" class="btn btn-sm admin-product-btn-primary">
+                          <button type="submit" class="btn btn-sm admin-product-btn-primary" title="{{ __('messages.admin.update_status') }}">
                             <i class="bi bi-check-lg"></i>
                           </button>
                         </div>

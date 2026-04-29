@@ -4,6 +4,9 @@
 -->
 @extends('layouts.app')
 @section('title', __('messages.orders.my_orders_title'))
+@section('breadcrumbs')
+  {{ Breadcrumbs::render('order.index') }}
+@endsection
 @section('content')
 
   @if (session('success'))

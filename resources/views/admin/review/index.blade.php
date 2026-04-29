@@ -6,6 +6,9 @@
 @extends('layouts.admin')
 @section('title', __('messages.admin.title'))
 @section('page_title', __('messages.admin.reviews'))
+@section('breadcrumbs')
+  {{ Breadcrumbs::render('admin.review.index') }}
+@endsection
 @section('content')
 
   <div class="admin-product-page">
@@ -58,13 +61,15 @@
                     </td>
                     <td class="admin-product-description">{{ $review->getDescription() }}</td>
                     <td class="text-center">
-                      <form action="{{ route('admin.review.destroy', ['review' => $review->getId()]) }}" method="POST"
+                      <form id="delete-review-{{ $review->getId() }}"
+                        action="{{ route('admin.review.destroy', ['review' => $review->getId()]) }}" method="POST"
                         class="d-inline">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-sm admin-product-btn-danger"
+                        <button type="button" class="btn btn-sm admin-product-btn-danger"
                           title="{{ __('messages.admin.delete_action') }}"
-                          onclick="return confirm('{{ __('messages.admin.confirm_delete_review') }}');">
+                          data-confirm-delete="delete-review-{{ $review->getId() }}"
+                          data-confirm-message="{{ __('messages.admin.confirm_delete_review') }}">
                           <i class="bi bi-trash"></i>
                         </button>
                       </form>

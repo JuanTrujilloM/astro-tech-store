@@ -9,6 +9,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
@@ -46,7 +47,7 @@ class AdminProductController extends Controller
         return view('admin.product.edit')->with('viewData', $viewData);
     }
 
-    public function update(StoreProductRequest $request, int $product): RedirectResponse
+    public function update(UpdateProductRequest $request, int $product): RedirectResponse
     {
         $product = Product::findOrFail($product);
         $product->setName($request->input('name'));

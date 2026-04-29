@@ -190,6 +190,7 @@ return [
         'discount_apply' => 'Aplicar',
         'discount_applied' => 'Descuento del :percentage% aplicado exitosamente!',
         'discount_invalid' => 'El codigo de descuento no es valido.',
+        'confirm_delete_all' => '¿Estás seguro de que deseas eliminar todos los productos del carrito?',
     ],
 
     'orders' => [
@@ -279,5 +280,21 @@ return [
         'product' => 'Producto',
         'confirm_delete_review' => '¿Estás seguro de que deseas eliminar esta reseña?',
         'success_review_deleted' => 'Reseña eliminada exitosamente',
+        'confirm_delete_title' => 'Confirmar eliminación',
+        'confirm_delete_generic' => '¿Estás seguro de que deseas eliminar este elemento?',
+        'confirm_delete_btn' => 'Eliminar',
+        'cancel' => 'Cancelar',
+        'update_status' => 'Actualizar estado',
+    ],
+
+    'breadcrumbs' => [
+        'order_number' => 'Pedido #:id',
+        'edit_review' => 'Editar Reseña',
+        'confirm_password' => 'Confirmar Contraseña',
+        'login' => 'Iniciar sesión',
+        'register' => 'Registrarse',
+        'forgot_password' => 'Recuperar Contraseña',
+        'reset_password' => 'Restablecer Contraseña',
+        'verify_email' => 'Verificar Correo',
     ],
 ];

@@ -9,6 +9,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -44,7 +45,7 @@ class AdminUserController extends Controller
         return view('admin.user.edit')->with('viewData', $viewData);
     }
 
-    public function update(StoreUserRequest $request, int $user): RedirectResponse
+    public function update(UpdateUserRequest $request, int $user): RedirectResponse
     {
         $userModel = User::findOrFail($user);
         $userModel->setName($request->input('name'));

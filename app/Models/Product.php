@@ -96,31 +96,6 @@ class Product extends Model
         return $this->attributes['updated_at'];
     }
 
-    public static function getMostPurchased(int $limit = 3): Collection
-    {
-        return Product::query()
-            ->withSum(['items' => function ($query) {
-                $query->whereHas('order', function ($orderQuery) {
-                    $orderQuery->where('status', '!=', 'cancelled');
-                });
-            }], 'quantity')
-            ->withAvg('reviews', 'rating')
-            ->withCount('reviews')
-            ->orderByDesc('items_sum_quantity')
-            ->take($limit)
-            ->get();
-    }
-
-    public static function sumPricesByQuantities(Collection $products, array $productsInSession): int
-    {
-        $total = 0;
-        foreach ($products as $product) {
-            $total += $product->getPrice() * $productsInSession[$product->getId()];
-        }
-
-        return $total;
-    }
-
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
@@ -149,5 +124,31 @@ class Product extends Model
     public function setItems(Collection $items): void
     {
         $this->items = $items;
+    }
+
+    // Utility methods
+    public static function sumPricesByQuantities(Collection $products, array $productsInSession): int
+    {
+        $total = 0;
+        foreach ($products as $product) {
+            $total += $product->getPrice() * $productsInSession[$product->getId()];
+        }
+
+        return $total;
+    }
+
+    public static function getMostPurchased(int $limit = 3): Collection
+    {
+        return Product::query()
+            ->withSum(['items' => function ($query) {
+                $query->whereHas('order', function ($orderQuery) {
+                    $orderQuery->where('status', '!=', 'cancelled');
+                });
+            }], 'quantity')
+            ->withAvg('reviews', 'rating')
+            ->withCount('reviews')
+            ->orderByDesc('items_sum_quantity')
+            ->take($limit)
+            ->get();
     }
 }
