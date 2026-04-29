@@ -31,4 +31,4 @@ RUN touch database/database.sqlite \
 EXPOSE 80
 
 # On startup: run migrations then start Apache
-CMD ["sh", "-c", "php artisan migrate --force --seed && apache2-foreground"]
+CMD ["sh", "-c", "php artisan storage:link && php artisan migrate --force --seed && apache2-foreground"]
