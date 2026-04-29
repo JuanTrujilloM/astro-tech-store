@@ -1,7 +1,7 @@
 FROM php:8.2-apache
 
-# PHP extensions required for Laravel + SQLite
-RUN apt-get update && apt-get install -y git zip unzip libsqlite3-dev \
+# PHP extensions required for Laravel + SQLite + Node.js for Vite
+RUN apt-get update && apt-get install -y git zip unzip libsqlite3-dev nodejs npm \
     && docker-php-ext-install pdo pdo_sqlite \
     && apt-get clean
 
@@ -19,6 +19,9 @@ COPY . .
 
 # Install PHP dependencies
 RUN composer install --no-scripts
+
+# Build frontend assets
+RUN npm install && npm run build && rm -rf node_modules
 
 # Configure Apache to serve from /public (Laravel's entry point)
 COPY .docker/apache.conf /etc/apache2/sites-available/000-default.conf
