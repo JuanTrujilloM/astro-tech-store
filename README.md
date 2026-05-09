@@ -1,5 +1,7 @@
 # Astro Tech Store
 
+**Live application:** [http://astro-tech-store.duckdns.org](http://astro-tech-store.duckdns.org)
+
 Astro Tech Store is a full-featured e-commerce web application for technology products built with Laravel 12. It provides a customer-facing storefront with product browsing, filtering, reviews, favorites, shopping cart with discount codes, and a complete admin panel for managing the store. The application supports English and Spanish localization.
 
 ## Technology Stack
@@ -166,21 +168,24 @@ php artisan serve
 
 | Method | URL |
 |--------|-----|
-| Docker | `http://localhost:8080` |
+| **Public (GCP)** | **http://astro-tech-store.duckdns.org** |
+| Docker (local) | `http://localhost:8080` |
 | PHP artisan serve | `http://localhost:8000` |
 
-The main entry point is `http://localhost:8000` (local) or `http://localhost:8080` (Docker).
+Requests to `www.astro-tech-store.duckdns.org` are automatically redirected (301) to the non-www domain via the Apache configuration.
+
+### Public routes
 
 | URL | Description |
 |-----|-------------|
-| `http://localhost:8000` | Home page with product carousel, top sellers, and recent reviews |
-| `http://localhost:8000/products` | Product listing with search, price, and rating filters |
-| `http://localhost:8000/products/{id}` | Product detail page with reviews |
-| `http://localhost:8000/cart` | Shopping cart with discount code support |
-| `http://localhost:8000/orders` | Order history (requires login) |
-| `http://localhost:8000/admin` | Admin dashboard (requires admin role) |
-| `http://localhost:8000/login` | Login page |
-| `http://localhost:8000/register` | Registration page |
+| `http://astro-tech-store.duckdns.org` | Home page with product carousel, top sellers, and recent reviews |
+| `http://astro-tech-store.duckdns.org/products` | Product listing with search, price, and rating filters |
+| `http://astro-tech-store.duckdns.org/products/{id}` | Product detail page with reviews |
+| `http://astro-tech-store.duckdns.org/cart` | Shopping cart with discount code support |
+| `http://astro-tech-store.duckdns.org/orders` | Order history (requires login) |
+| `http://astro-tech-store.duckdns.org/admin` | Admin dashboard (requires admin role) |
+| `http://astro-tech-store.duckdns.org/login` | Login page |
+| `http://astro-tech-store.duckdns.org/register` | Registration page |
 
 ## Features
 
