@@ -21,7 +21,7 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
-        $base = 'https://storage.googleapis.com/astro-tech-images/';
+        $base = 'https://storage.googleapis.com/astro-tech-images/products/';
 
         $products = [
             // Keyboards
