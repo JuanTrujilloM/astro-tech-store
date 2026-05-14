@@ -1,5 +1,7 @@
 <?php
 
+use League\Flysystem\GoogleCloudStorage\UniformBucketLevelAccessVisibility;
+
 return [
 
     /*
@@ -67,6 +69,7 @@ return [
             'bucket' => env('GCS_BUCKET'),
             'path_prefix' => env('GCS_PATH_PREFIX', ''),
             'visibility' => 'public',
+            'visibility_handler' => UniformBucketLevelAccessVisibility::class,
             'throw' => false,
         ],
 

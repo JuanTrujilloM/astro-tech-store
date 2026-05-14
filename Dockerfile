@@ -18,7 +18,7 @@ WORKDIR /var/www/html
 COPY . .
 
 # Install PHP dependencies
-RUN composer install
+RUN composer install && composer dump-autoload --optimize
 
 # Build frontend assets
 RUN npm install && npm run build && rm -rf node_modules
