@@ -14,7 +14,6 @@ use App\Models\Review;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -35,18 +34,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $products = Product::factory(30)->create();
-
-        $imagesPath = database_path('seeders/images/products');
-        foreach ($products as $product) {
-            $sourceFile = $imagesPath.'/'.$product->getImage();
-            if (file_exists($sourceFile)) {
-                $extension = pathinfo($sourceFile, PATHINFO_EXTENSION);
-                $storageName = $product->getId().'.'.$extension;
-                Storage::disk('public')->put($storageName, file_get_contents($sourceFile));
-                $product->setImage($storageName);
-                $product->save();
-            }
-        }
 
         foreach ($products as $product) {
             $reviewers = $users->random(5);

@@ -49,6 +49,7 @@ jobs:
             --zone=${{ secrets.GCP_ZONE }} \
             --project=${{ secrets.GCP_PROJECT_ID }} \
             --command="
+              docker image prune -a -f &&
               docker pull ${{ secrets.DOCKERHUB_USERNAME }}/astro-tech-store-image:latest &&
               docker stop astro-tech-store-app || true &&
               docker rm astro-tech-store-app || true &&
