@@ -68,14 +68,7 @@ class AdminProductController extends Controller
 
     public function destroy(int $product): RedirectResponse
     {
-        $product = Product::findOrFail($product);
-
-        if ($product->getImage()) {
-            $filename = basename(parse_url($product->getImage(), PHP_URL_PATH));
-            Storage::disk('gcs')->delete($filename);
-        }
-
-        $product->delete();
+        Product::destroy($product);
 
         return redirect()->route('admin.product.index')->with('success', __('messages.admin.success_product_deleted'));
     }
