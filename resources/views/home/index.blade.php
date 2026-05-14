@@ -34,7 +34,7 @@
                       <a href="{{ route('product.show', ['product' => $product->getId()]) }}"
                         class="text-decoration-none text-reset">
                         @if ($product->getImage())
-                          <img src="{{ asset('storage/' . $product->getImage()) }}" alt="{{ $product->getName() }}"
+                          <img src="{{ $product->getImage() }}" alt="{{ $product->getName() }}"
                             class="carousel-product-img mx-auto mt-2">
                         @else
                           <div
@@ -98,7 +98,7 @@
               <a href="{{ route('product.show', ['product' => $topProduct->getId()]) }}"
                 class="text-decoration-none text-reset">
                 @if ($topProduct->getImage())
-                  <img src="{{ asset('storage/' . $topProduct->getImage()) }}" class="rounded mb-2 top-product-img"
+                  <img src="{{ $topProduct->getImage() }}" class="rounded mb-2 top-product-img"
                     alt="{{ $topProduct->getName() }}">
                 @endif
                 <h3 class="h5 mb-2">{{ $topProduct->getName() }}</h3>

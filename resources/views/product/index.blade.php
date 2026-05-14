@@ -29,7 +29,7 @@
                 <a href="{{ route('product.show', ['product' => $topProduct->getId()]) }}"
                   class="text-decoration-none text-reset">
                   @if ($topProduct->getImage())
-                    <img src="{{ asset('storage/' . $topProduct->getImage()) }}" class="card-img-top img-card"
+                    <img src="{{ $topProduct->getImage() }}" class="card-img-top img-card"
                       alt="{{ $topProduct->getName() }}">
                   @else
                     <div class="card-img-top img-card bg-secondary d-flex align-items-center justify-content-center">
@@ -164,7 +164,7 @@
             <a href="{{ route('product.show', ['product' => $product->getId()]) }}"
               class="text-decoration-none text-reset">
               @if ($product->getImage())
-                <img src="{{ asset('storage/' . $product->getImage()) }}" class="card-img-top img-card"
+                <img src="{{ $product->getImage() }}" class="card-img-top img-card"
                   alt="{{ $product->getName() }}">
               @else
                 <div class="card-img-top img-card bg-secondary d-flex align-items-center justify-content-center">
