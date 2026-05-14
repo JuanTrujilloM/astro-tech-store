@@ -1,4 +1,4 @@
-FROM php:8.2-apache
+FROM php:8.3-apache
 
 # PHP extensions required for Laravel + SQLite + Node.js for Vite
 RUN apt-get update && apt-get install -y git zip unzip libsqlite3-dev nodejs npm \
@@ -18,7 +18,7 @@ WORKDIR /var/www/html
 COPY . .
 
 # Install PHP dependencies
-RUN composer install
+RUN composer install && composer dump-autoload --optimize
 
 # Build frontend assets
 RUN npm install && npm run build && rm -rf node_modules
@@ -33,5 +33,4 @@ RUN touch database/database.sqlite \
 
 EXPOSE 80
 
-# On startup: run migrations then start Apache
-CMD ["sh", "-c", "php artisan storage:link && php artisan migrate --force && apache2-foreground"]
+CMD ["sh", "-c", "php artisan migrate --force && apache2-foreground"]
