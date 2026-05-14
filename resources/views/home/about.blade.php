@@ -11,20 +11,28 @@
 @section('content')
 
   <section class="mb-5">
-    <div class="p-5 rounded-4 bg-light border text-center">
+    <div class="p-3 p-md-5 rounded-4 bg-light border text-center">
       <h1 class="display-6 fw-bold mb-3">{{ __('messages.about.hero_title') }}</h1>
-      <p class="lead mb-0 mx-auto max-width-900">
-        {{ __('messages.about.hero_description') }}
-      </p>
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <p class="lead mb-0 text-center">
+            {{ __('messages.about.hero_description') }}
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="mb-5">
-    <div class="p-5 rounded-4 border bg-white">
+    <div class="p-3 p-md-5 rounded-4 border bg-white">
       <h2 class="h3 mb-3 text-center">{{ __('messages.about.mission_title') }}</h2>
-      <p class="text-muted text-center mx-auto max-width-800">
-        {{ __('messages.about.mission_description') }}
-      </p>
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+          <p class="text-muted text-center mb-0">
+            {{ __('messages.about.mission_description') }}
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -72,11 +80,15 @@
   </section>
 
   <section class="mb-5">
-    <div class="p-5 rounded-4 border bg-white">
+    <div class="p-3 p-md-5 rounded-4 border bg-white">
       <h2 class="h3 mb-3 text-center">{{ __('messages.about.team_title') }}</h2>
-      <p class="text-muted text-center mx-auto mb-4 max-width-800">
-        {{ __('messages.about.team_description') }}
-      </p>
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+          <p class="text-muted text-center mb-4">
+            {{ __('messages.about.team_description') }}
+          </p>
+        </div>
+      </div>
 
       <div class="row g-3 mt-4">
         @foreach (__('messages.about.team_members') as $member)

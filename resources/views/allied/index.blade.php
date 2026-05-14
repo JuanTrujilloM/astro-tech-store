@@ -21,7 +21,7 @@
   </div>
 
   @if (!empty($viewData['products']))
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
       @foreach ($viewData['products'] as $product)
         <div class="col">
           <div class="card h-100 shadow-sm product-card">
@@ -47,8 +47,10 @@
       @endforeach
     </div>
   @elseif (!session('error'))
-    <div class="col-12 text-center text-muted py-5">
-      <p>{{ __('messages.allied.no_products') }}</p>
+    <div class="row">
+      <div class="col-12 text-center text-muted py-5">
+        <p class="mb-0">{{ __('messages.allied.no_products') }}</p>
+      </div>
     </div>
   @endif
 

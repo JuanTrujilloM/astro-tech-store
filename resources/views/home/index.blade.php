@@ -8,11 +8,15 @@
 @section('content')
 
   <section class="mb-5">
-    <div class="hero-welcome py-3 px-4 rounded-4 text-center mx-auto">
-      <h1 class="hero-title fw-bold mb-2">{{ __('messages.home.welcome_title') }}</h1>
-      <p class="mb-0 mx-auto max-width-900 hero-subtitle">
-        {{ __('messages.home.welcome_description') }}
-      </p>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10 col-xl-8">
+        <div class="hero-welcome py-3 px-3 px-md-4 rounded-4 text-center">
+          <h1 class="hero-title fw-bold mb-2">{{ __('messages.home.welcome_title') }}</h1>
+          <p class="mb-0 hero-subtitle text-muted">
+            {{ __('messages.home.welcome_description') }}
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -26,11 +30,11 @@
         <div class="carousel-inner py-5 px-3 px-md-5">
           @foreach ($viewData['homeProducts']->chunk(3) as $chunkIndex => $chunk)
             <div class="carousel-item {{ $chunkIndex === 0 ? 'active' : '' }}">
-              <div class="d-flex carousel-cards-row">
+              <div class="row justify-content-center align-items-stretch g-3 g-md-4 py-2 py-md-3">
                 @foreach ($chunk->values() as $cardIndex => $product)
-                  <div
-                    class="carousel-product-card {{ $cardIndex === 1 ? 'carousel-card-center' : 'carousel-card-side' }}">
-                    <div class="card border rounded-4 text-center p-3 h-100 product-card">
+                  <div class="col-12 col-md-4 d-flex">
+                    <div
+                      class="card border rounded-4 text-center p-3 h-100 w-100 product-card {{ $cardIndex === 1 ? 'shadow-lg' : 'shadow-sm' }}">
                       <a href="{{ route('product.show', ['product' => $product->getId()]) }}"
                         class="text-decoration-none text-reset">
                         @if ($product->getImage())
@@ -42,12 +46,12 @@
                             <i class="bi bi-image text-muted icon-placeholder-lg"></i>
                           </div>
                         @endif
-                        <h5 class="card-title fw-semibold mb-1 mt-2">{{ $product->getName() }}</h5>
+                        <h5 class="card-title fw-semibold mb-1 mt-2 text-break">{{ $product->getName() }}</h5>
                       </a>
-                      <div class="card-body px-2 pb-2">
+                      <div class="card-body px-2 pb-2 d-flex flex-column">
                         <p class="text-muted fw-bold mb-2">${{ number_format($product->getPrice(), 0, ',', '.') }}</p>
                         <a href="{{ route('product.show', ['product' => $product->getId()]) }}"
-                          class="btn btn-primary btn-sm rounded-pill px-4">
+                          class="btn btn-primary btn-sm rounded-pill px-4 mt-auto align-self-center">
                           {{ __('messages.product.view_detail') }}
                         </a>
                       </div>
