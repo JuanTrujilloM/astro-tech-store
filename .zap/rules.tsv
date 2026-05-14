@@ -1,0 +1,13 @@
+10038	WARN	CSP
+10020	WARN	Anti-Clickjacking
+90003	WARN	Sub Resource Integrity
+10010	WARN	Cookie HttpOnly
+10037	WARN	X-Powered-By
+10021	WARN	X-Content-Type-Options
+10027	WARN	Comentarios sospechosos
+10040	WARN	XSS potencial
+10023	WARN	Gran redireccion
+10017	WARN	JS entre dominios
+10109	WARN	Aplicacion Web Moderna
+10035	WARN	Autenticacion
+10054	WARN	Gestion de sesion
