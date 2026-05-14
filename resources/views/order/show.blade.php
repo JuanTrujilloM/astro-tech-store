@@ -14,9 +14,11 @@
       {{ __('messages.orders.order_prefix') }}{{ $viewData['order']->getId() }}
     </div>
     <div class="card-body">
-      <b>{{ __('messages.orders.date') }}:</b> {{ $viewData['order']->getCreatedAt() }}<br />
-      <b>{{ __('messages.orders.total') }}:</b> ${{ number_format($viewData['order']->getTotal(), 0, ',', '.') }}<br />
-      <b>{{ __('messages.orders.status') }}:</b> {{ $viewData['order']->getStatus() }}<br />
+      <div class="text-center">
+        <b>{{ __('messages.orders.date') }}:</b> {{ $viewData['order']->getCreatedAt() }}<br />
+        <b>{{ __('messages.orders.total') }}:</b> ${{ number_format($viewData['order']->getTotal(), 0, ',', '.') }}<br />
+        <b>{{ __('messages.orders.status') }}:</b> {{ $viewData['order']->getStatus() }}<br />
+      </div>
       <hr>
       <div class="table-responsive">
         <table class="table table-bordered table-striped text-center mt-3 mb-0 align-middle">
