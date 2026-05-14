@@ -1,4 +1,4 @@
-FROM php:8.2-apache
+FROM php:8.3-apache
 
 # PHP extensions required for Laravel + SQLite + Node.js for Vite
 RUN apt-get update && apt-get install -y git zip unzip libsqlite3-dev nodejs npm \
