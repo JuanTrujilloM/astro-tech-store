@@ -288,6 +288,14 @@ return [
         'update_status' => 'Update status',
     ],
 
+    'allied' => [
+        'title' => 'Allied Products - Astro Tech',
+        'heading' => 'Allied Team Products',
+        'error' => 'The allied team service is currently unavailable. Please try again later.',
+        'no_products' => 'No products available at this time.',
+        'view_detail' => 'View detail',
+    ],
+
     'breadcrumbs' => [
         'order_number' => 'Order #:id',
         'edit_review' => 'Edit Review',
