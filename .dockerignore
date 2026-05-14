@@ -5,6 +5,7 @@ vendor
 .env
 .env.*
 !.env.example
+storage/app/gcs-credentials.json
 storage/logs/*
 storage/framework/cache/*
 storage/framework/sessions/*

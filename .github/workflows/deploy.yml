@@ -61,3 +61,17 @@ jobs:
                 -v storage_data:/var/www/html/storage \
                 ${{ secrets.DOCKERHUB_USERNAME }}/astro-tech-store-image:latest
             "
+  
+  zap-scan:
+    name: ZAP Security Scan
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.12.0
+        with:
+          target: ${{ secrets.APP_URL }}
+          rules_file_name: '.zap/rules.tsv'

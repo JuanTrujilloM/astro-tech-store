@@ -287,6 +287,14 @@ return [
         'update_status' => 'Actualizar estado',
     ],
 
+    'allied' => [
+        'title' => 'Productos Aliados - Astro Tech',
+        'heading' => 'Productos del Equipo Aliado',
+        'error' => 'El servicio del equipo aliado no está disponible. Intenta de nuevo más tarde.',
+        'no_products' => 'No hay productos disponibles en este momento.',
+        'view_detail' => 'Ver detalle',
+    ],
+
     'breadcrumbs' => [
         'order_number' => 'Pedido #:id',
         'edit_review' => 'Editar Reseña',

@@ -1,23 +1,81 @@
 # Astro Tech Store
 
+**Live application:** [http://astro-tech-store.duckdns.org](http://astro-tech-store.duckdns.org)
+
 Astro Tech Store is a full-featured e-commerce web application for technology products built with Laravel 12. It provides a customer-facing storefront with product browsing, filtering, reviews, favorites, shopping cart with discount codes, and a complete admin panel for managing the store. The application supports English and Spanish localization.
 
 ## Technology Stack
 
 - **Backend:** Laravel 12 (PHP 8.2+)
 - **Frontend:** Bootstrap 5.3, Bootstrap Icons, SCSS
-- **Database:** MySQL
+- **Database:** MySQL (local) / SQLite (Docker)
 - **Authentication:** Laravel Auth with role-based access (client/admin)
 - **Code Quality:** Laravel Pint (PSR-12)
 - **CI/CD:** GitHub Actions with deployment to GCP
+- **Containerization:** Docker (Apache + PHP 8.2 + SQLite)
 
-## Prerequisites
+---
+
+## Option A: Run with Docker (recommended)
+
+### Prerequisites
+
+- Docker Desktop installed and running
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd astro-tech-store
+```
+
+### 2. Run the container
+
+```bash
+docker run -d \
+  --name astro-tech-store-app \
+  --restart unless-stopped \
+  -p 8080:80 \
+  --env-file .env.docker.local \
+  -v sqlite_data:/var/www/html/database \
+  -v storage_data:/var/www/html/storage \
+  tru12jt/astro-tech-store-image:latest
+```
+
+Migrations run automatically on startup. The app will be available at `http://localhost:8080`.
+
+### 3. Seed the database (optional)
+
+```bash
+docker exec astro-tech-store-app php artisan db:seed
+```
+
+### Useful Docker commands
+
+```bash
+# View logs
+docker logs -f astro-tech-store-app
+
+# Stop the container
+docker stop astro-tech-store-app
+
+# Remove the container (data in volumes is preserved)
+docker rm astro-tech-store-app
+
+# Remove the container and all data
+docker rm -f astro-tech-store-app
+docker volume rm sqlite_data storage_data
+```
+
+---
+
+## Option B: Run locally with PHP (XAMPP)
+
+### Prerequisites
 
 - PHP >= 8.2
 - Composer
 - XAMPP (Apache + MySQL)
-
-## Installation and Setup
 
 ### 1. Clone the repository
 
@@ -104,20 +162,30 @@ This is required for product images to display correctly.
 php artisan serve
 ```
 
+---
+
 ## Accessing the Application
 
-The main entry point is `http://localhost:8000`.
+| Method | URL |
+|--------|-----|
+| **Public (GCP)** | **http://astro-tech-store.duckdns.org** |
+| Docker (local) | `http://localhost:8080` |
+| PHP artisan serve | `http://localhost:8000` |
+
+Requests to `www.astro-tech-store.duckdns.org` are automatically redirected (301) to the non-www domain via the Apache configuration.
+
+### Public routes
 
 | URL | Description |
 |-----|-------------|
-| `http://localhost:8000` | Home page with product carousel, top sellers, and recent reviews |
-| `http://localhost:8000/products` | Product listing with search, price, and rating filters |
-| `http://localhost:8000/products/{id}` | Product detail page with reviews |
-| `http://localhost:8000/cart` | Shopping cart with discount code support |
-| `http://localhost:8000/orders` | Order history (requires login) |
-| `http://localhost:8000/admin` | Admin dashboard (requires admin role) |
-| `http://localhost:8000/login` | Login page |
-| `http://localhost:8000/register` | Registration page |
+| `http://astro-tech-store.duckdns.org` | Home page with product carousel, top sellers, and recent reviews |
+| `http://astro-tech-store.duckdns.org/products` | Product listing with search, price, and rating filters |
+| `http://astro-tech-store.duckdns.org/products/{id}` | Product detail page with reviews |
+| `http://astro-tech-store.duckdns.org/cart` | Shopping cart with discount code support |
+| `http://astro-tech-store.duckdns.org/orders` | Order history (requires login) |
+| `http://astro-tech-store.duckdns.org/admin` | Admin dashboard (requires admin role) |
+| `http://astro-tech-store.duckdns.org/login` | Login page |
+| `http://astro-tech-store.duckdns.org/register` | Registration page |
 
 ## Features
 
