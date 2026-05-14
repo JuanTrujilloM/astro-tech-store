@@ -5,7 +5,6 @@
  * Description: Resource responsible for transforming a review model into a structured array format for API responses.
  */
 
-
 namespace App\Http\Resources\Review;
 
 use Illuminate\Http\Request;

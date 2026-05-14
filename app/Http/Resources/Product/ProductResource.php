@@ -5,12 +5,11 @@
  * Description: Resource responsible for transforming a product model into a structured array format for API responses, including related reviews and a URL to the product details.
  */
 
-
 namespace App\Http\Resources\Product;
 
+use App\Http\Resources\Review\ReviewResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Review\ReviewResource;
 
 class ProductResource extends JsonResource
 {
@@ -29,6 +28,8 @@ class ProductResource extends JsonResource
             'stock' => $this->stock,
             'image' => $this->image,
             'url' => route('product.show', $this->id),
+
+            // Include the first 3 reviews related to the product, if they are loaded
             'reviews' => ReviewResource::collection($this->whenLoaded('reviews')?->take(3)),
         ];
     }

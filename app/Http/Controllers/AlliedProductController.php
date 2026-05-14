@@ -8,19 +8,18 @@
 namespace App\Http\Controllers;
 
 use Exception;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
-
 
 class AlliedProductController extends Controller
 {
     public function index(): View
-    {   
+    {
         $viewData = [];
         $viewData['products'] = [];
 
         try {
+            // Fetch allied products from the external API with a timeout of 5 seconds
             $response = Http::timeout(5)->get(env('ALLIED_API_ENDPOINT'));
 
             if ($response->failed()) {
