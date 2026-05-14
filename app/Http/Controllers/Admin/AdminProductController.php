@@ -31,8 +31,8 @@ class AdminProductController extends Controller
 
         if ($request->hasFile('image')) {
             $imageName = $newProduct->getId().'.'.$request->file('image')->extension();
-            Storage::disk('public')->put($imageName, file_get_contents($request->file('image')->getRealPath()));
-            $newProduct->setImage($imageName);
+            Storage::disk('gcs')->put($imageName, file_get_contents($request->file('image')->getRealPath()));
+            $newProduct->setImage(Storage::disk('gcs')->url($imageName));
             $newProduct->save();
         }
 
@@ -57,8 +57,8 @@ class AdminProductController extends Controller
 
         if ($request->hasFile('image')) {
             $imageName = $product->getId().'.'.$request->file('image')->extension();
-            Storage::disk('public')->put($imageName, file_get_contents($request->file('image')->getRealPath()));
-            $product->setImage($imageName);
+            Storage::disk('gcs')->put($imageName, file_get_contents($request->file('image')->getRealPath()));
+            $product->setImage(Storage::disk('gcs')->url($imageName));
         }
 
         $product->save();

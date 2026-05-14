@@ -60,6 +60,16 @@ return [
             'report' => false,
         ],
 
+        'gcs' => [
+            'driver' => 'gcs',
+            'key_file_path' => env('GOOGLE_APPLICATION_CREDENTIALS'),
+            'project_id' => env('GCS_PROJECT_ID'),
+            'bucket' => env('GCS_BUCKET'),
+            'path_prefix' => env('GCS_PATH_PREFIX', ''),
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
     ],
 
     /*

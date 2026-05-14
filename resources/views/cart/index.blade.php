@@ -46,7 +46,7 @@
                   <td class="ps-4">
                     <div class="d-flex align-items-center gap-3">
                       @if ($product['product']->getImage())
-                        <img src="{{ asset('storage/' . $product['product']->getImage()) }}"
+                        <img src="{{ $product['product']->getImage() }}"
                           alt="{{ $product['product']->getName() }}" class="cart-item-img rounded">
                       @else
                         <div class="cart-item-img-placeholder bg-secondary rounded text-white">

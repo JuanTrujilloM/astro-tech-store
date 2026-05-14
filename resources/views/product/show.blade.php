@@ -23,7 +23,7 @@
     <div class="row g-0">
       <div class="col-12 col-md-5">
         @if ($viewData['product']->getImage())
-          <img src="{{ asset('storage/' . $viewData['product']->getImage()) }}"
+          <img src="{{ $viewData['product']->getImage() }}"
             class="img-fluid w-100 product-detail-img" alt="{{ $viewData['product']->getName() }}">
         @else
           <div class="h-100 bg-light product-detail-no-img">
