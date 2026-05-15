@@ -268,6 +268,17 @@
 }
 
 @media (max-width: 767.98px) {
+    html {
+        font-size: 16px;
+        overflow-x: clip;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    .admin-body {
+        overflow-x: clip;
+        font-size: 1rem;
+    }
+
     .admin-sidebar {
         min-height: auto;
         border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -275,11 +286,62 @@
 
     .admin-content {
         padding: 1rem;
+        overflow-wrap: break-word;
     }
 
     .admin-product-description {
         max-width: 220px;
+        font-size: 0.875rem !important;
     }
+
+    .admin-brand-subtitle,
+    .admin-footer,
+    .admin-product-badge,
+    .admin-product-table thead th {
+        font-size: 0.875rem !important;
+    }
+
+    .admin-nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .admin-store-btn {
+        min-height: 44px;
+    }
+
+    .form-control:not(textarea),
+    .form-select {
+        min-height: 44px;
+    }
+
+    .btn:not(.btn-close),
+    .admin-product-btn-primary,
+    .admin-product-btn-outline,
+    .admin-product-btn-danger {
+        min-height: 44px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .btn-sm:not(.btn-close) {
+        min-height: 44px;
+    }
+
+    .admin-topbar .btn {
+        min-height: 44px;
+    }
+}
+
+.admin-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.admin-content .admin-product-thumb,
+.admin-content .admin-product-preview {
+    max-width: 100%;
 }
 
 .star-gold {

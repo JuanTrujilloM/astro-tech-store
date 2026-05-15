@@ -63,31 +63,28 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="row mt-5 mb-2">
-      <div class="col-12">
-        <h4 class="fw-bold text-dark mb-0 text-center">{{ __('messages.admin.total_income') }}</h4>
+  <div class="row mt-4 mb-2">
+    <div class="col-12">
+      <h4 class="fw-bold text-dark mb-0 text-center">{{ __('messages.admin.total_income') }}</h4>
+    </div>
+  </div>
+
+  <div class="row mb-4 g-3">
+    <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+      <div
+        class="bg-white rounded-4 shadow-sm p-3 p-md-4 d-flex flex-column align-items-center justify-content-center border border-2 border-light text-center">
+        <i class="bi bi-currency-dollar text-danger mb-3 fs-1"></i>
+        <h1 class="display-6 fw-bold text-dark mb-0 text-break">
+          ${{ number_format($viewData['income'], 0, ',', '.') }}
+        </h1>
+        <small class="text-secondary mb-3">
+          {{ __('messages.admin.income_description') }}
+        </small>
+        <i class="bi bi-graph-up-arrow text-success opacity-75 mt-3 fs-1"></i>
       </div>
     </div>
-
-    <div class="row mb-4">
-      <div class="row mb-4">
-        <div class="col-12">
-          <div
-            class="bg-white rounded-4 shadow-sm p-4 d-flex flex-column align-items-center justify-content-center border border-2 border-light text-center">
-            <i class="bi bi-currency-dollar text-danger mb-3 fs-1"></i>
-            <h1 class="display-4 fw-bold text-dark mb-0">
-              ${{ number_format($viewData['income'], 0, ',', '.') }}
-            </h1>
-            <small class="text-secondary mb-3">
-              {{ __('messages.admin.income_description') }}
-            </small>
-            <i class="bi bi-graph-up-arrow text-success opacity-75 mt-3 fs-1"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-    
   </div>
 
 @endsection
