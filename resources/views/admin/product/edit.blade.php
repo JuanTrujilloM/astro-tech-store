@@ -23,7 +23,7 @@
     @endif
 
     <div class="card border-0 shadow-sm admin-product-card">
-      <div class="card-header py-3 d-flex justify-content-between align-items-center admin-product-card-header">
+      <div class="card-header py-3 d-flex flex-column flex-sm-row flex-wrap gap-2 justify-content-between align-items-stretch align-items-sm-center admin-product-card-header">
         <h5 class="mb-0">{{ __('messages.admin.edit_product') }}</h5>
         <a href="{{ route('admin.product.index') }}" class="btn btn-sm admin-product-btn-outline">
           <i class="bi bi-arrow-left me-1"></i>

@@ -11,9 +11,9 @@
 @section('content')
 
   <div class="row mb-3">
-    <div class="col-12 product-detail-header">
-      <h4 class="fw-bold mb-0">{{ __('messages.product.details_title') }}</h4>
-      <a href="{{ route('product.index') }}" class="btn btn-secondary btn-sm">
+    <div class="col-12 d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
+      <h4 class="fw-bold mb-0 text-break">{{ __('messages.product.details_title') }}</h4>
+      <a href="{{ route('product.index') }}" class="btn btn-secondary btn-sm flex-shrink-0">
         <i class="bi bi-arrow-left me-1"></i>{{ __('messages.product.back_to_products') }}
       </a>
     </div>
@@ -43,37 +43,39 @@
             {{ $viewData['product']->getDescription() }}
           </p>
 
-          <div class="product-detail-meta mt-4 pt-3">
-            <div class="product-detail-meta-row">
-              <div>
+          <div class="border-top mt-4 pt-3">
+            <div class="row g-3 align-items-end">
+              <div class="col-12 col-sm-auto">
                 <small class="text-muted d-block">{{ __('messages.admin.price') }}</small>
                 <span
-                  class="product-detail-price">${{ number_format($viewData['product']->getPrice(), 0, ',', '.') }}</span>
+                  class="product-detail-price d-block">${{ number_format($viewData['product']->getPrice(), 0, ',', '.') }}</span>
               </div>
 
-              <div class="small">
-                @if ($viewData['product']->reviews_count > 0)
-                  <span class="fw-semibold d-block">
-                    @for ($i = 1; $i <= 5; $i++)
-                      @if ($i <= floor($viewData['product']->reviews_avg_rating))
-                        <i class="bi bi-star-fill star-gold"></i>
-                      @elseif ($i - $viewData['product']->reviews_avg_rating <= 0.5)
-                        <i class="bi bi-star-half star-gold"></i>
-                      @else
-                        <i class="bi bi-star-fill star-gray"></i>
-                      @endif
-                    @endfor
-                    {{ number_format($viewData['product']->reviews_avg_rating, 1) }}
-                  </span>
-                  <span class="text-muted">
-                    ({{ $viewData['product']->reviews_count }} {{ __('messages.product.reviews_count') }})
-                  </span>
-                @else
-                  <span class="text-muted">{{ __('messages.product.no_reviews') }}</span>
-                @endif
+              <div class="col-12 col-sm">
+                <div class="small">
+                  @if ($viewData['product']->reviews_count > 0)
+                    <span class="fw-semibold d-block">
+                      @for ($i = 1; $i <= 5; $i++)
+                        @if ($i <= floor($viewData['product']->reviews_avg_rating))
+                          <i class="bi bi-star-fill star-gold"></i>
+                        @elseif ($i - $viewData['product']->reviews_avg_rating <= 0.5)
+                          <i class="bi bi-star-half star-gold"></i>
+                        @else
+                          <i class="bi bi-star-fill star-gray"></i>
+                        @endif
+                      @endfor
+                      {{ number_format($viewData['product']->reviews_avg_rating, 1) }}
+                    </span>
+                    <span class="text-muted">
+                      ({{ $viewData['product']->reviews_count }} {{ __('messages.product.reviews_count') }})
+                    </span>
+                  @else
+                    <span class="text-muted">{{ __('messages.product.no_reviews') }}</span>
+                  @endif
+                </div>
               </div>
 
-              <div class="product-detail-meta-stock">
+              <div class="col-12 col-sm-auto text-start text-md-end">
                 @if ($viewData['product']->getStock() > 0)
                   <span class="product-stock-pill in-stock">{{ __('messages.product.in_stock') }}</span>
                 @else
@@ -83,19 +85,23 @@
             </div>
 
             @if ($viewData['product']->getStock() > 0)
-              <div class="product-detail-add-cart mt-4">
+              <div class="border-top mt-4 pt-3">
                 <p class="card-text mb-2"><small class="text-muted">{{ __('messages.product.add_to_cart') }}</small></p>
                 <form method="POST" action="{{ route('cart.add', ['product' => $viewData['product']->getId()]) }}"
-                  class="product-detail-add-cart-form">
+                  class="row g-2 align-items-end">
                   @csrf
-                  <div class="input-group">
-                    <span class="input-group-text">{{ __('messages.product.quantity') }}</span>
-                    <input type="number" min="1" max="{{ $viewData['product']->getStock() }}" class="form-control quantity-input" name="quantity"
-                      value="1" aria-label="{{ __('messages.product.quantity') }}">
+                  <div class="col-12 col-sm-5 col-md-4 col-lg-3">
+                    <div class="input-group">
+                      <span class="input-group-text">{{ __('messages.product.quantity') }}</span>
+                      <input type="number" min="1" max="{{ $viewData['product']->getStock() }}" class="form-control" name="quantity"
+                        value="1" aria-label="{{ __('messages.product.quantity') }}">
+                    </div>
                   </div>
-                  <button class="btn btn-primary" type="submit">
-                    <i class="bi bi-cart-plus me-1"></i>{{ __('messages.product.add_to_cart') }}
-                  </button>
+                  <div class="col-12 col-sm-auto">
+                    <button class="btn btn-primary w-100" type="submit">
+                      <i class="bi bi-cart-plus me-1"></i>{{ __('messages.product.add_to_cart') }}
+                    </button>
+                  </div>
                 </form>
               </div>
             @endif
@@ -160,7 +166,7 @@
       <h5 class="card-section-title">{{ __('messages.admin.reviews') }}</h5>
 
       @if ($viewData['product']->reviews_count > 0)
-        <div class="reviews-grid">
+        <div class="row row-cols-1 row-cols-lg-3 g-3">
           @foreach ($viewData['product']->getReviews() as $review)
             <div class="col">
               <article class="product-review-card h-100">

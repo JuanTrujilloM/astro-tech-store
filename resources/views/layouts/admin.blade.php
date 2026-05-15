@@ -73,14 +73,14 @@
       </aside>
 
       <div class="col-12 col-md-9 col-lg-10 admin-main d-flex flex-column min-vh-100">
-        <nav class="navbar navbar-light admin-topbar px-4">
-          <span class="navbar-brand mb-0 h5 admin-page-title">
+        <nav class="navbar navbar-light admin-topbar px-3 px-md-4 w-100 flex-column flex-md-row align-items-stretch align-items-md-center gap-2 py-3 py-md-0">
+          <span class="navbar-brand mb-0 h5 admin-page-title text-break">
             @yield('page_title', __('messages.admin.dashboard'))
           </span>
 
-          <div class="d-flex align-items-center admin-user-box">
-            <div class="dropdown me-3">
-              <a class="btn btn-sm btn-outline-secondary dropdown-toggle" href="#" role="button"
+          <div class="d-flex align-items-center justify-content-between justify-content-md-end flex-wrap gap-2 admin-user-box ms-md-auto">
+            <div class="dropdown">
+              <a class="btn btn-sm btn-outline-secondary dropdown-toggle d-block text-center text-md-start" href="#" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 {{ __('messages.admin.language') }}
               </a>

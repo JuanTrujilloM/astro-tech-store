@@ -11,11 +11,15 @@
 @section('content')
 
   <section class="mb-5">
-    <div class="p-5 rounded-4 bg-light border text-center">
+    <div class="p-3 p-md-5 rounded-4 bg-light border text-center">
       <h1 class="display-6 fw-bold mb-3">{{ __('messages.contact.hero_title') }}</h1>
-      <p class="lead mb-0 mx-auto max-width-900">
-        {{ __('messages.contact.hero_description') }}
-      </p>
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <p class="lead mb-0 text-center">
+            {{ __('messages.contact.hero_description') }}
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -60,19 +64,19 @@
       <section class="p-4 rounded-4 border bg-white h-100">
         <h3 class="h4 mb-3">{{ __('messages.contact.hours_title') }}</h3>
         <div class="mb-2">
-          <div class="d-flex justify-content-between">
+          <div class="d-flex flex-column flex-sm-row justify-content-sm-between gap-1 gap-sm-0">
             <span class="text-muted">{{ __('messages.contact.hours_weekdays') }}</span>
             <span class="fw-semibold">{{ __('messages.contact.hours_weekdays_time') }}</span>
           </div>
         </div>
         <div class="mb-2">
-          <div class="d-flex justify-content-between">
+          <div class="d-flex flex-column flex-sm-row justify-content-sm-between gap-1 gap-sm-0">
             <span class="text-muted">{{ __('messages.contact.hours_saturday') }}</span>
             <span class="fw-semibold">{{ __('messages.contact.hours_saturday_time') }}</span>
           </div>
         </div>
         <div>
-          <div class="d-flex justify-content-between">
+          <div class="d-flex flex-column flex-sm-row justify-content-sm-between gap-1 gap-sm-0">
             <span class="text-muted">{{ __('messages.contact.hours_sunday') }}</span>
             <span class="fw-semibold">{{ __('messages.contact.hours_sunday_time') }}</span>
           </div>
