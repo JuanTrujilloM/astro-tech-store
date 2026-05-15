@@ -17,10 +17,10 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
-    <div class="container-fluid px-4">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('home.index') }}">
-        <img src="{{ asset('images/app/logoapp.svg') }}" alt="" class="navbar-brand-logo">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-3 py-lg-4">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand d-flex align-items-center gap-2 flex-shrink-0 text-wrap" href="{{ route('home.index') }}">
+        <img src="{{ asset('images/app/logoapp.svg') }}" alt="" class="navbar-brand-logo flex-shrink-0">
         {{ __('messages.layout.brand') }}
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -28,63 +28,73 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link {{ request()->routeIs('home.index') ? 'active' : '' }}" href="{{ route('home.index') }}">{{ __('messages.layout.nav.home') }}</a>
-          <a class="nav-link {{ request()->routeIs('home.about') ? 'active' : '' }}" href="{{ route('home.about') }}">{{ __('messages.layout.nav.about') }}</a>
-          <a class="nav-link {{ request()->routeIs('home.contact') ? 'active' : '' }}" href="{{ route('home.contact') }}">{{ __('messages.layout.nav.contact') }}</a>
-          <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-          <a class="nav-link {{ request()->routeIs('product.*') ? 'active' : '' }}" href="{{ route('product.index') }}">{{ __('messages.layout.nav.products') }}</a>
-          <a class="nav-link {{ request()->routeIs('cart.*') ? 'active' : '' }}" href="{{ route('cart.index') }}">{{ __('messages.layout.nav.cart') }}</a>
-          <a class="nav-link {{ request()->routeIs('order.*') ? 'active' : ''}}" href="{{ route('order.index') }}">{{ __('messages.layout.nav.orders') }}</a>
-          <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-
-          <li class="nav-item dropdown ms-2">
-            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center text-center text-lg-start">
+          <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('home.index') ? 'active' : '' }}" href="{{ route('home.index') }}">{{ __('messages.layout.nav.home') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('home.about') ? 'active' : '' }}" href="{{ route('home.about') }}">{{ __('messages.layout.nav.about') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('home.contact') ? 'active' : '' }}" href="{{ route('home.contact') }}">{{ __('messages.layout.nav.contact') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('product.*') ? 'active' : '' }}" href="{{ route('product.index') }}">{{ __('messages.layout.nav.products') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('cart.*') ? 'active' : '' }}" href="{{ route('cart.index') }}">{{ __('messages.layout.nav.cart') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('order.*') ? 'active' : '' }}" href="{{ route('order.index') }}">{{ __('messages.layout.nav.orders') }}</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
               {{ __('messages.layout.nav.language') }}
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu dropdown-menu-lg-end">
               <li>
-                <a class="dropdown-item" href="{{ route('lang.switch', 'en') }}">
-                  {{ __('messages.layout.nav.english') }}
-                </a>
+                <a class="dropdown-item" href="{{ route('lang.switch', 'en') }}">{{ __('messages.layout.nav.english') }}</a>
               </li>
               <li>
-                <a class="dropdown-item" href="{{ route('lang.switch', 'es') }}">
-                  {{ __('messages.layout.nav.spanish') }}
-                </a>
+                <a class="dropdown-item" href="{{ route('lang.switch', 'es') }}">{{ __('messages.layout.nav.spanish') }}</a>
               </li>
             </ul>
           </li>
-
-          <div class="vr bg-white mx-2 d-none d-lg-block"></div>
           @guest
-            <a class="nav-link active" href="{{ route('login') }}">{{ __('messages.layout.nav.login') }}</a>
-            <a class="nav-link active" href="{{ route('register') }}">{{ __('messages.layout.nav.register') }}</a>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('login') }}">{{ __('messages.layout.nav.login') }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('register') }}">{{ __('messages.layout.nav.register') }}</a>
+            </li>
           @else
-            <span class="nav-link active d-flex align-items-center gap-1">
-              <i class="bi bi-wallet2"></i> ${{ number_format(Auth::user()->getBalance(), 0, ',', '.') }}
-            </span>
-            <form id="logout" action="{{ route('logout') }}" method="POST" class="d-inline">
-              @csrf
-              <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">
-                {{ __('messages.layout.nav.logout') }}
-              </a>
-            </form>
+            <li class="nav-item">
+              <span class="nav-link d-inline-flex align-items-center justify-content-center gap-1 text-white">
+                <i class="bi bi-wallet2 flex-shrink-0"></i>
+                <span class="text-break">${{ number_format(Auth::user()->getBalance(), 0, ',', '.') }}</span>
+              </span>
+            </li>
+            <li class="nav-item">
+              <form id="logout" action="{{ route('logout') }}" method="POST" class="d-grid d-lg-inline">
+                @csrf
+                <button type="submit" class="nav-link btn btn-link text-white text-decoration-none p-0 border-0 w-100 w-lg-auto text-center text-lg-start">
+                  {{ __('messages.layout.nav.logout') }}
+                </button>
+              </form>
+            </li>
           @endguest
-
-        </div>
+        </ul>
       </div>
     </div>
   </nav>
 
-  <header class="masthead bg-primary text-white text-center py-4">
-    <div class="container d-flex align-items-center flex-column">
-      <h5>@yield('subtitle', __('messages.layout.subtitle_default'))</h5>
+  <header class="masthead bg-primary text-white text-center py-3 py-md-4 px-3">
+    <div class="container">
+      <h5 class="mb-0 text-wrap px-md-2">@yield('subtitle', __('messages.layout.subtitle_default'))</h5>
     </div>
   </header>
 
-  <div class="container my-4 flex-grow-1 d-flex flex-column">
+  <div class="container my-3 my-md-4 flex-grow-1 d-flex flex-column">
     @hasSection('breadcrumbs')
       <nav aria-label="breadcrumb" class="mb-3">
         @yield('breadcrumbs')

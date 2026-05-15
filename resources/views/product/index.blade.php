@@ -173,7 +173,7 @@
               @endif
             </a>
             <div class="card-body d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-start mb-2">
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-2">
                 <a href="{{ route('product.show', ['product' => $product->getId()]) }}"
                   class="text-decoration-none text-reset">
                   <h5 class="card-title mb-0">{{ $product->getName() }}</h5>
@@ -222,7 +222,7 @@
                 @endif
               </div>
 
-              <div class="d-flex justify-content-between align-items-center mt-2">
+              <div class="d-flex flex-column flex-sm-row flex-wrap justify-content-between align-items-stretch align-items-sm-center gap-2 mt-2">
                 <span class="fw-bold text-danger fs-5">${{ number_format($product->getPrice(), 0, ',', '.') }}</span>
                 <a href="{{ route('product.show', ['product' => $product->getId()]) }}" class="btn btn-primary btn-sm">
                   {{ __('messages.product.view_detail') }} <i class="bi bi-arrow-right ms-1"></i>

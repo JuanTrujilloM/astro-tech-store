@@ -82,7 +82,7 @@
     </div>
 
     <div class="card border-0 shadow-sm admin-product-card">
-      <div class="card-header py-3 admin-product-card-header d-flex justify-content-between align-items-center">
+      <div class="card-header py-3 admin-product-card-header d-flex flex-column flex-sm-row flex-wrap gap-2 justify-content-between align-items-stretch align-items-sm-center">
         <h5 class="mb-0">
           <i class="bi bi-box-seam me-2"></i>
           {{ __('messages.admin.product_list') }}

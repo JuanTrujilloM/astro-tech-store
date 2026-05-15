@@ -25,7 +25,7 @@ Astro Tech Store is a full-featured e-commerce web application for technology pr
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/JuanTrujilloM/astro-tech-store.git
 cd astro-tech-store
 ```
 
