@@ -69,8 +69,19 @@
                     @endif
                   </div>
                   <div class="mt-auto">
-                    <span
-                      class="fw-bold text-danger fs-5 d-block mb-2">${{ number_format($topProduct->getPrice(), 0, ',', '.') }}</span>
+                    @if ($rateAvailable)
+                      <span class="fw-bold text-danger fs-5 d-block mb-2">
+                        {{ $selectedCurrency }}
+                        {{ number_format($topProduct->getPrice() * $exchangeRate, 2, '.', ',') }}
+                      </span>
+                      <small class="text-muted d-block mb-2">
+                        {{ __('messages.product.exchange_rate_source') }}
+                      </small>
+                    @else
+                      <span class="fw-bold text-danger fs-5 d-block mb-2">
+                        COP ${{ number_format($topProduct->getPrice(), 0, ',', '.') }}
+                      </span>
+                    @endif
                     <a href="{{ route('product.show', ['product' => $topProduct->getId()]) }}"
                       class="btn btn-primary btn-sm">
                       {{ __('messages.product.view_detail') }} <i class="bi bi-arrow-right ms-1"></i>
@@ -164,8 +175,7 @@
             <a href="{{ route('product.show', ['product' => $product->getId()]) }}"
               class="text-decoration-none text-reset">
               @if ($product->getImage())
-                <img src="{{ $product->getImage() }}" class="card-img-top img-card"
-                  alt="{{ $product->getName() }}">
+                <img src="{{ $product->getImage() }}" class="card-img-top img-card" alt="{{ $product->getName() }}">
               @else
                 <div class="card-img-top img-card bg-secondary d-flex align-items-center justify-content-center">
                   <i class="bi bi-image text-white fs-1"></i>
@@ -222,8 +232,22 @@
                 @endif
               </div>
 
-              <div class="d-flex flex-column flex-sm-row flex-wrap justify-content-between align-items-stretch align-items-sm-center gap-2 mt-2">
-                <span class="fw-bold text-danger fs-5">${{ number_format($product->getPrice(), 0, ',', '.') }}</span>
+              <div
+                class="d-flex flex-column flex-sm-row flex-wrap justify-content-between align-items-stretch align-items-sm-center gap-2 mt-2">
+                @if ($rateAvailable)
+                  <div>
+                    <span class="fw-bold text-danger fs-5">
+                      {{ $selectedCurrency }} {{ number_format($product->getPrice() * $exchangeRate, 2, '.', ',') }}
+                    </span>
+                    <small class="text-muted d-block">
+                      {{ __('messages.product.exchange_rate_source') }}
+                    </small>
+                  </div>
+                @else
+                  <span class="fw-bold text-danger fs-5">
+                    COP ${{ number_format($product->getPrice(), 0, ',', '.') }}
+                  </span>
+                @endif
                 <a href="{{ route('product.show', ['product' => $product->getId()]) }}" class="btn btn-primary btn-sm">
                   {{ __('messages.product.view_detail') }} <i class="bi bi-arrow-right ms-1"></i>
                 </a>

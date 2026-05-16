@@ -30,36 +30,48 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center text-center text-lg-start">
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('home.index') ? 'active' : '' }}" href="{{ route('home.index') }}">{{ __('messages.layout.nav.home') }}</a>
+            <a class="nav-link {{ request()->routeIs('home.index') ? 'active' : '' }}"
+              href="{{ route('home.index') }}">{{ __('messages.layout.nav.home') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('home.about') ? 'active' : '' }}" href="{{ route('home.about') }}">{{ __('messages.layout.nav.about') }}</a>
+            <a class="nav-link {{ request()->routeIs('home.about') ? 'active' : '' }}"
+              href="{{ route('home.about') }}">{{ __('messages.layout.nav.about') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('home.contact') ? 'active' : '' }}" href="{{ route('home.contact') }}">{{ __('messages.layout.nav.contact') }}</a>
+            <a class="nav-link {{ request()->routeIs('home.contact') ? 'active' : '' }}"
+              href="{{ route('home.contact') }}">{{ __('messages.layout.nav.contact') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('product.*') ? 'active' : '' }}" href="{{ route('product.index') }}">{{ __('messages.layout.nav.products') }}</a>
+            <a class="nav-link {{ request()->routeIs('product.*') ? 'active' : '' }}"
+              href="{{ route('product.index') }}">{{ __('messages.layout.nav.products') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('cart.*') ? 'active' : '' }}" href="{{ route('cart.index') }}">{{ __('messages.layout.nav.cart') }}</a>
+            <a class="nav-link {{ request()->routeIs('cart.*') ? 'active' : '' }}"
+              href="{{ route('cart.index') }}">{{ __('messages.layout.nav.cart') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('order.*') ? 'active' : '' }}" href="{{ route('order.index') }}">{{ __('messages.layout.nav.orders') }}</a>
+            <a class="nav-link {{ request()->routeIs('order.*') ? 'active' : '' }}"
+              href="{{ route('order.index') }}">{{ __('messages.layout.nav.orders') }}</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              data-bs-display="static" aria-expanded="false">
               {{ __('messages.layout.nav.language') }}
             </a>
             <ul class="dropdown-menu dropdown-menu-lg-end">
               <li>
-                <a class="dropdown-item" href="{{ route('lang.switch', 'en') }}">{{ __('messages.layout.nav.english') }}</a>
+                <a class="dropdown-item"
+                  href="{{ route('lang.switch', 'en') }}">{{ __('messages.layout.nav.english') }}</a>
               </li>
               <li>
-                <a class="dropdown-item" href="{{ route('lang.switch', 'es') }}">{{ __('messages.layout.nav.spanish') }}</a>
+                <a class="dropdown-item"
+                  href="{{ route('lang.switch', 'es') }}">{{ __('messages.layout.nav.spanish') }}</a>
               </li>
             </ul>
           </li>
+
+          @include('partials.currency-selector')
+
           @guest
             <li class="nav-item">
               <a class="nav-link" href="{{ route('login') }}">{{ __('messages.layout.nav.login') }}</a>
@@ -77,7 +89,8 @@
             <li class="nav-item">
               <form id="logout" action="{{ route('logout') }}" method="POST" class="d-grid d-lg-inline">
                 @csrf
-                <button type="submit" class="nav-link btn btn-link text-white text-decoration-none p-0 border-0 w-100 w-lg-auto text-center text-lg-start">
+                <button type="submit"
+                  class="nav-link btn btn-link text-white text-decoration-none p-0 border-0 w-100 w-lg-auto text-center text-lg-start">
                   {{ __('messages.layout.nav.logout') }}
                 </button>
               </form>
@@ -114,7 +127,8 @@
     crossorigin="anonymous"></script>
 
   <!-- Confirm Delete Modal -->
-  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -125,8 +139,10 @@
           {{ __('messages.admin.confirm_delete_generic') }}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('messages.admin.cancel') }}</button>
-          <button type="button" class="btn btn-danger" id="confirmDeleteBtn">{{ __('messages.admin.confirm_delete_btn') }}</button>
+          <button type="button" class="btn btn-secondary"
+            data-bs-dismiss="modal">{{ __('messages.admin.cancel') }}</button>
+          <button type="button" class="btn btn-danger"
+            id="confirmDeleteBtn">{{ __('messages.admin.confirm_delete_btn') }}</button>
         </div>
       </div>
     </div>

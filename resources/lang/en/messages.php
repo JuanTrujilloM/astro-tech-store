@@ -19,6 +19,11 @@ return [
             'login' => 'Login',
             'register' => 'Register',
             'logout' => 'Logout',
+            'currency' => 'Currency',
+            'currency_cop' => 'Colombian Peso',
+            'currency_usd' => 'US Dollar',
+            'currency_eur' => 'Euro',
+            'currency_gbp' => 'British Pound',
         ],
     ],
 
@@ -173,6 +178,7 @@ return [
         'remove_from_favorites' => 'Removed from favorites',
         'most_purchased_title' => 'Top 3 Most Purchased',
         'total_sold' => 'sold',
+        'exchange_rate_source' => 'Rate via ExchangeRate API',
     ],
 
     'cart' => [
