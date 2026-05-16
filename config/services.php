@@ -37,7 +37,7 @@ return [
 
     'exchange_rate' => [
         'key' => env('EXCHANGE_RATE_API_KEY'),
-        'base_currency' => env('EXCHANGE_RATE_BASE_CURRENCY', 'COP'),
+        'base_currency' => env('EXCHANGE_RATE_BASE_CURRENCY', 'USD'),
     ],
 
 ];

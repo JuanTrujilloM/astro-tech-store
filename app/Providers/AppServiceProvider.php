@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Services\ExchangeRateService;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,9 +11,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(ExchangeRateService::class, function () {
-            return new ExchangeRateService;
-        });
+        //
     }
 
     /**
@@ -23,17 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $exchangeRateService = $this->app->make(ExchangeRateService::class);
-
-        View::composer('*', function ($view) use ($exchangeRateService) {
-            $selectedCurrency = session('currency', $exchangeRateService->fetchBaseCurrency());
-            $rate = $exchangeRateService->rateFor($selectedCurrency);
-
-            $view->with([
-                'selectedCurrency' => $selectedCurrency,
-                'exchangeRate' => $rate,
-                'rateAvailable' => $rate !== null,
-            ]);
-        });
+        //
     }
 }

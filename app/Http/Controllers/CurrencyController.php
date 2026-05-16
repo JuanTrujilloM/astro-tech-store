@@ -8,19 +8,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class CurrencyController extends Controller
 {
-    private const SUPPORTED_CURRENCIES = ['COP', 'USD', 'EUR', 'GBP'];
-
-    public function switch(Request $request, string $currency): RedirectResponse
+    public function switch(string $currency): RedirectResponse
     {
         $currency = strtoupper($currency);
 
-        if (in_array($currency, self::SUPPORTED_CURRENCIES)) {
-            $request->session()->put('currency', $currency);
+        if (! array_key_exists($currency, config('currencies'))) {
+            return redirect()->back();
         }
+
+        session(['currency' => $currency]);
 
         return redirect()->back();
     }

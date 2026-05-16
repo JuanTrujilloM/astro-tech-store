@@ -26,6 +26,38 @@ class ExchangeRateService
         $this->baseCurrency = strtoupper(config('services.exchange_rate.base_currency'));
     }
 
+    private function fetchRates(): ?array
+    {
+        $key = 'exchange_rates_'.strtolower($this->baseCurrency);
+
+        if (Cache::has($key)) {
+            return Cache::get($key);
+        }
+
+        try {
+            $response = Http::timeout(5)->get(self::BASE_URL."/{$this->apiKey}/latest/{$this->baseCurrency}");
+
+            if ($response->successful() && $response->json('result') === 'success') {
+                $rates = $response->json('conversion_rates');
+                Cache::put($key, $rates, now()->addHour());
+
+                return $rates;
+            }
+
+            Log::warning('ExchangeRate API returned unsuccessful response', [
+                'status' => $response->status(),
+                'body' => $response->body(),
+            ]);
+
+            return null;
+
+        } catch (Exception $e) {
+            Log::error('ExchangeRate API request failed', ['error' => $e->getMessage()]);
+
+            return null;
+        }
+    }
+
     public function rateFor(string $targetCurrency): ?float
     {
         $currency = strtoupper($targetCurrency);
@@ -37,34 +69,24 @@ class ExchangeRateService
         return $this->fetchRates()[$currency] ?? null;
     }
 
-    public function fetchBaseCurrency(): string
+    // Getters and setters
+    public function getApiKey(): string
+    {
+        return $this->apiKey;
+    }
+
+    public function setApiKey(string $apiKey): void
+    {
+        $this->apiKey = $apiKey;
+    }
+
+    public function getBaseCurrency(): string
     {
         return $this->baseCurrency;
     }
 
-    private function fetchRates(): ?array
+    public function setBaseCurrency(string $baseCurrency): void
     {
-        return Cache::remember('exchange_rates_'.strtolower($this->baseCurrency), now()->addHour(), function () {
-            try {
-                $response = Http::timeout(5)
-                    ->get(self::BASE_URL."/{$this->apiKey}/latest/{$this->baseCurrency}");
-
-                if ($response->successful() && $response->json('result') === 'success') {
-                    return $response->json('conversion_rates');
-                }
-
-                Log::warning('ExchangeRate API returned unsuccessful response', [
-                    'status' => $response->status(),
-                    'body' => $response->body(),
-                ]);
-
-                return null;
-
-            } catch (Exception $e) {
-                Log::error('ExchangeRate API request failed', ['error' => $e->getMessage()]);
-
-                return null;
-            }
-        });
+        $this->baseCurrency = strtoupper($baseCurrency);
     }
 }
