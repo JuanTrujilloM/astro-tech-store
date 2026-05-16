@@ -27,6 +27,7 @@ class SetCurrency
         $selectedCurrency = session('currency', $this->exchangeRateService->getBaseCurrency());
         $rate = $this->exchangeRateService->rateFor($selectedCurrency);
 
+        # Share currency and exchange rate data with all views
         View::share([
             'selectedCurrency' => $selectedCurrency,
             'exchangeRate' => $rate,

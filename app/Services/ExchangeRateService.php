@@ -26,6 +26,7 @@ class ExchangeRateService
         $this->baseCurrency = strtoupper(config('services.exchange_rate.base_currency'));
     }
 
+    # Fetches exchange rates from the API or cache
     private function fetchRates(): ?array
     {
         $key = 'exchange_rates_'.strtolower($this->baseCurrency);
@@ -58,6 +59,7 @@ class ExchangeRateService
         }
     }
 
+    # Get the exchange rate for a specific target currency
     public function rateFor(string $targetCurrency): ?float
     {
         $currency = strtoupper($targetCurrency);
