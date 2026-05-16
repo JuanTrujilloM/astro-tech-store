@@ -7,11 +7,13 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "barryvdh/laravel-dompdf": "^3.1",
         "diglactic/laravel-breadcrumbs": "^10.1",
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.3",
         "laravel/tinker": "^2.10.1",
         "laravel/ui": "^4.6",
+        "league/csv": "^9.28",
         "league/flysystem-google-cloud-storage": "^3.0",
         "spatie/laravel-google-cloud-storage": ">=2.3.4 <2.4"
     },

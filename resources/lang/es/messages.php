@@ -291,6 +291,11 @@ return [
         'confirm_delete_btn' => 'Eliminar',
         'cancel' => 'Cancelar',
         'update_status' => 'Actualizar estado',
+
+        'order_report_title' => 'Reporte de Pedidos - Astro Tech',
+        'order_report_generated' => 'Generado el',
+        'order_export_pdf' => 'Exportar PDF',
+        'order_export_csv' => 'Exportar CSV',
     ],
 
     'allied' => [

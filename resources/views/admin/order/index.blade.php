@@ -19,12 +19,21 @@
     @endif
 
     <div class="card border-0 shadow-sm admin-product-card">
-      <div class="card-header py-3 admin-product-card-header d-flex flex-column flex-sm-row flex-wrap gap-2 justify-content-between align-items-stretch align-items-sm-center">
+      <div
+        class="card-header py-3 admin-product-card-header d-flex flex-column flex-sm-row flex-wrap gap-2 justify-content-between align-items-stretch align-items-sm-center">
         <h5 class="mb-0">
           <i class="bi bi-bag-check me-2"></i>
           {{ __('messages.admin.order_list') }}
         </h5>
-        <span class="admin-product-badge">{{ $viewData['orders']->count() }} {{ __('messages.admin.items') }}</span>
+        <div class="d-flex gap-2 align-items-center">
+          <span class="admin-product-badge">{{ $viewData['orders']->count() }} {{ __('messages.admin.items') }}</span>
+          <a href="{{ route('admin.order.export', ['format' => 'pdf']) }}" class="btn btn-sm btn-danger">
+            <i class="bi bi-file-earmark-pdf me-1"></i>{{ __('messages.admin.order_export_pdf') }}
+          </a>
+          <a href="{{ route('admin.order.export', ['format' => 'csv']) }}" class="btn btn-sm btn-success">
+            <i class="bi bi-file-earmark-spreadsheet me-1"></i>{{ __('messages.admin.order_export_csv') }}
+          </a>
+        </div>
       </div>
 
       <div class="card-body p-0">
@@ -60,26 +69,32 @@
                         @method('PATCH')
                         <div class="row g-2 justify-content-center justify-content-md-center">
                           <div class="col-12 col-md-8 col-lg-6">
-                            <label for="status-{{ $order->getId() }}" class="visually-hidden">{{ __('messages.orders.status') }}</label>
-                            <select name="status" id="status-{{ $order->getId() }}" class="form-select form-select-sm w-100 @error('status') is-invalid @enderror">
-                            <option value="pending" {{ old('status', $order->getStatus()) === 'pending' ? 'selected' : '' }}>
-                              {{ __('messages.admin.status_pending') }}
-                            </option>
-                            <option value="completed" {{ old('status', $order->getStatus()) === 'completed' ? 'selected' : '' }}>
-                              {{ __('messages.admin.status_completed') }}
-                            </option>
-                            <option value="cancelled" {{ old('status', $order->getStatus()) === 'cancelled' ? 'selected' : '' }}>
-                              {{ __('messages.admin.status_cancelled') }}
-                            </option>
-                          </select>
-                          @error('status')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                          @enderror
+                            <label for="status-{{ $order->getId() }}"
+                              class="visually-hidden">{{ __('messages.orders.status') }}</label>
+                            <select name="status" id="status-{{ $order->getId() }}"
+                              class="form-select form-select-sm w-100 @error('status') is-invalid @enderror">
+                              <option value="pending"
+                                {{ old('status', $order->getStatus()) === 'pending' ? 'selected' : '' }}>
+                                {{ __('messages.admin.status_pending') }}
+                              </option>
+                              <option value="completed"
+                                {{ old('status', $order->getStatus()) === 'completed' ? 'selected' : '' }}>
+                                {{ __('messages.admin.status_completed') }}
+                              </option>
+                              <option value="cancelled"
+                                {{ old('status', $order->getStatus()) === 'cancelled' ? 'selected' : '' }}>
+                                {{ __('messages.admin.status_cancelled') }}
+                              </option>
+                            </select>
+                            @error('status')
+                              <div class="invalid-feedback d-block">{{ $message }}</div>
+                            @enderror
                           </div>
                           <div class="col-12 col-md-auto d-grid d-md-inline-block">
-                          <button type="submit" class="btn btn-sm admin-product-btn-primary" title="{{ __('messages.admin.update_status') }}">
-                            <i class="bi bi-check-lg"></i>
-                          </button>
+                            <button type="submit" class="btn btn-sm admin-product-btn-primary"
+                              title="{{ __('messages.admin.update_status') }}">
+                              <i class="bi bi-check-lg"></i>
+                            </button>
                           </div>
                         </div>
                       </form>
