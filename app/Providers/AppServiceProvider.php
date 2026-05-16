@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(ExchangeRateService::class, function () {
-            return new ExchangeRateService();
+            return new ExchangeRateService;
         });
     }
 
@@ -31,8 +31,8 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with([
                 'selectedCurrency' => $selectedCurrency,
-                'exchangeRate'     => $rate,
-                'rateAvailable'    => $rate !== null,
+                'exchangeRate' => $rate,
+                'rateAvailable' => $rate !== null,
             ]);
         });
     }

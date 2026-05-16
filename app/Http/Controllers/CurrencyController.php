@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Author: Andrés Pérez Quinchía
  * Description: Controller responsible for handling currency switching
  */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
