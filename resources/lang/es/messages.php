@@ -19,6 +19,11 @@ return [
             'login' => 'Iniciar sesion',
             'register' => 'Registrarse',
             'logout' => 'Cerrar sesion',
+            'currency' => 'Moneda',
+            'currency_cop' => 'Peso Colombiano',
+            'currency_usd' => 'Dólar Estadounidense',
+            'currency_eur' => 'Euro',
+            'currency_gbp' => 'Libra Esterlina',
         ],
     ],
 
@@ -172,6 +177,7 @@ return [
         'remove_from_favorites' => 'Eliminado de favoritos',
         'most_purchased_title' => 'Top 3 Mas Comprados',
         'total_sold' => 'vendidos',
+        'exchange_rate_source' => 'Tasa vía ExchangeRate API',
     ],
 
     'cart' => [

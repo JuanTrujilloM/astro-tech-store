@@ -10,6 +10,9 @@ Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name('hom
 // Language switcher route
 Route::get('/lang/{locale}', 'App\Http\Controllers\LanguageController@switch')->name('lang.switch');
 
+// Currency switcher route
+Route::get('/currency/{currency}', 'App\Http\Controllers\CurrencyController@switch')->name('currency.switch');
+
 // Allied team routes
 Route::get('/allied-products', 'App\Http\Controllers\AlliedProductController@index')->name('allied.index');
 

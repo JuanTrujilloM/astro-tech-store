@@ -49,7 +49,19 @@
                         <h5 class="card-title fw-semibold mb-1 mt-2 text-break">{{ $product->getName() }}</h5>
                       </a>
                       <div class="card-body px-2 pb-2 d-flex flex-column">
-                        <p class="text-muted fw-bold mb-2">${{ number_format($product->getPrice(), 0, ',', '.') }}</p>
+                        @if ($rateAvailable)
+                          <p class="text-muted fw-bold mb-2">
+                            {{ $selectedCurrency }}
+                            {{ number_format($product->getPrice() * $exchangeRate, 2, '.', ',') }}
+                          </p>
+                          <small class="text-muted d-block mb-2">
+                            {{ __('messages.product.exchange_rate_source') }}
+                          </small>
+                        @else
+                          <p class="text-muted fw-bold mb-2">
+                            COP ${{ number_format($product->getPrice(), 0, ',', '.') }}
+                          </p>
+                        @endif
                         <a href="{{ route('product.show', ['product' => $product->getId()]) }}"
                           class="btn btn-primary btn-sm rounded-pill px-4 mt-auto align-self-center">
                           {{ __('messages.product.view_detail') }}
@@ -107,7 +119,18 @@
                 @endif
                 <h3 class="h5 mb-2">{{ $topProduct->getName() }}</h3>
               </a>
-              <p class="text-muted mb-2">${{ number_format($topProduct->getPrice(), 0, ',', '.') }}</p>
+              @if ($rateAvailable)
+                <p class="text-muted mb-2">
+                  {{ $selectedCurrency }} {{ number_format($topProduct->getPrice() * $exchangeRate, 2, '.', ',') }}
+                </p>
+                <small class="text-muted d-block mb-2">
+                  {{ __('messages.product.exchange_rate_source') }}
+                </small>
+              @else
+                <p class="text-muted mb-2">
+                  COP ${{ number_format($topProduct->getPrice(), 0, ',', '.') }}
+                </p>
+              @endif
               <a href="{{ route('product.show', ['product' => $topProduct->getId()]) }}" class="btn btn-primary btn-sm">
                 {{ __('messages.product.view_detail') }}
               </a>
@@ -218,6 +241,5 @@
       </div>
     </div>
   </section>
-
 
 @endsection
