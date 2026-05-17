@@ -13,6 +13,10 @@ use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
+use App\Interfaces\ReportServiceInterface;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
 class AdminOrderController extends Controller
 {
     public function index(): View
@@ -21,6 +25,14 @@ class AdminOrderController extends Controller
         $viewData['orders'] = Order::with('user')->get();
 
         return view('admin.order.index')->with('viewData', $viewData);
+    }
+
+    public function export(Request $request): Response
+    {
+        $orders = Order::with('user')->get();
+        $format = $request->get('format');
+        $reportService = app(ReportServiceInterface::class, ['format' => $format]);
+        return $reportService->generate($orders);
     }
 
     public function updateStatus(UpdateOrderStatusRequest $request, int $order): RedirectResponse
