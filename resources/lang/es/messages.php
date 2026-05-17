@@ -306,6 +306,25 @@ return [
         'view_detail' => 'Ver detalle',
     ],
 
+    'auth' => [
+        'login' => 'Iniciar sesión',
+        'register' => 'Registrarse',
+        'name' => 'Nombre',
+        'email_address' => 'Correo electrónico',
+        'password' => 'Contraseña',
+        'confirm_password' => 'Confirmar contraseña',
+        'remember_me' => 'Recuérdame',
+        'forgot_password' => '¿Olvidaste tu contraseña?',
+        'reset_password' => 'Restablecer contraseña',
+        'send_reset_link' => 'Enviar enlace de restablecimiento',
+        'verify_email' => 'Verifica tu correo electrónico',
+        'verification_sent' => 'Se ha enviado un nuevo enlace de verificación a tu correo.',
+        'check_email' => 'Antes de continuar, revisa tu correo para encontrar el enlace de verificación.',
+        'did_not_receive' => 'Si no recibiste el correo',
+        'request_another' => 'haz clic aquí para solicitar otro',
+        'confirm_password_hint' => 'Por favor confirma tu contraseña antes de continuar.',
+    ],
+
     'breadcrumbs' => [
         'order_number' => 'Pedido #:id',
         'edit_review' => 'Editar Reseña',

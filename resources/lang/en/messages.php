@@ -307,6 +307,25 @@ return [
         'view_detail' => 'View detail',
     ],
 
+    'auth' => [
+        'login' => 'Login',
+        'register' => 'Register',
+        'name' => 'Name',
+        'email_address' => 'Email Address',
+        'password' => 'Password',
+        'confirm_password' => 'Confirm Password',
+        'remember_me' => 'Remember Me',
+        'forgot_password' => 'Forgot Your Password?',
+        'reset_password' => 'Reset Password',
+        'send_reset_link' => 'Send Password Reset Link',
+        'verify_email' => 'Verify Your Email Address',
+        'verification_sent' => 'A fresh verification link has been sent to your email address.',
+        'check_email' => 'Before proceeding, please check your email for a verification link.',
+        'did_not_receive' => 'If you did not receive the email',
+        'request_another' => 'click here to request another',
+        'confirm_password_hint' => 'Please confirm your password before continuing.',
+    ],
+
     'breadcrumbs' => [
         'order_number' => 'Order #:id',
         'edit_review' => 'Edit Review',

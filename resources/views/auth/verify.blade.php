@@ -7,22 +7,22 @@
   <div class="row justify-content-center">
     <div class="col-12 col-md-10 col-lg-8 col-xl-6">
       <div class="card">
-          <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+          <div class="card-header">{{ __('messages.auth.verify_email') }}</div>
 
           <div class="card-body">
             @if (session('resent'))
               <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ __('A fresh verification link has been sent to your email address.') }}
+                {{ __('messages.auth.verification_sent') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
             @endif
 
-            {{ __('Before proceeding, please check your email for a verification link.') }}
-            {{ __('If you did not receive the email') }},
+            {{ __('messages.auth.check_email') }}
+            {{ __('messages.auth.did_not_receive') }},
             <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
               @csrf
               <button type="submit"
-                class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+                class="btn btn-link p-0 m-0 align-baseline">{{ __('messages.auth.request_another') }}</button>.
             </form>
           </div>
         </div>

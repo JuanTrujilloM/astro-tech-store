@@ -7,7 +7,7 @@
   <div class="row justify-content-center">
     <div class="col-12 col-md-10 col-lg-8 col-xl-6">
       <div class="card">
-        <div class="card-header">{{ __('Reset Password') }}</div>
+        <div class="card-header">{{ __('messages.auth.reset_password') }}</div>
 
         <div class="card-body">
             @if (session('status'))
@@ -21,7 +21,7 @@
               @csrf
 
               <div class="row mb-3">
-                <label for="email" class="col-12 col-md-4 col-form-label text-md-end">{{ __('Email Address') }} <span class="text-danger">*</span></label>
+                <label for="email" class="col-12 col-md-4 col-form-label text-md-end">{{ __('messages.auth.email_address') }} <span class="text-danger">*</span></label>
 
                 <div class="col-12 col-md-6">
                   <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -38,7 +38,7 @@
               <div class="row mb-0">
                 <div class="col-12 col-md-6 offset-md-4">
                   <button type="submit" class="btn btn-primary">
-                    {{ __('Send Password Reset Link') }}
+                    {{ __('messages.auth.send_reset_link') }}
                   </button>
                 </div>
               </div>
