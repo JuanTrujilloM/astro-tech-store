@@ -1,4 +1,4 @@
-name: Deploy to GCP
+name: CI/CD Pipeline
 
 on:
   push:
@@ -6,9 +6,38 @@ on:
       - main
 
 jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: pdo, pdo_sqlite, sqlite3, mbstring, xml, ctype, fileinfo
+          coverage: none
+
+      - name: Copy .env
+        run: cp .env.example .env
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Generate app key
+        run: php artisan key:generate
+
+      - name: Run tests
+        run: php artisan test --testsuite=Unit,Feature
+
   build-and-push:
     name: Build and push image to Docker Hub
     runs-on: ubuntu-latest
+    needs: test
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -37,6 +66,7 @@ jobs:
     name: Deploy to GCP VM
     runs-on: ubuntu-latest
     needs: build-and-push
+
     steps:
       - name: Authenticate with GCP
         uses: google-github-actions/auth@v2
