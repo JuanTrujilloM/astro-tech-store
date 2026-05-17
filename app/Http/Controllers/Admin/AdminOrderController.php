@@ -9,13 +9,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateOrderStatusRequest;
+use App\Interfaces\ReportServiceInterface;
 use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
-
-use App\Interfaces\ReportServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class AdminOrderController extends Controller
 {
@@ -32,6 +31,7 @@ class AdminOrderController extends Controller
         $orders = Order::with('user')->get();
         $format = $request->get('format');
         $reportService = app(ReportServiceInterface::class, ['format' => $format]);
+
         return $reportService->generate($orders);
     }
 

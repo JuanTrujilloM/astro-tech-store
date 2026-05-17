@@ -1,12 +1,13 @@
 <?php
+
 /**
  * Author: Andrés Pérez Quinchía
  * Description: Implementation that generates a CSV report of all orders.
  */
+
 namespace App\Services;
 
 use App\Interfaces\ReportServiceInterface;
-
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Response;
 use League\Csv\Writer;

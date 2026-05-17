@@ -67,7 +67,7 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/orders', 'App\Http\Controllers\Admin\AdminOrderController@index')->name('admin.order.index');
     Route::patch('/admin/orders/{order}/update-status', 'App\Http\Controllers\Admin\AdminOrderController@updateStatus')->name('admin.order.updateStatus');
     Route::get('/admin/orders/export', 'App\Http\Controllers\Admin\AdminOrderController@export')->name('admin.order.export');
-    
+
     // Admin review management routes
     Route::get('/admin/reviews', 'App\Http\Controllers\Admin\AdminReviewController@index')->name('admin.review.index');
     Route::delete('/admin/reviews/{review}', 'App\Http\Controllers\Admin\AdminReviewController@destroy')->name('admin.review.destroy');
