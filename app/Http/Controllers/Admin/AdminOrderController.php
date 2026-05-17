@@ -9,8 +9,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateOrderStatusRequest;
+use App\Interfaces\ReportServiceInterface;
 use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class AdminOrderController extends Controller
@@ -21,6 +24,15 @@ class AdminOrderController extends Controller
         $viewData['orders'] = Order::with('user')->get();
 
         return view('admin.order.index')->with('viewData', $viewData);
+    }
+
+    public function export(Request $request): Response
+    {
+        $orders = Order::with('user')->get();
+        $format = $request->get('format');
+        $reportService = app(ReportServiceInterface::class, ['format' => $format]);
+
+        return $reportService->generate($orders);
     }
 
     public function updateStatus(UpdateOrderStatusRequest $request, int $order): RedirectResponse

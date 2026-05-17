@@ -11,7 +11,8 @@
 @section('content')
 
   <div class="row mb-3">
-    <div class="col-12 d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
+    <div
+      class="col-12 d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
       <h4 class="fw-bold mb-0 text-break">{{ __('messages.product.details_title') }}</h4>
       <a href="{{ route('product.index') }}" class="btn btn-secondary btn-sm flex-shrink-0">
         <i class="bi bi-arrow-left me-1"></i>{{ __('messages.product.back_to_products') }}
@@ -23,8 +24,8 @@
     <div class="row g-0">
       <div class="col-12 col-md-5">
         @if ($viewData['product']->getImage())
-          <img src="{{ $viewData['product']->getImage() }}"
-            class="img-fluid w-100 product-detail-img" alt="{{ $viewData['product']->getName() }}">
+          <img src="{{ $viewData['product']->getImage() }}" class="img-fluid w-100 product-detail-img"
+            alt="{{ $viewData['product']->getName() }}">
         @else
           <div class="h-100 bg-light product-detail-no-img">
             <div class="product-detail-no-img-inner text-muted">
@@ -47,8 +48,19 @@
             <div class="row g-3 align-items-end">
               <div class="col-12 col-sm-auto">
                 <small class="text-muted d-block">{{ __('messages.admin.price') }}</small>
-                <span
-                  class="product-detail-price d-block">${{ number_format($viewData['product']->getPrice(), 0, ',', '.') }}</span>
+                @if ($rateAvailable)
+                  <span class="product-detail-price d-block">
+                    {{ $selectedCurrency }}
+                    {{ number_format($viewData['product']->getPrice() * $exchangeRate, 2, '.', ',') }}
+                  </span>
+                  <small class="text-muted">
+                    {{ __('messages.product.exchange_rate_source') }}
+                  </small>
+                @else
+                  <span class="product-detail-price d-block">
+                    COP ${{ number_format($viewData['product']->getPrice(), 0, ',', '.') }}
+                  </span>
+                @endif
               </div>
 
               <div class="col-12 col-sm">
@@ -93,8 +105,9 @@
                   <div class="col-12 col-sm-5 col-md-4 col-lg-3">
                     <div class="input-group">
                       <span class="input-group-text">{{ __('messages.product.quantity') }}</span>
-                      <input type="number" min="1" max="{{ $viewData['product']->getStock() }}" class="form-control" name="quantity"
-                        value="1" aria-label="{{ __('messages.product.quantity') }}">
+                      <input type="number" min="1" max="{{ $viewData['product']->getStock() }}"
+                        class="form-control" name="quantity" value="1"
+                        aria-label="{{ __('messages.product.quantity') }}">
                     </div>
                   </div>
                   <div class="col-12 col-sm-auto">
@@ -127,7 +140,8 @@
             <form action="{{ route('review.store', ['product' => $viewData['product']->getId()]) }}" method="POST">
               @csrf
               <div class="mb-3">
-                <label class="form-label d-block">{{ __('messages.product.review_rating') }} <span class="text-danger">*</span></label>
+                <label class="form-label d-block">{{ __('messages.product.review_rating') }} <span
+                    class="text-danger">*</span></label>
                 <div class="star-rating-input @error('rating') is-invalid @enderror">
                   @for ($i = 5; $i >= 1; $i--)
                     <input type="radio" name="rating" id="star{{ $i }}" value="{{ $i }}"
@@ -142,7 +156,8 @@
                 @enderror
               </div>
               <div class="form-group">
-                <label for="description" class="form-label">{{ __('messages.product.review_description') }} <span class="text-danger">*</span></label>
+                <label for="description" class="form-label">{{ __('messages.product.review_description') }} <span
+                    class="text-danger">*</span></label>
                 <textarea name="description" id="description" rows="3"
                   class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
                 @error('description')

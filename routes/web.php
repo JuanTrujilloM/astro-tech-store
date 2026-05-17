@@ -10,6 +10,9 @@ Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name('hom
 // Language switcher route
 Route::get('/lang/{locale}', 'App\Http\Controllers\LanguageController@switch')->name('lang.switch');
 
+// Currency switcher route
+Route::get('/currency/{currency}', 'App\Http\Controllers\CurrencyController@switch')->name('currency.switch');
+
 // Allied team routes
 Route::get('/allied-products', 'App\Http\Controllers\AlliedProductController@index')->name('allied.index');
 
@@ -63,6 +66,7 @@ Route::middleware('admin')->group(function () {
     // Admin order management routes
     Route::get('/admin/orders', 'App\Http\Controllers\Admin\AdminOrderController@index')->name('admin.order.index');
     Route::patch('/admin/orders/{order}/update-status', 'App\Http\Controllers\Admin\AdminOrderController@updateStatus')->name('admin.order.updateStatus');
+    Route::get('/admin/orders/export', 'App\Http\Controllers\Admin\AdminOrderController@export')->name('admin.order.export');
 
     // Admin review management routes
     Route::get('/admin/reviews', 'App\Http\Controllers\Admin\AdminReviewController@index')->name('admin.review.index');

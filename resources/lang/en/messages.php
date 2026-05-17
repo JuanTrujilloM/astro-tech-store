@@ -19,6 +19,11 @@ return [
             'login' => 'Login',
             'register' => 'Register',
             'logout' => 'Logout',
+            'currency' => 'Currency',
+            'currency_cop' => 'Colombian Peso',
+            'currency_usd' => 'US Dollar',
+            'currency_eur' => 'Euro',
+            'currency_gbp' => 'British Pound',
         ],
     ],
 
@@ -173,6 +178,7 @@ return [
         'remove_from_favorites' => 'Removed from favorites',
         'most_purchased_title' => 'Top 3 Most Purchased',
         'total_sold' => 'sold',
+        'exchange_rate_source' => 'Rate via ExchangeRate API',
     ],
 
     'cart' => [
@@ -286,6 +292,11 @@ return [
         'confirm_delete_btn' => 'Delete',
         'cancel' => 'Cancel',
         'update_status' => 'Update status',
+
+        'order_report_title' => 'Orders Report - Astro Tech',
+        'order_report_generated' => 'Generated at',
+        'order_export_pdf' => 'Export PDF',
+        'order_export_csv' => 'Export CSV',
     ],
 
     'allied' => [
@@ -294,6 +305,25 @@ return [
         'error' => 'The allied team service is currently unavailable. Please try again later.',
         'no_products' => 'No products available at this time.',
         'view_detail' => 'View detail',
+    ],
+
+    'auth' => [
+        'login' => 'Login',
+        'register' => 'Register',
+        'name' => 'Name',
+        'email_address' => 'Email Address',
+        'password' => 'Password',
+        'confirm_password' => 'Confirm Password',
+        'remember_me' => 'Remember Me',
+        'forgot_password' => 'Forgot Your Password?',
+        'reset_password' => 'Reset Password',
+        'send_reset_link' => 'Send Password Reset Link',
+        'verify_email' => 'Verify Your Email Address',
+        'verification_sent' => 'A fresh verification link has been sent to your email address.',
+        'check_email' => 'Before proceeding, please check your email for a verification link.',
+        'did_not_receive' => 'If you did not receive the email',
+        'request_another' => 'click here to request another',
+        'confirm_password_hint' => 'Please confirm your password before continuing.',
     ],
 
     'breadcrumbs' => [
