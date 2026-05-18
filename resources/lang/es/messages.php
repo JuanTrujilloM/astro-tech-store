@@ -13,6 +13,7 @@ return [
             'products' => 'Productos',
             'cart' => 'Carrito',
             'orders' => 'Pedidos',
+            'allied' => 'Aliados',
             'language' => 'Idioma',
             'english' => 'Ingles',
             'spanish' => 'Espanol',
@@ -304,6 +305,9 @@ return [
         'error' => 'El servicio del equipo aliado no está disponible. Intenta de nuevo más tarde.',
         'no_products' => 'No hay productos disponibles en este momento.',
         'view_detail' => 'Ver detalle',
+        'currency_notice' => 'Todos los precios están en Pesos Colombianos (COP).',
+        'intro' => 'Estos productos son ofrecidos por nuestro equipo aliado. Visita su tienda para ver el catálogo completo.',
+        'visit_store' => 'Visitar su tienda',
     ],
 
     'auth' => [

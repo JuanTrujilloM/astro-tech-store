@@ -13,6 +13,7 @@ return [
             'products' => 'Products',
             'cart' => 'Cart',
             'orders' => 'Orders',
+            'allied' => 'Allied',
             'language' => 'Language',
             'english' => 'English',
             'spanish' => 'Spanish',
@@ -305,6 +306,9 @@ return [
         'error' => 'The allied team service is currently unavailable. Please try again later.',
         'no_products' => 'No products available at this time.',
         'view_detail' => 'View detail',
+        'currency_notice' => 'All prices are in Colombian Pesos (COP).',
+        'intro' => 'These products are offered by our allied team. Visit their store to see the full catalog.',
+        'visit_store' => 'Visit their store',
     ],
 
     'auth' => [

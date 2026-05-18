@@ -17,6 +17,13 @@
   <div class="row mb-3">
     <div class="col-12 text-center">
       <h4 class="fw-bold mb-3">{{ __('messages.allied.heading') }}</h4>
+      <p class="text-muted small">
+        <i class="bi bi-info-circle me-1"></i>{{ __('messages.allied.currency_notice') }}
+      </p>
+      <p class="text-muted">{{ __('messages.allied.intro') }}</p>
+      <a href="http://34.123.128.203/products" target="_blank" class="btn btn-outline-primary btn-sm">
+        {{ __('messages.allied.visit_store') }} <i class="bi bi-arrow-right"></i>
+      </a>
     </div>
   </div>
 
@@ -33,6 +40,9 @@
               </div>
             @endif
             <div class="card-body d-flex flex-column">
+              @if (!empty($product['specie']))
+                <span class="badge badge-specie mb-2 align-self-start">{{ ucfirst($product['specie']) }}</span>
+              @endif
               <h5 class="card-title">{{ $product['name'] }}</h5>
               <p class="card-text text-muted small flex-grow-1">{{ $product['description'] }}</p>
               <p class="card-text fw-bold">${{ number_format($product['price'], 2) }}</p>

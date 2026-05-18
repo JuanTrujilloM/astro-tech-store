@@ -535,3 +535,14 @@ img {
         height: 44px;
     }
 }
+
+.nav-divider {
+    width: 1px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.25);
+    display: inline-block;
+}
+
+.badge-specie {
+    background-color: #6c63ff;
+}

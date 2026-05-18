@@ -28,7 +28,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center text-center text-lg-start">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center text-center text-lg-start gap-1">
           <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('home.index') ? 'active' : '' }}"
               href="{{ route('home.index') }}">{{ __('messages.layout.nav.home') }}</a>
@@ -41,9 +41,14 @@
             <a class="nav-link {{ request()->routeIs('home.contact') ? 'active' : '' }}"
               href="{{ route('home.contact') }}">{{ __('messages.layout.nav.contact') }}</a>
           </li>
+          <li class="nav-item d-none d-lg-flex align-items-center px-0"><span class="nav-divider"></span></li>
           <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('product.*') ? 'active' : '' }}"
               href="{{ route('product.index') }}">{{ __('messages.layout.nav.products') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('allied.*') ? 'active' : '' }}"
+              href="{{ route('allied.index') }}">{{ __('messages.layout.nav.allied') }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('cart.*') ? 'active' : '' }}"
@@ -53,6 +58,7 @@
             <a class="nav-link {{ request()->routeIs('order.*') ? 'active' : '' }}"
               href="{{ route('order.index') }}">{{ __('messages.layout.nav.orders') }}</a>
           </li>
+          <li class="nav-item d-none d-lg-flex align-items-center px-0"><span class="nav-divider"></span></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
               data-bs-display="static" aria-expanded="false">
@@ -72,6 +78,8 @@
 
           @include('partials.currency-selector')
 
+          <li class="nav-item d-none d-lg-flex align-items-center px-0"><span class="nav-divider"></span></li>
+          
           @guest
             <li class="nav-item">
               <a class="nav-link" href="{{ route('login') }}">{{ __('messages.layout.nav.login') }}</a>
