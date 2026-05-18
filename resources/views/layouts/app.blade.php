@@ -41,7 +41,7 @@
             <a class="nav-link {{ request()->routeIs('home.contact') ? 'active' : '' }}"
               href="{{ route('home.contact') }}">{{ __('messages.layout.nav.contact') }}</a>
           </li>
-          <li class="nav-item d-none d-lg-flex align-items-center px-0"><span class="nav-divider"></span></li>
+          <li class="nav-item d-none d-lg-flex align-items-center px-1"><span class="vr opacity-25 text-white"></span></li>
           <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('product.*') ? 'active' : '' }}"
               href="{{ route('product.index') }}">{{ __('messages.layout.nav.products') }}</a>
@@ -58,7 +58,7 @@
             <a class="nav-link {{ request()->routeIs('order.*') ? 'active' : '' }}"
               href="{{ route('order.index') }}">{{ __('messages.layout.nav.orders') }}</a>
           </li>
-          <li class="nav-item d-none d-lg-flex align-items-center px-0"><span class="nav-divider"></span></li>
+          <li class="nav-item d-none d-lg-flex align-items-center px-1"><span class="vr opacity-25 text-white"></span></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
               data-bs-display="static" aria-expanded="false">
@@ -78,7 +78,7 @@
 
           @include('partials.currency-selector')
 
-          <li class="nav-item d-none d-lg-flex align-items-center px-0"><span class="nav-divider"></span></li>
+          <li class="nav-item d-none d-lg-flex align-items-center px-1"><span class="vr opacity-25 text-white"></span></li>
           
           @guest
             <li class="nav-item">
