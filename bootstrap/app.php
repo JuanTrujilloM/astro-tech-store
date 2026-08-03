@@ -15,6 +15,14 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // Hosts that terminate TLS on a reverse proxy (Render) must set
+        // TRUSTED_PROXIES=* so Laravel builds https:// URLs. Left unset, no
+        // proxy is trusted, which is the correct behaviour when Apache is
+        // exposed directly, as it is on the GCP VM.
+        if ($proxies = env('TRUSTED_PROXIES')) {
+            $middleware->trustProxies(at: $proxies);
+        }
+
         $middleware->web(append: [
             SetLocale::class,
             SetCurrency::class,

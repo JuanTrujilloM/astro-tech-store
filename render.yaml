@@ -1,0 +1,37 @@
+# Render Blueprint - free demo deployment.
+# The GCP VM deployment (.github/workflows/deploy.yml) is unaffected by this file.
+services:
+  - type: web
+    name: astro-tech-store
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /up
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_LOCALE
+        value: en
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: SESSION_DRIVER
+        value: database
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: database
+      - key: MAIL_MAILER
+        value: log
+      # Render terminates TLS on its proxy; see bootstrap/app.php
+      - key: TRUSTED_PROXIES
+        value: "*"
+      # Set these two in the Render dashboard (they are not committed).
+      - key: APP_KEY
+        sync: false
+      - key: APP_URL
+        sync: false

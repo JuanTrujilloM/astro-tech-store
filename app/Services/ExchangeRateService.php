@@ -22,8 +22,9 @@ class ExchangeRateService
 
     public function __construct()
     {
-        $this->apiKey = config('services.exchange_rate.key');
-        $this->baseCurrency = strtoupper(config('services.exchange_rate.base_currency'));
+        // SetCurrency middleware.
+        $this->apiKey = config('services.exchange_rate.key') ?? '';
+        $this->baseCurrency = strtoupper(config('services.exchange_rate.base_currency') ?? 'USD');
     }
 
     // Fetches exchange rates from the API or cache
