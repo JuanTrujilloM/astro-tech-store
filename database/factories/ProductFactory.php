@@ -21,7 +21,9 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
-        $base = 'https://storage.googleapis.com/astro-tech-images/products/';
+        // Root-relative so the seeded catalogue renders on any host without a
+        // bucket or credentials; the browser resolves it against the origin.
+        $base = '/images/products/';
 
         $products = [
             // Keyboards
